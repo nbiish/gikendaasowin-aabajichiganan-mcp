@@ -1,0 +1,25 @@
+{
+  "name": "cognitive-tools-server",
+  "version": "0.1.0",
+  "description": "A Model Context Protocol server",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "cognitive-tools-server": "./build/index.js"
+  },
+  "files": [
+    "build"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
+    "prepare": "npm run build",
+    "watch": "tsc --watch",
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+  },
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "^1.8.0",
+    "@types/node": "^20.17.28",
+    "ajv": "^8.17.1",
+    "typescript": "^5.3.3"
+  }
+}
