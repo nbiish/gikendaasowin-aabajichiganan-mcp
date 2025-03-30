@@ -185,6 +185,7 @@ Example Response:
 
 ## Version History
 
+- **0.3.9**: Updated tool descriptions and fixed error handling to improve reliability
 - **0.3.6**: Updated repository URLs to point to gikendaasowin-aabajichiganan-mcp
 - **0.3.5**: Updated license link and repository URLs
 - **0.3.4**: Dual package publishing (Anishinaabemowin and English names)
