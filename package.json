@@ -1,6 +1,6 @@
 {
   "name": "@nbiish/gikendaasowin-aabajichiganan-mcp",
-  "version": "0.3.10",
+  "version": "0.3.11",
   "description": "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.3.9): Provides a suite of advanced internal reasoning tools to guide an LLM agent in sophisticated problem-solving, emphasizing structured thought, planning, and self-correction.",
   "private": false,
   "type": "module",
