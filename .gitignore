@@ -1,53 +1,49 @@
 # Dependencies
 node_modules/
-package-lock.json
+.npm/
+.yarn/
 
-# Build outputs
+# Build output
 build/
 dist/
+lib/
+
+# TypeScript
 *.tsbuildinfo
 
-# IDE and editor files
-.vscode/
-.idea/
-.cursor/
-*.swp
-*.swo
-.DS_Store
-Thumbs.db
-
-# Environment variables
-.env
-.env.local
-.env.*
-!.env.example
-
-# Logs and debugging
+# Logs
 logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+.pnpm-debug.log*
 
-# Test coverage
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.template.json
+!.vscode/tasks.json
+!.vscode/launch.template.json
+.idea/
+*.swp
+*.swo
+.cursor/
+
+# Testing
 coverage/
 .nyc_output/
 
-# TypeScript cache
-*.tsbuildinfo
-
-# Optional npm cache directory
-.npm
-
-# Optional eslint cache
-.eslintcache
-
 # Misc
-.DS_Store
-*.pem
-.vercel
-.next
-*.bak
-*.tmp
-*~
+.cache/
+.temp/ 
