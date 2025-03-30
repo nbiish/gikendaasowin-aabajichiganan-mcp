@@ -1,6 +1,6 @@
 # @nbiish/gikendaasowin-aabajichiganan-mcp
 
-ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools): A Model Context Protocol server providing advanced cognitive reasoning tools for AI agents.
+ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.3.9): Provides a suite of advanced internal reasoning tools to guide an LLM agent in sophisticated problem-solving, emphasizing structured thought, planning, and self-correction.
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
@@ -60,15 +60,14 @@ Or:
 ## Tool Descriptions
 
 ### Think Tool
-- **Purpose**: Internal workspace for structured analysis, planning, and verification
-- **Input**: `thought` (string) - Your comprehensive analysis, reasoning, and planning
+- **Purpose**: MANDATORY core cognitive step for structured deliberation. Use this internal workspace for analysis, planning, verification, risk assessment, and self-correction before ANY action and after using other cognitive tools.
+- **Input**: `thought` (string) - Your detailed internal monologue and reasoning. Structure clearly with sections like Analysis, Plan, Verification, Risk Assessment, and Self-Correction.
 - **Response Format**:
 ```json
 {
   "content": [{
     "type": "text",
-    "text": "Your thought content",
-    "mimeType": "text/plain"
+    "text": "Your thought content"
   }]
 }
 ```
@@ -107,6 +106,12 @@ npm run inspector
 
 # Start the server
 npm start
+
+# Publishing both packages
+npm publish              # Publishes @nbiish/gikendaasowin-aabajichiganan-mcp
+# Update package.json name to @nbiish/cognitive-tools-mcp
+npm publish              # Publishes English version
+# Restore package.json name to @nbiish/gikendaasowin-aabajichiganan-mcp
 ```
 
 ## Test Examples
@@ -137,8 +142,7 @@ Example Response:
 {
   "content": [{
     "type": "text",
-    "text": "Analyzing the Seven Grandfather Teachings...",
-    "mimeType": "text/plain"
+    "text": "Analyzing the Seven Grandfather Teachings..."
   }]
 }
 ```
