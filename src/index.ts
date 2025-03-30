@@ -6,116 +6,137 @@ import { z } from "zod";
 // Create the MCP server
 const server = new McpServer({
 	name: "gikendaasowin-aabajichiganan-mcp",
-	version: "0.3.8",
-	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools): Provides a suite of advanced cognitive reasoning tools for sophisticated problem-solving"
+	version: "0.3.9", // Updated version
+	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.3.9): Provides a suite of advanced internal reasoning tools to guide an LLM agent in sophisticated problem-solving, emphasizing structured thought, planning, and self-correction."
 });
 
-// Define the think tool
+// --- Core Cognitive Tool ---
+
 server.tool(
 	"think",
-	"Your primary cognitive workspace for structured analysis and planning. This tool provides a deliberate pause for thorough consideration before taking action. Use it to deconstruct problems, evaluate options, verify compliance, and refine understanding. MANDATORY before finalizing responses or after using other cognitive tools.",
+	// Enhanced Main Description: Emphasizes mandatory nature, purpose, and expected outcome (logged thought).
+	"MANDATORY core cognitive step. Use this internal workspace for structured deliberation before ANY action or final response, AND after using ANY other cognitive tool. Logs your detailed thought process for analysis, planning, verification, risk assessment, and self-correction, ensuring traceable, robust, and compliant reasoning.",
 	{
-		thought: z.string().describe("Your primary cognitive workspace, acting like the 'Navigator' in pair programming. MANDATORY before final responses/actions and after using other cognitive tools. Use to: 1) Analyze tool outputs & user requests, 2) Verify plans against constraints/policies, 3) Plan next steps, 4) Resolve ambiguities, 5) Self-correct reasoning. Ensures structured, compliant, and well-reasoned actions. Quality of reasoning is key; structure helps clarity.")
+		// Enhanced Parameter Description: More explicit guidance on content and structure.
+		thought: z.string().describe("Your detailed internal monologue and reasoning. Structure clearly (e.g., using headings like 'Analysis', 'Plan', 'Verification', 'Risk Assessment', 'Self-Correction'). Content MUST cover: 1) Deconstruction of request/situation, 2) Analysis of previous steps/tool outputs, 3) Formulation of next steps/plan, 4) Verification against constraints/policies, 5) Assessment of potential risks/edge cases, 6) Explicit self-correction if needed. Adapt structure logically but ensure comprehensive reasoning. This logs your thinking process.")
 	},
+	// Implementation: Correctly echoes the thought, as the tool's job is to log it.
 	async ({ thought }) => {
-		if (!thought || typeof thought !== 'string') {
-			throw new Error('Invalid thought: Must be a non-empty string');
+		if (!thought || typeof thought !== 'string' || thought.trim().length === 0) { // Added trim check
+			throw new Error('Invalid thought: Must be a non-empty string containing substantive reasoning.');
 		}
-
+		// You could potentially add structured logging here if needed later
+		console.error(`[CognitiveToolsServer] Think Tool Logged: ${thought.substring(0, 100)}...`); // Log confirmation
 		return {
 			content: [{
 				type: "text" as const,
-				text: thought
+				text: thought // Return the logged thought
 			}]
 		};
 	}
 );
 
-// Define the chain_of_thought tool
+// --- Supporting Cognitive Strategy Tools ---
+// Note: These tools primarily guide the LLM to generate specific reasoning patterns,
+// which are then analyzed using the mandatory 'think' tool.
+
 server.tool(
 	"chain_of_thought",
-	"Generates explicit, sequential reasoning steps for complex problem-solving. This tool breaks down a problem into a detailed, linear sequence of logical deductions. Ideal for tasks requiring high explainability. Output MUST be analyzed using the 'think' tool.",
+	// Enhanced Main Description: Clarifies it guides LLM generation.
+	"Guides the LLM to generate explicit, sequential reasoning steps for a specific problem. Breaks down complexity into a detailed, linear, logical path. Primarily used for tasks needing high explainability. The generated reasoning MUST be subsequently analyzed using the 'think' tool.",
 	{
-		problem_statement: z.string().describe("Generates a detailed, step-by-step logical deduction path for a specific problem. Emulates a thorough 'walkthrough'. Output MUST be analyzed and integrated using the 'think' tool before taking further action.")
+		// Enhanced Parameter Description: Instructs the LLM on what *it* needs to generate for this field.
+		problem_statement: z.string().describe("Provide the specific problem statement for which *you* (the LLM) must now generate and articulate a detailed, step-by-step logical deduction path (Chain of Thought). This output represents your reasoning process.")
 	},
+	// Implementation: Echoes the input, signaling the LLM performed the CoT generation *before* calling.
 	async ({ problem_statement }) => {
-		if (!problem_statement || typeof problem_statement !== 'string') {
-			throw new Error('Invalid problem statement: Must be a non-empty string');
+		if (!problem_statement || typeof problem_statement !== 'string' || problem_statement.trim().length === 0) {
+			throw new Error('Invalid problem statement: Must be a non-empty string.');
 		}
-
+		console.error(`[CognitiveToolsServer] ChainOfThought Tool Triggered for: ${problem_statement.substring(0, 100)}...`);
 		return {
 			content: [{
 				type: "text" as const,
-				text: problem_statement
+				// Return the problem statement to confirm the context for the CoT the LLM *should have generated*.
+				// The actual CoT exists in the LLM's preceding generation turn.
+				text: `Chain of Thought generation requested for: ${problem_statement}`
 			}]
 		};
 	}
 );
 
-// Define the reflection tool
 server.tool(
 	"reflection",
-	"Facilitates self-critique and iterative improvement of reasoning or plans. This tool evaluates logical consistency, completeness, and potential biases, then suggests specific refinements. Use its output within a subsequent 'think' step.",
+	// Enhanced Main Description: Clarifies it guides LLM self-critique.
+	"Guides the LLM to perform self-critique on previously generated reasoning or plans. Evaluates logical consistency, completeness, efficiency, and potential biases, suggesting specific refinements. The critique and refined output MUST be analyzed in a subsequent 'think' step.",
 	{
-		input_reasoning_or_plan: z.string().describe("Performs self-critique on reasoning or plans generated by 'think' or other tools. Identifies flaws, biases, or inconsistencies. Use its output within a subsequent 'think' step to refine your approach.")
+		// Enhanced Parameter Description: Instructs the LLM on what *it* needs to generate.
+		input_reasoning_or_plan: z.string().describe("Provide the specific reasoning segment or plan (e.g., from a 'think' step) that *you* (the LLM) must now critically evaluate. Your evaluation should identify flaws, biases, or inconsistencies and propose concrete improvements.")
 	},
+	// Implementation: Echoes the input, signaling the LLM performed the reflection *before* calling.
 	async ({ input_reasoning_or_plan }) => {
-		if (!input_reasoning_or_plan || typeof input_reasoning_or_plan !== 'string') {
-			throw new Error('Invalid input: Must be a non-empty string');
+		if (!input_reasoning_or_plan || typeof input_reasoning_or_plan !== 'string' || input_reasoning_or_plan.trim().length === 0) {
+			throw new Error('Invalid input reasoning/plan: Must be a non-empty string.');
 		}
-
+		console.error(`[CognitiveToolsServer] Reflection Tool Triggered for analysis.`);
 		return {
 			content: [{
 				type: "text" as const,
-				text: input_reasoning_or_plan
+				text: `Reflection requested on: ${input_reasoning_or_plan.substring(0, 150)}...` // Confirm context
 			}]
 		};
 	}
 );
 
-// Define the plan_and_solve tool
 server.tool(
 	"plan_and_solve",
-	"Develops a high-level, structured strategy for complex, multi-stage objectives. This tool outlines major phases required to achieve a goal, identifying which approaches might be needed at each stage. The generated plan MUST be reviewed within the 'think' tool.",
+	// Enhanced Main Description: Clarifies it guides LLM plan generation.
+	"Guides the LLM to develop a high-level, structured strategy (plan) for complex, multi-stage objectives. Outlines major phases and potential tool usage. The generated plan MUST be reviewed, validated, and potentially refined using the 'think' tool.",
 	{
-		task_objective: z.string().describe("Develops a high-level, multi-step strategy for complex objectives. Outlines major phases and potential tool usage per phase. The generated plan MUST be reviewed, validated, and managed via the 'think' tool.")
+		// Enhanced Parameter Description: Instructs the LLM on what *it* needs to generate.
+		task_objective: z.string().describe("Provide the high-level task objective for which *you* (the LLM) must now create a structured, multi-step strategic plan. Outline the main phases and anticipated steps or tool usage.")
 	},
+	// Implementation: Echoes the input, signaling the LLM performed the planning *before* calling.
 	async ({ task_objective }) => {
-		if (!task_objective || typeof task_objective !== 'string') {
-			throw new Error('Invalid task objective: Must be a non-empty string');
+		if (!task_objective || typeof task_objective !== 'string' || task_objective.trim().length === 0) {
+			throw new Error('Invalid task objective: Must be a non-empty string.');
 		}
-
+		console.error(`[CognitiveToolsServer] PlanAndSolve Tool Triggered for: ${task_objective.substring(0, 100)}...`);
 		return {
 			content: [{
 				type: "text" as const,
-				text: task_objective
+				text: `Planning requested for objective: ${task_objective}` // Confirm context
 			}]
 		};
 	}
 );
 
-// Define the chain_of_draft tool
 server.tool(
 	"chain_of_draft",
-	"Generates concise, iterative drafts of reasoning steps, prioritizing efficiency over exhaustive detail. This tool produces brief, essential intermediate thoughts, allowing for rapid exploration without the verbosity of full chain-of-thought. Output MUST be analyzed via the 'think' tool.",
+	// Enhanced Main Description: Clarifies it guides LLM draft generation.
+	"Guides the LLM to generate concise, iterative drafts of reasoning steps, prioritizing efficiency. Useful for rapid exploration or brainstorming when full CoT verbosity isn't needed. The generated drafts MUST be subsequently analyzed via the 'think' tool.",
 	{
-		problem_statement: z.string().describe("Generates concise, iterative reasoning drafts for rapid exploration when full CoT verbosity isn't needed. Ideal for quick brainstorming or outlining. Output drafts MUST be analyzed via the 'think' tool.")
+		// Enhanced Parameter Description: Instructs the LLM on what *it* needs to generate.
+		problem_statement: z.string().describe("Provide the problem statement for which *you* (the LLM) will now generate brief, iterative reasoning drafts (Chain of Draft). Focus on key steps/insights concisely.")
 	},
+	// Implementation: Echoes the input, signaling the LLM performed the drafting *before* calling.
 	async ({ problem_statement }) => {
-		if (!problem_statement || typeof problem_statement !== 'string') {
-			throw new Error('Invalid problem statement: Must be a non-empty string');
+		if (!problem_statement || typeof problem_statement !== 'string' || problem_statement.trim().length === 0) {
+			throw new Error('Invalid problem statement: Must be a non-empty string.');
 		}
-
+		console.error(`[CognitiveToolsServer] ChainOfDraft Tool Triggered for: ${problem_statement.substring(0, 100)}...`);
 		return {
 			content: [{
 				type: "text" as const,
-				text: problem_statement
+				text: `Chain of Draft generation requested for: ${problem_statement}` // Confirm context
 			}]
 		};
 	}
 );
 
-// Setup error handling
+
+// --- Server Lifecycle and Error Handling ---
+
 process.on('SIGINT', async () => {
 	console.error('[CognitiveToolsServer] Received SIGINT, shutting down.');
 	await server.close();
@@ -142,7 +163,8 @@ async function main() {
 		const transport = new StdioServerTransport();
 		await server.connect(transport);
 		console.error('ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools) MCP Server running on stdio');
-	} catch (error) {
+	}
+	catch (error) {
 		console.error('Fatal error in main():', error);
 		process.exit(1);
 	}
