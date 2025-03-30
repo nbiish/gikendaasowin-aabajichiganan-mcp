@@ -1,7 +1,7 @@
 {
   "name": "@nbiish/gikendaasowin-aabajichiganan-mcp",
   "version": "0.3.11",
-  "description": "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.3.11): Provides a suite of advanced internal reasoning tools to guide an LLM agent in sophisticated problem-solving, emphasizing structured thought, planning, and self-correction. [SYNC NOTE: This package is paired with @nbiish/cognitive-tools-mcp (https://www.npmjs.com/package/@nbiish/cognitive-tools-mcp). Both packages should maintain version parity. Current version: 0.3.11]",
+  "description": "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.3.11): Provides a suite of advanced internal reasoning tools to guide an LLM agent in sophisticated problem-solving, emphasizing structured thought, planning, and self-correction. [SYNC NOTE: This repository publishes both packages: 1) @nbiish/gikendaasowin-aabajichiganan-mcp (current), and 2) @nbiish/cognitive-tools-mcp (https://www.npmjs.com/package/@nbiish/cognitive-tools-mcp). Publishing workflow: First publish this version, then update package.json name to @nbiish/cognitive-tools-mcp and publish again, finally restore name back to @nbiish/gikendaasowin-aabajichiganan-mcp. Both packages should maintain version parity. Current version: 0.3.11]",
   "private": false,
   "type": "module",
   "bin": {
