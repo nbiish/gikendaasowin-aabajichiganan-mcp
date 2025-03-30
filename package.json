@@ -1,11 +1,11 @@
 {
-  "name": "@nbiish/cognitive-tools-mcp",
-  "version": "0.3.3",
-  "description": "A Model Context Protocol server providing advanced cognitive reasoning tools for AI agents",
+  "name": "@nbiish/gikendaasowin-aabajichiganan-mcp",
+  "version": "0.3.6",
+  "description": "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools): A Model Context Protocol server providing advanced cognitive reasoning tools for AI agents",
   "private": false,
   "type": "module",
   "bin": {
-    "cognitive-tools-mcp": "./build/index.js"
+    "gikendaasowin-aabajichiganan-mcp": "./build/index.js"
   },
   "files": [
     "build"
@@ -22,16 +22,17 @@
     "model-context-protocol",
     "ai",
     "reasoning",
+    "gikendaasowin-aabajichiganan",
     "cognitive-tools",
     "claude",
     "agent"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/nbiish/cognitive-tools-server.git"
+    "url": "https://github.com/nbiish/gikendaasowin-aabajichiganan-mcp.git"
   },
   "author": "ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi)",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "SEE LICENSE IN https://github.com/nbiish/license-for-all-works/blob/main/LICENSE",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.8.0",
     "ajv": "^8.17.1",

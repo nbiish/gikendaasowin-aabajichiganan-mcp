@@ -5,9 +5,9 @@ import { z } from "zod";
 
 // Create the MCP server
 const server = new McpServer({
-	name: "cognitive-tools-mcp",
+	name: "gikendaasowin-aabajichiganan-mcp",
 	version: "0.3.3",
-	description: "Provides a suite of advanced cognitive reasoning tools for sophisticated problem-solving"
+	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools): Provides a suite of advanced cognitive reasoning tools for sophisticated problem-solving"
 });
 
 // Define the think tool
@@ -136,7 +136,7 @@ async function main() {
 	try {
 		const transport = new StdioServerTransport();
 		await server.connect(transport);
-		console.error('Cognitive Tools MCP Server running on stdio');
+		console.error('ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools) MCP Server running on stdio');
 	} catch (error) {
 		console.error('Fatal error in main():', error);
 		process.exit(1);

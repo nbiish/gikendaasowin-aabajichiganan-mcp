@@ -1,6 +1,12 @@
-# @nbiish/cognitive-tools-mcp
+# @nbiish/gikendaasowin-aabajichiganan-mcp
 
-A Model Context Protocol server providing advanced cognitive reasoning tools for AI agents.
+ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools): A Model Context Protocol server providing advanced cognitive reasoning tools for AI agents.
+
+Known as:
+- Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
+- English: [`@nbiish/cognitive-tools-mcp`](https://www.npmjs.com/package/@nbiish/cognitive-tools-mcp)
+
+Both packages are maintained in parallel and receive the same updates. You can use either package name in your projects - they provide identical functionality.
 
 ## Features
 
@@ -13,13 +19,32 @@ Provides five cognitive tools for AI agents:
 
 ## Installation
 
+You can install using either the Anishinaabemowin or English package name:
+
 ```bash
+# Using Anishinaabemowin package name
+npx @nbiish/gikendaasowin-aabajichiganan-mcp
+
+# Using English package name
 npx @nbiish/cognitive-tools-mcp
 ```
 
 ## Usage with Claude Desktop
 
-Add to your MCP configuration file (`~/.cursor/mcp.json`):
+Add to your MCP configuration file (`~/.cursor/mcp.json`). You can use either package name:
+
+```json
+{
+  "mcpServers": {
+    "gikendaasowin-aabajichiganan": {
+      "command": "npx",
+      "args": ["-y", "@nbiish/gikendaasowin-aabajichiganan-mcp"]
+    }
+  }
+}
+```
+
+Or:
 
 ```json
 {
@@ -160,6 +185,9 @@ Example Response:
 
 ## Version History
 
+- **0.3.6**: Updated repository URLs to point to gikendaasowin-aabajichiganan-mcp
+- **0.3.5**: Updated license link and repository URLs
+- **0.3.4**: Dual package publishing (Anishinaabemowin and English names)
 - **0.3.3**: Fixed response format to comply with MCP schema, synchronized version numbers
 - **0.3.2**: Updated response format structure
 - **0.3.1**: Initial public release with basic functionality
@@ -167,18 +195,18 @@ Example Response:
 
 ## License
 
-SEE LICENSE IN LICENSE
+This work is licensed under the [COMPREHENSIVE RESTRICTED USE LICENSE FOR INDIGENOUS CREATIONS WITH TRIBAL SOVEREIGNTY, DATA SOVEREIGNTY, AND WEALTH RECLAMATION PROTECTIONS](https://github.com/nbiish/license-for-all-works/blob/main/LICENSE).
 
 ## Citation
 
 ```bibtex
-@misc{cognitive-tools-mcp2025,
+@misc{gikendaasowin-aabajichiganan-mcp2025,
   author/creator/steward = {ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder)},
-  title/description = {cognitive-tools-mcp},
+  title/description = {ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools)},
   type_of_work = {Indigenous digital creation/software incorporating traditional knowledge and cultural expressions},
   year = {2025},
   publisher/source/event = {GitHub repository under tribal sovereignty protections},
-  howpublished = {\url{https://github.com/nbiish/cognitive-tools-mcp}},
+  howpublished = {\url{https://github.com/nbiish/gikendaasowin-aabajichiganan-mcp}},
   note = {Authored and stewarded by ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), an enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. This work embodies Indigenous intellectual property, traditional knowledge systems (TK), traditional cultural expressions (TCEs), and associated data protected under tribal law, federal Indian law, treaty rights, Indigenous Data Sovereignty principles, and international indigenous rights frameworks including UNDRIP. All usage, benefit-sharing, and data governance are governed by the COMPREHENSIVE RESTRICTED USE LICENSE FOR INDIGENOUS CREATIONS WITH TRIBAL SOVEREIGNTY, DATA SOVEREIGNTY, AND WEALTH RECLAMATION PROTECTIONS.}
 }
 ```
