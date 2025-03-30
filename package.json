@@ -1,11 +1,11 @@
 {
-  "name": "cognitive-tools-server",
-  "version": "0.1.0",
-  "description": "A Model Context Protocol server",
-  "private": true,
+  "name": "@nbiish/cognitive-tools-mcp",
+  "version": "0.3.3",
+  "description": "A Model Context Protocol server providing advanced cognitive reasoning tools for AI agents",
+  "private": false,
   "type": "module",
   "bin": {
-    "cognitive-tools-server": "./build/index.js"
+    "cognitive-tools-mcp": "./build/index.js"
   },
   "files": [
     "build"
@@ -14,12 +14,37 @@
     "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
     "prepare": "npm run build",
     "watch": "tsc --watch",
-    "inspector": "npx @modelcontextprotocol/inspector build/index.js"
+    "inspector": "npx @modelcontextprotocol/inspector build/index.js",
+    "start": "node build/index.js"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "ai",
+    "reasoning",
+    "cognitive-tools",
+    "claude",
+    "agent"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nbiish/cognitive-tools-server.git"
+  },
+  "author": "ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi)",
+  "license": "SEE LICENSE IN LICENSE",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.8.0",
+    "ajv": "^8.17.1",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@modelcontextprotocol/sdk": "^1.8.0",
     "@types/node": "^20.17.28",
-    "ajv": "^8.17.1",
     "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
