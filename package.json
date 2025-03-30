@@ -1,6 +1,6 @@
 {
   "name": "@nbiish/gikendaasowin-aabajichiganan-mcp",
-  "version": "0.3.6",
+  "version": "0.3.8",
   "description": "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools): A Model Context Protocol server providing advanced cognitive reasoning tools for AI agents",
   "private": false,
   "type": "module",
