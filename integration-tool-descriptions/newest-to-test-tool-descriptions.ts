@@ -7,8 +7,8 @@ import { z } from "zod";
 const server = new McpServer({
 	name: "gikendaasowin-aabajichiganan",
 	// Version reflects novel tools and enhanced guidance
-	version: "0.6.1",
-	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.6.1): SOTA internal reasoning suite for LLM agents. Features advanced deliberation (`think`), rapid checks (`quick_think`), explicit complexity assessment, context synthesis (`synthesize`), confidence gauging, planning, CoT, and reflection. Designed to maximize reliability, traceability, and performance on complex cognitive tasks, pushing beyond current research."
+	version: "0.6.2",
+	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.6.2): SOTA internal reasoning suite for LLM agents. Features advanced deliberation (`think`), rapid checks (`quick_think`), explicit complexity assessment, context synthesis (`synthesize`), confidence gauging, planning, CoT, and reflection. Designed to maximize reliability, traceability, and performance on complex cognitive tasks, pushing beyond current research."
 });
 
 // --- Core Cognitive Deliberation Tools ---
@@ -204,7 +204,7 @@ async function main() {
 	try {
 		const transport = new StdioServerTransport();
 		await server.connect(transport);
-		console.error('ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.6.1) MCP Server running on stdio');
+		console.error('ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.6.2) MCP Server running on stdio');
 	}
 	catch (error) {
 		console.error('[CognitiveToolsServer] Fatal error during startup:', error);
