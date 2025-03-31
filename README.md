@@ -1,6 +1,6 @@
 # @nbiish/gikendaasowin-aabajichiganan-mcp
 
-ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.3.9): Provides a suite of advanced internal reasoning tools to guide an LLM agent in sophisticated problem-solving, emphasizing structured thought, planning, and self-correction.
+ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.6.1): Provides a suite of advanced internal reasoning tools to guide an LLM agent in sophisticated problem-solving, emphasizing structured thought, planning, and self-correction.
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
@@ -189,6 +189,7 @@ Example Response:
 
 ## Version History
 
+- **0.6.1**: Fixed tool naming issue for technical length limitation
 - **0.3.9**: Updated tool descriptions and fixed error handling to improve reliability
 - **0.3.6**: Updated repository URLs to point to gikendaasowin-aabajichiganan-mcp
 - **0.3.5**: Updated license link and repository URLs
