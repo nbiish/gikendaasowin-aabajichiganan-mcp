@@ -45,7 +45,7 @@ server.tool(
 // --- Novel Meta-Cognitive & Context Management Tools ---
 
 server.tool(
-	"assess_complexity_and_select_thought_mode",
+	"assess_cuc_n_mode",
 	// Main Description: Forces explicit decision between think/quick_think.
 	"**Mandatory Pre-Thought Assessment.** Guides the LLM to explicitly evaluate the upcoming cognitive step's complexity, uncertainty, consequence, and novelty, and *commit* to using either `think` or `quick_think` next. Enhances deliberate cognitive resource allocation.",
 	{
