@@ -5,7 +5,7 @@ import { z } from "zod";
 
 // Create the MCP server
 const server = new McpServer({
-	name: "gikendaasowin-aabajichiganan-mcp",
+	name: "gikendaasowin-aabajichiganan",
 	// Version reflects novel tools and enhanced guidance
 	version: "0.6.1",
 	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.6.1): SOTA internal reasoning suite for LLM agents. Features advanced deliberation (`think`), rapid checks (`quick_think`), explicit complexity assessment, context synthesis (`synthesize`), confidence gauging, planning, CoT, and reflection. Designed to maximize reliability, traceability, and performance on complex cognitive tasks, pushing beyond current research."
