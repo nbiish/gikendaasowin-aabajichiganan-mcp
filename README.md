@@ -1,3 +1,5 @@
+# @nbiish/gikendaasowin-aabajichiganan-mcp
+
 <div align="center">
   <hr width="50%">
   
@@ -16,9 +18,7 @@
   <hr width="50%">
 </div>
 
-# @nbiish/gikendaasowin-aabajichiganan-mcp
-
-ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.6.1): Provides a suite of advanced internal reasoning tools to guide an LLM agent in sophisticated problem-solving, emphasizing structured thought, planning, and self-correction.
+ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.7.1): SOTA internal reasoning suite aligned with AI Pair Programmer Prompt v0.7.1+. Features advanced deliberation (`think`), rapid checks (`quick_think`), mandatory complexity assessment & strategy selection, context synthesis, confidence gauging, proactive planning, explicit reasoning (CoT), and reflection, designed for robust agentic workflows.
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
@@ -207,6 +207,7 @@ Example Response:
 
 ## Version History
 
+- **0.7.1**: Updated to align with AI Pair Programmer Prompt v0.7.1+, renamed `assess_cuc_n_mode` to `assess_complexity_and_select_thought_mode`, enhanced cognitive tools for more explicit handling of tool needs
 - **0.6.1**: Fixed tool naming issue for technical length limitation
 - **0.3.9**: Updated tool descriptions and fixed error handling to improve reliability
 - **0.3.6**: Updated repository URLs to point to gikendaasowin-aabajichiganan-mcp
@@ -226,11 +227,11 @@ This work is licensed under the [COMPREHENSIVE RESTRICTED USE LICENSE FOR INDIGE
 Please cite this project using the following BibTeX entry:
 
 ```bibtex
-@misc{gikendaasowin-aabajichiganan-mcp<|current_year=2025|>,
+@misc{gikendaasowin-aabajichiganan-mcp2025,
   author/creator/steward = {ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band},
-  title/description = {gikendaasowin-aabajichiganan-mcp},
+  title/description = {gikendaasowin-aabajichiganan-mcp (Cognitive Tools MCP) - Advanced internal reasoning suite for LLM agents},
   type_of_work = {Indigenous digital creation/software incorporating traditional knowledge and cultural expressions},
-  year = {<|current_year|>},
+  year = {2025},
   publisher/source/event = {GitHub repository under tribal sovereignty protections},
   howpublished = {\url{https://github.com/nbiish/gikendaasowin-aabajichiganan-mcp}},
   note = {Authored and stewarded by ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band (whose community faced violent dispersal resulting in descendants affiliating with LTBB, GTBOCI, and First Nations in Canada, as detailed in the Preamble), an enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. This work embodies Indigenous intellectual property, traditional knowledge systems (TK), traditional cultural expressions (TCEs), and associated data protected under tribal law, federal Indian law, treaty rights, Indigenous Data Sovereignty principles, and international indigenous rights frameworks including UNDRIP. All usage, benefit-sharing, and data governance are governed by the COMPREHENSIVE RESTRICTED USE LICENSE FOR INDIGENOUS CREATIONS WITH TRIBAL SOVEREIGNTY, DATA SOVEREIGNTY, AND WEALTH RECLAMATION PROTECTIONS.}
