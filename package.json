@@ -1,7 +1,7 @@
 {
   "name": "@nbiish/gikendaasowin-aabajichiganan-mcp",
-  "version": "0.6.2",
-  "description": "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.6.2): SOTA internal reasoning suite for LLM agents. Features advanced deliberation (`think`), rapid checks (`quick_think`), explicit complexity assessment, context synthesis (`synthesize`), confidence gauging, planning, CoT, and reflection. Designed to maximize reliability, traceability, and performance on complex cognitive tasks.",
+  "version": "0.7.1",
+  "description": "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.7.1): SOTA internal reasoning suite aligned with AI Pair Programmer Prompt v0.7.1+. Features advanced deliberation (`think`), rapid checks (`quick_think`), mandatory complexity assessment & strategy selection (`assess_complexity_and_select_thought_mode`), context synthesis, confidence gauging, proactive planning, explicit reasoning (CoT), and reflection. Updated from v0.6.x series. Designed for robust agentic workflows including potential executable actions and dynamic tool discovery.",
   "private": false,
   "type": "module",
   "bin": {
