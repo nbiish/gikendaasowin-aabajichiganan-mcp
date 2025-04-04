@@ -1,11 +1,11 @@
 {
-  "name": "@nbiish/gikendaasowin-aabajichiganan-mcp",
+  "name": "@nbiish/cognitive-tools-mcp",
   "version": "0.7.3",
-  "description": "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.7.3): SOTA internal reasoning suite aligned with AI Pair Programmer Prompt v0.7.2. Features advanced deliberation (`think`), rapid checks (`quick_think`), mandatory complexity assessment & strategy selection (`assess_cuc_n`), context synthesis, confidence gauging, proactive planning, explicit reasoning (CoT), and reflection. Designed for robust agentic workflows including potential executable actions and dynamic tool discovery.",
+  "description": "Cognitive Tools MCP v0.7.3: SOTA internal reasoning suite aligned with AI Pair Programmer Prompt v0.7.2. Features advanced deliberation (`think`), rapid checks (`quick_think`), mandatory complexity assessment & strategy selection (`assess_cuc_n`), context synthesis, confidence gauging, proactive planning, explicit reasoning (CoT), and reflection. Alternative package name for gikendaasowin-aabajichiganan-mcp.",
   "private": false,
   "type": "module",
   "bin": {
-    "gikendaasowin-aabajichiganan-mcp": "build/index.js"
+    "cognitive-tools-mcp": "build/index.js"
   },
   "files": [
     "build",
@@ -53,4 +53,4 @@
   "publishConfig": {
     "access": "public"
   }
-}
+} 
