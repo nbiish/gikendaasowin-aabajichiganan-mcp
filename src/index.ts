@@ -7,8 +7,8 @@ import { z } from "zod";
 const server = new McpServer({
 	name: "gikendaasowin-aabajichiganan-mcp",
 	// Version reflects refined tool integration guidance
-	version: "0.7.1",
-	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.7.1): SOTA internal reasoning suite aligned with AI Pair Programmer Prompt v0.7.1+. Features advanced deliberation (`think`), rapid checks (`quick_think`), mandatory complexity assessment & strategy selection, context synthesis, confidence gauging, proactive planning, explicit reasoning (CoT), and reflection, designed for robust agentic workflows including potential executable actions and dynamic tool discovery."
+	version: "0.7.3",
+	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.7.3): SOTA internal reasoning suite aligned with AI Pair Programmer Prompt v0.7.2. Enforces mandatory structured deliberation via `think` after explicit assessment. Includes meta-cognition, context synthesis, proactive planning, CoT, reflection, and tool awareness."
 });
 
 // --- Core Cognitive Deliberation Tools ---
@@ -23,7 +23,7 @@ server.tool(
 	},
 	async ({ thought }) => {
 		if (!thought || typeof thought !== 'string' || thought.trim().length === 0) { throw new Error('Invalid thought: Must be non-empty, structured reasoning.'); }
-		console.error(`[CognitiveToolsServer] Think Tool Logged: ${thought.substring(0, 100)}...`);
+		console.error(`[CognitiveToolsServer v0.7.3] Think Tool Logged: ${thought.substring(0, 100)}...`);
 		// Output confirms deep thought logged, ready for next assessment or action.
 		return { content: [{ type: "text" as const, text: `Deep Thought (structured analysis/plan/etc.) logged successfully.` }] };
 	}
@@ -39,7 +39,7 @@ server.tool(
 	},
 	async ({ brief_thought }) => {
 		if (!brief_thought || typeof brief_thought !== 'string' || brief_thought.trim().length === 0) { throw new Error('Invalid brief_thought: Must be non-empty.'); }
-		console.error(`[CognitiveToolsServer] QuickThink Tool Logged: ${brief_thought.substring(0, 100)}...`);
+		console.error(`[CognitiveToolsServer v0.7.3] QuickThink Tool Logged: ${brief_thought.substring(0, 100)}...`);
 		// Output confirms brief thought logged.
 		return { content: [{ type: "text" as const, text: `Quick Thought logged successfully.` }] };
 	}
@@ -48,7 +48,7 @@ server.tool(
 // --- Novel Meta-Cognitive & Context Management Tools ---
 
 server.tool(
-	"assess_complexity_and_select_thought_mode",
+	"assess_cuc_n",
 	// Main Description: Forces explicit decision between think/quick_think.
 	"**Mandatory Pre-Cognitive Assessment.** Must be called BEFORE every `think` or `quick_think`. Guides the LLM to explicitly evaluate CUC-N, recommend an initial strategy, and commit to the next thought mode (`think` or `quick_think`).",
 	{
@@ -64,7 +64,7 @@ server.tool(
 		if (!assessment_and_choice || typeof assessment_and_choice !== 'string' || !hasRequiredPhrases || !hasModeSelection) {
 			throw new Error('Invalid assessment: String must include CUC-N ratings, Recommended Initial Strategy, and explicit Selected Mode ("think" or "quick_think").');
 		}
-		console.error(`[CognitiveToolsServer] AssessComplexity Tool Signaled: ${assessment_and_choice.substring(0, 150)}...`);
+		console.error(`[CognitiveToolsServer v0.7.3] AssessComplexity Tool Signaled: ${assessment_and_choice.substring(0, 150)}...`);
 		const mode = assessment_and_choice.includes("Selected Mode: think") ? "think" : "quick_think";
 		// Output confirms the assessment was made and guides the next step.
 		return { content: [{ type: "text" as const, text: `Cognitive Assessment Completed. Proceeding with selected mode: ${mode}. Full Assessment: ${assessment_and_choice}` }] };
@@ -81,7 +81,7 @@ server.tool(
 	},
 	async ({ context_to_summarize_description }) => {
 		if (!context_to_summarize_description || typeof context_to_summarize_description !== 'string' || context_to_summarize_description.trim().length === 0) { throw new Error('Invalid context description: Must be non-empty.'); }
-		console.error(`[CognitiveToolsServer] SynthesizeReasoning Tool Signaled for: ${context_to_summarize_description}...`);
+		console.error(`[CognitiveToolsServer v0.7.3] SynthesizeReasoning Tool Signaled for: ${context_to_summarize_description}...`);
 		// Output implies structured summary is ready for analysis.
 		return { content: [{ type: "text" as const, text: `Structured synthesis internally generated for context: '${context_to_summarize_description}'. Ready for detailed analysis in next 'think' step.` }] };
 	}
@@ -102,7 +102,7 @@ server.tool(
 		}
 		const match = assessment_and_confidence.match(confidenceRegex);
 		const level = match ? match[1] : "Unknown";
-		console.error(`[CognitiveToolsServer] GaugeConfidence Tool Signaled: Level ${level}`);
+		console.error(`[CognitiveToolsServer v0.7.3] GaugeConfidence Tool Signaled: Level ${level}`);
 		// Output confirms level and prepares for analysis.
 		return { content: [{ type: "text" as const, text: `Confidence Gauge Completed. Level: ${level}. Assessment Text: ${assessment_and_confidence}. Ready for mandatory 'think' analysis (action required if Low/Medium).` }] };
 	}
@@ -120,7 +120,7 @@ server.tool(
 	},
 	async ({ task_objective }) => {
 		if (!task_objective || typeof task_objective !== 'string' || task_objective.trim().length === 0) { throw new Error('Invalid task objective.'); }
-		console.error(`[CognitiveToolsServer] PlanAndSolve Tool Signaled for: ${task_objective.substring(0, 100)}...`);
+		console.error(`[CognitiveToolsServer v0.7.3] PlanAndSolve Tool Signaled for: ${task_objective.substring(0, 100)}...`);
 		// Output implies plan text *with risks and potential tool needs* is ready.
 		return { content: [{ type: "text" as const, text: `Structured plan (incl. Risks/Challenges, potential tool needs) internally generated for objective: ${task_objective}. Ready for mandatory 'think' analysis.` }] };
 	}
@@ -137,7 +137,7 @@ server.tool(
 	// Implementation: Signals CoT was performed and is ready for analysis.
 	async ({ problem_statement }) => {
 		if (!problem_statement || typeof problem_statement !== 'string' || problem_statement.trim().length === 0) { throw new Error('Invalid problem statement.'); }
-		console.error(`[CognitiveToolsServer] ChainOfThought Tool Signaled for: ${problem_statement.substring(0, 100)}...`);
+		console.error(`[CognitiveToolsServer v0.7.3] ChainOfThought Tool Signaled for: ${problem_statement.substring(0, 100)}...`);
 		// Output implies CoT text *potentially identifying tool needs* is ready for analysis.
 		return { content: [{ type: "text" as const, text: `Detailed CoT (potentially identifying needs for other tools) internally generated for problem: ${problem_statement}. Ready for mandatory 'think' analysis.` }] };
 	}
@@ -154,7 +154,7 @@ server.tool(
 	// Implementation: Signals Drafting was performed.
 	async ({ problem_statement }) => {
 		if (!problem_statement || typeof problem_statement !== 'string' || problem_statement.trim().length === 0) { throw new Error('Invalid problem statement.'); }
-		console.error(`[CognitiveToolsServer] ChainOfDraft Tool Signaled for: ${problem_statement.substring(0, 100)}...`);
+		console.error(`[CognitiveToolsServer v0.7.3] ChainOfDraft Tool Signaled for: ${problem_statement.substring(0, 100)}...`);
 		// Output implies draft texts are ready for comparative analysis.
 		return { content: [{ type: "text" as const, text: `Reasoning drafts internally generated for problem: ${problem_statement}. Ready for mandatory 'think' analysis.` }] };
 	}
@@ -171,7 +171,7 @@ server.tool(
 	// Implementation: Signals Reflection was performed.
 	async ({ input_reasoning_or_plan }) => {
 		if (!input_reasoning_or_plan || typeof input_reasoning_or_plan !== 'string' || input_reasoning_or_plan.trim().length === 0) { throw new Error('Invalid input reasoning/plan.'); }
-		console.error(`[CognitiveToolsServer] Reflection Tool Signaled for analysis.`);
+		console.error(`[CognitiveToolsServer v0.7.3] Reflection Tool Signaled for analysis.`);
 		// Output implies critique text is ready for analysis.
 		return { content: [{ type: "text" as const, text: `Reflection critique internally generated for input text: '${input_reasoning_or_plan.substring(0, 100)}...'. Ready for mandatory 'think' analysis.` }] };
 	}
@@ -181,29 +181,29 @@ server.tool(
 // --- Server Lifecycle and Error Handling ---
 
 process.on('SIGINT', async () => {
-	console.error('\n[CognitiveToolsServer] Received SIGINT, shutting down gracefully.');
+	console.error('\n[CognitiveToolsServer v0.7.3] Received SIGINT, shutting down gracefully.');
 	await server.close();
 	process.exit(0);
 });
 
 process.on('SIGTERM', async () => {
-	console.error('\n[CognitiveToolsServer] Received SIGTERM, shutting down gracefully.');
+	console.error('\n[CognitiveToolsServer v0.7.3] Received SIGTERM, shutting down gracefully.');
 	await server.close();
 	process.exit(0);
 });
 
 process.on('uncaughtException', (error) => {
-	console.error('[CognitiveToolsServer] FATAL: Uncaught Exception:', error);
+	console.error('[CognitiveToolsServer v0.7.3] FATAL: Uncaught Exception:', error);
 	// Attempt graceful shutdown, but prioritize process exit
-	server.close().catch(err => console.error('[CognitiveToolsServer] Error during shutdown on uncaughtException:', err)).finally(() => {
+	server.close().catch(err => console.error('[CognitiveToolsServer v0.7.3] Error during shutdown on uncaughtException:', err)).finally(() => {
 		process.exit(1); // Exit on fatal error
 	});
 });
 
 process.on('unhandledRejection', (reason, promise) => {
-	console.error('[CognitiveToolsServer] FATAL: Unhandled Promise Rejection:', reason);
+	console.error('[CognitiveToolsServer v0.7.3] FATAL: Unhandled Promise Rejection:', reason);
 	// Attempt graceful shutdown, but prioritize process exit
-	server.close().catch(err => console.error('[CognitiveToolsServer] Error during shutdown on unhandledRejection:', err)).finally(() => {
+	server.close().catch(err => console.error('[CognitiveToolsServer v0.7.3] Error during shutdown on unhandledRejection:', err)).finally(() => {
 		process.exit(1); // Exit on fatal error
 	});
 });
@@ -213,10 +213,10 @@ async function main() {
 	try {
 		const transport = new StdioServerTransport();
 		await server.connect(transport);
-		console.error('ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.7.1) MCP Server running on stdio');
+		console.error('ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.7.2) MCP Server running on stdio');
 	}
 	catch (error) {
-		console.error('[CognitiveToolsServer] Fatal error during startup:', error);
+		console.error('[CognitiveToolsServer v0.7.2] Fatal error during startup:', error);
 		process.exit(1);
 	}
 }

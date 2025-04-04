@@ -18,7 +18,7 @@
   <hr width="50%">
 </div>
 
-ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.7.1): SOTA internal reasoning suite aligned with AI Pair Programmer Prompt v0.7.1+. Features advanced deliberation (`think`), rapid checks (`quick_think`), mandatory complexity assessment & strategy selection, context synthesis, confidence gauging, proactive planning, explicit reasoning (CoT), and reflection, designed for robust agentic workflows.
+ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.7.3): SOTA internal reasoning suite aligned with AI Pair Programmer Prompt v0.7.2. Features advanced deliberation (`think`), rapid checks (`quick_think`), mandatory complexity assessment & strategy selection (`assess_cuc_n`), context synthesis, confidence gauging, proactive planning, explicit reasoning (CoT), and reflection, designed for robust agentic workflows.
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
@@ -126,10 +126,7 @@ npm run inspector
 npm start
 
 # Publishing both packages
-npm publish              # Publishes @nbiish/gikendaasowin-aabajichiganan-mcp
-# Update package.json name to @nbiish/cognitive-tools-mcp
-npm publish              # Publishes English version
-# Restore package.json name to @nbiish/gikendaasowin-aabajichiganan-mcp
+./scripts/publish-both-packages.sh  # Publishes both package versions automatically
 ```
 
 ## Test Examples
@@ -207,7 +204,9 @@ Example Response:
 
 ## Version History
 
-- **0.7.1**: Updated to align with AI Pair Programmer Prompt v0.7.1+, renamed `assess_cuc_n_mode` to `assess_complexity_and_select_thought_mode`, enhanced cognitive tools for more explicit handling of tool needs
+- **0.7.3**: Improved dual package publishing with automated scripts, consistent versioning, and documentation updates
+- **0.7.2**: Updated tool names for length constraints (`assess_complexity_and_select_thought_mode` → `assess_cuc_n`), improved dual package publishing support, and aligned with AI Pair Programmer Prompt v0.7.2
+- **0.7.1**: Updated to align with AI Pair Programmer Prompt v0.7.1+, renamed `assess_cuc_n_mode` to `assess_cuc_n`, enhanced cognitive tools for more explicit handling of tool needs
 - **0.6.1**: Fixed tool naming issue for technical length limitation
 - **0.3.9**: Updated tool descriptions and fixed error handling to improve reliability
 - **0.3.6**: Updated repository URLs to point to gikendaasowin-aabajichiganan-mcp

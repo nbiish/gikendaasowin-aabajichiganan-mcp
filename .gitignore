@@ -2,14 +2,23 @@
 node_modules/
 .npm/
 .yarn/
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
 
 # Build output
 build/
 dist/
 lib/
+out/
 
 # TypeScript
 *.tsbuildinfo
+*.d.ts.map
 
 # Logs
 logs/
@@ -28,6 +37,11 @@ lerna-debug.log*
 # OS
 .DS_Store
 Thumbs.db
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
 
 # Editors
 .vscode/*
@@ -39,6 +53,14 @@ Thumbs.db
 *.swp
 *.swo
 .cursor/
+*.sublime-*
+*.atom/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+.history/
 
 # Testing
 coverage/
@@ -46,4 +68,24 @@ coverage/
 
 # Misc
 .cache/
-.temp/ 
+.temp/
+.eslintcache
+.stylelintcache
+.npm-backup/
+*.backup
+*.bak
+*.orig
+*.save
+tmp/
+temp/
+
+# Package manager backups
+package.json.backup
+package.json.bak
+package-lock.json.backup
+package-lock.json.bak
+
+# npm publish specific
+.npmrc
+.npmignore
+*.tgz 
