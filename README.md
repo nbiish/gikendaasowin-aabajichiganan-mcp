@@ -18,7 +18,7 @@
   <hr width="50%">
 </div>
 
-ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.7.3): SOTA internal reasoning suite aligned with AI Pair Programmer Prompt v0.7.2. Features advanced deliberation (`think`), rapid checks (`quick_think`), mandatory complexity assessment & strategy selection (`assess_cuc_n`), context synthesis, confidence gauging, proactive planning, explicit reasoning (CoT), and reflection, designed for robust agentic workflows.
+ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.8.0): SOTA reasoning suite aligned with AI Pair Programmer Prompt v0.8.0+. Enforces mandatory structured deliberation via `think` after explicit assessment. Returns generated cognitive content (thoughts, plans, CoT, critiques, summaries) for explicit analysis, optimizing for cognitive enhancement.
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
@@ -28,12 +28,16 @@ Both packages are maintained in parallel and receive the same updates. You can u
 
 ## Features
 
-Provides five cognitive tools for AI agents:
-- `think`: Internal workspace for structured analysis and planning
-- `chain_of_thought`: Sequential reasoning steps for problem-solving
-- `reflection`: Self-critique and improvement of reasoning
-- `plan_and_solve`: High-level strategy development
-- `chain_of_draft`: Concise, iterative reasoning steps
+Provides a comprehensive suite of cognitive tools for AI agents:
+- `think`: Central reasoning hub that returns detailed thought text for explicit analysis
+- `quick_think`: Rapid cognitive checkpoint for strictly simple tasks
+- `assess_complexity_and_select_thought_mode`: Mandatory pre-deliberation assessment
+- `gauge_confidence`: Meta-cognitive confidence assessment
+- `plan_and_solve`: Strategic planning with explicit return of generated plan
+- `chain_of_thought`: Detailed step-by-step reasoning with explicit return
+- `chain_of_draft`: Concise, iterative reasoning exploration
+- `reflection`: Critical self-evaluation with explicit return of critique
+- `synthesize_prior_reasoning`: Context management with explicit return of summary
 
 ## Installation
 
@@ -204,6 +208,7 @@ Example Response:
 
 ## Version History
 
+- **0.8.0**: Major update to tool signatures and return values. Tools now accept and return generated cognitive content for explicit analysis. Renamed `assess_cuc_n` to `assess_complexity_and_select_thought_mode`. Enhanced documentation and aligned with AI Pair Programmer Prompt v0.8.0+.
 - **0.7.3**: Improved dual package publishing with automated scripts, consistent versioning, and documentation updates
 - **0.7.2**: Updated tool names for length constraints (`assess_complexity_and_select_thought_mode` → `assess_cuc_n`), improved dual package publishing support, and aligned with AI Pair Programmer Prompt v0.7.2
 - **0.7.1**: Updated to align with AI Pair Programmer Prompt v0.7.1+, renamed `assess_cuc_n_mode` to `assess_cuc_n`, enhanced cognitive tools for more explicit handling of tool needs

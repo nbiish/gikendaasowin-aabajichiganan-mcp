@@ -84,6 +84,7 @@ server.tool(
 	}
 );
 
+
 // --- Supporting Cognitive Strategy Tools (Now Accept & Return Generated Text) ---
 
 server.tool(
@@ -174,7 +175,8 @@ server.tool(
 	}
 );
 
-// --- Server Lifecycle and Error Handling ---
+
+// --- Server Lifecycle and Error Handling (Unchanged) ---
 
 process.on('SIGINT', async () => {
 	console.error('\n[CognitiveToolsServer v0.8.0] Received SIGINT, shutting down gracefully.');
