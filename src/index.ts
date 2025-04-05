@@ -46,7 +46,7 @@ server.tool(
 // --- Mandatory Meta-Cognitive Tools (Responses remain concise confirmations) ---
 
 server.tool(
-	"assess_complexity_and_select_thought_mode",
+	"assess_cuc_n_mode",
 	// Main Description: Unchanged.
 	"**Mandatory Pre-Deliberation Assessment.** Must be called BEFORE every `think` or `quick_think`. Evaluates CUC-N, recommends strategy, commits to next thought mode.",
 	{
@@ -83,6 +83,7 @@ server.tool(
 		return { content: [{ type: "text" as const, text: `Confidence Gauge Completed. Level: ${level}. Assessment Text: ${assessment_and_confidence}. Ready for mandatory post-assessment 'think' analysis (action required if Low/Medium).` }] };
 	}
 );
+
 
 // --- Supporting Cognitive Strategy Tools (Now Accept & Return Generated Text) ---
 
@@ -174,7 +175,8 @@ server.tool(
 	}
 );
 
-// --- Server Lifecycle and Error Handling ---
+
+// --- Server Lifecycle and Error Handling (Unchanged) ---
 
 process.on('SIGINT', async () => {
 	console.error('\n[CognitiveToolsServer v0.8.0] Received SIGINT, shutting down gracefully.');

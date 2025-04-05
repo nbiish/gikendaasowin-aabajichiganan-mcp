@@ -1,7 +1,7 @@
 {
   "name": "@nbiish/cognitive-tools-mcp",
-  "version": "0.8.0",
-  "description": "Cognitive Tools MCP v0.8.0: SOTA reasoning suite aligned with AI Pair Programmer Prompt v0.8.0+. Enforces mandatory structured deliberation via `think` after explicit assessment. Returns generated cognitive content (thoughts, plans, CoT, critiques, summaries) for explicit analysis, optimizing for cognitive enhancement.",
+  "version": "0.8.1",
+  "description": "Cognitive Tools MCP v0.8.1: SOTA reasoning suite aligned with AI Pair Programmer Prompt v0.8.0+. Features advanced deliberation (`think`), rapid checks (`quick_think`), mandatory complexity assessment & thought mode selection (`assess_cuc_n_mode`), context synthesis, confidence gauging, proactive planning, explicit reasoning (CoT), and reflection with content return. Alternative package name for gikendaasowin-aabajichiganan-mcp.",
   "private": false,
   "type": "module",
   "bin": {

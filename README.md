@@ -18,7 +18,7 @@
   <hr width="50%">
 </div>
 
-ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.8.0): SOTA reasoning suite aligned with AI Pair Programmer Prompt v0.8.0+. Enforces mandatory structured deliberation via `think` after explicit assessment. Returns generated cognitive content (thoughts, plans, CoT, critiques, summaries) for explicit analysis, optimizing for cognitive enhancement.
+ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.8.1): SOTA reasoning suite aligned with AI Pair Programmer Prompt v0.8.0+. Enforces mandatory structured deliberation via `think` after explicit assessment. Returns generated cognitive content (thoughts, plans, CoT, critiques, summaries) for explicit analysis, optimizing for cognitive enhancement. Features advanced deliberation (`think`), rapid checks (`quick_think`), mandatory complexity assessment & thought mode selection (`assess_cuc_n_mode`), context synthesis, confidence gauging, proactive planning, explicit reasoning (CoT), and reflection.
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
@@ -28,16 +28,12 @@ Both packages are maintained in parallel and receive the same updates. You can u
 
 ## Features
 
-Provides a comprehensive suite of cognitive tools for AI agents:
-- `think`: Central reasoning hub that returns detailed thought text for explicit analysis
-- `quick_think`: Rapid cognitive checkpoint for strictly simple tasks
-- `assess_complexity_and_select_thought_mode`: Mandatory pre-deliberation assessment
-- `gauge_confidence`: Meta-cognitive confidence assessment
-- `plan_and_solve`: Strategic planning with explicit return of generated plan
-- `chain_of_thought`: Detailed step-by-step reasoning with explicit return
-- `chain_of_draft`: Concise, iterative reasoning exploration
-- `reflection`: Critical self-evaluation with explicit return of critique
-- `synthesize_prior_reasoning`: Context management with explicit return of summary
+Provides five cognitive tools for AI agents:
+- `think`: Internal workspace for structured analysis and planning
+- `chain_of_thought`: Sequential reasoning steps for problem-solving
+- `reflection`: Self-critique and improvement of reasoning
+- `plan_and_solve`: High-level strategy development
+- `chain_of_draft`: Concise, iterative reasoning steps
 
 ## Installation
 
@@ -89,30 +85,41 @@ Or:
 {
   "content": [{
     "type": "text",
-    "text": "Your thought content"
+    "text": "Returns the complete thought content you provided for explicit grounding in the next step"
   }]
 }
 ```
 
 ### Chain of Thought Tool
 - **Purpose**: Generate explicit, sequential reasoning steps for problem-solving
-- **Input**: `problem_statement` (string) - The specific problem requiring step-by-step reasoning
-- **Response Format**: Same as Think Tool
+- **Input**: 
+  - `generated_cot_text` (string) - The full, step-by-step Chain of Thought text you generated internally
+  - `problem_statement` (string) - The original problem statement this CoT addresses
+- **Response Format**: Returns the complete CoT text for mandatory analysis in the next step
 
 ### Reflection Tool
 - **Purpose**: Self-critique and improvement of reasoning or plans
-- **Input**: `input_reasoning_or_plan` (string) - The cognitive output to be evaluated
-- **Response Format**: Same as Think Tool
+- **Input**: 
+  - `generated_critique_text` (string) - The full critique text you generated internally
+  - `input_reasoning_or_plan` (string) - The original text that was critiqued
+- **Response Format**: Returns the complete critique text for mandatory analysis in the next step
 
 ### Plan and Solve Tool
 - **Purpose**: High-level strategy development for complex objectives
-- **Input**: `task_objective` (string) - The overarching goal requiring a structured plan
-- **Response Format**: Same as Think Tool
+- **Input**: 
+  - `generated_plan_text` (string) - The full, structured plan text you generated internally
+  - `task_objective` (string) - The original high-level task objective this plan addresses
+- **Response Format**: Returns the complete plan text for mandatory analysis in the next step
 
 ### Chain of Draft Tool
 - **Purpose**: Concise, iterative reasoning steps for rapid exploration
 - **Input**: `problem_statement` (string) - Problem suitable for concise, iterative reasoning
-- **Response Format**: Same as Think Tool
+- **Response Format**: Returns a confirmation message; the drafts you generated internally must be analyzed in the next step
+
+### Mandatory Pre-Deliberation Assessment
+- **Purpose**: Must be called BEFORE every `think` or `quick_think`. Evaluates CUC-N, recommends strategy, commits to next thought mode.
+- **Input**: `assessment_and_choice` (string) - Your assessment including Situation Description, CUC-N Ratings, Recommended Strategy, and Selected Mode
+- **Response Format**: Returns confirmation with the selected mode
 
 ## Development
 
@@ -208,7 +215,8 @@ Example Response:
 
 ## Version History
 
-- **0.8.0**: Major update to tool signatures and return values. Tools now accept and return generated cognitive content for explicit analysis. Renamed `assess_cuc_n` to `assess_complexity_and_select_thought_mode`. Enhanced documentation and aligned with AI Pair Programmer Prompt v0.8.0+.
+- **0.8.1**: Version sync update for both packages with identical functionality to v0.8.0, ensuring consistent versioning
+- **0.8.0**: Updated tool function design to return generated content for explicit analysis, renamed `assess_cuc_n` to `assess_cuc_n_mode`, aligned with AI Pair Programmer Prompt v0.8.0+
 - **0.7.3**: Improved dual package publishing with automated scripts, consistent versioning, and documentation updates
 - **0.7.2**: Updated tool names for length constraints (`assess_complexity_and_select_thought_mode` → `assess_cuc_n`), improved dual package publishing support, and aligned with AI Pair Programmer Prompt v0.7.2
 - **0.7.1**: Updated to align with AI Pair Programmer Prompt v0.7.1+, renamed `assess_cuc_n_mode` to `assess_cuc_n`, enhanced cognitive tools for more explicit handling of tool needs
