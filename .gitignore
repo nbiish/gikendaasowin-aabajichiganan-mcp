@@ -52,7 +52,6 @@ Desktop.ini
 .idea/
 *.swp
 *.swo
-.cursor/
 *.sublime-*
 *.atom/
 .project
@@ -89,3 +88,6 @@ package-lock.json.bak
 .npmrc
 .npmignore
 *.tgz 
+
+# testing
+testing/

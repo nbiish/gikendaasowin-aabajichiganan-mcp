@@ -18,13 +18,15 @@
   <hr width="50%">
 </div>
 
-ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - (Cognitive Tools v0.8.1): SOTA reasoning suite aligned with AI Pair Programmer Prompt v0.8.0+. Enforces mandatory structured deliberation via `think` after explicit assessment. Returns generated cognitive content (thoughts, plans, CoT, critiques, summaries) for explicit analysis, optimizing for cognitive enhancement. Features advanced deliberation (`think`), rapid checks (`quick_think`), mandatory complexity assessment & thought mode selection (`assess_cuc_n_mode`), context synthesis, confidence gauging, proactive planning, explicit reasoning (CoT), and reflection.
+ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Gikendaasowin Aabajichiganan - Cognitive Tools MCP: SOTA reasoning suite focused on iterative refinement and tool integration for AI Pair Programming. Enables structured, iterative problem-solving through Chain of Draft methodology, with tools for draft generation, analysis, and refinement. Features include advanced deliberation (`think`), rapid checks (`quick_think`), mandatory complexity assessment (`assess_cuc_n_mode`), context synthesis, confidence gauging, proactive planning, explicit reasoning (CoT), and reflection.
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
 - English: [`@nbiish/cognitive-tools-mcp`](https://www.npmjs.com/package/@nbiish/cognitive-tools-mcp)
 
 Both packages are maintained in parallel and receive the same updates. You can use either package name in your projects - they provide identical functionality.
+
+**See the latest integration details in [`integration-prompts/integration-prompt-13.md`](integration-prompts/integration-prompt-13.md).**
 
 ## Features
 
@@ -117,7 +119,7 @@ Or:
 - **Response Format**: Returns a confirmation message; the drafts you generated internally must be analyzed in the next step
 
 ### Mandatory Pre-Deliberation Assessment
-- **Purpose**: Must be called BEFORE every `think` or `quick_think`. Evaluates CUC-N, recommends strategy, commits to next thought mode.
+- **Purpose**: Must be called BEFORE initiating significant cognitive processes (`think`) or complex action sequences. Evaluates CUC-N, recommends strategy, commits to next thought mode.
 - **Input**: `assessment_and_choice` (string) - Your assessment including Situation Description, CUC-N Ratings, Recommended Strategy, and Selected Mode
 - **Response Format**: Returns confirmation with the selected mode
 
@@ -215,7 +217,21 @@ Example Response:
 
 ## Version History
 
-- **0.8.1**: Version sync update for both packages with identical functionality to v0.8.0, ensuring consistent versioning
+**0.9.1**
+- Fixed package publishing script to correctly publish both packages with different names
+- Updated both packages to maintain version consistency
+
+**0.9.0**
+- Major update focused on iterative refinement and Chain of Draft methodology
+- Updated tools with enhanced support for draft generation, analysis, and refinement
+- Improved error handling, logging, and parameter descriptions
+- Removed explicit version references for greater flexibility
+
+**0.8.5**: Version update to resolve npm publish conflicts and maintain consistency between packages. Continues using the shortened tool name `assess_cuc_n_mode` to comply with MCP tool name length requirements.
+- **0.8.4**: Version bump to align packages after updating the tool name from `assess_complexity_and_select_thought_mode` to `assess_cuc_n_mode`. Ensures consistent naming across all files.
+- **0.8.3**: Updated package version to maintain consistency between `gikendaasowin-aabajichiganan-mcp` and `cognitive-tools-mcp` packages. Ensures all references to the tool use the shortened name `assess_cuc_n_mode`.
+- **0.8.2**: Removed integration prompt references from codebase and made various refinements. Shortened `assess_complexity_and_select_thought_mode` to `assess_cuc_n_mode` to address MCP tool name length limitation.
+- **0.8.1**: Updated tool function to integrate with external tools, renamed `assess_cuc_n_mode` to `assess_complexity_and_select_thought_mode`, improved validation of thought structure, aligned with AI Pair Programmer Prompt v0.8.1+
 - **0.8.0**: Updated tool function design to return generated content for explicit analysis, renamed `assess_cuc_n` to `assess_cuc_n_mode`, aligned with AI Pair Programmer Prompt v0.8.0+
 - **0.7.3**: Improved dual package publishing with automated scripts, consistent versioning, and documentation updates
 - **0.7.2**: Updated tool names for length constraints (`assess_complexity_and_select_thought_mode` → `assess_cuc_n`), improved dual package publishing support, and aligned with AI Pair Programmer Prompt v0.7.2
@@ -241,7 +257,7 @@ Please cite this project using the following BibTeX entry:
 ```bibtex
 @misc{gikendaasowin-aabajichiganan-mcp2025,
   author/creator/steward = {ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band},
-  title/description = {gikendaasowin-aabajichiganan-mcp (Cognitive Tools MCP) - Advanced internal reasoning suite for LLM agents},
+  title/description = {gikendaasowin-aabajichiganan-mcp},
   type_of_work = {Indigenous digital creation/software incorporating traditional knowledge and cultural expressions},
   year = {2025},
   publisher/source/event = {GitHub repository under tribal sovereignty protections},

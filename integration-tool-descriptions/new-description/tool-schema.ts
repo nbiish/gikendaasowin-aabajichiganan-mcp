@@ -30,7 +30,7 @@ const execPromise = promisify(exec);
 
 const server = new McpServer({
 	name: "gikendaasowin-aabajichiganan-mcp",
-	version: "0.9.0", // Version required by MCP SDK
+	// Version removed for flexibility
 	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Cognitive Tools Suite: Enables structured, iterative reasoning (Chain of Draft), planning, analysis, and external tool integration for AI Pair Programming."
 });
 
