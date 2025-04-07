@@ -2,14 +2,14 @@
 
 /**
  * -----------------------------------------------------------------------------
- * Gikendaasowin Aabajichiganan - Cognitive Tools MCP Server
+ * Gikendaasowin Aabajichiganan - Core Cognitive Tools MCP Server
  *
- * Description: Provides a suite of cognitive tools for an AI Pair Programmer
- *              to structure its reasoning, plan actions, analyze results,
- *              and iteratively refine its work (Chain of Draft). Integrates
- *              with generic external environment tools for comprehensive interaction.
- *              Designed to be used with the corresponding integration prompt
- *              focused on iterative refinement and tool integration.
+ * Description: Provides the essential suite of cognitive tools for an AI
+ *              Pair Programmer to structure its reasoning, plan actions,
+ *              analyze results, and iteratively refine its work, focusing on
+ *              the internal cognitive loop as described in the corresponding
+ *              integration prompt. External actions are planned within 'think'
+ *              but executed by the environment.
  * Protocol:    Model Context Protocol (MCP) over stdio.
  * -----------------------------------------------------------------------------
  */
@@ -17,21 +17,13 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-import { exec } from 'child_process'; // For executeTerminalCommand
-import vm from 'vm'; // For safer executeCode
-import fs from 'fs/promises'; // For file operations
-import path from 'path'; // For path manipulation, potentially useful
-
-// Helper function to promisify exec
-import { promisify } from 'util';
-const execPromise = promisify(exec);
 
 // --- Server Definition ---
 
 const server = new McpServer({
 	name: "gikendaasowin-aabajichiganan-mcp",
-	version: "0.9.0", // Version required by MCP SDK
-	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Cognitive Tools Suite: Enables structured, iterative reasoning (Chain of Draft), planning, analysis, and external tool integration for AI Pair Programming."
+	version: "0.9.2",
+	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite: Enables structured, iterative reasoning (Chain of Draft), planning, and analysis for AI Pair Programming, focusing on the cognitive loop."
 });
 
 // --- Logging Helper ---
@@ -56,9 +48,9 @@ function logToolError(toolName: string, error: any) {
 
 server.tool(
 	"assess_cuc_n_mode",
-	"**Mandatory Pre-Deliberation/Pre-Sequence Assessment.** Evaluates task Complexity, Uncertainty, Consequence, Novelty (CUC-N) to determine required cognitive depth and initial strategy. MUST be called before starting complex tasks or changing strategy.",
+	"**Mandatory Pre-Deliberation Assessment.** Evaluates task Complexity, Uncertainty, Consequence, Novelty (CUC-N) to determine required cognitive depth and initial strategy. MUST be called before starting complex tasks or changing strategy.",
 	{
-		assessment_and_choice: z.string().describe("Structured assessment including: 1) Situation Description, 2) CUC-N Ratings (L/M/H), 3) Recommended Initial Strategy (e.g., 'Need to read relevant file for context'), 4) Explicit Mode Selection ('Selected Mode: think' or 'Selected Mode: quick_think').")
+		assessment_and_choice: z.string().describe("Structured assessment including: 1) Situation Description, 2) CUC-N Ratings (L/M/H), 3) Recommended Initial Cognitive Strategy (e.g., 'Start with chain_of_thought'), 4) Explicit Mode Selection ('Selected Mode: think' or 'Selected Mode: quick_think').")
 	},
 	async ({ assessment_and_choice }) => {
 		logToolCall('assess_cuc_n_mode');
@@ -79,9 +71,9 @@ server.tool(
 
 server.tool(
 	"think",
-	"**MANDATORY Central Hub for Analysis, Planning, and Refinement.** Called after assessment, complex cognitive tools, *any* external tool execution, or internal draft generation. Analyzes previous step's outcome/draft, plans immediate next action (cognitive or external), verifies, assesses risk, and self-corrects. Returns the thought text for grounding.",
+	"**MANDATORY Central Hub for Analysis, Planning, and Refinement.** Called after assessment, cognitive tools, internal drafts, or external action results. Analyzes previous step's outcome/draft, plans immediate next action (cognitive or planning external action), verifies, assesses risk, and self-corrects. Returns the thought text for grounding.",
 	{
-		thought: z.string().describe("Your **detailed** internal monologue following the MANDATORY structure: ## Analysis (critically evaluate last result/draft, incl. tool errors/warnings), ## Plan (define *immediate* next action & purpose), ## Verification (how to check next step), ## Anticipated Challenges & Contingency, ## Risk Assessment, ## Lookahead, ## Self-Correction & Learning.")
+		thought: z.string().describe("Your **detailed** internal monologue following the MANDATORY structure: ## Analysis (critically evaluate last result/draft), ## Plan (define *immediate* next action & purpose - cognitive or planning external), ## Verification (how to check next step), ## Anticipated Challenges & Contingency, ## Risk Assessment, ## Lookahead, ## Self-Correction & Learning.")
 	},
 	async ({ thought }) => {
 		logToolCall('think');
@@ -89,15 +81,14 @@ server.tool(
 			if (!thought || typeof thought !== 'string' || thought.trim().length === 0) {
 				throw new Error('Invalid thought: Must be a non-empty string.');
 			}
-			// Basic check for mandatory sections (can be made more robust)
+			// Basic check for mandatory sections
 			const requiredSections = ["## Analysis:", "## Plan:", "## Verification:", "## Anticipated Challenges & Contingency:", "## Risk Assessment:", "## Lookahead:", "## Self-Correction & Learning:"];
 			const missingSections = requiredSections.filter(section => !thought.includes(section));
 			if (missingSections.length > 0) {
 				console.warn(`[MCP Server] Warning: 'think' input might be missing sections: ${missingSections.join(', ')}`);
-				// Allow processing but log warning. Could throw error if strictness is desired.
 			}
 			logToolResult('think', true, `Thought logged (length: ${thought.length})`);
-			// Returns the same thought text received, making it explicit in context.
+			// Returns the same thought text received.
 			return { content: [{ type: "text" as const, text: thought }] };
 		} catch (error: any) {
 			return logToolError('think', error);
@@ -153,7 +144,7 @@ server.tool(
 	"plan_and_solve",
 	"Guides internal generation of a **structured plan draft**. Call this tool *with* the generated plan text. Returns the plan text for mandatory `think` analysis to critically evaluate feasibility, refine, and confirm the first action step.",
 	{
-		generated_plan_text: z.string().describe("The **full, structured plan draft** you generated internally, including goals, steps, potential tool needs, and risks."),
+		generated_plan_text: z.string().describe("The **full, structured plan draft** you generated internally, including goals, steps, potential external tool needs, and risks."),
 		task_objective: z.string().describe("The original high-level task objective this plan addresses.")
 	},
 	async ({ generated_plan_text, task_objective }) => {
@@ -253,210 +244,6 @@ server.tool(
 );
 
 
-// --- Generic External Environment Tools ---
-
-// ** File System Operations **
-
-server.tool(
-	"readFile",
-	"Reads the content of a specified file. Essential for getting context before analysis or modification.",
-	{
-		filePath: z.string().describe("The path to the file relative to the project root.")
-	},
-	async ({ filePath }) => {
-		logToolCall('readFile', `Path: ${filePath}`);
-		try {
-			const fileContent = await fs.readFile(filePath, 'utf8');
-			// Consider limiting the size returned to avoid overwhelming the context window
-			const maxSize = 10000; // Example limit: 10k characters
-			const truncatedContent = fileContent.length > maxSize ? fileContent.substring(0, maxSize) + "\n... [File truncated]" : fileContent;
-			logToolResult('readFile', true, `Read ${truncatedContent.length} chars from ${filePath}`);
-			return { content: [{ type: "text" as const, text: truncatedContent }] };
-		} catch (error: any) {
-			return logToolError('readFile', error);
-		}
-	}
-);
-
-server.tool(
-	"writeFile",
-	"Writes the provided content to a specified file, overwriting existing content. Use to apply generated code or modifications.",
-	{
-		filePath: z.string().describe("The path to the file relative to the project root."),
-		content: z.string().describe("The full content to write to the file.")
-	},
-	async ({ filePath, content }) => {
-		logToolCall('writeFile', `Path: ${filePath}, Content Length: ${content.length}`);
-		try {
-			// Ensure directory exists before writing? (Optional, adds robustness)
-			// await fs.mkdir(path.dirname(filePath), { recursive: true });
-			await fs.writeFile(filePath, content, 'utf8');
-			logToolResult('writeFile', true, `Wrote ${content.length} chars to ${filePath}`);
-			return { content: [{ type: "text" as const, text: `Successfully wrote content to ${filePath}.` }] };
-		} catch (error: any) {
-			return logToolError('writeFile', error);
-		}
-	}
-);
-
-server.tool(
-	"listFiles",
-	"Lists files and directories within a specified directory path.",
-	{
-		directoryPath: z.string().describe("The path to the directory relative to the project root (e.g., '.', 'src/components').")
-	},
-	async ({ directoryPath }) => {
-		logToolCall('listFiles', `Path: ${directoryPath}`);
-		try {
-			const entries = await fs.readdir(directoryPath, { withFileTypes: true });
-			const listing = entries.map(entry => `${entry.name}${entry.isDirectory() ? '/' : ''}`).join('\n');
-			logToolResult('listFiles', true, `Found ${entries.length} entries in ${directoryPath}`);
-			return { content: [{ type: "text" as const, text: listing || "[Directory is empty]" }] };
-		} catch (error: any) {
-			return logToolError('listFiles', error);
-		}
-	}
-);
-
-server.tool(
-	"createDirectory",
-	"Creates a new directory at the specified path. Use `recursive: true` to create parent directories if needed.",
-	{
-		directoryPath: z.string().describe("The path for the new directory relative to the project root."),
-		recursive: z.boolean().optional().describe("If true, create parent directories as needed. Defaults to false.")
-	},
-	async ({ directoryPath, recursive = false }) => {
-		logToolCall('createDirectory', `Path: ${directoryPath}, Recursive: ${recursive}`);
-		try {
-			await fs.mkdir(directoryPath, { recursive: recursive });
-			logToolResult('createDirectory', true, `Created directory ${directoryPath}`);
-			return { content: [{ type: "text" as const, text: `Successfully created directory ${directoryPath}.` }] };
-		} catch (error: any) {
-			// Handle 'EEXIST' gracefully if directory already exists? Or let it fail?
-			// if (error.code === 'EEXIST' && recursive) { /* handle existing */ }
-			return logToolError('createDirectory', error);
-		}
-	}
-);
-
-server.tool(
-	"deleteFile",
-	"Deletes the specified file. Use with caution.",
-	{
-		filePath: z.string().describe("The path to the file to delete relative to the project root.")
-	},
-	async ({ filePath }) => {
-		logToolCall('deleteFile', `Path: ${filePath}`);
-		try {
-			await fs.unlink(filePath);
-			logToolResult('deleteFile', true, `Deleted file ${filePath}`);
-			return { content: [{ type: "text" as const, text: `Successfully deleted file ${filePath}.` }] };
-		} catch (error: any) {
-			// Handle 'ENOENT' (file not found) gracefully?
-			return logToolError('deleteFile', error);
-		}
-	}
-);
-
-// ** Code Execution & Terminal **
-
-server.tool(
-	"executeCode",
-	"Executes a provided code snippet in a sandboxed environment. Crucial for testing drafts/logic. Currently supports JavaScript.",
-	{
-		codeSnippet: z.string().describe("The code snippet to execute (currently JavaScript)."),
-		language: z.string().optional().describe("The language of the snippet (defaults to javascript). Informational for now.")
-	},
-	async ({ codeSnippet, language = 'javascript' }) => {
-		// Basic check for language - could expand later
-		if (language.toLowerCase() !== 'javascript') {
-			return logToolError('executeCode', new Error(`Unsupported language: ${language}. Only JavaScript is currently supported.`));
-		}
-		logToolCall('executeCode', `Lang: ${language}, Snippet: ${codeSnippet.substring(0, 50)}...`);
-		try {
-			// Use Node.js vm module for basic sandboxing (better than eval)
-			const context = vm.createContext({}); // Create an empty context
-			const script = new vm.Script(codeSnippet);
-			const result = script.runInContext(context, { timeout: 5000 }); // Add a timeout
-			const resultString = typeof result === 'undefined' ? 'undefined' : JSON.stringify(result);
-			logToolResult('executeCode', true, `Result: ${resultString.substring(0, 100)}...`);
-			return { content: [{ type: "text" as const, text: `Execution Result: ${resultString}` }] };
-		} catch (error: any) {
-			return logToolError('executeCode', error);
-		}
-	}
-);
-
-server.tool(
-	"executeTerminalCommand",
-	"Executes a shell command in the project's root directory. Useful for build steps, git operations, running test suites, etc.",
-	{
-		command: z.string().describe("The shell command to execute (e.g., 'npm run test', 'git status').")
-	},
-	async ({ command }) => {
-		logToolCall('executeTerminalCommand', `Command: ${command}`);
-		try {
-			// Execute command - consider security implications carefully in production
-			// Set a timeout? Limit allowed commands?
-			const { stdout, stderr } = await execPromise(command, { timeout: 30000, encoding: 'utf8' }); // 30s timeout
-
-			let resultText = "";
-			if (stderr) {
-				resultText += `Standard Error:\n${stderr}\n`;
-				logToolResult('executeTerminalCommand', false, `Command finished with stderr.`); // Consider stderr as potential failure
-			}
-			resultText += `Standard Output:\n${stdout}`;
-			logToolResult('executeTerminalCommand', true, `Command finished.`);
-
-			// Limit output size?
-			const maxSize = 5000;
-			if (resultText.length > maxSize) {
-				resultText = resultText.substring(0, maxSize) + "\n... [Output truncated]";
-			}
-
-			return { content: [{ type: "text" as const, text: resultText }] };
-		} catch (error: any) {
-			// Error object from exec often includes stdout/stderr which might be useful
-			let errorDetails = error instanceof Error ? error.message : String(error);
-			if (error.stdout) errorDetails += `\nSTDOUT:\n${error.stdout}`;
-			if (error.stderr) errorDetails += `\nSTDERR:\n${error.stderr}`;
-			return logToolError('executeTerminalCommand', errorDetails);
-		}
-	}
-);
-
-// ** Web & Information Retrieval **
-
-server.tool(
-	"webSearch",
-	"Performs a web search using an external service (stubbed). Useful for finding API documentation, error explanations, or concepts.",
-	{
-		query: z.string().describe("The search query.")
-	},
-	async ({ query }) => {
-		logToolCall('webSearch', `Query: ${query}`);
-		// --- STUB IMPLEMENTATION ---
-		// In a real scenario, this would call a search API (Google, Bing, DuckDuckGo, Brave Search etc.)
-		// For now, return a placeholder message.
-		const resultText = `[Web Search Stub] Would search for: "${query}". No live search configured.`;
-		logToolResult('webSearch', true, 'Stub executed');
-		return { content: [{ type: "text" as const, text: resultText }] };
-		// --- END STUB ---
-
-		/* // Example using a hypothetical search API client
-		try {
-			// const searchResults = await searchApiClient.search(query);
-			// const formattedResults = formatSearchResults(searchResults); // Process results
-			// logToolResult('webSearch', true, `Found results for ${query}`);
-			// return { content: [{ type: "text", text: formattedResults }] };
-		} catch (error: any) {
-			return logToolError('webSearch', error);
-		}
-		*/
-	}
-);
-
-
 // --- Server Lifecycle and Error Handling ---
 
 process.on('SIGINT', async () => {
@@ -492,7 +279,7 @@ async function main() {
 		const transport = new StdioServerTransport();
 		await server.connect(transport);
 		console.error('-----------------------------------------------------');
-		console.error(' ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Cognitive Tools MCP Server');
+		console.error(' ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools MCP Server');
 		console.error(' Status: Running on stdio');
 		console.error('-----------------------------------------------------');
 	}

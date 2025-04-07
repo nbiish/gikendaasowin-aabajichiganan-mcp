@@ -26,7 +26,7 @@ Known as:
 
 Both packages are maintained in parallel and receive the same updates. You can use either package name in your projects - they provide identical functionality.
 
-**See the latest integration details in [`integration-prompts/integration-prompt-13.md`](integration-prompts/integration-prompt-13.md).**
+**See the latest integration details in [`integration-prompts/integration-prompt-07.md`](integration-prompts/integration-prompt-07.md).**
 
 ## Features
 
@@ -245,6 +245,10 @@ Example Response:
 - **0.3.2**: Updated response format structure
 - **0.3.1**: Initial public release with basic functionality
 - **0.3.0**: Development version
+
+## Copyright
+
+Copyright © 2025 ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), a descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band, and an enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. All rights reserved.
 
 ## License
 
