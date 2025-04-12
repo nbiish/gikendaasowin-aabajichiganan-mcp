@@ -4,7 +4,7 @@
  * -----------------------------------------------------------------------------
  * Gikendaasowin Aabajichiganan - Core Cognitive Tools MCP Server
  *
- * Version: 0.9.4
+ * Version: 1.0.0
  *
  * Description: Provides a suite of cognitive tools for an AI Pair Programmer,
  *              enabling structured reasoning, planning, analysis, and iterative
@@ -39,14 +39,12 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-export const version = "0.9.4";
-
 // --- Server Definition ---
 
 const server = new McpServer({
 	name: "gikendaasowin-aabajichiganan-mcp",
-	version: version,
-	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.4: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY `think` step integrates results."
+	version: "1.0.0", // Updated version
+	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v1.0.0: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY `think` step integrates results."
 });
 
 // --- Logging Helpers ---
@@ -325,7 +323,7 @@ server.tool(
 			if (!draft_description || typeof draft_description !== 'string' || draft_description.trim().length === 0) {
 				throw new Error('Invalid draft_description: Must provide a description.');
 			}
-			const resultText = `Internal draft(s) ready for analysis: \"${draft_description}\". MANDATORY: Analyze these draft(s) now using the structured format in your next 'think' step. Evaluate correctness, completeness, and alignment with goals.`;
+			const resultText = `Internal draft(s) ready for analysis: "${draft_description}". MANDATORY: Analyze these draft(s) now using the structured format in your next 'think' step. Evaluate correctness, completeness, and alignment with goals.`;
 			logToolResult(toolName, true);
 			return { content: [{ type: "text" as const, text: resultText }] };
 		} catch (error: unknown) {
@@ -444,8 +442,8 @@ async function main(): Promise<void> {
 		await server.connect(transport);
 		const border = '-----------------------------------------------------';
 		console.error(border);
-		console.error(` ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.4: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY \`think\` step integrates results.`);
-		console.error(` Version: ${version}`);
+		console.error(` ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v1.0.0: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY \`think\` step integrates results.`);
+		console.error(` Version: 1.0.0`);
 		console.error(' Status: Running on stdio, awaiting MCP requests...');
 		console.error(border);
 	}

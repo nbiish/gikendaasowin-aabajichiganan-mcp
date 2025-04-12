@@ -4,7 +4,7 @@ globs:
 alwaysApply: false
 ---
 This codebases has two npm locations to publish to..
-ABSOLUTELY MAKE SURE the versions for both of thhe following packages match before publishing:
+ABSOLUTELY MAKE SURE the versions for both of the following packages match before publishing:
 - https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp -> [package-gikendaasowin.json](mdc:package-gikendaasowin.json)
 - https://www.npmjs.com/package/@nbiish/cognitive-tools-mcp -> [package-cognitive-tools.json](mdc:package-cognitive-tools.json)
 

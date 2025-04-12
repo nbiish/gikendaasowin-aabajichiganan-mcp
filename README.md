@@ -26,7 +26,7 @@ Known as:
 
 Both packages are maintained in parallel and receive the same updates. You can use either package name in your projects - they provide identical functionality.
 
-**See the latest integration details in [`integration-prompts/integration-prompt-07.md`](integration-prompts/integration-prompt-07.md).**
+**See the latest integration details in [`integration-prompts/new-prompts/latest.md`](integration-prompts/new-prompts/latest.md).**
 
 ## Features
 
