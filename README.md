@@ -215,37 +215,6 @@ Example Response:
 }
 ```
 
-## Version History
-
-**0.9.1**
-- Fixed package publishing script to correctly publish both packages with different names
-- Updated both packages to maintain version consistency
-
-**0.9.0**
-- Major update focused on iterative refinement and Chain of Draft methodology
-- Updated tools with enhanced support for draft generation, analysis, and refinement
-- Improved error handling, logging, and parameter descriptions
-- Removed explicit version references for greater flexibility
-
-**0.8.5**: Version update to resolve npm publish conflicts and maintain consistency between packages. Continues using the shortened tool name `assess_cuc_n_mode` to comply with MCP tool name length requirements.
-- **0.8.4**: Version bump to align packages after updating the tool name from `assess_complexity_and_select_thought_mode` to `assess_cuc_n_mode`. Ensures consistent naming across all files.
-- **0.8.3**: Updated package version to maintain consistency between `gikendaasowin-aabajichiganan-mcp` and `cognitive-tools-mcp` packages. Ensures all references to the tool use the shortened name `assess_cuc_n_mode`.
-- **0.8.2**: Removed integration prompt references from codebase and made various refinements. Shortened `assess_complexity_and_select_thought_mode` to `assess_cuc_n_mode` to address MCP tool name length limitation.
-- **0.8.1**: Updated tool function to integrate with external tools, renamed `assess_cuc_n_mode` to `assess_complexity_and_select_thought_mode`, improved validation of thought structure, aligned with AI Pair Programmer Prompt v0.8.1+
-- **0.8.0**: Updated tool function design to return generated content for explicit analysis, renamed `assess_cuc_n` to `assess_cuc_n_mode`, aligned with AI Pair Programmer Prompt v0.8.0+
-- **0.7.3**: Improved dual package publishing with automated scripts, consistent versioning, and documentation updates
-- **0.7.2**: Updated tool names for length constraints (`assess_complexity_and_select_thought_mode` → `assess_cuc_n`), improved dual package publishing support, and aligned with AI Pair Programmer Prompt v0.7.2
-- **0.7.1**: Updated to align with AI Pair Programmer Prompt v0.7.1+, renamed `assess_cuc_n_mode` to `assess_cuc_n`, enhanced cognitive tools for more explicit handling of tool needs
-- **0.6.1**: Fixed tool naming issue for technical length limitation
-- **0.3.9**: Updated tool descriptions and fixed error handling to improve reliability
-- **0.3.6**: Updated repository URLs to point to gikendaasowin-aabajichiganan-mcp
-- **0.3.5**: Updated license link and repository URLs
-- **0.3.4**: Dual package publishing (Anishinaabemowin and English names)
-- **0.3.3**: Fixed response format to comply with MCP schema, synchronized version numbers
-- **0.3.2**: Updated response format structure
-- **0.3.1**: Initial public release with basic functionality
-- **0.3.0**: Development version
-
 ## Copyright
 
 Copyright © 2025 ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), a descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band, and an enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. All rights reserved.
