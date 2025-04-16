@@ -1,13 +1,15 @@
 #!/bin/bash
 set -e
 
-# Check if OTP argument is provided
-if [ -z "$1" ]; then
-  echo "Error: NPM OTP code must be provided as the first argument."
+# Prompt for OTP code
+echo -n "Enter NPM OTP code: "
+read -s OTP_CODE
+echo  # Add a newline after input
+
+if [ -z "$OTP_CODE" ]; then
+  echo "Error: NPM OTP code must be provided."
   exit 1
 fi
-
-OTP_CODE=$1
 
 # Build the project
 echo "Building project..."

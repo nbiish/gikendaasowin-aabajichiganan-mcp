@@ -4,7 +4,7 @@
  * -----------------------------------------------------------------------------
  * Gikendaasowin Aabajichiganan - Core Cognitive Tools MCP Server
  *
- * Version: 0.9.7
+ * Version: 0.9.8
  *
  * Description: Provides a suite of cognitive tools for an AI Pair Programmer,
  *              enabling structured reasoning, planning, analysis, and iterative
@@ -39,14 +39,14 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-export const version = "0.9.7";
+export const version = "0.9.8";
 
 // --- Server Definition ---
 
 const server = new McpServer({
 	name: "gikendaasowin-aabajichiganan-mcp",
 	version: version,
-	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.7: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY `think` step integrates results."
+	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.8: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY `think` step integrates results."
 });
 
 // --- Logging Helpers ---
@@ -246,42 +246,10 @@ server.tool(
 );
 
 /**
- * Tool: plan_and_solve
- * Purpose: Guides the *internal generation* of a structured plan draft.
- * Workflow: Internally generate plan -> Call this tool *with* the plan text -> MANDATORY `think` step follows to analyze/refine the plan.
- * Output: Returns the provided plan text for grounding and analysis.
- */
-server.tool(
-	"plan_and_solve",
-	"Guides *internal generation* of a **structured plan draft**. Call this tool *with* the generated plan text you created internally. Returns the plan text. MANDATORY: Use the next `think` step to critically evaluate this plan's feasibility, refine it, and confirm the *first actionable step*.",
-	{
-		generated_plan_text: z.string().describe("The **full, structured plan draft** you generated internally, including goals, steps, potential external tool needs, assumptions, and risks."),
-		task_objective: z.string().describe("The original high-level task objective this plan addresses.")
-	},
-	async ({ generated_plan_text, task_objective }) => {
-		const toolName = 'plan_and_solve';
-		logToolCall(toolName, `Objective: ${task_objective.substring(0, 80)}...`);
-		try {
-			if (!generated_plan_text || typeof generated_plan_text !== 'string' || generated_plan_text.trim().length === 0) {
-				throw new Error('Invalid generated_plan_text: Must be a non-empty string containing the plan.');
-			}
-			if (!task_objective || typeof task_objective !== 'string' || task_objective.trim().length === 0) {
-				throw new Error('Invalid task_objective: Must provide the original objective.');
-			}
-			logToolResult(toolName, true, `Returned plan draft for analysis (length: ${generated_plan_text.length})`);
-			// Returns the actual plan text received. The AI must analyze this in the next 'think' step.
-			return { content: [{ type: "text" as const, text: generated_plan_text }] };
-		} catch (error: unknown) {
-			return logToolError(toolName, error);
-		}
-	}
-);
-
-/**
  * Tool: chain_of_thought
- * Purpose: Guides the *internal generation* of a detailed, step-by-step reasoning draft (CoT).
- * Workflow: Internally generate CoT -> Call this tool *with* the CoT text -> MANDATORY `think` step follows to analyze the reasoning.
- * Output: Returns the provided CoT text for grounding and analysis.
+ * Purpose: Guides *internal generation* of detailed, step-by-step reasoning draft (CoT).
+ * Workflow: Generate CoT -> Call this tool with CoT text -> MANDATORY `think` step follows to analyze reasoning.
+ * Output: Returns the CoT text for analysis. Emphasizes need for `think` analysis to extract insights and plan next action.
  */
 server.tool(
 	"chain_of_thought",
@@ -292,17 +260,62 @@ server.tool(
 	},
 	async ({ generated_cot_text, problem_statement }) => {
 		const toolName = 'chain_of_thought';
-		logToolCall(toolName, `Problem: ${problem_statement.substring(0, 80)}...`);
+		logToolCall(toolName);
 		try {
-			if (!generated_cot_text || typeof generated_cot_text !== 'string' || generated_cot_text.trim().length === 0) {
-				throw new Error('Invalid generated_cot_text: Must be a non-empty string containing the CoT.');
+			if (!generated_cot_text || typeof generated_cot_text !== 'string' || !problem_statement || typeof problem_statement !== 'string') {
+				throw new Error('Both generated_cot_text and problem_statement must be non-empty strings.');
 			}
-			if (!problem_statement || typeof problem_statement !== 'string' || problem_statement.trim().length === 0) {
-				throw new Error('Invalid problem_statement: Must provide the original problem.');
+
+			// Validate CoT format - should have clear steps
+			if (!generated_cot_text.match(/step|phase|:\s|^\d+[\.\)]/im)) {
+				throw new Error('Invalid CoT format: Must contain clear reasoning steps (numbered, labeled as steps/phases, or with clear delineation).');
 			}
-			logToolResult(toolName, true, `Returned CoT draft for analysis (length: ${generated_cot_text.length})`);
-			// Returns the actual CoT text received. The AI must analyze this in the next 'think' step.
-			return { content: [{ type: "text" as const, text: generated_cot_text }] };
+
+			const resultText = `Chain of Thought Completed. Problem: "${problem_statement.substring(0, 100)}..."\nReasoning Steps Logged. MANDATORY: Analyze this reasoning chain in your next 'think' step to extract insights, identify potential flaws/gaps, and plan concrete next actions.`;
+			logToolResult(toolName, true, `Problem: ${problem_statement.substring(0, 50)}...`);
+			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Details:\nProblem: ${problem_statement}\nReasoning:\n${generated_cot_text}`);
+			return { content: [{ type: "text" as const, text: resultText }] };
+		} catch (error: unknown) {
+			return logToolError(toolName, error);
+		}
+	}
+);
+
+/**
+ * Tool: plan_and_solve
+ * Purpose: Guides *internal generation* of a structured plan draft.
+ * Workflow: Generate plan -> Call this tool with plan text -> MANDATORY `think` step follows to analyze plan.
+ * Output: Returns the plan text for analysis. Emphasizes need for `think` analysis to verify feasibility and confirm first step.
+ */
+server.tool(
+	"plan_and_solve",
+	"Guides *internal generation* of a **structured plan draft**. Call this tool *with* the generated plan text you created internally. Returns the plan text. MANDATORY: Use the next `think` step to critically evaluate this plan's feasibility, refine it, and confirm the *first actionable step*.",
+	{
+		generated_plan_text: z.string().describe("The **full, structured plan draft** you generated internally, including goals, steps, potential external tool needs, assumptions, and risks."),
+		task_objective: z.string().describe("The original high-level task objective this plan addresses.")
+	},
+	async ({ generated_plan_text, task_objective }) => {
+		const toolName = 'plan_and_solve';
+		logToolCall(toolName);
+		try {
+			if (!generated_plan_text || typeof generated_plan_text !== 'string' || !task_objective || typeof task_objective !== 'string') {
+				throw new Error('Both generated_plan_text and task_objective must be non-empty strings.');
+			}
+
+			// Validate plan format - should have clear sections and structure
+			if (!generated_plan_text.match(/phase|step|goal|objective|:\s|^\d+[\.\)]/im)) {
+				throw new Error('Invalid plan format: Must contain clear sections (phases, steps, goals) with proper structure.');
+			}
+
+			// Validate plan includes risk consideration
+			if (!generated_plan_text.toLowerCase().includes('risk') && !generated_plan_text.toLowerCase().includes('challenge')) {
+				throw new Error('Invalid plan format: Must include risk/challenge assessment.');
+			}
+
+			const resultText = `Plan Generation Completed. Task: "${task_objective.substring(0, 100)}..."\nPlan Structure Logged. MANDATORY: Analyze this plan in your next 'think' step to verify feasibility, refine if needed, and confirm the first concrete action step.`;
+			logToolResult(toolName, true, `Task: ${task_objective.substring(0, 50)}...`);
+			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Details:\nTask: ${task_objective}\nPlan:\n${generated_plan_text}`);
+			return { content: [{ type: "text" as const, text: resultText }] };
 		} catch (error: unknown) {
 			return logToolError(toolName, error);
 		}
@@ -339,9 +352,10 @@ server.tool(
 
 /**
  * Tool: reflection
- * Purpose: Guides the *internal generation* of a critical self-evaluation (critique) of a prior step, draft, or outcome.
- * Workflow: Internally generate critique -> Call this tool *with* the critique text -> MANDATORY `think` step follows to act on the critique.
- * Output: Returns the provided critique text for grounding and analysis.
+ * Purpose: Guides *internal generation* of a critical self-evaluation (critique) on a prior step, draft, plan, or outcome.
+ * Call this tool *with* the **generated critique text** you created internally.
+ * Returns the critique text.
+ * MANDATORY: Use the next `think` step to analyze this critique and plan specific corrective actions or refinements based on it.
  */
 server.tool(
 	"reflection",
@@ -447,7 +461,7 @@ async function main(): Promise<void> {
 		await server.connect(transport);
 		const border = '-----------------------------------------------------';
 		console.error(border);
-		console.error(` ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.7: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY \`think\` step integrates results.`);
+		console.error(` ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.8: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY \`think\` step integrates results.`);
 		console.error(` Version: ${version}`);
 		console.error(' Status: Running on stdio, awaiting MCP requests...');
 		console.error(border);
