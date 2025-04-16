@@ -19,4 +19,5 @@ gikendaasowin-aabajichiganan: assess_complexity_and_select_thought_mode - Combin
 
 We use npx for our mcp server and need to publish to test our tooling.
 
-Run [publish-both-packages.sh](mdc:scripts/publish-both-packages.sh).
+Run @scripts/publish-both-packages.sh
+ 

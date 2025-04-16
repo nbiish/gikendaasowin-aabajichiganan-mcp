@@ -4,7 +4,7 @@
  * -----------------------------------------------------------------------------
  * Gikendaasowin Aabajichiganan - Core Cognitive Tools MCP Server
  *
- * Version: 0.9.6
+ * Version: 0.9.7
  *
  * Description: Provides a suite of cognitive tools for an AI Pair Programmer,
  *              enabling structured reasoning, planning, analysis, and iterative
@@ -39,14 +39,14 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-export const version = "0.9.6";
+export const version = "0.9.7";
 
 // --- Server Definition ---
 
 const server = new McpServer({
 	name: "gikendaasowin-aabajichiganan-mcp",
 	version: version,
-	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.6: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY `think` step integrates results."
+	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.7: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY `think` step integrates results."
 });
 
 // --- Logging Helpers ---
@@ -447,7 +447,7 @@ async function main(): Promise<void> {
 		await server.connect(transport);
 		const border = '-----------------------------------------------------';
 		console.error(border);
-		console.error(` ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.6: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY \`think\` step integrates results.`);
+		console.error(` ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.7: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY \`think\` step integrates results.`);
 		console.error(` Version: ${version}`);
 		console.error(' Status: Running on stdio, awaiting MCP requests...');
 		console.error(border);
