@@ -4,7 +4,7 @@
  * -----------------------------------------------------------------------------
  * Gikendaasowin Aabajichiganan - Core Cognitive Tools MCP Server
  *
- * Version: 0.9.4
+ * Version: 0.9.6
  *
  * Description: Provides a suite of cognitive tools for an AI Pair Programmer,
  *              enabling structured reasoning, planning, analysis, and iterative
@@ -39,14 +39,14 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-export const version = "0.9.4";
+export const version = "0.9.6";
 
 // --- Server Definition ---
 
 const server = new McpServer({
 	name: "gikendaasowin-aabajichiganan-mcp",
 	version: version,
-	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.4: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY `think` step integrates results."
+	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.6: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY `think` step integrates results."
 });
 
 // --- Logging Helpers ---
@@ -121,20 +121,24 @@ server.tool(
 			if (!cucnRegex.test(assessment_and_choice)) {
 				throw new Error('Invalid assessment: String must include "CUC-N Ratings:".');
 			}
+            /* // User request: Remove strict check for 'Recommended Initial Strategy:'
             if (!strategyRegex.test(assessment_and_choice)) {
 				throw new Error('Invalid assessment: String must include "Recommended Initial Strategy:".');
 			}
+            */
 			const modeMatch = assessment_and_choice.match(modeRegex);
 			if (!modeMatch || !modeMatch[1]) {
 				throw new Error('Invalid assessment: String must include explicit "Selected Mode: think" or "Selected Mode: quick_think".');
 			}
 
 			const selectedMode = modeMatch[1].toLowerCase();
-			const resultText = `Cognitive Assessment Completed. CUC-N analysis indicates ${selectedMode === 'think' ? 'detailed deliberation' : 'quick check'} is appropriate. Proceeding with selected mode: ${selectedMode}. Full Assessment logged. Ensure subsequent actions align with this assessment.`;
-			logToolResult(toolName, true, `Selected mode: ${selectedMode}`);
+			logToolResult(toolName, true, `Selected mode: ${selectedMode} - Returning original assessment + reminder.`);
 			// Log the full assessment server-side for traceability
 			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Assessment Details:\n${assessment_and_choice}`);
-			return { content: [{ type: "text" as const, text: resultText }] };
+
+			// New logic: Return original input + reminder
+			const reminder = "\n\n---\nSchema Reminder: Ensure assessment includes: 1) Situation Description, 2) CUC-N Ratings:, 3) Rationale for ratings, 4) Recommended Initial Strategy:, 5) Selected Mode: think/quick_think.";
+			return { content: [{ type: "text" as const, text: assessment_and_choice + reminder }] };
 		} catch (error: unknown) {
 			return logToolError(toolName, error);
 		}
@@ -444,7 +448,7 @@ async function main(): Promise<void> {
 		await server.connect(transport);
 		const border = '-----------------------------------------------------';
 		console.error(border);
-		console.error(` ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.4: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY \`think\` step integrates results.`);
+		console.error(` ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.6: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY \`think\` step integrates results.`);
 		console.error(` Version: ${version}`);
 		console.error(' Status: Running on stdio, awaiting MCP requests...');
 		console.error(border);
