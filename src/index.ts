@@ -102,7 +102,7 @@ function logToolError(toolName: string, error: unknown) {
  */
 server.tool(
 	"assess_cuc_n_mode",
-	"**Mandatory Pre-Deliberation Assessment.** Evaluates task Complexity, Uncertainty, Consequence, Novelty (CUC-N) to determine required cognitive depth and initial strategy. MUST be called before starting complex tasks or changing strategy. Selects 'think' (default) or 'quick_think' (only for verified Low CUC-N).",
+	"**Mandatory Pre-Deliberation Assessment.** Evaluates task Complexity, Uncertainty, Consequence, Novelty (CUC-N) to determine required cognitive depth and initial strategy. MUST be called before starting complex tasks or changing strategy. Based on assessment, use either `think` (for structured analysis) or `quick_think` (for streamlined processing) in the next step.",
 	{
 		assessment_and_choice: z.string().describe("Your structured assessment including: 1) Situation Description, 2) CUC-N Ratings (Low/Medium/High for each), 3) Rationale for ratings, 4) Recommended Initial Cognitive Strategy (e.g., 'Start with chain_of_thought then think'), 5) Explicit Mode Selection ('Selected Mode: think' or 'Selected Mode: quick_think').")
 	},
@@ -146,34 +146,70 @@ server.tool(
 
 /**
  * Tool: think
- * Purpose: The **CENTRAL HUB** for the cognitive loop. Mandatory after assessment, other cognitive tools, internal drafts, or external action results.
- * Workflow: Analyze previous step -> Plan immediate next step -> Verify -> Assess Risk -> Self-Correct.
+ * Purpose: The **CENTRAL HUB** for the cognitive loop, incorporating OODReAct principles (Observe-Orient-Decide-Reason-Act).
+ * Workflow: Combines observation, orientation, decision-making, reasoning, and action for enhanced problem-solving.
  * Output: Returns the structured thought text itself, grounding the AI's reasoning process in the context.
  */
 server.tool(
 	"think",
-	"**MANDATORY Central Hub for Analysis, Planning, and Refinement.** Called after assessment, other cognitive tools (`plan_and_solve`, `chain_of_thought`, etc.), internal drafts (`chain_of_draft`), or external action results. Analyzes previous step's outcome/draft, plans the *immediate* next action (cognitive or planning external action), verifies plan, assesses risk/challenges, looks ahead, and self-corrects. Follow the MANDATORY structure in the `thought` parameter.",
+	"**MANDATORY Central Hub for Analysis and Planning.** Called after assessment (`assess_cuc_n_mode`), other cognitive tools (`plan_and_solve`, `chain_of_thought`, `chain_of_draft`, `reflection`, `synthesize_prior_reasoning`, `gauge_confidence`), internal drafts (`chain_of_draft`), or external action results. Incorporates OODReAct principles (Observe-Orient-Decide-Reason-Act) for enhanced problem-solving. Consider structuring your thought process to: 1) Observe new information and changes, 2) Orient by analyzing context and patterns, 3) Decide on potential actions, 4) Reason through implications and alternatives, and 5) Act by planning specific execution steps. Follow the MANDATORY structure in the `thought` parameter. For simpler follow-up steps, consider using `quick_think` instead.",
 	{
-		thought: z.string().describe("Your **detailed** internal monologue following the MANDATORY structure: ## Analysis: (Critically evaluate last result/draft/observation. What worked? What didn't? What are the implications?), ## Plan: (Define the *single, immediate* next action and its specific purpose. Is it calling another cognitive tool, generating a draft, planning an external action, or concluding?), ## Verification: (How will you confirm the next step is correct or successful?), ## Anticipated Challenges & Contingency: (What could go wrong with the next step? How will you handle it?), ## Risk Assessment: (Briefly assess risk of the planned step - Low/Medium/High), ## Lookahead: (How does this step fit into the overall goal?), ## Self-Correction & Learning: (Any adjustments needed based on the analysis? What was learned?).")
+		thought: z.string().describe("Your **detailed** internal monologue. While any clear, structured format is accepted, consider following OODReAct principles in your thinking:\n- Observe: What new information/signals are available?\n- Orient: How does this fit into the bigger picture?\n- Decide: What are the potential actions to take?\n- Reason: What are the implications and alternatives?\n- Act: How to execute the chosen action?\n\nRequired sections:\n## Analysis/Observation\n## Plan/Decision\n## Verification\n## Risk & Contingency\n## Learning & Adaptation")
 	},
 	async ({ thought }) => {
 		const toolName = 'think';
 		logToolCall(toolName);
+		
 		try {
 			if (!thought || typeof thought !== 'string' || thought.trim().length === 0) {
-				throw new Error('Invalid thought: Must be a non-empty string containing the structured analysis and plan.');
-			}
-			// Basic structural check (case-insensitive) - Warning, not strict failure
-			const requiredSections = ["## Analysis:", "## Plan:", "## Verification:", "## Anticipated Challenges & Contingency:", "## Risk Assessment:", "## Lookahead:", "## Self-Correction & Learning:"];
-			const missingSections = requiredSections.filter(section => !thought.toLowerCase().includes(section.toLowerCase()));
-			if (missingSections.length > 0) {
-				console.warn(`[${new Date().toISOString()}] [MCP Server] Warning: '${toolName}' input might be missing sections: ${missingSections.join(', ')}. Ensure full structure is followed for optimal reasoning.`);
+				throw new Error('Invalid thought: Must be a non-empty string containing substantive reasoning.');
 			}
 
-			logToolResult(toolName, true, `Thought logged (length: ${thought.length})`);
-			// Returns the same thought text received. This grounds the reasoning in the context.
-			// The AI uses this output implicitly as the starting point for its *next* internal step or external action.
-			return { content: [{ type: "text" as const, text: thought }] };
+			// Define required sections (more flexible now)
+			const requiredSections = [
+				["## Analysis:", "## Observe:", "## Observation:"], // Accept various observation formats
+				["## Orient:", "## Orientation:"], // Optional but recognized
+				["## Plan:", "## Decide:", "## Decision:"], // Decision-related sections
+				["## Reason:", "## Reasoning:", "## Analysis:"], // Reasoning-related sections
+				["## Act:", "## Action:", "## Execution:"], // Action-related sections
+				["## Verification:"],
+				["## Risk & Contingency:", "## Risks:", "## Challenges:"],
+				["## Learning & Adaptation:", "## Self-Correction:", "## Learning:"]
+			];
+			
+			// Check if each required section group has at least one match
+			const missingSections = requiredSections.filter(sectionGroup => 
+				!sectionGroup.some(section => thought.includes(section))
+			);
+
+			// Build validation report
+			let validationReport = [];
+			
+			if (missingSections.length > 0) {
+				validationReport.push("WARNING: Some recommended sections might be missing. Consider including observation, orientation, decision, reasoning, action, verification, risks, and learning components in your thought process.");
+			}
+
+			// Log validation results
+			if (validationReport.length > 0) {
+				console.warn(`[${new Date().toISOString()}] [CognitiveToolsServer] Think Tool Validation Report:\n${validationReport.join("\n")}`);
+			}
+
+			// Enhanced logging with simplified format detection
+			const format = thought.includes("## Observe:") ? "OODReAct-style" : "Traditional";
+			logToolResult(toolName, true, `Thought logged (Style: ${format}, Length: ${thought.length})`);
+
+			// Return thought with metadata
+			return {
+				content: [{
+					type: "text" as const,
+					text: thought
+				}],
+				metadata: {
+					format,
+					validationReport,
+					timestamp: new Date().toISOString()
+				}
+			};
 		} catch (error: unknown) {
 			return logToolError(toolName, error);
 		}
@@ -181,16 +217,33 @@ server.tool(
 );
 
 /**
+ * Cognitive Checkpoint ONLY for situations explicitly assessed as strictly Low CUC-N 
+ * (via `assess_cuc_n_mode`) or for trivial confirmations/acknowledgements where 
+ * detailed analysis via `think` is unnecessary. Provides a streamlined version of 
+ * the OODReAct (Observe-Orient-Decide-Reason-Act) framework for simple cases.
+ * Use SPARINGLY.
+ */
+export interface QuickThinkInput {
+	/**
+	 * Your **concise** thought or confirmation for this simple, low CUC-N step.
+	 * Briefly state the observation/action and confirm it's trivial.
+	 * While this is a simplified version of OODReAct, ensure basic observation
+	 * and reasoning are still present, even if brief.
+	 */
+	brief_thought: string;
+}
+
+/**
  * Tool: quick_think
- * Purpose: A lightweight cognitive checkpoint for **strictly Low CUC-N situations** or trivial confirmations.
- * Workflow: Use ONLY when `assess_cuc_n_mode` explicitly selected 'quick_think'. Use sparingly.
+ * Purpose: A lightweight cognitive checkpoint for streamlined processing and simple confirmations.
+ * Workflow: Use when full structured analysis via `think` is not necessary.
  * Output: Logs the brief thought.
  */
 server.tool(
 	"quick_think",
-	"Cognitive Checkpoint ONLY for situations explicitly assessed as strictly Low CUC-N (via `assess_cuc_n_mode`) or for trivial confirmations/acknowledgements where detailed analysis via `think` is unnecessary. Use SPARINGLY.",
+	"Cognitive Checkpoint for streamlined processing and simple confirmations where detailed analysis via `think` is unnecessary. Use when full structured deliberation would be excessive for the current step.",
 	{
-		brief_thought: z.string().describe("Your **concise** thought or confirmation for this simple, low CUC-N step. Briefly state the observation/action and confirm it's trivial.")
+		brief_thought: z.string().describe("Your **concise** thought or confirmation for this step. Briefly state the observation/action and explain why detailed analysis isn't needed.")
 	},
 	async ({ brief_thought }) => {
 		const toolName = 'quick_think';
@@ -211,12 +264,12 @@ server.tool(
 /**
  * Tool: gauge_confidence
  * Purpose: Meta-Cognitive Checkpoint to explicitly state confidence in a preceding analysis, plan, or draft.
- * Workflow: Generate assessment -> Call this tool with assessment text -> MANDATORY `think` step follows to analyze the confidence level.
- * Output: Confirms confidence gauging and level. Emphasizes need for `think` analysis, especially if not High.
+ * Workflow: Generate assessment -> Call this tool with assessment text -> Follow with either `think` or `quick_think`.
+ * Output: Confirms confidence gauging and level.
  */
 server.tool(
 	"gauge_confidence",
-	"Meta-Cognitive Checkpoint. Guides *internal stating* of **confidence (High/Medium/Low) and justification** regarding a specific plan, analysis, or draft you just formulated. Call this tool *with* the text containing your confidence assessment. Output MUST be analyzed in the mandatory `think` step immediately following.",
+	"Meta-Cognitive Checkpoint. Guides *internal stating* of **confidence (High/Medium/Low) and justification** regarding a specific plan, analysis, or draft you just formulated. Call this tool *with* the text containing your confidence assessment. Follow with either `think` (for detailed analysis) or `quick_think` (for straightforward confirmation) based on the confidence level and complexity.",
 	{
 		assessment_and_confidence: z.string().describe("The text containing the item being assessed AND your explicit internal assessment: 1) Confidence Level: (High/Medium/Low). 2) Justification for this level.")
 	},
@@ -248,12 +301,12 @@ server.tool(
 /**
  * Tool: chain_of_thought
  * Purpose: Guides *internal generation* of detailed, step-by-step reasoning draft (CoT).
- * Workflow: Generate CoT -> Call this tool with CoT text -> MANDATORY `think` step follows to analyze reasoning.
- * Output: Returns the CoT text for analysis. Emphasizes need for `think` analysis to extract insights and plan next action.
+ * Workflow: Generate CoT -> Call this tool with CoT text -> Follow with either `think` or `quick_think`.
+ * Output: Returns the CoT text for analysis.
  */
 server.tool(
 	"chain_of_thought",
-	"Guides *internal generation* of **detailed, step-by-step reasoning draft (CoT)**. Call this tool *with* the generated CoT text you created internally. Returns the CoT text. MANDATORY: Use the next `think` step to analyze this reasoning, extract insights, identify flaws/gaps, and plan the next concrete action based on the CoT.",
+	"Guides *internal generation* of **detailed, step-by-step reasoning draft (CoT)**. Call this tool *with* the generated CoT text you created internally. Returns the CoT text. Follow with either `think` (for complex reasoning chains requiring detailed analysis) or `quick_think` (for straightforward reasoning steps) to process the CoT and plan next actions.",
 	{
 		generated_cot_text: z.string().describe("The **full, step-by-step Chain of Thought draft** you generated internally to solve or analyze the problem."),
 		problem_statement: z.string().describe("The original problem statement or question this CoT addresses.")
@@ -284,12 +337,12 @@ server.tool(
 /**
  * Tool: plan_and_solve
  * Purpose: Guides *internal generation* of a structured plan draft.
- * Workflow: Generate plan -> Call this tool with plan text -> MANDATORY `think` step follows to analyze plan.
- * Output: Returns the plan text for analysis. Emphasizes need for `think` analysis to verify feasibility and confirm first step.
+ * Workflow: Generate plan -> Call this tool with plan text -> Follow with either `think` or `quick_think`.
+ * Output: Returns the plan text for analysis.
  */
 server.tool(
 	"plan_and_solve",
-	"Guides *internal generation* of a **structured plan draft**. Call this tool *with* the generated plan text you created internally. Returns the plan text. MANDATORY: Use the next `think` step to critically evaluate this plan's feasibility, refine it, and confirm the *first actionable step*.",
+	"Guides *internal generation* of a **structured plan draft**. Call this tool *with* the generated plan text you created internally. Returns the plan text. Follow with either `think` (for complex plans requiring detailed analysis) or `quick_think` (for straightforward plans) to evaluate feasibility and confirm next steps.",
 	{
 		generated_plan_text: z.string().describe("The **full, structured plan draft** you generated internally, including goals, steps, potential external tool needs, assumptions, and risks."),
 		task_objective: z.string().describe("The original high-level task objective this plan addresses.")
@@ -324,15 +377,20 @@ server.tool(
 
 /**
  * Tool: chain_of_draft
- * Purpose: Signals that internal drafts (code, text, plan fragments) have been generated or refined.
- * Workflow: Internally generate/refine draft(s) -> Call this tool -> MANDATORY `think` step follows to analyze the draft(s).
- * Output: Confirms readiness for analysis.
+ * Purpose: Signals that internal drafts have been generated/refined using Chain of Draft (CoD) principles.
+ * Workflow: Internally generate/refine concise draft(s) -> Call this tool -> Follow with either `think` or `quick_think`.
+ * Best Practices from Research:
+ * - Keep each draft step short (< 5 words) like human notes
+ * - Use equations, symbols, or brief phrases instead of sentences
+ * - Focus on essential information only
+ * - End with #### followed by final answer/conclusion
+ * Output: Returns markdown-formatted response with CoD guidance and next tool recommendation.
  */
 server.tool(
 	"chain_of_draft",
-	"Signals that one or more **internal drafts** (e.g., code snippets, documentation sections, refined plan steps) have been generated or refined and are ready for analysis. Call this tool *after* generating/refining draft(s) internally. Response confirms readiness. MANDATORY: Analyze these draft(s) in your next `think` step.",
+	"Signals that one or more **internal drafts** have been generated/refined using Chain of Draft (CoD) principles. CoD is an efficient prompting technique that uses concise, note-like drafts instead of full sentences. Best practices:\n- Keep each step short (< 5 words)\n- Use equations/symbols when possible\n- Focus on essential information\n- End with #### followed by conclusion\n\nCall this tool *after* generating/refining draft(s) internally. Returns markdown-formatted response with next tool recommendation. Follow with either `think` (for complex drafts requiring detailed analysis) or `quick_think` (for straightforward drafts) to evaluate and plan next steps.",
 	{
-		draft_description: z.string().describe("Brief but specific description of the draft(s) generated/refined internally (e.g., 'Initial Python function for API call', 'Refined error handling in plan step 3', 'Drafted README introduction').")
+		draft_description: z.string().describe("Brief but specific description of the draft(s) generated/refined internally (e.g., 'Initial API function - params defined', 'Error handling v2', 'README structure').")
 	},
 	async ({ draft_description }) => {
 		const toolName = 'chain_of_draft';
@@ -341,7 +399,29 @@ server.tool(
 			if (!draft_description || typeof draft_description !== 'string' || draft_description.trim().length === 0) {
 				throw new Error('Invalid draft_description: Must provide a description.');
 			}
-			const resultText = `Internal draft(s) ready for analysis: \"${draft_description}\". MANDATORY: Analyze these draft(s) now using the structured format in your next 'think' step. Evaluate correctness, completeness, and alignment with goals.`;
+
+			// Format response in markdown with CoD guidance and next tool recommendation
+			const resultText = `### Chain of Draft Signal Received
+#### Draft Description
+${draft_description}
+
+#### Chain of Draft (CoD) Reminders
+- Keep steps concise (< 5 words)
+- Use equations/symbols when possible
+- Focus on essential information
+- End drafts with #### + conclusion
+
+#### Next Steps
+1. MANDATORY: Use \`think\` tool to analyze this draft:
+   - Evaluate correctness and completeness
+   - Check alignment with goals
+   - Plan concrete next actions
+2. Consider using \`reflection\` tool if deeper critique needed
+3. Use \`synthesize_prior_reasoning\` if context consolidation helpful
+
+#### Status
+Draft(s) ready for analysis. Proceed with mandatory \`think\` step.`;
+
 			logToolResult(toolName, true);
 			return { content: [{ type: "text" as const, text: resultText }] };
 		} catch (error: unknown) {
@@ -355,11 +435,11 @@ server.tool(
  * Purpose: Guides *internal generation* of a critical self-evaluation (critique) on a prior step, draft, plan, or outcome.
  * Call this tool *with* the **generated critique text** you created internally.
  * Returns the critique text.
- * MANDATORY: Use the next `think` step to analyze this critique and plan specific corrective actions or refinements based on it.
+ * Follow with either `think` or `quick_think` to process the critique.
  */
 server.tool(
 	"reflection",
-	"Guides *internal generation* of a critical self-evaluation (critique) on a prior step, draft, plan, or outcome. Call this tool *with* the **generated critique text** you created internally. Returns the critique text. MANDATORY: Use the next `think` step to analyze this critique and plan specific corrective actions or refinements based on it.",
+	"Guides *internal generation* of a critical self-evaluation (critique) on a prior step, draft, plan, or outcome. Call this tool *with* the **generated critique text** you created internally. Returns the critique text. Follow with either `think` (for complex critiques requiring detailed analysis) or `quick_think` (for straightforward critiques) to process the feedback and plan improvements.",
 	{
 		generated_critique_text: z.string().describe("The **full critique text** you generated internally, identifying specific flaws, strengths, assumptions, alternative approaches, and concrete suggestions for improvement."),
 		input_subject_description: z.string().describe("A brief description of the original reasoning, plan, code draft, or action result that was critiqued (e.g., 'Critique of the plan generated via plan_and_solve', 'Reflection on the CoT for problem X').")
@@ -386,12 +466,12 @@ server.tool(
 /**
  * Tool: synthesize_prior_reasoning
  * Purpose: Context Management Tool. Guides the *internal generation* of a structured summary of preceding context.
- * Workflow: Internally generate summary -> Call this tool *with* the summary text -> MANDATORY `think` step follows to use the summary.
+ * Workflow: Internally generate summary -> Call this tool *with* the summary text -> Follow with either `think` or `quick_think`.
  * Output: Returns the provided summary text for grounding and analysis.
  */
 server.tool(
 	"synthesize_prior_reasoning",
-	"Context Management Tool. Guides *internal generation* of a **structured summary** of preceding steps, decisions, key findings, or relevant context to consolidate understanding before proceeding. Call this tool *with* the generated summary text you created internally. Returns the summary. MANDATORY: Use the next `think` step to leverage this summary and inform the next action.",
+	"Context Management Tool. Guides *internal generation* of a **structured summary** of preceding steps, decisions, key findings, or relevant context to consolidate understanding before proceeding. Call this tool *with* the generated summary text you created internally. Returns the summary. Follow with either `think` (for complex context requiring detailed analysis) or `quick_think` (for straightforward context) to leverage this summary and inform next actions.",
 	{
 		generated_summary_text: z.string().describe("The **full, structured summary text** you generated internally (e.g., key decisions made, open questions, current state of implementation, relevant facts gathered)."),
 		context_to_summarize_description: z.string().describe("Description of the reasoning span or context that was summarized (e.g., 'Summary of the last 5 steps', 'Consolidated findings from tool results A and B').")
