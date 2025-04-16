@@ -132,13 +132,12 @@ server.tool(
 			}
 
 			const selectedMode = modeMatch[1].toLowerCase();
-			logToolResult(toolName, true, `Selected mode: ${selectedMode} - Returning original assessment + reminder.`);
+			logToolResult(toolName, true, `Selected mode: ${selectedMode} - Returning original assessment.`);
 			// Log the full assessment server-side for traceability
 			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Assessment Details:\n${assessment_and_choice}`);
 
-			// New logic: Return original input + reminder
-			const reminder = "\n\n---\nSchema Reminder: Ensure assessment includes: 1) Situation Description, 2) CUC-N Ratings:, 3) Rationale for ratings, 4) Recommended Initial Strategy:, 5) Selected Mode: think/quick_think.";
-			return { content: [{ type: "text" as const, text: assessment_and_choice + reminder }] };
+			// Return original input string without reminder
+			return { content: [{ type: "text" as const, text: assessment_and_choice }] };
 		} catch (error: unknown) {
 			return logToolError(toolName, error);
 		}

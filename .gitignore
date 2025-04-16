@@ -91,3 +91,20 @@ package-lock.json.bak
 
 # testing
 testing/
+# Cursor files
+.cursor/
+.cursorignore
+.cursorindexingignore
+.cursorrules
+
+# Aider files
+.aider-instructions.md
+.aider.conf.yml
+.aiderignore
+.env.example
+
+# Copilot files
+.copilot/
+.copilotignore
+.rooignore
+.github/copilot-instructions.md
