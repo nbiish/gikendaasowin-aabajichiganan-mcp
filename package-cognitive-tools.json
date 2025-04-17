@@ -1,6 +1,6 @@
 {
   "name": "@nbiish/cognitive-tools-mcp",
-  "version": "0.9.13",
+  "version": "0.9.14",
   "description": "Cognitive Tools MCP: SOTA reasoning suite focused on iterative refinement and tool integration for AI Pair Programming. Enables structured, iterative problem-solving through Chain of Draft methodology, with tools for draft generation, analysis, and refinement. Features advanced deliberation (`think`), rapid checks (`quick_think`), mandatory complexity assessment & thought mode selection (`assess_cuc_n_mode`), context synthesis, confidence gauging, proactive planning, explicit reasoning (CoT), and reflection with content return. Alternative package name for gikendaasowin-aabajichiganan-mcp.",
   "private": false,
   "type": "module",

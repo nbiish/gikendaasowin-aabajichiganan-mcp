@@ -26,12 +26,7 @@ curl -fLo LICENSE https://raw.githubusercontent.com/nbiish/license-for-all-works
 
 ## 3 @README.md -> Point to the current codebase's LICENSE that was just pulled and filled out. 
 
-## 4.1 @README.md -> First download the QR code image:
-```bash
-curl -o qr-stripe-donation.png https://raw.githubusercontent.com/nbiish/license-for-all-works/8e9b73b269add9161dc04bbdd79f818c40fca14e/qr-stripe-donation.png
-```
-
-### 4.2 @README.md -> Then add the following near the top so that it's easthetically pleasing:
+### 4 @README.md -> Then add the following near the top so that it's easthetically pleasing:
 ```markdown
 <div align="center">
   <hr width="50%">

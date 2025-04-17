@@ -24,7 +24,7 @@ This project is licensed under the [COMPREHENSIVE RESTRICTED USE LICENSE FOR IND
     <div>
       <h4>Stripe</h4>
       <img src="qr-stripe-donation.png" alt="Scan to donate" width="180"/>
-      <p><a href="https://raw.githubusercontent.com/nbiish/license-for-all-works/8e9b73b269add9161dc04bbdd79f818c40fca14e/qr-stripe-donation.png">Donate via Stripe</a></p>
+      <p><a href="https://donate.stripe.com/3cs29La1j8UGfnObII">Donate via Stripe</a></p>
     </div>
     <div style="display: flex; align-items: center;">
       <a href="https://www.buymeacoffee.com/nbiish"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=nbiish&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
