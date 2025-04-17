@@ -46,12 +46,16 @@ Both packages are maintained in parallel and receive the same updates. You can u
 
 ## Features
 
-Provides five cognitive tools for AI agents:
-- `think`: Internal workspace for structured analysis and planning
-- `chain_of_thought`: Sequential reasoning steps for problem-solving
-- `reflection`: Self-critique and improvement of reasoning
-- `plan_and_solve`: High-level strategy development
-- `chain_of_draft`: Concise, iterative reasoning steps
+Provides a suite of cognitive tools for AI agents, enabling structured reasoning and iterative refinement:
+- `assess_cuc_n_mode`: **Mandatory** initial assessment of task complexity (CUC-N) to select cognitive mode (`think` or `quick_think`).
+- `think`: **Mandatory** central hub for analysis, planning, verification, and self-correction, incorporating OODReAct principles.
+- `quick_think`: Lightweight cognitive checkpoint for simple, low CUC-N steps or trivial confirmations.
+- `gauge_confidence`: Meta-cognitive check to state confidence (High/Medium/Low) in a plan, analysis, or draft.
+- `chain_of_thought`: Guides internal generation of detailed, step-by-step reasoning (CoT).
+- `plan_and_solve`: Guides internal generation of a structured, multi-step plan.
+- `chain_of_draft`: Signals internal generation/refinement of concise drafts (CoD).
+- `reflection`: Guides internal generation of a critical self-evaluation (critique).
+- `synthesize_prior_reasoning`: Guides internal generation of a summary to consolidate context.
 
 ## Installation
 
@@ -95,49 +99,67 @@ Or:
 
 ## Tool Descriptions
 
-### Think Tool
-- **Purpose**: MANDATORY core cognitive step for structured deliberation. Use this internal workspace for analysis, planning, verification, risk assessment, and self-correction before ANY action and after using other cognitive tools.
-- **Input**: `thought` (string) - Your detailed internal monologue and reasoning. Structure clearly with sections like Analysis, Plan, Verification, Risk Assessment, and Self-Correction.
-- **Response Format**:
-```json
-{
-  "content": [{
-    "type": "text",
-    "text": "Returns the complete thought content you provided for explicit grounding in the next step"
-  }]
-}
-```
+*(Note: For detailed usage, workflow, and mandatory rules, always refer to [`latest.md`](latest.md))*
 
-### Chain of Thought Tool
-- **Purpose**: Generate explicit, sequential reasoning steps for problem-solving
-- **Input**: 
-  - `generated_cot_text` (string) - The full, step-by-step Chain of Thought text you generated internally
-  - `problem_statement` (string) - The original problem statement this CoT addresses
-- **Response Format**: Returns the complete CoT text for mandatory analysis in the next step
+### `assess_cuc_n_mode`
+- **Purpose**: **Mandatory Pre-Deliberation Assessment.** Evaluates task Complexity, Uncertainty, Consequence, Novelty (CUC-N) to determine required cognitive depth and initial strategy. MUST be called before starting complex tasks or changing strategy.
+- **Input**: `assessment_and_choice` (string) - Your structured assessment including Situation Description, CUC-N Ratings, Rationale, Recommended Strategy, and Explicit Mode Selection (`Selected Mode: think` or `Selected Mode: quick_think`).
+- **Follow-up**: Mandatory `think` or `quick_think` (based on selection).
 
-### Reflection Tool
-- **Purpose**: Self-critique and improvement of reasoning or plans
-- **Input**: 
-  - `generated_critique_text` (string) - The full critique text you generated internally
-  - `input_reasoning_or_plan` (string) - The original text that was critiqued
-- **Response Format**: Returns the complete critique text for mandatory analysis in the next step
+### `think`
+- **Purpose**: **MANDATORY Central Hub for Analysis and Planning.** Called after assessment, other cognitive tools, internal drafts, or external action results. Incorporates OODReAct principles (Observe-Orient-Decide-Reason-Act).
+- **Input**: `thought` (string) - Your detailed internal monologue, ideally structured with sections like Observe, Orient, Decide, Reason, Act, Verification, Risk & Contingency, Learning & Adaptation.
+- **Follow-up**: Execute the immediate next action defined in the `## Plan:` (or `## Decide:`) section.
 
-### Plan and Solve Tool
-- **Purpose**: High-level strategy development for complex objectives
-- **Input**: 
-  - `generated_plan_text` (string) - The full, structured plan text you generated internally
-  - `task_objective` (string) - The original high-level task objective this plan addresses
-- **Response Format**: Returns the complete plan text for mandatory analysis in the next step
+### `quick_think`
+- **Purpose**: Cognitive Checkpoint for streamlined processing and simple confirmations where detailed analysis via `think` is unnecessary. Use ONLY when appropriate (Low CUC-N, trivial steps).
+- **Input**: `brief_thought` (string) - Your concise thought or confirmation.
+- **Follow-up**: Execute the simple next step.
 
-### Chain of Draft Tool
-- **Purpose**: Concise, iterative reasoning steps for rapid exploration
-- **Input**: `problem_statement` (string) - Problem suitable for concise, iterative reasoning
-- **Response Format**: Returns a confirmation message; the drafts you generated internally must be analyzed in the next step
+### `gauge_confidence`
+- **Purpose**: Meta-Cognitive Checkpoint. Guides *internal stating* of confidence (High/Medium/Low) and justification regarding a specific plan, analysis, or draft.
+- **Workflow**: Internally generate assessment -> Call tool.
+- **Input**: `assessment_and_confidence` (string) - Text containing the item being assessed AND your explicit internal assessment (Confidence Level + Justification).
+- **Follow-up**: Mandatory `think` or `quick_think`.
 
-### Mandatory Pre-Deliberation Assessment
-- **Purpose**: Must be called BEFORE initiating significant cognitive processes (`think`) or complex action sequences. Evaluates CUC-N, recommends strategy, commits to next thought mode.
-- **Input**: `assessment_and_choice` (string) - Your assessment including Situation Description, CUC-N Ratings, Recommended Strategy, and Selected Mode
-- **Response Format**: Returns confirmation with the selected mode
+### `chain_of_thought`
+- **Purpose**: Guides *internal generation* of a detailed, step-by-step reasoning draft (CoT).
+- **Workflow**: Internally generate CoT -> Call tool.
+- **Input**:
+    - `generated_cot_text` (string) - The full CoT draft you generated internally.
+    - `problem_statement` (string) - The original problem this CoT addresses.
+- **Follow-up**: Mandatory `think` or `quick_think`.
+
+### `plan_and_solve`
+- **Purpose**: Guides *internal generation* of a structured plan draft.
+- **Workflow**: Internally generate plan -> Call tool.
+- **Input**:
+    - `generated_plan_text` (string) - The full, structured plan draft you generated internally.
+    - `task_objective` (string) - The original high-level task objective.
+- **Follow-up**: Mandatory `think` or `quick_think`.
+
+### `chain_of_draft`
+- **Purpose**: Signals that one or more **internal drafts** have been generated/refined using Chain of Draft (CoD) principles (concise, note-like steps).
+- **Workflow**: Internally generate/refine draft(s) -> Call tool.
+- **Input**: `draft_description` (string) - Brief but specific description of the draft(s) generated/refined internally.
+- **Follow-up**: Mandatory `think` or `quick_think`.
+
+### `reflection`
+- **Purpose**: Guides *internal generation* of a critical self-evaluation (critique) on a prior step, draft, plan, or outcome.
+- **Workflow**: Internally generate critique -> Call tool.
+- **Input**:
+    - `generated_critique_text` (string) - The full critique text you generated internally.
+    - `input_subject_description` (string) - A brief description of what was critiqued.
+- **Follow-up**: Mandatory `think` or `quick_think`.
+
+### `synthesize_prior_reasoning`
+- **Purpose**: Context Management Tool. Guides *internal generation* of a structured summary of preceding context.
+- **Workflow**: Internally generate summary -> Call tool.
+- **Input**:
+    - `generated_summary_text` (string) - The full, structured summary text you generated internally.
+    - `context_to_summarize_description` (string) - Description of the context that was summarized.
+- **Follow-up**: Mandatory `think` or `quick_think`.
+
 
 ## Development
 
@@ -218,6 +240,8 @@ The script includes robust error handling:
 
 Here are some example test cases that demonstrate the cognitive tools using culturally appropriate Anishinaabe concepts. These examples are provided with respect and acknowledgment of Anishinaabe teachings.
 
+*(Note: These examples show tool invocation structure. The actual content for inputs like `thought`, `generated_cot_text`, etc., must be generated internally by the agent based on the specific task, following the workflows described in `latest.md`.)*
+
 ### Using the MCP Inspector
 
 1. Start the MCP Inspector:
@@ -227,62 +251,96 @@ npm run inspector
 
 2. Connect to the server and try these example tool calls:
 
-#### Think Tool Example
+#### `assess_cuc_n_mode` Example
+```json
+{
+  "toolName": "assess_cuc_n_mode",
+  "arguments": {
+    "assessment_and_choice": "1) Situation Description: User wants to understand the Anishinaabe concept of Mino-Bimaadiziwin (Living the Good Life).\\n2) CUC-N Ratings: Complexity: Medium (Involves cultural concepts), Uncertainty: Medium (Requires accessing and synthesizing knowledge), Consequence: Medium (Accuracy is important), Novelty: Low (Explaining concepts is common).\\n3) Rationale: Requires careful explanation of interconnected teachings.\\n4) Recommended Initial Strategy: Use chain_of_thought to break down the concept.\\n5) Explicit Mode Selection: Selected Mode: think"
+  }
+}
+```
+
+#### `think` Tool Example
 ```json
 {
   "toolName": "think",
   "arguments": {
-    "thought": "Analyzing the Seven Grandfather Teachings (Nibwaakaawin - Wisdom, Zaagi'idiwin - Love, Minaadendamowin - Respect, Aakode'ewin - Bravery, Gwayakwaadiziwin - Honesty, Dabaadendiziwin - Humility, Debwewin - Truth) and their application in modern problem-solving:\n\n1. How does Nibwaakaawin guide decision-making?\n2. How can Zaagi'idiwin inform our approach to community?\n3. How does Minaadendamowin shape our relationship with knowledge?"
+    "thought": "## Observe:\\nReceived task to explain Mino-Bimaadiziwin. Assessment chose 'think' mode.\\n## Orient:\\nMino-Bimaadiziwin is central to Anishinaabe philosophy, encompassing balance, health, and connection.\\n## Decide:\\nPlan to use chain_of_thought to structure the explanation.\\n## Reason:\\nA step-by-step approach will clarify the components (spiritual, mental, emotional, physical well-being).\\n## Act:\\nInternally generate CoT for Mino-Bimaadiziwin.\\n## Verification:\\nReview generated CoT for accuracy and completeness before calling the tool.\\n## Risk & Contingency:\\nRisk: Misrepresenting cultural concepts (Medium). Contingency: Rely on established knowledge, cross-reference if unsure, state limitations.\\n## Learning & Adaptation:\\nReinforce the need for careful handling of cultural knowledge."
   }
 }
 ```
 
-Example Response:
+#### `quick_think` Example
 ```json
 {
-  "content": [{
-    "type": "text",
-    "text": "Analyzing the Seven Grandfather Teachings..."
-  }]
+  "toolName": "quick_think",
+  "arguments": {
+    "brief_thought": "Observed successful completion of file read. Task is simple confirmation, no deep analysis needed. Proceeding to next step."
+  }
 }
 ```
 
-#### Chain of Thought Example
+#### `gauge_confidence` Example
+```json
+{
+  "toolName": "gauge_confidence",
+  "arguments": {
+    "assessment_and_confidence": "Assessment of the plan to explain Mino-Bimaadiziwin using CoT.\\nConfidence Level: Medium.\\nJustification: The CoT approach is suitable, but explaining deep cultural concepts always carries a risk of nuance loss. Confidence is medium as external validation isn't possible here."
+  }
+}
+```
+
+#### `chain_of_thought` Example
 ```json
 {
   "toolName": "chain_of_thought",
   "arguments": {
-    "problem_statement": "Understanding the seasonal cycle of maple sugar harvesting (ziigwaage - spring sugar making):\n1. Observe weather patterns and temperature changes\n2. Identify appropriate maple trees\n3. Prepare tools and equipment respectfully\n4. Follow proper protocols for tree tapping\n5. Collect sap with gratitude\n6. Process sap into sugar while sharing teachings"
+    "generated_cot_text": "Step 1: Define Mino-Bimaadiziwin - Living in balance and harmony.\\nStep 2: Explain the Four Hills of Life (infancy, youth, adulthood, elderhood) and their connection.\\nStep 3: Discuss the importance of the Seven Grandfather Teachings.\\nStep 4: Relate physical, mental, emotional, spiritual health.\\nStep 5: Emphasize connection to community, land, and spirit.",
+    "problem_statement": "Explain the Anishinaabe concept of Mino-Bimaadiziwin."
   }
 }
 ```
 
-#### Reflection Example
-```json
-{
-  "toolName": "reflection",
-  "arguments": {
-    "input_reasoning_or_plan": "Reflecting on our relationship with Nibi (water):\n- Understanding water as first medicine\n- Considering our role as water protectors\n- Learning from the teachings of water\n- Examining how we honor water in daily life\n- Planning actions to protect water sources"
-  }
-}
-```
-
-#### Plan and Solve Example
+#### `plan_and_solve` Example
 ```json
 {
   "toolName": "plan_and_solve",
   "arguments": {
-    "task_objective": "Planning a community gathering that honors traditional protocols:\n1. Consult with Elders on proper procedures\n2. Select appropriate time based on seasonal calendar\n3. Arrange for traditional foods and medicines\n4. Prepare the gathering space with respect\n5. Ensure proper opening and closing ceremonies\n6. Include time for teaching and sharing"
+    "generated_plan_text": "Goal: Plan a community gathering honoring traditional protocols.\\nStep 1: Consult Elders on protocols (Timing: Next action).\\nStep 2: Identify suitable date/location based on consultation.\\nStep 3: Arrange traditional foods/medicines.\\nStep 4: Prepare space respectfully.\\nStep 5: Finalize opening/closing ceremony details.\\nAssumptions: Elders are available for consultation.\\nRisks: Scheduling conflicts (Medium).",
+    "task_objective": "Planning a community gathering that honors traditional protocols."
   }
 }
 ```
 
-#### Chain of Draft Example
+#### `chain_of_draft` Example
 ```json
 {
   "toolName": "chain_of_draft",
   "arguments": {
-    "problem_statement": "Learning basic Anishinaabemowin greetings:\n1. Boozhoo (Hello)\n2. Aaniin (Hello/Welcome)\n3. Miigwech (Thank you)\n4. Baamaapii (Until later/Goodbye)\n5. Practice proper pronunciation\n6. Understand cultural context of each greeting"
+    "draft_description": "Draft 1: Basic Anishinaabemowin greetings - Boozhoo, Aaniin. Draft 2: Added Miigwech, Baamaapii. Draft 3: Noted pronunciation focus needed."
+  }
+}
+```
+
+#### `reflection` Example
+```json
+{
+  "toolName": "reflection",
+  "arguments": {
+    "generated_critique_text": "Critique of CoT for Mino-Bimaadiziwin: Strengths - Covers key components. Weaknesses - Could elaborate more on the interconnectedness of the teachings. Suggestion - Add a concluding step summarizing the holistic nature.",
+    "input_subject_description": "Critique of the internally generated CoT for explaining Mino-Bimaadiziwin."
+  }
+}
+```
+
+#### `synthesize_prior_reasoning` Example
+```json
+{
+  "toolName": "synthesize_prior_reasoning",
+  "arguments": {
+    "generated_summary_text": "Summary of last 3 steps: 1) Assessed task (explain Mino-Bimaadiziwin). 2) Planned to use CoT via 'think'. 3) Internally generated CoT draft covering definition, Four Hills, Seven Teachings, health aspects, and connection.",
+    "context_to_summarize_description": "Summary of assessment, planning, and CoT generation for Mino-Bimaadiziwin explanation."
   }
 }
 ```
