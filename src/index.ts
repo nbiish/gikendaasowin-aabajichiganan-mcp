@@ -4,7 +4,7 @@
  * -----------------------------------------------------------------------------
  * Gikendaasowin Aabajichiganan - Core Cognitive Tools MCP Server
  *
- * Version: 0.9.8
+ * Version: 0.9.12
  *
  * Description: Provides a suite of cognitive tools for an AI Pair Programmer,
  *              enabling structured reasoning, planning, analysis, and iterative
@@ -39,14 +39,14 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
 
-export const version = "0.9.8";
+export const version = "0.9.12";
 
 // --- Server Definition ---
 
 const server = new McpServer({
 	name: "gikendaasowin-aabajichiganan-mcp",
 	version: version,
-	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.8: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY `think` step integrates results."
+	description: "ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.12: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY `think` step integrates results."
 });
 
 // --- Logging Helpers ---
@@ -87,7 +87,7 @@ function logToolError(toolName: string, error: unknown) {
 	return {
 		content: [{
 			type: "text" as const,
-			text: `Error executing tool '${toolName}': ${errorMessage}. Please analyze this error in your next 'think' step and adjust your plan.`
+			text: `Error executing tool '${toolName}': ${errorMessage}.`
 		}]
 	};
 }
@@ -121,22 +121,15 @@ server.tool(
 			if (!cucnRegex.test(assessment_and_choice)) {
 				throw new Error('Invalid assessment: String must include "CUC-N Ratings:".');
 			}
-            /* // User request: Remove strict check for 'Recommended Initial Strategy:'
-            if (!strategyRegex.test(assessment_and_choice)) {
-				throw new Error('Invalid assessment: String must include "Recommended Initial Strategy:".');
-			}
-            */
 			const modeMatch = assessment_and_choice.match(modeRegex);
 			if (!modeMatch || !modeMatch[1]) {
 				throw new Error('Invalid assessment: String must include explicit "Selected Mode: think" or "Selected Mode: quick_think".');
 			}
 
 			const selectedMode = modeMatch[1].toLowerCase();
-			logToolResult(toolName, true, `Selected mode: ${selectedMode} - Returning original assessment.`);
-			// Log the full assessment server-side for traceability
+			logToolResult(toolName, true, `Selected mode: ${selectedMode}`);
 			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Assessment Details:\n${assessment_and_choice}`);
 
-			// Return original input string without reminder
 			return { content: [{ type: "text" as const, text: assessment_and_choice }] };
 		} catch (error: unknown) {
 			return logToolError(toolName, error);
@@ -167,48 +160,35 @@ server.tool(
 
 			// Define required sections (more flexible now)
 			const requiredSections = [
-				["## Analysis:", "## Observe:", "## Observation:"], // Accept various observation formats
-				["## Orient:", "## Orientation:"], // Optional but recognized
-				["## Plan:", "## Decide:", "## Decision:"], // Decision-related sections
-				["## Reason:", "## Reasoning:", "## Analysis:"], // Reasoning-related sections
-				["## Act:", "## Action:", "## Execution:"], // Action-related sections
+				["## Analysis:", "## Observe:", "## Observation:"],
+				["## Orient:", "## Orientation:"],
+				["## Plan:", "## Decide:", "## Decision:"],
+				["## Reason:", "## Reasoning:", "## Analysis:"],
+				["## Act:", "## Action:", "## Execution:"],
 				["## Verification:"],
 				["## Risk & Contingency:", "## Risks:", "## Challenges:"],
 				["## Learning & Adaptation:", "## Self-Correction:", "## Learning:"]
 			];
 			
-			// Check if each required section group has at least one match
 			const missingSections = requiredSections.filter(sectionGroup => 
 				!sectionGroup.some(section => thought.includes(section))
 			);
 
-			// Build validation report
 			let validationReport = [];
 			
 			if (missingSections.length > 0) {
 				validationReport.push("WARNING: Some recommended sections might be missing. Consider including observation, orientation, decision, reasoning, action, verification, risks, and learning components in your thought process.");
 			}
 
-			// Log validation results
 			if (validationReport.length > 0) {
 				console.warn(`[${new Date().toISOString()}] [CognitiveToolsServer] Think Tool Validation Report:\n${validationReport.join("\n")}`);
 			}
 
-			// Enhanced logging with simplified format detection
 			const format = thought.includes("## Observe:") ? "OODReAct-style" : "Traditional";
 			logToolResult(toolName, true, `Thought logged (Style: ${format}, Length: ${thought.length})`);
 
-			// Return thought with metadata
 			return {
-				content: [{
-					type: "text" as const,
-					text: thought
-				}],
-				metadata: {
-					format,
-					validationReport,
-					timestamp: new Date().toISOString()
-				}
+				content: [{ type: "text" as const, text: thought }]
 			};
 		} catch (error: unknown) {
 			return logToolError(toolName, error);
@@ -253,7 +233,6 @@ server.tool(
 				throw new Error('Invalid brief_thought: Must be a non-empty string.');
 			}
 			logToolResult(toolName, true, `Logged: ${brief_thought.substring(0, 80)}...`);
-			// Returns the brief thought, similar to 'think', for grounding.
 			return { content: [{ type: "text" as const, text: brief_thought }] };
 		} catch (error: unknown) {
 			return logToolError(toolName, error);
@@ -287,11 +266,9 @@ server.tool(
 			}
 
 			const level = match[1];
-			const emphasis = (level.toLowerCase() !== 'high') ? "CRITICAL: Analyze implications of non-High confidence." : "Proceed with analysis.";
-			const resultText = `Confidence Gauge Completed. Stated Level: ${level}. Assessment Text Logged. MANDATORY: Analyze this confidence level and justification in your next 'think' step. ${emphasis}`;
 			logToolResult(toolName, true, `Level: ${level}`);
 			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Confidence Details:\n${assessment_and_confidence}`);
-			return { content: [{ type: "text" as const, text: resultText }] };
+			return { content: [{ type: "text" as const, text: assessment_and_confidence }] };
 		} catch (error: unknown) {
 			return logToolError(toolName, error);
 		}
@@ -319,15 +296,13 @@ server.tool(
 				throw new Error('Both generated_cot_text and problem_statement must be non-empty strings.');
 			}
 
-			// Validate CoT format - should have clear steps
 			if (!generated_cot_text.match(/step|phase|:\s|^\d+[\.\)]/im)) {
 				throw new Error('Invalid CoT format: Must contain clear reasoning steps (numbered, labeled as steps/phases, or with clear delineation).');
 			}
 
-			const resultText = `Chain of Thought Completed. Problem: "${problem_statement.substring(0, 100)}..."\nReasoning Steps Logged. MANDATORY: Analyze this reasoning chain in your next 'think' step to extract insights, identify potential flaws/gaps, and plan concrete next actions.`;
 			logToolResult(toolName, true, `Problem: ${problem_statement.substring(0, 50)}...`);
 			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Details:\nProblem: ${problem_statement}\nReasoning:\n${generated_cot_text}`);
-			return { content: [{ type: "text" as const, text: resultText }] };
+			return { content: [{ type: "text" as const, text: generated_cot_text }] };
 		} catch (error: unknown) {
 			return logToolError(toolName, error);
 		}
@@ -352,23 +327,23 @@ server.tool(
 		logToolCall(toolName);
 		try {
 			if (!generated_plan_text || typeof generated_plan_text !== 'string' || !task_objective || typeof task_objective !== 'string') {
-				throw new Error('Both generated_plan_text and task_objective must be non-empty strings.');
+				throw new Error("Missing or invalid required parameters: 'generated_plan_text' and 'task_objective' must be non-empty strings.");
 			}
 
-			// Validate plan format - should have clear sections and structure
-			if (!generated_plan_text.match(/phase|step|goal|objective|:\s|^\d+[\.\)]/im)) {
-				throw new Error('Invalid plan format: Must contain clear sections (phases, steps, goals) with proper structure.');
-			}
+			// Basic structure check (optional, less strict)
+			// if (!generated_plan_text.match(/phase|step|goal|objective|:\\s|^\\d+[\\.\\)]/im)) {
+			// 	console.warn(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Warning: Plan structure might be basic. Consider using clear steps/phases.`);
+			// }
 
-			// Validate plan includes risk consideration
-			if (!generated_plan_text.toLowerCase().includes('risk') && !generated_plan_text.toLowerCase().includes('challenge')) {
-				throw new Error('Invalid plan format: Must include risk/challenge assessment.');
-			}
+			// Removed strict validation for risk/challenge
+			// if (!generated_plan_text.toLowerCase().includes('risk') && !generated_plan_text.toLowerCase().includes('challenge')) {
+			// 	throw new Error("Invalid plan format: Must include risk/challenge assessment.");
+			// }
 
-			const resultText = `Plan Generation Completed. Task: "${task_objective.substring(0, 100)}..."\nPlan Structure Logged. MANDATORY: Analyze this plan in your next 'think' step to verify feasibility, refine if needed, and confirm the first concrete action step.`;
 			logToolResult(toolName, true, `Task: ${task_objective.substring(0, 50)}...`);
 			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Details:\nTask: ${task_objective}\nPlan:\n${generated_plan_text}`);
-			return { content: [{ type: "text" as const, text: resultText }] };
+			// Return the plan text directly (potentially formatted as markdown if needed, but currently just text)
+			return { content: [{ type: "text" as const, text: generated_plan_text }] };
 		} catch (error: unknown) {
 			return logToolError(toolName, error);
 		}
@@ -400,30 +375,8 @@ server.tool(
 				throw new Error('Invalid draft_description: Must provide a description.');
 			}
 
-			// Format response in markdown with CoD guidance and next tool recommendation
-			const resultText = `### Chain of Draft Signal Received
-#### Draft Description
-${draft_description}
-
-#### Chain of Draft (CoD) Reminders
-- Keep steps concise (< 5 words)
-- Use equations/symbols when possible
-- Focus on essential information
-- End drafts with #### + conclusion
-
-#### Next Steps
-1. MANDATORY: Use \`think\` tool to analyze this draft:
-   - Evaluate correctness and completeness
-   - Check alignment with goals
-   - Plan concrete next actions
-2. Consider using \`reflection\` tool if deeper critique needed
-3. Use \`synthesize_prior_reasoning\` if context consolidation helpful
-
-#### Status
-Draft(s) ready for analysis. Proceed with mandatory \`think\` step.`;
-
 			logToolResult(toolName, true);
-			return { content: [{ type: "text" as const, text: resultText }] };
+			return { content: [{ type: "text" as const, text: draft_description }] };
 		} catch (error: unknown) {
 			return logToolError(toolName, error);
 		}
@@ -454,8 +407,7 @@ server.tool(
 			if (!input_subject_description || typeof input_subject_description !== 'string' || input_subject_description.trim().length === 0) {
 				throw new Error('Invalid input_subject_description: Must describe what was critiqued.');
 			}
-			logToolResult(toolName, true, `Returned critique for analysis (length: ${generated_critique_text.length})`);
-			// Returns the actual critique text received. The AI must analyze this in the next 'think' step.
+			logToolResult(toolName, true, `Critique length: ${generated_critique_text.length}`);
 			return { content: [{ type: "text" as const, text: generated_critique_text }] };
 		} catch (error: unknown) {
 			return logToolError(toolName, error);
@@ -486,8 +438,7 @@ server.tool(
 			if (!context_to_summarize_description || typeof context_to_summarize_description !== 'string' || context_to_summarize_description.trim().length === 0) {
 				throw new Error('Invalid context_to_summarize_description: Must describe what was summarized.');
 			}
-			logToolResult(toolName, true, `Returned summary for analysis (length: ${generated_summary_text.length})`);
-			// Returns the actual summary text received. The AI must analyze/use this in the next 'think' step.
+			logToolResult(toolName, true, `Summary length: ${generated_summary_text.length}`);
 			return { content: [{ type: "text" as const, text: generated_summary_text }] };
 		} catch (error: unknown) {
 			return logToolError(toolName, error);
@@ -541,7 +492,7 @@ async function main(): Promise<void> {
 		await server.connect(transport);
 		const border = '-----------------------------------------------------';
 		console.error(border);
-		console.error(` ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.8: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY \`think\` step integrates results.`);
+		console.error(` ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite v0.9.12: Enables structured, iterative reasoning (Chain of Thought/Draft), planning, and analysis for AI agents, focusing on the cognitive loop. MANDATORY \`think\` step integrates results.`);
 		console.error(` Version: ${version}`);
 		console.error(' Status: Running on stdio, awaiting MCP requests...');
 		console.error(border);
