@@ -46,16 +46,12 @@ Both packages are maintained in parallel and receive the same updates. You can u
 
 ## Features
 
-Provides a suite of cognitive tools for AI agents, enabling structured reasoning and iterative refinement:
+Provides a suite of cognitive tools for AI agents, enabling structured reasoning and iterative refinement (v1.2.1 Simplified Set):
 - `assess_cuc_n_mode`: **Mandatory** initial assessment of task complexity (CUC-N) to select cognitive mode (`think` or `quick_think`).
-- `think`: **Mandatory** central hub for analysis, planning, verification, and self-correction, incorporating OODReAct principles.
+- `think`: **Mandatory** central hub for comprehensive analysis, planning, verification, and self-correction.
 - `quick_think`: Lightweight cognitive checkpoint for simple, low CUC-N steps or trivial confirmations.
-- `gauge_confidence`: Meta-cognitive check to state confidence (High/Medium/Low) in a plan, analysis, or draft.
-- `chain_of_thought`: Guides internal generation of detailed, step-by-step reasoning (CoT).
-- `plan_and_solve`: Guides internal generation of a structured, multi-step plan.
-- `chain_of_draft`: Signals internal generation/refinement of concise drafts (CoD).
-- `reflection`: Guides internal generation of a critical self-evaluation (critique).
-- `synthesize_prior_reasoning`: Guides internal generation of a summary to consolidate context.
+- `chain_of_thought`: Guides internal generation and logging of detailed, step-by-step reasoning (CoT).
+- `chain_of_draft`: Signals internal generation/refinement and logging of concise drafts (CoD) for efficiency.
 
 ## Installation
 
@@ -102,64 +98,33 @@ Or:
 *(Note: For detailed usage, workflow, and mandatory rules, always refer to [`latest.md`](latest.md))*
 
 ### `assess_cuc_n_mode`
-- **Purpose**: **Mandatory Pre-Deliberation Assessment.** Evaluates task Complexity, Uncertainty, Consequence, Novelty (CUC-N) to determine required cognitive depth and initial strategy. MUST be called before starting complex tasks or changing strategy.
+- **Purpose**: **Mandatory Pre-Deliberation Assessment.** Evaluates task Complexity, Uncertainty, Consequence, Novelty (CUC-N) to determine required cognitive depth and initial strategy.
 - **Input**: `assessment_and_choice` (string) - Your structured assessment including Situation Description, CUC-N Ratings, Rationale, Recommended Strategy, and Explicit Mode Selection (`Selected Mode: think` or `Selected Mode: quick_think`).
 - **Follow-up**: Mandatory `think` or `quick_think` (based on selection).
 
 ### `think`
-- **Purpose**: **MANDATORY Central Hub for Analysis and Planning.** Called after assessment, other cognitive tools, internal drafts, or external action results. Incorporates OODReAct principles (Observe-Orient-Decide-Reason-Act).
-- **Input**: `thought` (string) - Your detailed internal monologue, ideally structured with sections like Observe, Orient, Decide, Reason, Act, Verification, Risk & Contingency, Learning & Adaptation.
-- **Follow-up**: Execute the immediate next action defined in the `## Plan:` (or `## Decide:`) section.
+- **Purpose**: **MANDATORY Central Hub for Comprehensive Analysis and Planning.** Called after assessment, `chain_of_thought`/`chain_of_draft` results, or external action results. Use for analysis, planning, reflection, synthesis, confidence assessment.
+- **Input**: `thought` (string) - Your detailed internal monologue covering key cognitive aspects (Analysis, Plan, Verification, Risk, Learning).
+- **Follow-up**: Execute the immediate next action defined in the `## Plan/Decision:` section.
 
 ### `quick_think`
 - **Purpose**: Cognitive Checkpoint for streamlined processing and simple confirmations where detailed analysis via `think` is unnecessary. Use ONLY when appropriate (Low CUC-N, trivial steps).
 - **Input**: `brief_thought` (string) - Your concise thought or confirmation.
 - **Follow-up**: Execute the simple next step.
 
-### `gauge_confidence`
-- **Purpose**: Meta-Cognitive Checkpoint. Guides *internal stating* of confidence (High/Medium/Low) and justification regarding a specific plan, analysis, or draft.
-- **Workflow**: Internally generate assessment -> Call tool.
-- **Input**: `assessment_and_confidence` (string) - Text containing the item being assessed AND your explicit internal assessment (Confidence Level + Justification).
-- **Follow-up**: Mandatory `think` or `quick_think`.
-
 ### `chain_of_thought`
-- **Purpose**: Guides *internal generation* of a detailed, step-by-step reasoning draft (CoT).
+- **Purpose**: Guides *internal generation* and logging of detailed, step-by-step reasoning draft (CoT).
 - **Workflow**: Internally generate CoT -> Call tool.
 - **Input**:
     - `generated_cot_text` (string) - The full CoT draft you generated internally.
     - `problem_statement` (string) - The original problem this CoT addresses.
 - **Follow-up**: Mandatory `think` or `quick_think`.
 
-### `plan_and_solve`
-- **Purpose**: Guides *internal generation* of a structured plan draft.
-- **Workflow**: Internally generate plan -> Call tool.
-- **Input**:
-    - `generated_plan_text` (string) - The full, structured plan draft you generated internally.
-    - `task_objective` (string) - The original high-level task objective.
-- **Follow-up**: Mandatory `think` or `quick_think`.
-
 ### `chain_of_draft`
-- **Purpose**: Signals that one or more **internal drafts** have been generated/refined using Chain of Draft (CoD) principles (concise, note-like steps).
-- **Workflow**: Internally generate/refine draft(s) -> Call tool.
-- **Input**: `draft_description` (string) - Brief but specific description of the draft(s) generated/refined internally.
+- **Purpose**: Signals internal generation/refinement and logging of **efficient, concise drafts (CoD)** using note-like steps, symbols, etc.
+- **Workflow**: Internally generate/refine CoD draft(s) -> Call tool.
+- **Input**: `draft_description` (string) - Brief but specific description of the CoD draft(s) generated/refined internally.
 - **Follow-up**: Mandatory `think` or `quick_think`.
-
-### `reflection`
-- **Purpose**: Guides *internal generation* of a critical self-evaluation (critique) on a prior step, draft, plan, or outcome.
-- **Workflow**: Internally generate critique -> Call tool.
-- **Input**:
-    - `generated_critique_text` (string) - The full critique text you generated internally.
-    - `input_subject_description` (string) - A brief description of what was critiqued.
-- **Follow-up**: Mandatory `think` or `quick_think`.
-
-### `synthesize_prior_reasoning`
-- **Purpose**: Context Management Tool. Guides *internal generation* of a structured summary of preceding context.
-- **Workflow**: Internally generate summary -> Call tool.
-- **Input**:
-    - `generated_summary_text` (string) - The full, structured summary text you generated internally.
-    - `context_to_summarize_description` (string) - Description of the context that was summarized.
-- **Follow-up**: Mandatory `think` or `quick_think`.
-
 
 ## Development
 
@@ -281,16 +246,6 @@ npm run inspector
 }
 ```
 
-#### `gauge_confidence` Example
-```json
-{
-  "toolName": "gauge_confidence",
-  "arguments": {
-    "assessment_and_confidence": "Assessment of the plan to explain Mino-Bimaadiziwin using CoT.\\nConfidence Level: Medium.\\nJustification: The CoT approach is suitable, but explaining deep cultural concepts always carries a risk of nuance loss. Confidence is medium as external validation isn't possible here."
-  }
-}
-```
-
 #### `chain_of_thought` Example
 ```json
 {
@@ -302,45 +257,12 @@ npm run inspector
 }
 ```
 
-#### `plan_and_solve` Example
-```json
-{
-  "toolName": "plan_and_solve",
-  "arguments": {
-    "generated_plan_text": "Goal: Plan a community gathering honoring traditional protocols.\\nStep 1: Consult Elders on protocols (Timing: Next action).\\nStep 2: Identify suitable date/location based on consultation.\\nStep 3: Arrange traditional foods/medicines.\\nStep 4: Prepare space respectfully.\\nStep 5: Finalize opening/closing ceremony details.\\nAssumptions: Elders are available for consultation.\\nRisks: Scheduling conflicts (Medium).",
-    "task_objective": "Planning a community gathering that honors traditional protocols."
-  }
-}
-```
-
 #### `chain_of_draft` Example
 ```json
 {
   "toolName": "chain_of_draft",
   "arguments": {
     "draft_description": "Draft 1: Basic Anishinaabemowin greetings - Boozhoo, Aaniin. Draft 2: Added Miigwech, Baamaapii. Draft 3: Noted pronunciation focus needed."
-  }
-}
-```
-
-#### `reflection` Example
-```json
-{
-  "toolName": "reflection",
-  "arguments": {
-    "generated_critique_text": "Critique of CoT for Mino-Bimaadiziwin: Strengths - Covers key components. Weaknesses - Could elaborate more on the interconnectedness of the teachings. Suggestion - Add a concluding step summarizing the holistic nature.",
-    "input_subject_description": "Critique of the internally generated CoT for explaining Mino-Bimaadiziwin."
-  }
-}
-```
-
-#### `synthesize_prior_reasoning` Example
-```json
-{
-  "toolName": "synthesize_prior_reasoning",
-  "arguments": {
-    "generated_summary_text": "Summary of last 3 steps: 1) Assessed task (explain Mino-Bimaadiziwin). 2) Planned to use CoT via 'think'. 3) Internally generated CoT draft covering definition, Four Hills, Seven Teachings, health aspects, and connection.",
-    "context_to_summarize_description": "Summary of assessment, planning, and CoT generation for Mino-Bimaadiziwin explanation."
   }
 }
 ```

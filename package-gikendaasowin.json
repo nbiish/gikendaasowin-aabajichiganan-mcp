@@ -1,6 +1,6 @@
 {
   "name": "@nbiish/gikendaasowin-aabajichiganan-mcp",
-  "version": "0.9.16",
+  "version": "0.9.17",
   "description": "The Gikendaasowin Aabajichiganan MCP (Meta-Cognitive Programming) framework provides a suite of tools and techniques for building AI agents capable of sophisticated reasoning, planning, and self-correction.",
   "private": false,
   "type": "module",
@@ -16,7 +16,6 @@
   ],
   "scripts": {
     "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
-    "prepare": "npm run build",
     "watch": "tsc --watch",
     "inspector": "npx @modelcontextprotocol/inspector build/index.js",
     "start": "node build/index.js",

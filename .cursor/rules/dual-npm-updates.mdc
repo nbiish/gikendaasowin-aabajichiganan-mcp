@@ -21,5 +21,6 @@ We use npx for our mcp server and need to publish to test our tooling.
 
 CRITICAL -> implement the following:
 Run:
+- [critical.mdc](mdc:.cursor/rules/critical.mdc) 
 - [publish-both-packages.sh](mdc:scripts/publish-both-packages.sh)
  

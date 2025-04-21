@@ -24,9 +24,9 @@ curl -fLo LICENSE https://raw.githubusercontent.com/nbiish/license-for-all-works
 }
 ```
 
-## 3 @README.md -> Point to the current codebase's LICENSE that was just pulled and filled out. 
+## 3. @README.md -> Point to the current codebase's LICENSE that was just pulled and filled out. 
 
-### 4 @README.md -> Then add the following near the top so that it's easthetically pleasing:
+### 4. @README.md -> Then add the following near the top so that it's easthetically pleasing:
 ```markdown
 <div align="center">
   <hr width="50%">
@@ -47,7 +47,7 @@ curl -fLo LICENSE https://raw.githubusercontent.com/nbiish/license-for-all-works
 </div>
 ```
 
-## 5 Use the following content where copyright info is normally placed:
+## 5. Use the following content where copyright info is normally placed:
 ```markdown
 Copyright © 2025 ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), a descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band, and an enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. This work embodies Traditional Knowledge and Traditional Cultural Expressions. All rights reserved.
 ```
@@ -56,5 +56,7 @@ Copyright © 2025 ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimi
 ```bash
 curl -fLo .cursor/rules/critical.mdc https://raw.githubusercontent.com/nbiish/license-for-all-works/main/.cursor/rules/critical.mdc
 ```
+
+## 7. UPDATE @README.md -> (updates to codebase that are relative, major changes, install, how-to, etc...)
 
 ---  
