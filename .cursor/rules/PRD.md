@@ -61,5 +61,34 @@ alwaysApply: false
 - Plan Feedback & Iteration: outline mechanisms for collecting feedback and guiding next steps.
 
 ## Key Considerations
-* **Benefits:** Faster time-to-market (for learning), reduced development waste, early risk mitigation, validated learning, customer-centric development. [Source: Miro]
-* **Challenges:** Resisting feature creep ("scope creep"), effectively gathering and acting on user feedback, managing stakeholder expectations (MVP is not the final product). [Source: Miro]
+* **Benefits:** Faster time-to-market (for learning), reduced development waste, early risk mitigation, validated learning, customer-centric development.
+* **Challenges:** Resisting feature creep ("scope creep"), effectively gathering and acting on user feedback, managing stakeholder expectations (MVP is not the final product).
+
+## Codebase Structure Example (Conceptual Mapping)
+
+This structure provides a conceptual hierarchy inspired by principles like Domain-Driven Design (DDD) and Atomic Design for organizing codebase elements.
+
+*   **Matter:** Represents the largest boundaries, akin to DDD Bounded Contexts or major application domains/services.
+    *   *Example Directory:* `/src/matter/user-management/`
+    *   *Example Directory:* `/src/matter/order-processing/`
+    *   *Focus:* High-level domain logic, coordination between molecules.
+
+*   **Molecules:** Represents composite features, use cases, or larger components formed by combining Atoms within a specific Matter. Analogous to complex components or feature slices.
+    *   *Example Directory:* `/src/matter/user-management/molecules/registration-flow/`
+    *   *Example Directory:* `/src/matter/order-processing/molecules/checkout-process/`
+    *   *Example Component:* `UserProfileCard` (combining Atom components like `Avatar`, `UserName`, `EditButton`)
+    *   *Focus:* Orchestrating Atoms to fulfill a specific feature or user interaction.
+
+*   **Atoms:** Represents the smallest reusable building blocks, similar to Atomic Design's atoms or core domain entities/functions.
+    *   *Example Directory:* `/src/atoms/ui/` (for UI components)
+    *   *Example Directory:* `/src/atoms/domain/` (for core domain objects/logic)
+    *   *Example UI Component:* `Button.tsx`, `Input.tsx`, `Label.tsx`
+    *   *Example Domain Atom:* `class UserId { ... }`, `function calculateDiscount(...)`
+    *   *Focus:* Single responsibility, reusability, minimal dependencies.
+
+*   **Quanta:** Represents the most fundamental, indivisible units – often cross-cutting concerns or foundational elements.
+    *   *Example Directory:* `/src/quanta/utils/`
+    *   *Example Directory:* `/src/quanta/constants/`
+    *   *Example Directory:* `/src/quanta/design-tokens/`
+    *   *Example File:* `dateTimeUtils.ts`, `apiEndpoints.ts`, `colors.ts`, `spacing.ts`
+    *   *Focus:* Pure functions, configuration values, fundamental definitions used across Atoms and Molecules.
