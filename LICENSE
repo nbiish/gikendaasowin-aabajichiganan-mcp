@@ -68,13 +68,13 @@ WHEREAS the inherent sovereignty of tribal nations provides a constitutional and
    Any use, reproduction, distribution, modification, adaptation, display, performance, transmission, or creation of derivative works based on this Work, whether in whole or in part, must prominently and accurately include the following citation and attribution in all associated materials, displays, publications, and metadata:
 
    ```bibtex
-   @misc{gikendaasowin-aabajichiganan-mcp2025,
+   @misc{<|repo_title|><|current_year=2025|>,
      author/creator/steward = {ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians},
-     title/description = {gikendaasowin-aabajichiganan-mcp},
+     title/description = {<|repo_title|>},
      type_of_work = {Indigenous digital creation/software incorporating traditional knowledge and cultural expressions},
-     year = {2025},
+     year = {<|current_year|>},
      publisher/source/event = {GitHub repository under tribal sovereignty protections},
-     howpublished = {\\url{https://github.com/nbiish/gikendaasowin-aabajichiganan-mcp}},
+     howpublished = {\url{https://github.com/nbiish/<|repo_title|>}},
      note = {Authored and stewarded by ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. This work embodies Indigenous intellectual property, traditional knowledge systems (TK), traditional cultural expressions (TCEs), and associated data protected under tribal law, federal Indian law, treaty rights, Indigenous Data Sovereignty principles, and international indigenous rights frameworks including UNDRIP. All usage, benefit-sharing, and data governance are governed by the COMPREHENSIVE RESTRICTED USE LICENSE FOR INDIGENOUS CREATIONS WITH TRIBAL SOVEREIGNTY, DATA SOVEREIGNTY, AND WEALTH RECLAMATION PROTECTIONS.}
    }
    ```
