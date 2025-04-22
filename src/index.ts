@@ -42,8 +42,8 @@ import { z } from "zod";
 
 const serverInfo = {
 	name: "gikendaasowin-aabajichiganan-mcp",
-	version: "0.9.16",
-	description: `ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite (Simplified, Relaxed Validation): Enables structured reasoning (CoT/CoD) and analysis for AI agents. Returns results as Markdown.`
+	version: "0.9.23",
+	description: `ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Core Cognitive Tools Suite: Enables structured reasoning (CoT/CoD) and analysis for AI agents. Returns results as Markdown.`
 };
 const server = new McpServer(serverInfo);
 
@@ -344,6 +344,7 @@ async function main(): Promise<void> {
 	try {
 		const transport = new StdioServerTransport();
 		await server.connect(transport);
+
 		const border = '-----------------------------------------------------';
 		console.error(border);
 		console.error(` ${serverInfo.description}`);

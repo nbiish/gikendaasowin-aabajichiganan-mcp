@@ -1,18 +1,17 @@
 # @nbiish/gikendaasowin-aabajichiganan-mcp
 
 ```bibtex
-@misc{gikendaasowin-aabajichiganan-mcp<|2025=current_year|>,
+@misc{gikendaasowin-aabajichiganan-mcp2025,
   author/creator/steward = {ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians},
   title/description = {gikendaasowin-aabajichiganan-mcp},
   type_of_work = {Indigenous digital creation/software incorporating traditional knowledge and cultural expressions},
-  year = {<|current_year|>},
+  year = {2025},
   publisher/source/event = {GitHub repository under tribal sovereignty protections},
-  howpublished = {\url{https://github.com/nbiish/gikendaasowin-aabajichiganan-mcp}},
-  note = {Authored and stewarded by ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. This work embodies Indigenous intellectual property, traditional knowledge systems (TK), traditional cultural expressions (TCEs), and associated data protected under tribal law, federal Indian law, treaty rights, Indigenous Data Sovereignty principles, and international indigenous rights frameworks including UNDRIP. All usage, benefit-sharing, and data governance are governed by the COMPREHENSIVE RESTRICTED USE LICENSE FOR INDIGENOUS CREATIONS WITH TRIBAL SOVEREIGNTY, DATA SOVEREIGNTY, AND WEALTH RECLAMATION PROTECTIONS.}
-}
+  howpublished = {\\url{https://github.com/nbiish/gikendaasowin-aabajichiganan-mcp}},
+  note = {Authored and stewarded by ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. This work embodies Indigenous intellectual property, traditional knowledge systems (TK), traditional cultural expressions (TCEs), and associated data protected under tribal law, federal Indian law, treaty rights, Indigenous Data Sovereignty principles, and international indigenous rights frameworks including UNDRIP. All usage, benefit-sharing, and data governance are governed by the COMPREHENSIVE RESTRICTED USE LICENSE FOR INDIGENOUS CREATIONS WITH TRIBAL SOVEREIGNTY, DATA SOVEREIGNTY, AND WEALTH RECLAMATION PROTECTIONS.}\n}
 ```
 
-Copyright © <|current_year|> ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), a descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band, and an enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. This work embodies Traditional Knowledge and Traditional Cultural Expressions. All rights reserved.
+Copyright © 2025 ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), a descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band, and an enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. This work embodies Traditional Knowledge and Traditional Cultural Expressions. All rights reserved.
 
 This project is licensed under the [COMPREHENSIVE RESTRICTED USE LICENSE FOR INDIGENOUS CREATIONS WITH TRIBAL SOVEREIGNTY, DATA SOVEREIGNTY, AND WEALTH RECLAMATION PROTECTIONS](LICENSE).
 
@@ -44,87 +43,61 @@ Both packages are maintained in parallel and receive the same updates. You can u
 
 **See the latest integration details in [`latest.md`](latest.md).**
 
-## Features
+## Integration Prompt & Usage Guidelines
 
-Provides a suite of cognitive tools for AI agents, enabling structured reasoning and iterative refinement (v1.2.1 Simplified Set):
-- `assess_cuc_n_mode`: **Mandatory** initial assessment of task complexity (CUC-N) to select cognitive mode (`think` or `quick_think`).
-- `think`: **Mandatory** central hub for comprehensive analysis, planning, verification, and self-correction.
-- `quick_think`: Lightweight cognitive checkpoint for simple, low CUC-N steps or trivial confirmations.
-- `chain_of_thought`: Guides internal generation and logging of detailed, step-by-step reasoning (CoT).
-- `chain_of_draft`: Signals internal generation/refinement and logging of concise drafts (CoD) for efficiency.
+*(Note: This section reflects the content of `latest.md` and serves as the canonical guide for using these cognitive tools.)*
 
-## Installation
+# SECONDARY SYSTEM PROMPT
 
-You can install using either the Anishinaabemowin or English package name:
+You are the world's best SOTA Cognitive Agent! Your goal is to solve complex tasks with traceable, verifiable, and self-correcting reasoning. Operate within a structured cognitive loop, focusing on internal deliberation before planning external actions.
 
-```bash
-# Using Anishinaabemowin package name
-npx @nbiish/gikendaasowin-aabajichiganan-mcp
+## GUIDING PRINCIPLES
 
-# Using English package name
-npx @nbiish/cognitive-tools-mcp
-```
+1.  **Structured Deliberation:** Use the provided cognitive tools (`assess_cuc_n_mode`, `think`, `quick_think`, `chain_of_thought`, `chain_of_draft`) for their intended cognitive functions.
+2.  **`think` is the Central Hub:** Prioritize using `think` for all complex analysis, planning, reflection, synthesis, and confidence assessment after most actions or observations. This is the recommended approach for robust reasoning.
+3.  **Iterative Refinement:** Generate cognitive artifacts (CoT, CoD) internally, log them using the appropriate tool (`chain_of_thought`, `chain_of_draft`), then analyze in `think` or `quick_think`.
+4.  **Context-Driven Depth:** Use `assess_cuc_n_mode` initially to guide your first step. For subsequent steps, use `think` for complex analysis (recommended default), and `quick_think` only for demonstrably trivial steps/results where detailed analysis is genuinely unnecessary. Be conservative with `quick_think`.
+5.  **External Actions:** Plan external actions within `think`; execution is handled by the environment. Analyze results in `think` (recommended) or `quick_think` (if trivial).
+6.  **Traceability:** Your structured use of `think` is key for verifiable reasoning.
 
-## Usage with Claude Desktop
+## CORE WORKFLOW
 
-Add to your MCP configuration file (`~/.cursor/mcp.json`). You can use either package name:
+1.  **Assess:** Call `assess_cuc_n_mode` for any non-trivial task as a starting point.
+2.  **Deliberate:** Call `think` (recommended) or `quick_think` based on assessment/previous step. Analyze inputs/results. Plan immediate next cognitive action (e.g., use `chain_of_thought`, `chain_of_draft`) or plan external action.
+3.  **Generate/Log (if applicable):** If planning CoT/CoD, generate internally, then call `chain_of_thought` or `chain_of_draft` to log it.
+4.  **Execute/Observe:** If planning external action, wait for environment execution and result.
+5.  **Return to Step 2 (Deliberate):** Analyze the result of the previous step (tool output, external result, error) using `think` (recommended default) or `quick_think` (if trivial). Iterate until task completion.
+6.  **Conclude:** Formulate final answer within the `## Plan/Decision:` section of the final `think` step.
 
-```json
-{
-  "mcpServers": {
-    "gikendaasowin-aabajichiganan": {
-      "command": "npx",
-      "args": ["-y", "@nbiish/gikendaasowin-aabajichiganan-mcp"]
-    }
-  }
-}
-```
+## `think` TOOL STRUCTURE GUIDANCE
 
-Or:
+Structure your `thought` input comprehensively using clear headings. This is crucial for effective analysis and planning. Recommended structure:
+*   `## Observe:` (Analysis of previous step/result/error)
+*   `## Orient:` (Contextualize, synthesize)
+*   `## Decide:` (Define *single, immediate* next action: cognitive tool call or external action plan)
+*   `## Reason:` (Rationale, alternatives, multi-step strategy, confidence assessment)
+*   `## Act:` (Execution detail for planned action)
+*   `## Verification:` (How to check next step's success)
+*   `## Risk & Contingency:` (Potential problems, handling, risk level)
+*   `## Learning & Adaptation:` (Adjustments, lessons learned, reflection)
 
-```json
-{
-  "mcpServers": {
-    "cognitive-tools": {
-      "command": "npx",
-      "args": ["-y", "@nbiish/cognitive-tools-mcp"]
-    }
-  }
-}
-```
+## CHAIN OF DRAFT (CoD) GUIDELINES
 
-## Tool Descriptions
+When using `chain_of_draft` for efficiency:
+*   **Internally Generate CoD:** Follow these guidelines *before* calling the `chain_of_draft` tool.
+*   **Extreme Conciseness:** Use very brief notes (1-5 words), avoid full sentences.
+*   **Symbols/Equations/Code:** Prioritize these over text.
+*   **Essential Info Only:** Omit redundancy. Think 'scratchpad'.
+*   **Final Answer:** Mark clearly if applicable (e.g., `#### Final Answer: [answer]`).
+*   **Call Tool:** Call `chain_of_draft` with a brief description of the CoD artifact's purpose.
 
-*(Note: For detailed usage, workflow, and mandatory rules, always refer to [`latest.md`](latest.md))*
+## ERROR HANDLING
 
-### `assess_cuc_n_mode`
-- **Purpose**: **Mandatory Pre-Deliberation Assessment.** Evaluates task Complexity, Uncertainty, Consequence, Novelty (CUC-N) to determine required cognitive depth and initial strategy.
-- **Input**: `assessment_and_choice` (string) - Your structured assessment including Situation Description, CUC-N Ratings, Rationale, Recommended Strategy, and Explicit Mode Selection (`Selected Mode: think` or `Selected Mode: quick_think`).
-- **Follow-up**: Mandatory `think` or `quick_think` (based on selection).
+If a tool or external action returns an error, analyze it. Your next step should be `think` to perform root cause analysis and plan correction.
 
-### `think`
-- **Purpose**: **MANDATORY Central Hub for Comprehensive Analysis and Planning.** Called after assessment, `chain_of_thought`/`chain_of_draft` results, or external action results. Use for analysis, planning, reflection, synthesis, confidence assessment.
-- **Input**: `thought` (string) - Your detailed internal monologue covering key cognitive aspects (Analysis, Plan, Verification, Risk, Learning).
-- **Follow-up**: Execute the immediate next action defined in the `## Plan/Decision:` section.
+---
 
-### `quick_think`
-- **Purpose**: Cognitive Checkpoint for streamlined processing and simple confirmations where detailed analysis via `think` is unnecessary. Use ONLY when appropriate (Low CUC-N, trivial steps).
-- **Input**: `brief_thought` (string) - Your concise thought or confirmation.
-- **Follow-up**: Execute the simple next step.
-
-### `chain_of_thought`
-- **Purpose**: Guides *internal generation* and logging of detailed, step-by-step reasoning draft (CoT).
-- **Workflow**: Internally generate CoT -> Call tool.
-- **Input**:
-    - `generated_cot_text` (string) - The full CoT draft you generated internally.
-    - `problem_statement` (string) - The original problem this CoT addresses.
-- **Follow-up**: Mandatory `think` or `quick_think`.
-
-### `chain_of_draft`
-- **Purpose**: Signals internal generation/refinement and logging of **efficient, concise drafts (CoD)** using note-like steps, symbols, etc.
-- **Workflow**: Internally generate/refine CoD draft(s) -> Call tool.
-- **Input**: `draft_description` (string) - Brief but specific description of the CoD draft(s) generated/refined internally.
-- **Follow-up**: Mandatory `think` or `quick_think`.
+Adhere to this workflow and prioritize the use of `think` for analysis and planning. Leverage CoD for efficiency where appropriate. Produce clear, traceable, SOTA-level reasoning.
 
 ## Development
 

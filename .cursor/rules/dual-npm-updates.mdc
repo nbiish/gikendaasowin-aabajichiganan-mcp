@@ -8,19 +8,23 @@ ABSOLUTELY MAKE SURE the versions for both of the following packages match befor
 - https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp -> [package-gikendaasowin.json](mdc:package-gikendaasowin.json)
 - https://www.npmjs.com/package/@nbiish/cognitive-tools-mcp -> [package-cognitive-tools.json](mdc:package-cognitive-tools.json)
 
+REBUILD OUR PROJECT AND CHANGES BEFORE PROCEEDING.
+
 Make sure to run [critical.mdc](mdc:.cursor/rules/critical.mdc) before publishing our changes and has the proper placeholders filled out for this codebase.
 
 Update the [README.md](mdc:README.md) so that it references the latest integration prompt.
 
 Tools have a STRICT naming limit of 60 characters (we need to be alert for this in [index.ts](mdc:src/index.ts) before [index.js](mdc:build/index.js) builds):
-EXAMPLE```markdown
+AVOID-EXAMPLE```markdown
 gikendaasowin-aabajichiganan: assess_complexity_and_select_thought_mode - Combined server and tool name length (69) exceeds 60 characters
 ```
 
 We use npx for our mcp server and need to publish to test our tooling.
 
+DO NOT:
+- publish this mcp server so that we DO NOT append a version to the end of our npx command
+
 CRITICAL -> implement the following:
 Run:
-- [critical.mdc](mdc:.cursor/rules/critical.mdc) 
 - [publish-both-packages.sh](mdc:scripts/publish-both-packages.sh)
  
