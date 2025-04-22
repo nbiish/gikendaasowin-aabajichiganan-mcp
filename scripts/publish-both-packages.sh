@@ -1,4 +1,14 @@
 #!/bin/bash
+echo ""
+echo "📋 This script will perform the following steps:"
+echo " 1) Prompt you to enter your NPM OTP code"
+echo " 2) Increment the patch version of the Giken package (package-gikendaasowin.json)"
+echo " 3) Synchronize the Cognitive Tools package (package-cognitive-tools.json) to the same version"
+echo " 4) Prepare package.json for the build by copying package-gikendaasowin.json"
+echo " 5) Build the project with npm run build"
+echo " 6) Publish @nbiish/gikendaasowin-aabajichiganan-mcp"
+echo " 7) Publish @nbiish/cognitive-tools"
+echo ""
 
 # Exit immediately if a command exits with a non-zero status.
 set -e

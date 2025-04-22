@@ -201,7 +201,7 @@ server.tool(
 	"quick_think",
 	"**Cognitive Checkpoint & Concise Drafter.** Use for simple confirmations OR efficient **Chain of Draft (CoD)** reasoning where detailed analysis via `think` is unnecessary. CoD focuses on minimal, essential steps (~5 words, equations) for speed and token efficiency. Use ONLY when full deliberation is excessive (verified Low CUC-N or targeted CoD).",
 	{
-		brief_thought: z.string().describe("Your **concise** input. For confirmations: State observation/action & confirm triviality. For CoD: Provide the minimal draft step (essential info, ~5 words, equation, etc.), explaining why detailed analysis via 'think' isn't needed for *this specific step*.")
+		brief_thought: z.string().describe("Your **concise** input. For confirmations: State observation/action & confirm triviality. For CoD: Provide the minimal draft step (essential info, ~5 words, equation, etc.).")
 	},
 	async ({ brief_thought }: { brief_thought: string }) => {
 		const toolName = 'quick_think';
