@@ -175,29 +175,33 @@ server.tool(
 );
 
 /**
- * Cognitive Checkpoint ONLY for situations explicitly assessed as strictly Low CUC-N
- * (via `assess_cuc_n_mode`) or for trivial confirmations/acknowledgements where
- * detailed analysis via `think` is unnecessary. Use SPARINGLY.
+ * Cognitive Checkpoint for situations explicitly assessed as strictly Low CUC-N
+ * (via `assess_cuc_n_mode`), for trivial confirmations/acknowledgements, OR for
+ * **rapid, concise reasoning using Chain of Draft (CoD)**. CoD involves generating
+ * minimal, essential intermediate steps (like brief notes or equations) rather than
+ * full explanations, maximizing efficiency (tokens/latency) for suitable tasks.
+ * Use SPARINGLY; complex analysis belongs in `think`.
  */
 export interface QuickThinkInput {
 	/**
-	 * Your **concise** thought or confirmation for this simple, low CUC-N step.
-	 * Briefly state the observation/action and confirm it's trivial.
+	 * Your **concise** thought, confirmation, or CoD step for this low CUC-N step.
+	 * - For confirmations: Briefly state observation/action and confirm triviality.
+	 * - For CoD: Provide a minimal draft step (e.g., key calculation, logic fragment, ~5 words).
 	 */
 	brief_thought: string;
 }
 
 /**
  * Tool: quick_think
- * Purpose: A lightweight cognitive checkpoint for streamlined processing and simple confirmations.
- * Workflow: Use ONLY when full structured analysis via `think` is genuinely unnecessary (Low CUC-N or trivial results).
- * Output: Returns the brief thought text, formatted as Markdown.
+ * Purpose: A lightweight cognitive checkpoint for streamlined processing. Suitable for simple confirmations OR **efficient Chain of Draft (CoD) reasoning**.
+ * Workflow: Use ONLY when full structured analysis via `think` is genuinely unnecessary (Low CUC-N, trivial results, or targeted CoD application).
+ * Output: Returns the brief thought/draft text, formatted as Markdown.
  */
 server.tool(
 	"quick_think",
-	"Cognitive Checkpoint for streamlined processing and simple confirmations where detailed analysis via `think` is unnecessary. Use ONLY when full structured deliberation would be excessive (verified Low CUC-N or trivial results).",
+	"**Cognitive Checkpoint & Concise Drafter.** Use for simple confirmations OR efficient **Chain of Draft (CoD)** reasoning where detailed analysis via `think` is unnecessary. CoD focuses on minimal, essential steps (~5 words, equations) for speed and token efficiency. Use ONLY when full deliberation is excessive (verified Low CUC-N or targeted CoD).",
 	{
-		brief_thought: z.string().describe("Your **concise** thought or confirmation for this step. Briefly state the observation/action and explain why detailed analysis via 'think' isn't needed.")
+		brief_thought: z.string().describe("Your **concise** input. For confirmations: State observation/action & confirm triviality. For CoD: Provide the minimal draft step (essential info, ~5 words, equation, etc.), explaining why detailed analysis via 'think' isn't needed for *this specific step*.")
 	},
 	async ({ brief_thought }: { brief_thought: string }) => {
 		const toolName = 'quick_think';

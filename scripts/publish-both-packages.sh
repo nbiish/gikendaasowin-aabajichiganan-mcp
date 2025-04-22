@@ -22,7 +22,29 @@ rm -f $MAIN_PKG_BACKUP
 # Prompt for NPM OTP (Restored)
 read -p "🔑 Enter NPM OTP code: " NPM_OTP
 
-# Build the project (assuming this is necessary before publishing either)
+# Increment versions BEFORE build/publish, ensuring they are synchronized
+echo "\n⬆️ Incrementing and synchronizing package versions..."
+
+# 1. Increment Giken package version
+echo "   - Incrementing $GIKEN_PKG..."
+mv $GIKEN_PKG $MAIN_PKG # Rename Giken to main
+npm version patch --no-git-tag-version # Increment version in main (which is Giken)
+NEW_VERSION=$(node -p "require('./$MAIN_PKG').version") # Read the new version
+mv $MAIN_PKG $GIKEN_PKG # Rename back to Giken
+echo "     - Set $GIKEN_PKG to version: $NEW_VERSION"
+
+# 2. Set Cognitive Tools package to the exact same version
+echo "   - Synchronizing $COGNITIVE_PKG..."
+mv $COGNITIVE_PKG $MAIN_PKG # Rename Cog to main
+npm version "$NEW_VERSION" --no-git-tag-version --allow-same-version # Set exact version (allow-same-version handles edge case where it might match initially)
+mv $MAIN_PKG $COGNITIVE_PKG # Rename back to Cog
+echo "     - Set $COGNITIVE_PKG to version: $NEW_VERSION"
+
+# 3. Ensure the main package.json is ready for the build step
+echo "   - Preparing package.json for build..."
+cp $GIKEN_PKG $MAIN_PKG
+
+# Build the project (using the main package context)
 echo "\n🏗️ Building project..."
 npm run build
 
