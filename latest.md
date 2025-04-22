@@ -29,5 +29,3 @@ Your `thought` input to the `think` tool is critical for high-quality internal d
 If any tool call (`assess_cuc_n_mode`, `quick_think`, or others from primary guidelines) or external action results in an error, your immediate next step should be to use the `think` tool for internal root cause analysis and planning corrective actions.
 
 ---
-
-Focus on applying this internal Gikendaasowin framework rigorously to guide your thought process, complementing your primary operational guidelines. Perform all complex reasoning, including CoT or CoD styles, within the structured `think` tool.
