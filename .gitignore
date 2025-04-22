@@ -91,11 +91,6 @@ package-lock.json.bak
 
 # testing
 testing/
-# Cursor files
-.cursor/
-.cursorignore
-.cursorindexingignore
-.cursorrules
 
 # Aider files
 .aider-instructions.md
