@@ -1,6 +1,6 @@
 ---
 description: 
-globs: 
+globs: publish-both*.sh
 alwaysApply: false
 ---
 This codebases has two npm locations to publish to..
