@@ -126,8 +126,8 @@ server.tool(
 			logToolResult(toolName, true, `Input received (length: ${assessment_and_orientation_text.length})`);
 			// Log the raw input string
 			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Input String:\n${assessment_and_orientation_text}`);
-			// Return the input string directly, prefixed
-			return { content: [{ type: "text" as const, text: `1) ${assessment_and_orientation_text}` }] };
+			// Return the input string directly
+			return { content: [{ type: "text" as const, text: assessment_and_orientation_text }] };
 
 		} catch (error: unknown) {
 			// Catch only unexpected runtime errors
@@ -165,8 +165,8 @@ server.tool(
 			logToolResult(toolName, true, `Input received (length: ${thought.length})`);
 			// Log the raw input string
 			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Input String:\n${thought}`);
-			// Return the input string directly, prefixed
-			return { content: [{ type: "text" as const, text: `1) ${thought}` }] };
+			// Return the input string directly
+			return { content: [{ type: "text" as const, text: thought }] };
 
 		} catch (error: unknown) {
 			// Catch only unexpected runtime errors
@@ -204,8 +204,8 @@ server.tool(
 			logToolResult(toolName, true, `Input received (length: ${brief_thought.length})`);
 			// Log the raw input string
 			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Input String:\n${brief_thought}`);
-			// Return the input string directly, prefixed
-			return { content: [{ type: "text" as const, text: `1) ${brief_thought}` }] };
+			// Return the input string directly
+			return { content: [{ type: "text" as const, text: brief_thought }] };
 
 		} catch (error: unknown) {
 			// Catch only unexpected runtime errors
@@ -241,8 +241,8 @@ server.tool(
 			logToolResult(toolName, true, `Input received (length: ${sandbox_content.length})`);
 			// Log the raw input string
 			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Input String:\n${sandbox_content}`);
-			// Return the input string directly, prefixed
-			return { content: [{ type: "text" as const, text: `1) ${sandbox_content}` }] };
+			// Return the input string directly
+			return { content: [{ type: "text" as const, text: sandbox_content }] };
 
 		} catch (error: unknown) {
 			// Catch only unexpected runtime errors
