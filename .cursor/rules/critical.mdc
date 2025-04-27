@@ -13,11 +13,11 @@ curl -fLo LICENSE https://raw.githubusercontent.com/nbiish/license-for-all-works
 
 ## 2. @README.md -> ALWAYS UPDATE to a scholarly citation with the following content and ALWAYS fill out the placeholders: 
 ```bibtex
-@misc{<|repo_title|><|2025=current_year|>,
+@misc{<|repo_title|><|2025|>,
   author/creator/steward = {ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians},
   title/description = {<|repo_title|>},
   type_of_work = {Indigenous digital creation/software incorporating traditional knowledge and cultural expressions},
-  year = {<|current_year|>},
+  year = {2025},
   publisher/source/event = {GitHub repository under tribal sovereignty protections},
   howpublished = {\url{https://github.com/nbiish/<|repo_title|>}},
   note = {Authored and stewarded by ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. This work embodies Indigenous intellectual property, traditional knowledge systems (TK), traditional cultural expressions (TCEs), and associated data protected under tribal law, federal Indian law, treaty rights, Indigenous Data Sovereignty principles, and international indigenous rights frameworks including UNDRIP. All usage, benefit-sharing, and data governance are governed by the COMPREHENSIVE RESTRICTED USE LICENSE FOR INDIGENOUS CREATIONS WITH TRIBAL SOVEREIGNTY, DATA SOVEREIGNTY, AND WEALTH RECLAMATION PROTECTIONS.}
@@ -26,7 +26,7 @@ curl -fLo LICENSE https://raw.githubusercontent.com/nbiish/license-for-all-works
 
 ## 3 @README.md -> Point to the current codebase's LICENSE that was just pulled and filled out. 
 
-### 4 @README.md -> Then add the following near the top so that it's easthetically pleasing:
+### 4 @README.md -> Add the following near the top:
 ```markdown
 <div align="center">
   <hr width="50%">
