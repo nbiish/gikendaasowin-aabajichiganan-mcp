@@ -34,7 +34,7 @@ Copyright © 2025 ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimi
 
 This project is licensed under the [COMPREHENSIVE RESTRICTED USE LICENSE FOR INDIGENOUS CREATIONS WITH TRIBAL SOVEREIGNTY, DATA SOVEREIGNTY, AND WEALTH RECLAMATION PROTECTIONS](LICENSE).
 
-ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Agentic Cognitive Tools (v3.2): Implements Gikendaasowin v7 Guidelines. Enforces MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle: Starts with 'assess_and_orient', continues with 'think' deliberation before actions. Guides adaptive reasoning (**Chain-of-Thought (CoT)**, **Chain-of-Draft/Condensed Reasoning (CoD/CR)**, **Structured Chain-of-Thought (SCoT)**) & CodeAct preference. Returns Markdown.
+ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Agentic Cognitive Tools (v3.2.1 / pkg v2.0.4): Implements Gikendaasowin v7 Guidelines. Enforces MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle: Starts with 'assess_and_orient', continues with 'think' deliberation before actions. Guides adaptive reasoning (**Chain-of-Thought (CoT)**, **Chain-of-Draft/Condensed Reasoning (CoD/CR)**, **Structured Chain-of-Thought (SCoT)**) & CodeAct preference. Returns Markdown.
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
@@ -43,6 +43,7 @@ Known as:
 Both packages are maintained in parallel and receive the same updates. You can use either package name in your projects - they provide identical functionality.
 
 **Recent Updates:**
+- v2.0.4: Updated cognitive tool output formatting to prepend "1) ".
 - Resolved TypeScript compilation errors related to MCP SDK types and server configuration.
 - Ensured successful build process.
 
