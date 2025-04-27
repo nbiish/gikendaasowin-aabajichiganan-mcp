@@ -4,21 +4,17 @@ globs: publish-both*.sh
 alwaysApply: false
 ---
 This codebases has two npm locations to publish to..
-ABSOLUTELY MAKE SURE the versions match for both of the following packages BEFORE attempting to publish:
+ABSOLUTELY MAKE SURE versions match for both of the following packages BEFORE publishing and ALWAYS update version # slightly upon reading this:
 - https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp -> [package-gikendaasowin.json](mdc:package-gikendaasowin.json)
 - https://www.npmjs.com/package/@nbiish/cognitive-tools-mcp -> [package-cognitive-tools.json](mdc:package-cognitive-tools.json)
-- We use npx for our mcp server and need to publish to test our tooling.
 
 REBUILD OUR PROJECT AND CHANGES BEFORE PROCEEDING.
 - ALWAYS run [critical.mdc](mdc:.cursor/rules/critical.mdc) before publishing our changes and has the proper placeholders filled out for this codebase.
-- Update the [README.md](mdc:README.md) so that it references the latest integration prompt.
+- Update the [README.md](mdc:README.md) to reflect and changes and reference our [latest.md](mdc:latest.md) integration prompt. <- remind that prompt is license under [LICENSE](mdc:LICENSE)
 
 Tools have a STRICT naming limit of 60 characters (we need to be alert for this in [index.ts](mdc:src/index.ts) before [index.js](mdc:build/index.js) builds):
 - AVOID-EXAMPLE -> ```gikendaasowin-aabajichiganan: assess_complexity_and_select_thought_mode - Combined server and tool name length (69) exceeds 60 characters```
 
-DO NOT:
-- publish this mcp server so that we DO NOT append a version to the end of our npx command
-
 DO:
-- [publish-both-packages.sh](mdc:scripts/publish-both-packages.sh)
+- run [publish-both-packages.sh](mdc:scripts/publish-both-packages.sh)
  
