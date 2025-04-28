@@ -2,7 +2,7 @@
 
 /**
  * -----------------------------------------------------------------------------
- * Gikendaasowin Aabajichiganan - Agentic Cognitive Tools MCP Server (v3.3)
+ * Gikendaasowin Aabajichiganan - Agentic Cognitive Tools MCP Server (v3.4)
  *
  * Description: Provides cognitive tools implementing the Gikendaasowin v7
  * Agentic Operational Guidelines. Enforces a mandatory structured
@@ -13,11 +13,13 @@
  * Chain-of-Thought (SCoT)**. Aligns with dynamic tool environments,
  * including CodeAct preference. Returns Markdown.
  *
- * v3.3 Enhancements:
- * - Compressed tooling definitions by combining core cognitive steps (`assess_and_orient`, `think`, `quick_think`, `mental_sandbox`)
- *   into a single, flexible `deliberate` tool.
- * - The single `deliberate` tool utilizes the research on CoT, CoD/CR, SCoT, and the `think` tool concept for structured reasoning.
- * - Maintained internal system prompt framing and expanded cognitive technique acronyms.
+ * v3.4 Enhancements:
+ * - Enhanced the description of the `deliberate` tool to be expertly verbose,
+ *   explaining the prompting techniques (CoT, CoD/CR, SCoT) before using acronyms,
+ *   drawing from the provided research context for professional precision.
+ * - Maintained tooling compression, internal system prompt framing, and
+ *   expanded cognitive technique acronyms (with explanations on first use in
+ *   the main server description).
  * - Simplified error reporting.
  * -----------------------------------------------------------------------------
  */
@@ -47,9 +49,9 @@ type ToolContent = TextContent | ImageContent; // Add ResourceContent if needed 
 
 const serverInfo = {
 	name: "gikendaasowin-agentic-cognitive-tools-mcp",
-	version: "3.3.0", // Version reflects tooling compression
+	version: "3.4.0", // Version reflects enhanced tool description verbosity
 	// Updated description with consolidated tooling and expanded acronyms
-	description: `ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Agentic Cognitive Tools (v3.3): Implements Gikendaasowin v7 Guidelines. Enforces MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle using the unified 'deliberate' tool. Starts with initial assessment/orientation, continues with structured deliberation and mandatory mental sandbox logging before actions. Guides adaptive reasoning (**Chain-of-Thought (CoT)**, **Chain-of-Draft/Condensed Reasoning (CoD/CR)**, **Structured Chain-of-Thought (SCoT)**) & CodeAct preference. Returns Markdown.`
+	description: `ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Agentic Cognitive Tools (v3.4): Implements Gikendaasowin v7 Guidelines. Enforces MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle using the unified 'deliberate' tool. Starts with initial assessment/orientation, continues with structured deliberation and mandatory mental sandbox logging before actions. Guides adaptive reasoning (**Chain-of-Thought (CoT)**: step-by-step natural language reasoning; **Chain-of-Draft/Condensed Reasoning (CoD/CR)**: iterative refinement/concise steps; **Structured Chain-of-Thought (SCoT)**: reasoning incorporating program structures/plans) & CodeAct preference. Returns Markdown.`
 };
 const server = new McpServer(serverInfo);
 
@@ -96,7 +98,7 @@ function logToolError(toolName: string, error: unknown): { content: ToolContent[
 	};
 }
 
-// --- Consolidated Cognitive Deliberation & Refinement Step (v3.3) ---
+// --- Consolidated Cognitive Deliberation & Refinement Step (v3.4) ---
 
 /**
  * Tool: deliberate (Unified Cognitive Process)
@@ -108,20 +110,18 @@ function logToolError(toolName: string, error: unknown): { content: ToolContent[
  * 2. Full, structured OOReDAct deliberation after receiving new information or before non-trivial actions (`stage: "reason"`).
  * 3. Brief cognitive acknowledgement of simple, expected outcomes (`stage: "acknowledge"`).
  * 4. Logging the mandatory mental sandbox simulation before actions (`stage: "sandbox"`).
- * Adapt your reasoning style within the 'Reason' stage (e.g., **Chain-of-Thought (CoT)**, **Chain-of-Draft/Condensed Reasoning (CoD/CR)**,
- * or **Structured Chain-of-Thought (SCoT)**).
+ * Adapt your reasoning style within the 'Reason' stage using techniques like Chain-of-Thought, Chain-of-Draft/Condensed Reasoning, or Structured Chain-of-Thought.
  * Input: An object containing the stage and corresponding cognitive content.
  * Output: The provided content, returned verbatim.
  */
 server.tool(
 	"deliberate",
-	// Internal Framing: Expanded OOReDAct, CoT, CoD/CR, SCoT on first mention in this tool's description.
-	"**Unified Cognitive Process (Mandatory):** This is your REQUIRED tool for ALL internal cognitive steps, consolidating assessment, orientation, full OOReDAct deliberation, brief acknowledgement, and mandatory mental sandbox logging. Use `stage: \"orient\"` for initial assessment (CUC-N) and OOReDAct Observe/Orient. Use `stage: \"reason\"` for full OOReDAct cycles after new info/before actions, adapting reasoning styles (**CoT**, **CoD/CR**, **SCoT**). Use `stage: \"acknowledge\"` for brief acknowledgements of simple outcomes. Use `stage: \"sandbox\"` to log mandatory `<sandbox>` simulations. This tool acts as a passthrough.",
-	// Pass the raw shape object directly, not z.object() instance
-	{
+	// Expertly verbose description explaining techniques before acronyms
+	"**Unified Cognitive Process (Mandatory):** This is your REQUIRED tool for ALL internal cognitive steps, enforcing the **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle. Use `stage: \"orient\"` for the MANDATORY initial assessment (Complexity, Uncertainty, Consequence, Novelty - CUC-N) and OOReDAct Observe/Orient steps at the start of ANY task or strategic pivot. Use `stage: \"reason\"` for the MANDATORY full OOReDAct deliberation cycle after receiving new information (tool/CodeAct results, errors, USER input) and BEFORE any non-trivial action or final response. Within the 'Reason' stage, adapt your reasoning style for optimal performance: employ **Chain-of-Thought** (step-by-step natural language reasoning for complex problems, enhancing accuracy), **Chain-of-Draft/Condensed Reasoning** (iterative refinement or concise steps for efficiency), or **Structured Chain-of-Thought** (reasoning that explicitly incorporates program structures, plans, or structured steps, particularly effective for code generation and structured tasks). Use `stage: \"acknowledge\"` ONLY for brief acknowledgements of simple, expected outcomes where the next step is already clearly defined by a prior 'reason' stage and needs NO re-evaluation. Use `stage: \"sandbox\"` to log the MANDATORY internal `<sandbox>` simulation (Hypothesis Testing, Constraint Checks, Confidence Scoring, Pre-computation, etc.) BEFORE any non-trivial output, plan, decision, or action, as per operational directives. This tool acts as a passthrough, returning the provided content verbatim.",
+	z.object({
 		stage: z.enum(["orient", "reason", "acknowledge", "sandbox"]).describe("The current stage of the cognitive process."),
 		content: z.string().describe("The cognitive content for the specified stage (assessment, deliberation, acknowledgement, or sandbox simulation text). This tool acts as a passthrough.")
-	},
+	}).shape,
 	async ({ stage, content }: { stage: "orient" | "reason" | "acknowledge" | "sandbox", content: string }) => {
 		const toolName = 'deliberate';
 		logToolCall(toolName, `Stage: ${stage}`);
