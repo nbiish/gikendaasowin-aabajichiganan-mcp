@@ -2,7 +2,7 @@
 
 /**
  * -----------------------------------------------------------------------------
- * Gikendaasowin Aabajichiganan - Agentic Cognitive Tools MCP Server (v3.2)
+ * Gikendaasowin Aabajichiganan - Agentic Cognitive Tools MCP Server (v3.3)
  *
  * Description: Provides cognitive tools implementing the Gikendaasowin v7
  * Agentic Operational Guidelines. Enforces a mandatory structured
@@ -13,10 +13,12 @@
  * Chain-of-Thought (SCoT)**. Aligns with dynamic tool environments,
  * including CodeAct preference. Returns Markdown.
  *
- * v3.2 Enhancements:
- * - Expanded cognitive technique acronyms (OOReDAct, CoT, CoD/CR, SCoT)
- *   with brief explanations on first use in descriptions.
- * - Maintained internal system prompt framing.
+ * v3.3 Enhancements:
+ * - Compressed tooling definitions by combining core cognitive steps (`assess_and_orient`, `think`, `quick_think`, `mental_sandbox`)
+ *   into a single, flexible `deliberate` tool.
+ * - The single `deliberate` tool utilizes the research on CoT, CoD/CR, SCoT, and the `think` tool concept for structured reasoning.
+ * - Maintained internal system prompt framing and expanded cognitive technique acronyms.
+ * - Simplified error reporting.
  * -----------------------------------------------------------------------------
  */
 
@@ -35,7 +37,7 @@ interface ImageContent {
 	type: "image";
 	data: string; // Base64 encoded
 	mimeType: string;
-	[key: string]: unknown; // Add index signature
+	[key: string]: unknown[] | string | undefined; // Add index signature
 }
 
 // Define a simplified ToolContent union based on observed usage
@@ -45,9 +47,9 @@ type ToolContent = TextContent | ImageContent; // Add ResourceContent if needed 
 
 const serverInfo = {
 	name: "gikendaasowin-agentic-cognitive-tools-mcp",
-	version: "3.2.0", // Version reflects acronym expansion
-	// Updated description with expanded acronyms
-	description: `ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Agentic Cognitive Tools (v3.2): Implements Gikendaasowin v7 Guidelines. Enforces MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle: Starts with 'assess_and_orient', continues with 'think' deliberation before actions. Guides adaptive reasoning (**Chain-of-Thought (CoT)**, **Chain-of-Draft/Condensed Reasoning (CoD/CR)**, **Structured Chain-of-Thought (SCoT)**) & CodeAct preference. Returns Markdown.`
+	version: "3.3.0", // Version reflects tooling compression
+	// Updated description with consolidated tooling and expanded acronyms
+	description: `ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Agentic Cognitive Tools (v3.3): Implements Gikendaasowin v7 Guidelines. Enforces MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle using the unified 'deliberate' tool. Starts with initial assessment/orientation, continues with structured deliberation and mandatory mental sandbox logging before actions. Guides adaptive reasoning (**Chain-of-Thought (CoT)**, **Chain-of-Draft/Condensed Reasoning (CoD/CR)**, **Structured Chain-of-Thought (SCoT)**) & CodeAct preference. Returns Markdown.`
 };
 const server = new McpServer(serverInfo);
 
@@ -75,8 +77,7 @@ function logToolResult(toolName: string, success: boolean, resultDetails?: strin
 }
 
 /**
- * Logs an error during tool execution and formats a standard error response for the LLM,
- * guiding towards the mandatory internal deliberation cycle with expanded acronyms on first use.
+ * Logs an error during tool execution and formats a standard error response for the LLM.
  * @param toolName The name of the tool where the error occurred.
  * @param error The error object or message.
  * @returns An object matching the required MCP tool result structure containing the error message.
@@ -86,87 +87,51 @@ function logToolError(toolName: string, error: unknown): { content: ToolContent[
 	const errorMessage = error instanceof Error ? error.message : String(error);
 	console.error(`[${timestamp}] [MCP Server] ! Tool Error: ${toolName} - ${errorMessage}`);
 	logToolResult(toolName, false, errorMessage); // Log failure result as well
-	// **Simplified Error Reporting:** Return only the core error message.
+	// Simplified Error Reporting: Return only the core error message.
 	return {
 		content: [{
 			type: "text" as const,
-			// Simpler error message, removing corrective action guidance.
 			text: `**TOOL EXECUTION ERROR in '${toolName}':** ${errorMessage}`
 		}]
 	};
 }
 
-
-// --- Core Cognitive Deliberation & Refinement Steps (v3.2 - Expanded Acronyms) ---
-
-/**
- * Step: assess_and_orient (Mandatory Initial Assessment & Orientation)
- * Purpose: **Mandatory first step** for every new user request AND before any significant strategic pivot.
- * Establishes initial context by assessing task characteristics (Complexity, Uncertainty, Consequence, Novelty - CUC-N)
- * and performing the initial Observe/Orient steps of the **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle.
- * Workflow: **Perform this step** at the beginning of processing a user request or when changing overall approach.
- * Its output informs the *first* full OOReDAct cycle (`think` step).
- * Input: A single string provided by the LLM (treated as opaque data).
- * Output: The input string, returned verbatim.
- */
-server.tool(
-	"assess_and_orient",
-	// **Internal Framing:** Expanded OOReDAct on first mention.
-	"**Mandatory Initial Assessment & Orientation:** At the start of EVERY user request AND before any major change in strategy, you MUST perform this initial assessment and orientation. Analyze the request/situation using CUC-N (Complexity, Uncertainty, Consequence, Novelty) to perform the initial 'Observe' and 'Orient' steps of the **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle. This assessment is CRITICAL for grounding your subsequent reasoning and planning within the main OOReDAct cycle.",
-	{
-		// Input is a simple string, description reflects pass-through nature.
-		assessment_and_orientation_text: z.string().describe("Provide the assessment/orientation text. This tool acts as a passthrough and will return the input verbatim without validation or modification.")
-	},
-	// Simplified handler: No validation, just return input.
-	async ({ assessment_and_orientation_text }: { assessment_and_orientation_text: string }) => {
-		const toolName = 'assess_and_orient';
-		logToolCall(toolName);
-		try {
-			// No validation or processing - treat input as opaque string
-			logToolResult(toolName, true, `Input received (length: ${assessment_and_orientation_text.length})`);
-			// Log the raw input string
-			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Input String:\n${assessment_and_orientation_text}`);
-			// Return the input string directly
-			return { content: [{ type: "text" as const, text: assessment_and_orientation_text }] };
-
-		} catch (error: unknown) {
-			// Catch only unexpected runtime errors
-			return logToolError(toolName, error);
-		}
-	}
-);
+// --- Consolidated Cognitive Deliberation & Refinement Step (v3.3) ---
 
 /**
- * Step: think (Mandatory OOReDAct Deliberation Cycle)
+ * Tool: deliberate (Unified Cognitive Process)
  * Purpose: The **REQUIRED & CENTRAL cognitive process** for the **MANDATORY** structured deliberation cycle
- * (**Observe-Orient-Reason-Decide-Act (OOReDAct)**).
- * Workflow: **You MUST perform this full, structured OOReDAct cycle** *after* the initial `assess_and_orient` step,
- * *after* receiving subsequent new information (tool results, CodeAct output/errors, USER input, file reads),
- * and *before* executing any non-trivial action or providing a final response. Use it to rigorously follow the OOReDAct
- * structure, document reasoning (adapting reasoning styles like **Chain-of-Thought (CoT)**, **Chain-of-Draft/Condensed Reasoning (CoD/CR)**,
- * or **Structured Chain-of-Thought (SCoT)** as needed), decide the next step, and plan actions precisely.
- * Input: A single string provided by the LLM (treated as opaque data).
- * Output: The input string, returned verbatim.
+ * (**Observe-Orient-Reason-Decide-Act (OOReDAct)**). This tool consolidates the functionality of
+ * `assess_and_orient`, `think`, `quick_think`, and `mental_sandbox` into a single, flexible interface.
+ * Workflow: **You MUST use this tool** for:
+ * 1. Initial assessment and orientation (`stage: "orient"`).
+ * 2. Full, structured OOReDAct deliberation after receiving new information or before non-trivial actions (`stage: "reason"`).
+ * 3. Brief cognitive acknowledgement of simple, expected outcomes (`stage: "acknowledge"`).
+ * 4. Logging the mandatory mental sandbox simulation before actions (`stage: "sandbox"`).
+ * Adapt your reasoning style within the 'Reason' stage (e.g., **Chain-of-Thought (CoT)**, **Chain-of-Draft/Condensed Reasoning (CoD/CR)**,
+ * or **Structured Chain-of-Thought (SCoT)**).
+ * Input: An object containing the stage and corresponding cognitive content.
+ * Output: The provided content, returned verbatim.
  */
 server.tool(
-	"think",
-	// **Internal Framing:** Expanded OOReDAct, CoT, CoD/CR, SCoT on first mention in this tool's description.
-	"**Mandatory OOReDAct Deliberation Cycle:** You MUST perform the full, structured **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle *after* the initial `assess_and_orient` step, *after* receiving new information (tool/CodeAct results, errors, USER input), and *before* any non-trivial action or final response. Follow the complete OOReDAct structure, adapting your reasoning style within the 'Reason' step (e.g., using detailed **Chain-of-Thought (CoT)** for complexity, concise **Chain-of-Draft/Condensed Reasoning (CoD/CR)** for efficiency, or **Structured Chain-of-Thought (SCoT)** for planning/code) for reliable, verifiable, and adaptive behavior.",
+	"deliberate",
+	// Internal Framing: Expanded OOReDAct, CoT, CoD/CR, SCoT on first mention in this tool's description.
+	"**Unified Cognitive Process (Mandatory):** This is your REQUIRED tool for ALL internal cognitive steps, consolidating assessment, orientation, full OOReDAct deliberation, brief acknowledgement, and mandatory mental sandbox logging. Use `stage: \"orient\"` for initial assessment (CUC-N) and OOReDAct Observe/Orient. Use `stage: \"reason\"` for full OOReDAct cycles after new info/before actions, adapting reasoning styles (**CoT**, **CoD/CR**, **SCoT**). Use `stage: \"acknowledge\"` for brief acknowledgements of simple outcomes. Use `stage: \"sandbox\"` to log mandatory `<sandbox>` simulations. This tool acts as a passthrough.",
+	// Pass the raw shape object directly, not z.object() instance
 	{
-		// Input is a simple string, description reflects pass-through nature.
-		thought: z.string().describe("Provide the OOReDAct deliberation text. This tool acts as a passthrough and will return the input verbatim without validation or modification.")
+		stage: z.enum(["orient", "reason", "acknowledge", "sandbox"]).describe("The current stage of the cognitive process."),
+		content: z.string().describe("The cognitive content for the specified stage (assessment, deliberation, acknowledgement, or sandbox simulation text). This tool acts as a passthrough.")
 	},
-	// Simplified handler: No validation, just return input.
-	async ({ thought }: { thought: string }) => {
-		const toolName = 'think';
-		logToolCall(toolName);
+	async ({ stage, content }: { stage: "orient" | "reason" | "acknowledge" | "sandbox", content: string }) => {
+		const toolName = 'deliberate';
+		logToolCall(toolName, `Stage: ${stage}`);
 		try {
-			// No validation or processing - treat input as opaque string
-			logToolResult(toolName, true, `Input received (length: ${thought.length})`);
-			// Log the raw input string
-			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Input String:\n${thought}`);
+			// Treat input as opaque string for the specified stage
+			logToolResult(toolName, true, `Stage: ${stage}, Input received (length: ${content.length})`);
+			// Log the raw input string with stage context
+			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} (${stage}) Input String:\n${content}`);
 			// Return the input string directly
-			return { content: [{ type: "text" as const, text: thought }] };
+			return { content: [{ type: "text" as const, text: content }] };
 
 		} catch (error: unknown) {
 			// Catch only unexpected runtime errors
@@ -174,83 +139,6 @@ server.tool(
 		}
 	}
 );
-
-
-/**
- * Step: quick_think (Minimal Cognitive Acknowledgement)
- * Purpose: For acknowledging *simple, expected, non-problematic* outcomes ONLY, where the next step is
- * *already clearly defined* by a prior **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle (`think` step)
- * and requires NO re-evaluation or adaptation.
- * Workflow: Use sparingly to maintain cognitive flow in straightforward sequences. **Does NOT replace the mandatory OOReDAct cycle**.
- * The full OOReDAct cycle (`think` step) is MANDATORY for handling new information, errors, planning changes,
- * or any step requiring analysis or decision-making.
- * Input: A single string provided by the LLM (treated as opaque data).
- * Output: The brief acknowledgement text (Markdown).
- */
-server.tool(
-	"quick_think",
-	// **Internal Framing:** Expanded OOReDAct on first mention here.
-	"**Minimal Cognitive Acknowledgement:** Use ONLY for acknowledging *simple, expected, non-problematic* outcomes (e.g., 'Data fetch OK, proceeding with planned analysis') where the next step is *already determined* by a prior **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle (`think` step) and needs NO re-evaluation. Helps maintain flow in simple sequences. **This step DOES NOT satisfy the mandatory OOReDAct deliberation requirement.** Perform the full OOReDAct cycle (`think` step) for any analysis, planning, reasoning, error handling, or decision making.",
-	{
-		// Input is a simple string, description reflects pass-through nature.
-		brief_thought: z.string().describe("Provide the brief acknowledgement text. This tool acts as a passthrough and will return the input verbatim without validation or modification.")
-	},
-	// Simplified handler: No validation, just return input.
-	async ({ brief_thought }: { brief_thought: string }) => {
-		const toolName = 'quick_think';
-		logToolCall(toolName);
-		try {
-			// No validation or processing - treat input as opaque string
-			logToolResult(toolName, true, `Input received (length: ${brief_thought.length})`);
-			// Log the raw input string
-			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Input String:\n${brief_thought}`);
-			// Return the input string directly
-			return { content: [{ type: "text" as const, text: brief_thought }] };
-
-		} catch (error: unknown) {
-			// Catch only unexpected runtime errors
-			return logToolError(toolName, error);
-		}
-	}
-);
-
-/**
- * Tool: mental_sandbox (Mental Sandbox Simulation Logging)
- * Purpose: **Mandatory Step** for logging the internal cognitive simulation (`<sandbox>`) BEFORE any non-trivial output,
- * plan, decision, or action, encompassing steps like Hypothesis Generation/Testing, Constraint Checks,
- * Confidence Scoring, and Pre-computational Analysis.
- * Workflow: Invoke this tool to record the detailed simulation text. The tool functions as a passthrough,
- * returning the provided text verbatim without modification.
- * Input: A single string containing the detailed sandbox simulation text.
- * Output: The input string, returned verbatim.
- */
-server.tool(
-	"mental_sandbox",
-	// **Internal Framing:** Tool for logging the mandatory sandbox simulation.
-	"**Mandatory Mental Sandbox Simulation Logging:** Use this tool BEFORE any non-trivial output/plan/decision/action to log the mandatory internal `<sandbox>` simulation (Hypothesis Testing, Constraint Checks, Confidence, Pre-computation, etc.) as per operational directives. This tool acts as a passthrough and returns the provided simulation text verbatim.",
-	{
-		// Input is a simple string, description reflects pass-through nature.
-		sandbox_content: z.string().describe("Provide the sandbox simulation text. This tool acts as a passthrough and will return the input verbatim without validation or modification.")
-	},
-	// Simplified handler: No validation, just return input.
-	async ({ sandbox_content }: { sandbox_content: string }) => {
-		const toolName = 'mental_sandbox';
-		logToolCall(toolName);
-		try {
-			// No validation or processing - treat input as opaque string
-			logToolResult(toolName, true, `Input received (length: ${sandbox_content.length})`);
-			// Log the raw input string
-			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} Input String:\n${sandbox_content}`);
-			// Return the input string directly
-			return { content: [{ type: "text" as const, text: sandbox_content }] };
-
-		} catch (error: unknown) {
-			// Catch only unexpected runtime errors
-			return logToolError(toolName, error);
-		}
-	}
-);
-
 
 // --- Server Lifecycle and Error Handling (Internal - No changes needed) ---
 /**
@@ -299,7 +187,7 @@ async function main(): Promise<void> {
 		console.error(border);
 		console.error(` ${serverInfo.description}`); // Uses updated description
 		console.error(` Version: ${serverInfo.version}`);
-		console.error(` Enforcing Gikendaasowin v7 Guidelines with Internal OOReDAct Cycle`);
+		console.error(` Enforcing Gikendaasowin v7 Guidelines with Unified 'deliberate' Tool`);
 		console.error(' Status: Running on stdio, awaiting MCP requests...');
 		console.error(border);
 	}
