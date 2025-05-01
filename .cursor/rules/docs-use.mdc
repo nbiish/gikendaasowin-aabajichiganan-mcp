@@ -1,0 +1,13 @@
+---
+description: 
+globs: *.json,*.py,*.js,*.ts,*.rs,*.sh,*.md
+alwaysApply: false
+---
+# CRITICAL -> UPON ANY ERRORS/ISSUES -> YOU MUST GO THROUGH THE FOLLOWING TOP TO BOTTOM:
+- use mcp_All_docs_and_libraries (context7 mcp tool) to learn/confirm knowledge about frameworks, libraries, etc..
+    - fallback to internal search
+    - fallback to other search tools
+    - fall back to browsermcp <- controls chrome browser
+    - use MEMORY-BANK.mdc for local information/docs storage of what you have learned
+        - VERIFY and use CURRENT TIME using mcp_time_get_current_time <-!!
+    - all available websearch & tools for information/docs gathering -> base on .cursor/rules/MEMORY-BANK.mdc

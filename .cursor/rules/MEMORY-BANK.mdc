@@ -1,9 +1,4 @@
 ---
-description: 
-globs: *.md,package*json,*.ts,*.sh
-alwaysApply: false
----
----
 
 # Chain-of-Draft Agile Memory Prompt for AI Pair Programming
 
@@ -92,3 +87,16 @@ alwaysApply: false
 - After every session/reset, rely solely on Memory Bank and condensed reasoning to continue work.
 
 ---
+
+## [2025-04-XX] Architectural Refactoring & Bugfix Summary <--(VERIFY and use CURRENT TIME using mcp_time_get_current_time)
+- **Major Refactoring**: Changed architecture of `prompt_aider` and `double_compute` tools to act as advisors rather than executors
+  - Tools now provide expert guidance on optimal aider commands with proper edit formats
+  - Automatically selects best edit format based on aider leaderboard data for current model
+  - Includes warnings for missing API keys and dependencies
+- Fixed file argument handling in `prompt_aider` and `double_compute` (now uses `--file` flags rather than positional arguments)
+- Updated README.md with detailed explanation of architectural changes and improved examples
+- Committed all changes and ran dual-publish.sh, successfully building and publishing:
+  - @nbiish/giizhendam-aabajichiganan-mcp@0.3.XX
+  - @nbiish/ai-tool-mcp@0.3.XX
+- The refactored tools now function similar to the `deliberate` MCP tool, providing guidance rather than direct execution
+- Project is now compliant with dual-publish.mdc and critical.mdc requirements

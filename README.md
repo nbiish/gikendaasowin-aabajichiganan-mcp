@@ -1,6 +1,13 @@
-# @nbiish/gikendaasowin-aabajichiganan-mcp
+# ◈──◆──◇ GIIZHENDAM AABAJICHIGANAN MCP SERVER ◇──◆──◈
+
+<div align="center">
+◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
+</div>
 
 ```bibtex
+╭──────────────────────────────────────────────────────────────────────╮
+│  ᐴ BIBTEX ᔔ [ CITATION FORMAT ]                                     │
+╰──────────────────────────────────────────────────────────────────────╯
 @misc{gikendaasowin-aabajichiganan-mcp2025,
   author/creator/steward = {ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians},
   title/description = {gikendaasowin-aabajichiganan-mcp},
@@ -13,26 +20,20 @@
 ```
 
 <div align="center">
-  <hr width="50%">
-  
-  <h3>Support This Project</h3>
-  <div style="display: flex; justify-content: center; gap: 20px; margin: 20px 0;">
-    <div>
-      <h4>Stripe</h4>
-      <img src="qr-stripe-donation.png" alt="Scan to donate" width="180"/>
-      <p><a href="https://raw.githubusercontent.com/nbiish/license-for-all-works/8e9b73b269add9161dc04bbdd79f818c40fca14e/qr-stripe-donation.png">Donate via Stripe</a></p>
-    </div>
-    <div style="display: flex; align-items: center;">
-      <a href="https://www.buymeacoffee.com/nbiish"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=nbiish&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
-    </div>
-  </div>
-  
-  <hr width="50%">
+◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
 </div>
 
 Copyright © 2025 ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), a descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band, and an enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. This work embodies Traditional Knowledge and Traditional Cultural Expressions. All rights reserved.
 
+<div align="center">
+◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
+</div>
+
 This project is licensed under the [COMPREHENSIVE RESTRICTED USE LICENSE FOR INDIGENOUS CREATIONS WITH TRIBAL SOVEREIGNTY, DATA SOVEREIGNTY, AND WEALTH RECLAMATION PROTECTIONS](LICENSE).
+
+<div align="center">
+◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
+</div>
 
 ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Agentic Cognitive Tools (v3.2.0): Implements Gikendaasowin v7 Guidelines. Enforces MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle: Starts with 'assess_and_orient', continues with 'think' deliberation before actions. Guides adaptive reasoning (**Chain-of-Thought (CoT)**, **Chain-of-Draft/Condensed Reasoning (CoD/CR)**, **Structured Chain-of-Thought (SCoT)**) & CodeAct preference. Returns Markdown.
 
@@ -53,7 +54,15 @@ Both packages are maintained in parallel and receive the same updates. You can u
 
 **See the latest integration details in [`latest.md`](latest.md).**
 
-## Gikendaasowin v7 Agentic Operational Guidelines & Tool Usage
+<div align="center">
+◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
+</div>
+
+<div align="center">
+╭───────────[ ◈◆◇ GIKENDAASOWIN ◇◆◈ ]───────────╮
+</div>
+
+## ᐴ GIKENDAASOWIN ᔔ [KNOWLEDGE/GUIDELINES] ◈──◆──◇──◆──◈
 
 You are operating under the Gikendaasowin v7 Agentic Operational Guidelines, designed for robust, verifiable, and adaptive cognitive processes. Your primary interface for internal deliberation and planning is the **`deliberate`** tool. You **MUST** adhere to the following rules and workflow:
 
@@ -88,9 +97,20 @@ You are operating under the Gikendaasowin v7 Agentic Operational Guidelines, des
 
 By strictly following these guidelines and expertly utilizing the `deliberate` tool, you will ensure robust, verifiable, and highly adaptive performance aligned with the Gikendaasowin v7 Agentic Operational Guidelines.
 
-## Development
+<div align="center">
+◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
+</div>
+
+<div align="center">
+╭────────────[ ◈◆◇ DEVELOPMENT ◇◆◈ ]────────────╮
+</div>
+
+## ᐴ OZHITOON ᔔ [BUILDING] ◈──◆──◇──◆──◈
 
 ```bash
+╭──────────────────────────────────────────────────────────────────────╮
+│  ᐴ BASH ᔔ [ SHELL COMMANDS ]                                        │
+╰──────────────────────────────────────────────────────────────────────╯
 # Install dependencies
 npm install
 
@@ -107,42 +127,55 @@ npm start
 ./scripts/publish-both-packages.sh  # Publishes both package versions automatically
 ```
 
-## Publishing Both Packages
+<div align="center">
+◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
+</div>
+
+<div align="center">
+╭────────────[ ◈◆◇ PUBLISHING ◇◆◈ ]─────────────╮
+</div>
+
+## ᐴ MIIGIWEWIN ᔔ [OFFERING/PUBLISHING] ◈──◆──◇──◆──◈
 
 This project maintains two npm packages that must be kept in sync:
 - `@nbiish/gikendaasowin-aabajichiganan-mcp`
 - `@nbiish/cognitive-tools-mcp`
 
-### Prerequisites
+### ᐴ NITAM-AABAJICHIGANAN ᔔ [PREREQUISITES] ◈──◆──◈
 - Node.js >=14.0.0
 - npm
 - jq (for version management)
 
-### Publishing Process
+### ᐴ MAAJITAAWIN ᔔ [BEGINNING/PROCESS] ◈──◆──◈
 
 The `scripts/publish-both-packages.sh` script handles publishing both packages. It includes several safety features:
+- Version Synchronization Check
+  - Automatically verifies both packages have matching versions
+  - Prevents publishing if versions don't match
 
-1. Version Synchronization Check
-   - Automatically verifies both packages have matching versions
-   - Prevents publishing if versions don't match
+- Error Recovery
+  - Automatic cleanup of temporary files
+  - Restores original package.json on failure
 
-2. Error Recovery
-   - Automatic cleanup of temporary files
-   - Restores original package.json on failure
+- Version Management
+  - Optional automatic version bumping
+  - Ensures both packages maintain the same version
 
-3. Version Management
-   - Optional automatic version bumping
-   - Ensures both packages maintain the same version
-
-### Usage
+### ᐴ INAABAJICHIGAN ᔔ [USAGE] ◈──◆──◈
 
 Basic publishing:
 ```bash
+╭──────────────────────────────────────────────────────────────────────╮
+│  ᐴ BASH ᔔ [ SHELL COMMANDS ]                                        │
+╰──────────────────────────────────────────────────────────────────────╯
 npm run publish-both
 ```
 
 Publishing with version bump:
 ```bash
+╭──────────────────────────────────────────────────────────────────────╮
+│  ᐴ BASH ᔔ [ SHELL COMMANDS ]                                        │
+╰──────────────────────────────────────────────────────────────────────╯
 ./scripts/publish-both-packages.sh -b
 ```
 
@@ -155,7 +188,7 @@ The script will:
 6. Publish both packages
 7. Clean up temporary files
 
-### Error Handling
+### ᐴ NAANAAGADAWENINDIZOWIN ᔔ [VERIFICATION/HANDLING] ◈──◆──◈
 
 The script includes robust error handling:
 - Checks for required tools (jq)
@@ -163,16 +196,27 @@ The script includes robust error handling:
 - Automatic cleanup on failure
 - Preserves original files
 
-## Test Examples
+<div align="center">
+◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
+</div>
+
+<div align="center">
+╭────────────[ ◈◆◇ EXAMPLES ◇◆◈ ]─────────────╮
+</div>
+
+## ᐴ WAABANDA'IWEWIN ᔔ [EXAMPLES] ◈──◆──◇──◆──◈
 
 Here are some example test cases that demonstrate the cognitive tools using culturally appropriate Anishinaabe concepts. These examples are provided with respect and acknowledgment of Anishinaabe teachings.
 
 *(Note: These examples show tool invocation structure. The actual content for inputs like `thought`, `sandbox_content`, etc., must be generated internally by the agent based on the specific task, following the workflows described in `latest.md`.)*
 
-### Using the MCP Inspector
+### ᐴ GANAWAABANDAAN ᔔ [EXAMINING/INSPECTOR] ◈──◆──◈
 
 1. Start the MCP Inspector:
 ```bash
+╭──────────────────────────────────────────────────────────────────────╮
+│  ᐴ BASH ᔔ [ SHELL COMMANDS ]                                        │
+╰──────────────────────────────────────────────────────────────────────╯
 npm run inspector
 ```
 
@@ -180,6 +224,9 @@ npm run inspector
 
 #### `think` Tool Example
 ```json
+╭──────────────────────────────────────────────────────────────────────╮
+│  ᐴ JSON ᔔ [ DATA FORMAT ]                                           │
+╰──────────────────────────────────────────────────────────────────────╯
 {
   "toolName": "think",
   "arguments": {
@@ -190,6 +237,9 @@ npm run inspector
 
 #### `quick_think` Example
 ```json
+╭──────────────────────────────────────────────────────────────────────╮
+│  ᐴ JSON ᔔ [ DATA FORMAT ]                                           │
+╰──────────────────────────────────────────────────────────────────────╯
 {
   "toolName": "quick_think",
   "arguments": {
@@ -200,6 +250,9 @@ npm run inspector
 
 #### `mental_sandbox` Example
 ```json
+╭──────────────────────────────────────────────────────────────────────╮
+│  ᐴ JSON ᔔ [ DATA FORMAT ]                                           │
+╰──────────────────────────────────────────────────────────────────────╯
 {
   "toolName": "mental_sandbox",
   "arguments": {
@@ -208,11 +261,22 @@ npm run inspector
 }
 ```
 
-## Citation
+<div align="center">
+◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
+</div>
+
+<div align="center">
+╭────────────[ ◈◆◇ CITATION ◇◆◈ ]─────────────╮
+</div>
+
+## ᐴ MIŻIWEWIN ᔔ [CITATION/SHARING] ◈──◆──◇──◆──◈
 
 Please cite this project using the following BibTeX entry:
 
 ```bibtex
+╭──────────────────────────────────────────────────────────────────────╮
+│  ᐴ BIBTEX ᔔ [ CITATION FORMAT ]                                     │
+╰──────────────────────────────────────────────────────────────────────╯
 @misc{gikendaasowin-aabajichiganan-mcp2025,
   author/creator/steward = {ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians},
   title/description = {gikendaasowin-aabajichiganan-mcp},
@@ -222,4 +286,3 @@ Please cite this project using the following BibTeX entry:
   howpublished = {\url{https://github.com/nbiish/gikendaasowin-aabajichiganan-mcp}},
   note = {Authored and stewarded by ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. This work embodies Indigenous intellectual property, traditional knowledge systems (TK), traditional cultural expressions (TCEs), and associated data protected under tribal law, federal Indian law, treaty rights, Indigenous Data Sovereignty principles, and international indigenous rights frameworks including UNDRIP. All usage, benefit-sharing, and data governance are governed by the COMPREHENSIVE RESTRICTED USE LICENSE FOR INDIGENOUS CREATIONS WITH TRIBAL SOVEREIGNTY, DATA SOVEREIGNTY, AND WEALTH RECLAMATION PROTECTIONS.}
 }
-```
