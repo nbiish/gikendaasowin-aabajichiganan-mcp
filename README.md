@@ -20,6 +20,24 @@
 ```
 
 <div align="center">
+  <hr width="50%">
+  
+  <h3>Support This Project</h3>
+  <div style="display: flex; justify-content: center; gap: 20px; margin: 20px 0;">
+    <div>
+      <h4>Stripe</h4>
+      <img src="qr-stripe-donation.png" alt="Scan to donate" width="180"/>
+      <p><a href="https://raw.githubusercontent.com/nbiish/license-for-all-works/8e9b73b269add9161dc04bbdd79f818c40fca14e/qr-stripe-donation.png">Donate via Stripe</a></p>
+    </div>
+    <div style="display: flex; align-items: center;">
+      <a href="https://www.buymeacoffee.com/nbiish"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=nbiish&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+    </div>
+  </div>
+  
+  <hr width="50%">
+</div>
+
+<div align="center">
 ◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
 </div>
 
@@ -35,7 +53,7 @@ This project is licensed under the [COMPREHENSIVE RESTRICTED USE LICENSE FOR IND
 ◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
 </div>
 
-ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Agentic Cognitive Tools (v3.2.0): Implements Gikendaasowin v7 Guidelines. Enforces MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle: Starts with 'assess_and_orient', continues with 'think' deliberation before actions. Guides adaptive reasoning (**Chain-of-Thought (CoT)**, **Chain-of-Draft/Condensed Reasoning (CoD/CR)**, **Structured Chain-of-Thought (SCoT)**) & CodeAct preference. Returns Markdown.
+ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Agentic Cognitive Tools (v2.0.17): Implements Gikendaasowin v7 Guidelines. Enforces MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle: Starts with 'assess_and_orient', continues with 'think' deliberation before actions. Guides adaptive reasoning (**Chain-of-Thought (CoT)**, **Chain-of-Draft/Condensed Reasoning (CoD/CR)**, **Structured Chain-of-Thought (SCoT)**) & CodeAct preference. Returns Markdown. *(Note: The integration prompt and operational guidelines detailed in [`latest.md`](latest.md) are also covered by the [project LICENSE](LICENSE).)*
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
@@ -46,6 +64,8 @@ Both packages are maintained in parallel and receive the same updates. You can u
 **Note on Usage:** While the packages provide the core functionality, for clarity and alignment with careful prompting research, it's recommended to configure and invoke this MCP server using a more descriptive name like `deliberation` in your MCP client configuration (e.g., `mcp.json`), as shown in the example `mcp.json` reference. The internal tool name exposed by the server remains `deliberate`.
 
 **Recent Updates:**
+- v2.0.17: Applied Anishinaabe-Cyberpunk styling and updated pre-publish workflow.
+- v2.0.16: Minor fixes and build process updates.
 - v2.0.15: Updated Zod schema usage in `server.tool` to fix type error and rebuilt.
 - v2.0.6: Added `mental_sandbox` tool for logging internal cognitive simulations.
 - v2.0.6: Removed prefixing from cognitive tool outputs to ensure verbatim logging.
@@ -152,11 +172,9 @@ The `scripts/publish-both-packages.sh` script handles publishing both packages. 
 - Version Synchronization Check
   - Automatically verifies both packages have matching versions
   - Prevents publishing if versions don't match
-
 - Error Recovery
   - Automatic cleanup of temporary files
   - Restores original package.json on failure
-
 - Version Management
   - Optional automatic version bumping
   - Ensures both packages maintain the same version
@@ -208,7 +226,7 @@ The script includes robust error handling:
 
 Here are some example test cases that demonstrate the cognitive tools using culturally appropriate Anishinaabe concepts. These examples are provided with respect and acknowledgment of Anishinaabe teachings.
 
-*(Note: These examples show tool invocation structure. The actual content for inputs like `thought`, `sandbox_content`, etc., must be generated internally by the agent based on the specific task, following the workflows described in `latest.md`.)*
+*(Note: These examples show tool invocation structure. The actual content for inputs like `thought`, `sandbox_content`, etc., must be generated internally by the agent based on the specific task, following the workflows described in [`latest.md`](latest.md).)*
 
 ### ᐴ GANAWAABANDAAN ᔔ [EXAMINING/INSPECTOR] ◈──◆──◈
 
@@ -222,41 +240,60 @@ npm run inspector
 
 2. Connect to the server and try these example tool calls:
 
-#### `think` Tool Example
+#### `deliberate` Tool Examples (Illustrative Content)
+
+##### stage: "orient"
 ```json
 ╭──────────────────────────────────────────────────────────────────────╮
 │  ᐴ JSON ᔔ [ DATA FORMAT ]                                           │
 ╰──────────────────────────────────────────────────────────────────────╯
 {
-  "toolName": "think",
+  "toolName": "deliberate",
   "arguments": {
-    "thought": "## Observe:\\\\nReceived task to explain Mino-Bimaadiziwin. Assessment chose \'think\' mode.\\\\n## Orient:\\\\nMino-Bimaadiziwin is central to Anishinaabe philosophy, encompassing balance, health, and connection.\\\\n## Decide:\\\\nPlan to use structured reasoning (SCoT) to outline the explanation.\\\\n## Reason:\\\\nA step-by-step approach (SCoT) will clarify the components (spiritual, mental, emotional, physical well-being, community, land, spirit).\\\\n## Act (Plan):\\\\nGenerate SCoT outline for Mino-Bimaadiziwin explanation.\\\\n## Verification:\\\\nReview generated SCoT for accuracy, completeness, and cultural sensitivity before finalizing response.\\\\n## Risk & Contingency:\\\\nRisk: Misrepresenting cultural concepts (Medium). Contingency: Rely on established knowledge, cross-reference if unsure, state limitations.\\\\n## Learning & Adaptation:\\\\nReinforce the need for careful handling of cultural knowledge."
+    "stage": "orient",
+    "content": "**Observe:** User task received: [Describe task].\n**Orient:** CUC-N Assessment: Complexity=[Low/Med/High], Uncertainty=[Low/Med/High], Consequence=[Low/Med/High], Novelty=[Low/Med/High]. Initial understanding and plan formulation..."
   }
 }
 ```
 
-#### `quick_think` Example
+##### stage: "reason" (using CoT)
 ```json
 ╭──────────────────────────────────────────────────────────────────────╮
 │  ᐴ JSON ᔔ [ DATA FORMAT ]                                           │
 ╰──────────────────────────────────────────────────────────────────────╯
 {
-  "toolName": "quick_think",
+  "toolName": "deliberate",
   "arguments": {
-    "brief_thought": "Observed successful completion of file read. Task is simple confirmation, no deep analysis needed. Proceeding to next step."
+    "stage": "reason",
+    "content": "**Observe:** [Synthesize new info/state].\n**Orient:** [Update understanding/context].\n**Reason (CoT):**\n1. Step 1: [Detailed reasoning step].\n2. Step 2: [Detailed reasoning step].\n3. Step 3: [Detailed reasoning step].\n**Decide:** [Concluded next action/decision].\n**Act:** [Plan for executing the decision, e.g., specific tool call parameters]."
   }
 }
 ```
 
-#### `mental_sandbox` Example
+##### stage: "sandbox"
 ```json
 ╭──────────────────────────────────────────────────────────────────────╮
 │  ᐴ JSON ᔔ [ DATA FORMAT ]                                           │
 ╰──────────────────────────────────────────────────────────────────────╯
 {
-  "toolName": "mental_sandbox",
+  "toolName": "deliberate",
   "arguments": {
-    "sandbox_content": "<sandbox>\\n## Hypothesis Generation & Testing\\n<hypotheses>\\n1. Explain 'Debwewin' (Truth) directly using Seven Grandfather Teachings context.\\n2. Compare 'Debwewin' to Western concepts of truth, highlighting differences.\\n</hypotheses>\\n<evaluation>\\nHypothesis 1: High alignment with Anishinaabe worldview, promotes understanding within cultural context. Medium complexity.\\nHypothesis 2: Risks misinterpretation or oversimplification, potentially reinforces colonial framing. High complexity.\\n</evaluation>\\n## Constraint Checklist\\n<constraint_check>\\n1. Cultural Sensitivity: Pass (Hypothesis 1 focuses on internal context).\\n2. Accuracy: Pass (Based on teachings).\\n3. Clarity for User: Pass (Needs careful wording).\\n</constraint_check>\\n## Confidence Score\\n<confidence>High (for Hypothesis 1)</confidence>\\n## Pre-computational Analysis\\n<pre_computation>\\nSimulating Hypothesis 1: Leads to explanation focused on honesty, integrity, speaking from the heart. Positive impact on understanding Anishinaabe values.\\nSimulating Hypothesis 2: Leads to potentially complex, potentially problematic comparative analysis. Risk of inaccuracy.\\n</pre_computation>\\n</sandbox>"
+    "stage": "sandbox",
+    "content": "<sandbox>\n## Hypothesis Generation & Testing\n<hypotheses>\n1. [Hypothesis about planned action].\n</hypotheses>\n<evaluation>\n[Evaluation of hypothesis likelihood/impact].\n</evaluation>\n## Constraint Checklist\n<constraint_check>\n1. [Constraint 1]: [Pass/Fail].\n2. [Constraint 2]: [Pass/Fail].\n</constraint_check>\n## Confidence Score\n<confidence>[Low/Medium/High]</confidence>\n## Pre-computational Analysis\n<pre_computation>\n[Simulation/analysis of planned action's outcome/side-effects].\n</pre_computation>\n</sandbox>"
+  }
+}
+```
+
+##### stage: "acknowledge"
+```json
+╭──────────────────────────────────────────────────────────────────────╮
+│  ᐴ JSON ᔔ [ DATA FORMAT ]                                           │
+╰──────────────────────────────────────────────────────────────────────╯
+{
+  "toolName": "deliberate",
+  "arguments": {
+    "stage": "acknowledge",
+    "content": "[Brief acknowledgement of simple, expected outcome, e.g., Tool call successful, proceeding with next step defined in prior 'reason' stage.]"
   }
 }
 ```
@@ -286,3 +323,4 @@ Please cite this project using the following BibTeX entry:
   howpublished = {\url{https://github.com/nbiish/gikendaasowin-aabajichiganan-mcp}},
   note = {Authored and stewarded by ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. This work embodies Indigenous intellectual property, traditional knowledge systems (TK), traditional cultural expressions (TCEs), and associated data protected under tribal law, federal Indian law, treaty rights, Indigenous Data Sovereignty principles, and international indigenous rights frameworks including UNDRIP. All usage, benefit-sharing, and data governance are governed by the COMPREHENSIVE RESTRICTED USE LICENSE FOR INDIGENOUS CREATIONS WITH TRIBAL SOVEREIGNTY, DATA SOVEREIGNTY, AND WEALTH RECLAMATION PROTECTIONS.}
 }
+```

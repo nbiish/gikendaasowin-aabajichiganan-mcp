@@ -11,6 +11,7 @@ ABSOLUTELY MAKE SURE versions match for both of the following packages BEFORE pu
 REBUILD OUR PROJECT AND CHANGES BEFORE PROCEEDING.
 - ALWAYS run [critical.mdc](mdc:.cursor/rules/critical.mdc) before publishing our changes and has the proper placeholders filled out for this codebase.
 - Update the [README.md](mdc:README.md) to reflect and changes and reference our [latest.md](mdc:latest.md) integration prompt. <- remind that prompt is license under [LICENSE](mdc:LICENSE)
+- Make sure [README.md](mdc:README.md) adheres to our style guide in [anishinaabe-cyberpunk-style.mdc](mdc:.cursor/rules/anishinaabe-cyberpunk-style.mdc)
 
 Tools have a STRICT naming limit of 60 characters (we need to be alert for this in [index.ts](mdc:src/index.ts) before [index.js](mdc:build/index.js) builds):
 - AVOID-EXAMPLE -> ```gikendaasowin-aabajichiganan: assess_complexity_and_select_thought_mode - Combined server and tool name length (69) exceeds 60 characters```
