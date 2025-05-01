@@ -1,6 +1,6 @@
 {
   "name": "@nbiish/gikendaasowin-aabajichiganan-mcp",
-  "version": "2.0.20",
+  "version": "2.0.21",
   "description": "The Gikendaasowin Aabajichiganan MCP (Meta-Cognitive Programming) framework provides a suite of tools and techniques for building AI agents capable of sophisticated reasoning, planning, and self-correction.",
   "private": false,
   "type": "module",

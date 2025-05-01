@@ -17,5 +17,5 @@ Tools have a STRICT naming limit of 60 characters (we need to be alert for this 
 - AVOID-EXAMPLE -> ```gikendaasowin-aabajichiganan: assess_complexity_and_select_thought_mode - Combined server and tool name length (69) exceeds 60 characters```
 
 DO:
-- run [publish-both-packages.sh](mdc:scripts/publish-both-packages.sh)
+- run [publish-both-packages.sh](mdc:publish-both-packages.sh)
  
