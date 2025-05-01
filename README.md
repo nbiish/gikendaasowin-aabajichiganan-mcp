@@ -1,4 +1,4 @@
-# ◈──◆──◇ GIIZHENDAM AABAJICHIGANAN MCP SERVER ◇──◆──◈
+# ◈──◆──◇ GIKENDAASOWIN AABAJICHIGANAN MCP SERVER / COGNITIVE TOOLS MCP SERVER ◇──◆──◈
 
 <div align="center">
 ◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
@@ -6,7 +6,7 @@
 
 ```bibtex
 ╭──────────────────────────────────────────────────────────────────────╮
-│  ᐴ BIBTEX ᔔ [ CITATION FORMAT ]                                     │
+│  ᐴ BIBTEX ᔔ [ CITATION FORMAT ]                                      │
 ╰──────────────────────────────────────────────────────────────────────╯
 @misc{gikendaasowin-aabajichiganan-mcp2025,
   author/creator/steward = {ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians},
@@ -61,14 +61,12 @@ Known as:
 
 Both packages are maintained in parallel and receive the same updates. You can use either package name in your projects - they provide identical functionality.
 
-**Note on Usage:** While the packages provide the core functionality, for clarity and alignment with careful prompting research, it's recommended to configure and invoke this MCP server using a more descriptive name like `deliberation` in your MCP client configuration (e.g., `mcp.json`), as shown in the example `mcp.json` reference. The internal tool name exposed by the server remains `deliberate`.
-
-**Recent Updates:**
-- v2.0.17: Applied Anishinaabe-Cyberpunk styling and updated pre-publish workflow.
-- v2.0.16: Minor fixes and build process updates.
-- v2.0.15: Updated Zod schema usage in `server.tool` to fix type error and rebuilt.
-- v2.0.6: Added `mental_sandbox` tool for logging internal cognitive simulations.
-- v2.0.6: Removed prefixing from cognitive tool outputs to ensure verbatim logging.
+**◇ Recent Updates ◇**
+- **◇ v2.0.17 ◇** Applied Anishinaabe-Cyberpunk styling and updated pre-publish workflow.
+- **◇ v2.0.16 ◇** Minor fixes and build process updates.
+- **◇ v2.0.15 ◇** Updated Zod schema usage in `server.tool` to fix type error and rebuilt.
+- **◇ v2.0.6 ◇** Added `mental_sandbox` tool for logging internal cognitive simulations.
+- **◇ v2.0.6 ◇** Removed prefixing from cognitive tool outputs to ensure verbatim logging.
 - Resolved TypeScript compilation errors related to MCP SDK types and server configuration.
 - Ensured successful build process.
 
@@ -129,7 +127,7 @@ By strictly following these guidelines and expertly utilizing the `deliberate` t
 
 ```bash
 ╭──────────────────────────────────────────────────────────────────────╮
-│  ᐴ BASH ᔔ [ SHELL COMMANDS ]                                        │
+│  ᐴ BASH ᔔ [ SHELL COMMANDS ]                                         │
 ╰──────────────────────────────────────────────────────────────────────╯
 # Install dependencies
 npm install
@@ -181,19 +179,14 @@ The `scripts/publish-both-packages.sh` script handles publishing both packages. 
 
 ### ᐴ INAABAJICHIGAN ᔔ [USAGE] ◈──◆──◈
 
-Basic publishing:
 ```bash
 ╭──────────────────────────────────────────────────────────────────────╮
-│  ᐴ BASH ᔔ [ SHELL COMMANDS ]                                        │
+│  ᐴ BASH ᔔ [ SHELL COMMANDS ]                                         │
 ╰──────────────────────────────────────────────────────────────────────╯
+# Basic publishing
 npm run publish-both
-```
 
-Publishing with version bump:
-```bash
-╭──────────────────────────────────────────────────────────────────────╮
-│  ᐴ BASH ᔔ [ SHELL COMMANDS ]                                        │
-╰──────────────────────────────────────────────────────────────────────╯
+# Publishing with version bump
 ./scripts/publish-both-packages.sh -b
 ```
 
@@ -233,7 +226,7 @@ Here are some example test cases that demonstrate the cognitive tools using cult
 1. Start the MCP Inspector:
 ```bash
 ╭──────────────────────────────────────────────────────────────────────╮
-│  ᐴ BASH ᔔ [ SHELL COMMANDS ]                                        │
+│  ᐴ BASH ᔔ [ SHELL COMMANDS ]                                         │
 ╰──────────────────────────────────────────────────────────────────────╯
 npm run inspector
 ```
@@ -245,7 +238,7 @@ npm run inspector
 ##### stage: "orient"
 ```json
 ╭──────────────────────────────────────────────────────────────────────╮
-│  ᐴ JSON ᔔ [ DATA FORMAT ]                                           │
+│  ᐴ JSON ᔔ [ DATA FORMAT ]                                            │
 ╰──────────────────────────────────────────────────────────────────────╯
 {
   "toolName": "deliberate",
@@ -259,7 +252,7 @@ npm run inspector
 ##### stage: "reason" (using CoT)
 ```json
 ╭──────────────────────────────────────────────────────────────────────╮
-│  ᐴ JSON ᔔ [ DATA FORMAT ]                                           │
+│  ᐴ JSON ᔔ [ DATA FORMAT ]                                            │
 ╰──────────────────────────────────────────────────────────────────────╯
 {
   "toolName": "deliberate",
@@ -273,7 +266,7 @@ npm run inspector
 ##### stage: "sandbox"
 ```json
 ╭──────────────────────────────────────────────────────────────────────╮
-│  ᐴ JSON ᔔ [ DATA FORMAT ]                                           │
+│  ᐴ JSON ᔔ [ DATA FORMAT ]                                            │
 ╰──────────────────────────────────────────────────────────────────────╯
 {
   "toolName": "deliberate",
@@ -287,7 +280,7 @@ npm run inspector
 ##### stage: "acknowledge"
 ```json
 ╭──────────────────────────────────────────────────────────────────────╮
-│  ᐴ JSON ᔔ [ DATA FORMAT ]                                           │
+│  ᐴ JSON ᔔ [ DATA FORMAT ]                                            │
 ╰──────────────────────────────────────────────────────────────────────╯
 {
   "toolName": "deliberate",
@@ -312,7 +305,7 @@ Please cite this project using the following BibTeX entry:
 
 ```bibtex
 ╭──────────────────────────────────────────────────────────────────────╮
-│  ᐴ BIBTEX ᔔ [ CITATION FORMAT ]                                     │
+│  ᐴ BIBTEX ᔔ [ CITATION FORMAT ]                                      │
 ╰──────────────────────────────────────────────────────────────────────╯
 @misc{gikendaasowin-aabajichiganan-mcp2025,
   author/creator/steward = {ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians},
