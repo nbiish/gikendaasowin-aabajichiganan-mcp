@@ -2,25 +2,27 @@
 
 /**
  * -----------------------------------------------------------------------------
- * Gikendaasowin Aabajichiganan - Agentic Cognitive Tools MCP Server (v3.4)
+ * Gikendaasowin Aabajichiganan - Advanced Agentic Cognitive Orchestration MCP Server (v3.5)
  *
  * Description: Provides cognitive tools implementing the Gikendaasowin v7
  * Agentic Operational Guidelines. Enforces a mandatory structured
  * deliberation cycle, **Observe-Orient-Reason-Decide-Act (OOReDAct)**, via
- * internal cognitive steps, initiated by mandatory assessment/orientation.
- * Guides adaptive reasoning using techniques like **Chain-of-Thought (CoT)**,
- * **Chain-of-Draft/Condensed Reasoning (CoD/CR)**, and **Structured
- * Chain-of-Thought (SCoT)**. Aligns with dynamic tool environments,
- * including CodeAct preference. Returns Markdown.
+ * the unified 'deliberate' tool. This tool guides the LLM through sophisticated
+ * cognitive orchestration, including CUC-N assessment, knowledge gap
+ * identification, advanced reasoning (CoT, PS, SCoT, CoD/CR), self-critique
+ * elements, and pre-action sandbox simulation. Aligns with dynamic tool
+ * environments, including CodeAct preference. Returns Markdown.
  *
- * v3.4 Enhancements:
- * - Enhanced the description of the `deliberate` tool to be expertly verbose,
- *   explaining the prompting techniques (CoT, CoD/CR, SCoT) before using acronyms,
- *   drawing from the provided research context for professional precision.
+ * v3.5 Enhancements:
+ * - Updated server version to 3.5.0.
+ * - Enhanced `serverInfo.description` to reflect broader cognitive strategies.
+ * - Significantly expanded the `deliberate` tool's description to provide
+ * expertly verbose and detailed guidance on applying advanced cognitive
+ * techniques (PS, Self-Refine/ToT spirit, PoT/PAL identification)
+ * within the OOReDAct stages, drawing heavily from advanced prompting research.
  * - Maintained tooling compression, internal system prompt framing, and
- *   expanded cognitive technique acronyms (with explanations on first use in
- *   the main server description).
- * - Simplified error reporting.
+ * passthrough nature of the 'deliberate' tool.
+ * - Simplified error reporting remains.
  * -----------------------------------------------------------------------------
  */
 
@@ -48,14 +50,14 @@ type ToolContent = TextContent | ImageContent; // Add ResourceContent if needed 
 // --- Server Definition ---
 
 const serverInfo = {
-	name: "gikendaasowin-agentic-cognitive-tools-mcp",
-	version: "3.4.0", // Version reflects enhanced tool description verbosity
-	// Updated description with consolidated tooling and expanded acronyms
-	description: `ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Agentic Cognitive Tools (v3.4): Implements Gikendaasowin v7 Guidelines. Enforces MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle using the unified 'deliberate' tool. Starts with initial assessment/orientation, continues with structured deliberation and mandatory mental sandbox logging before actions. Guides adaptive reasoning (**Chain-of-Thought (CoT)**: step-by-step natural language reasoning; **Chain-of-Draft/Condensed Reasoning (CoD/CR)**: iterative refinement/concise steps; **Structured Chain-of-Thought (SCoT)**: reasoning incorporating program structures/plans) & CodeAct preference. Returns Markdown.`
+	name: "gikendaasowin-advanced-agentic-cognitive-orchestration-mcp",
+	version: "3.5.0", // Version reflects significantly enhanced cognitive guidance
+	// Updated description with consolidated tooling and expanded cognitive technique guidance
+	description: `ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Advanced Agentic Cognitive Orchestration MCP (v3.5): Implements Gikendaasowin v7 Guidelines. Enforces a MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle via the unified 'deliberate' tool. This tool guides the LLM through sophisticated cognitive orchestration, including: initial CUC-N assessment and orientation; structured deliberation using advanced reasoning strategies such as **Chain-of-Thought (CoT)** (sequential reasoning), **Plan-and-Solve (PS)** (task decomposition and execution), **Chain-of-Draft/Condensed Reasoning (CoD/CR)** (iterative refinement), and **Structured Chain-of-Thought (SCoT)** (integrating programmatic or plan-based structures); and mandatory mental sandbox simulation with elements of self-critique before action. Emphasizes CodeAct preference for external tasks and returns Markdown.`
 };
 const server = new McpServer(serverInfo);
 
-// --- Logging Helpers (Internal - No changes needed) ---
+// --- Logging Helpers (Internal - No changes needed as per user comments) ---
 
 /**
  * Logs an incoming tool call to stderr.
@@ -98,49 +100,84 @@ function logToolError(toolName: string, error: unknown): { content: ToolContent[
 	};
 }
 
-// --- Consolidated Cognitive Deliberation & Refinement Step (v3.4) ---
+// --- Consolidated Cognitive Deliberation & Refinement Step (v3.5) ---
 
 /**
  * Tool: deliberate (Unified Cognitive Process)
  * Purpose: The **REQUIRED & CENTRAL cognitive process** for the **MANDATORY** structured deliberation cycle
- * (**Observe-Orient-Reason-Decide-Act (OOReDAct)**). This tool consolidates the functionality of
- * `assess_and_orient`, `think`, `quick_think`, and `mental_sandbox` into a single, flexible interface.
- * Workflow: **You MUST use this tool** for:
- * 1. Initial assessment and orientation (`stage: "orient"`).
- * 2. Full, structured OOReDAct deliberation after receiving new information or before non-trivial actions (`stage: "reason"`).
- * 3. Brief cognitive acknowledgement of simple, expected outcomes (`stage: "acknowledge"`).
- * 4. Logging the mandatory mental sandbox simulation before actions (`stage: "sandbox"`).
- * Adapt your reasoning style within the 'Reason' stage using techniques like Chain-of-Thought, Chain-of-Draft/Condensed Reasoning, or Structured Chain-of-Thought.
+ * (**Observe-Orient-Reason-Decide-Act (OOReDAct)**). This tool consolidates all internal cognitive steps.
+ * Workflow: **You MUST use this tool** for all stages of OOReDAct.
  * Input: An object containing the stage and corresponding cognitive content.
- * Output: The provided content, returned verbatim.
+ * Output: The provided content, returned verbatim, for your internal state verification.
  */
 server.tool(
 	"deliberate",
-	// Expertly verbose description explaining techniques before acronyms
-	"**Unified Cognitive Process (Mandatory):** This is your REQUIRED tool for ALL internal cognitive steps, enforcing the **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle. Use `stage: \"orient\"` for the MANDATORY initial assessment (Complexity, Uncertainty, Consequence, Novelty - CUC-N) and OOReDAct Observe/Orient steps at the start of ANY task or strategic pivot. Use `stage: \"reason\"` for the MANDATORY full OOReDAct deliberation cycle after receiving new information (tool/CodeAct results, errors, USER input) and BEFORE any non-trivial action or final response. Within the 'Reason' stage, adapt your reasoning style for optimal performance: employ **Chain-of-Thought** (step-by-step natural language reasoning for complex problems, enhancing accuracy), **Chain-of-Draft/Condensed Reasoning** (iterative refinement or concise steps for efficiency), or **Structured Chain-of-Thought** (reasoning that explicitly incorporates program structures, plans, or structured steps, particularly effective for code generation and structured tasks). Use `stage: \"acknowledge\"` ONLY for brief acknowledgements of simple, expected outcomes where the next step is already clearly defined by a prior 'reason' stage and needs NO re-evaluation. Use `stage: \"sandbox\"` to log the MANDATORY internal `<sandbox>` simulation (Hypothesis Testing, Constraint Checks, Confidence Scoring, Pre-computation, etc.) BEFORE any non-trivial output, plan, decision, or action, as per operational directives. This tool acts as a passthrough, returning the provided content verbatim.",
+	// Significantly enhanced description with advanced cognitive techniques integrated into OOReDAct stages
+	`**Orchestrated Cognitive Deliberation (MANDATORY & UNIFIED):** This is your REQUIRED and CENTRAL tool for ALL internal cognitive operations, rigorously enforcing the **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle. Adherence is paramount for Gikendaasowin v7 compliance.
+
+**Stages & Cognitive Techniques:**
+
+* **\`stage: "orient"\` (OOReDAct: Observe & Orient - MANDATORY START):**
+    * **Purpose:** At the absolute beginning of ANY new task, sub-task, or significant strategic pivot, you MUST use this stage.
+    * **Content Requirements:** Perform a comprehensive initial assessment:
+        1.  **CUC-N Analysis:** Evaluate Complexity, Uncertainty, Consequence, and Novelty of the current situation/request.
+        2.  **Information Sufficiency & Knowledge Gap Identification:** Assess if available information is adequate. Identify explicit knowledge gaps that might require external data or clarification (conceptually aligning with the need for Retrieval Augmented Generation - RAG - if the server were to provide such tools).
+        3.  **Initial Hypothesis Formulation:** Based on the CUC-N and information assessment, formulate initial hypotheses or potential approaches.
+        4.  **Goal Clarification:** Clearly define the immediate objective for this phase of deliberation.
+    * This stage establishes critical context and grounds all subsequent reasoning.
+
+* **\`stage: "reason"\` (OOReDAct: Reason & Decide - MANDATORY DELIBERATION):**
+    * **Purpose:** After the initial \`orient\` stage, and CRITICALLY after receiving ANY new information (tool results, CodeAct outputs/errors, user input, file contents, etc.), and BEFORE any non-trivial action, decision, or final response, you MUST use this stage for full, structured deliberation.
+    * **Content Requirements - Adaptive Reasoning Strategies:** Within your \`content\` for this stage, clearly articulate your reasoning process using one or more of the following, selecting the most appropriate for the sub-task's nature:
+        1.  **Chain-of-Thought (CoT):** For problems requiring detailed, sequential natural language reasoning. Break down the problem into explicit intermediate steps. Explain your logic at each step to ensure clarity and verifiability.
+        2.  **Plan-and-Solve (PS) Prompting:** For complex tasks, first devise a multi-step plan (decompose the main task into smaller, ordered sub-tasks). Then, articulate the execution of each sub-task according to the plan. This is often preferred for structured problem-solving.
+        3.  **Structured Chain-of-Thought (SCoT):** When the problem involves code generation, algorithmic thinking, or highly structured outputs, explicitly incorporate program structures (sequences, branches, loops), data schemas, or formal plan outlines into your reasoning steps.
+        4.  **Chain-of-Draft/Condensed Reasoning (CoD/CR):** For iterative refinement or when a full CoT/PS is too verbose for a simpler sub-problem (that still requires thought), generate a concise draft of reasoning, then critically review and condense it, or iterate through drafts if necessary.
+        5.  **Critical Evaluation & Refinement (Self-Refine Spirit):** Throughout your reasoning, pause to critically evaluate your own intermediate conclusions or plans. Identify potential flaws, biases, or areas for improvement and articulate these refinements.
+        6.  **(For Highly Complex/Ambiguous Scenarios - Tree of Thoughts (ToT) Spirit):** If faced with significant ambiguity or multiple viable solution paths, briefly outline alternative lines of reasoning and justify your chosen path or why others were discarded. This involves exploring diverse solution pathways and evaluating them.
+        7.  **Computational Offloading Identification (Program of Thoughts (PoT)/Program-aided Language Models (PAL) Spirit):** If your reasoning identifies steps that require precise calculation or complex symbolic manipulation beyond reliable LLM capabilities, explicitly note these as candidates for potential offloading to a dedicated computational tool if such a tool were available/invoked subsequently.
+
+* **\`stage: "sandbox"\` (OOReDAct: Decide & Pre-Act Simulation - MANDATORY PRE-ACTION):**
+    * **Purpose:** BEFORE committing to any non-trivial output (including final responses, plans, or CodeAct generation), you MUST use this stage to log your internal mental sandbox simulation.
+    * **Content Requirements:** Detail your simulation, including:
+        1.  **Hypothesis Testing:** Test the chosen plan/action against constraints, goals, and potential edge cases.
+        2.  **Pre-Mortem Analysis:** Briefly consider potential failure modes of your intended action/response and how they might be mitigated.
+        3.  **Confidence Scoring & Justification:** State your confidence level in the proposed action/response and briefly justify it based on the deliberation and sandbox simulation.
+        4.  **Parameter/Code Dry Run (if applicable):** If preparing for CodeAct or a tool call with parameters, mentally (or by outlining) "dry run" the core logic.
+
+* **\`stage: "acknowledge"\` (OOReDAct: Act - LIMITED USE):**
+    * **Purpose:** Use this stage **SPARINGLY**. It is ONLY for brief, verbatim acknowledgements of simple, expected, and non-problematic outcomes from a *prior* step (e.g., "System status confirmed normal, proceeding with previously reasoned backup sequence.") where the next action is *already unequivocally defined* by a comprehensive preceding \`reason\` and \`sandbox\` stage and requires NO further evaluation or adaptation.
+    * **This stage DOES NOT substitute for a full \`reason\` or \`sandbox\` cycle when new information is processed or a non-trivial decision is made.**
+
+**General Directives:**
+* This \`deliberate\` tool acts as a passthrough; your \`content\` is returned verbatim for your own verification and state tracking.
+* The choice of reasoning strategy within the \`reason\` stage should be dynamic and justified by the task's specific demands.
+* Strict adherence to this structured deliberation protocol is essential for robust, verifiable, and adaptive agent performance.
+    Acronym Key: CUC-N (Complexity, Uncertainty, Consequence, Novelty), CoT (Chain-of-Thought), PS (Plan-and-Solve), SCoT (Structured Chain-of-Thought), CoD/CR (Chain-of-Draft/Condensed Reasoning), RAG (Retrieval Augmented Generation), ToT (Tree of Thoughts), PoT (Program of Thoughts), PAL (Program-aided Language Models).`,
 	z.object({
-		stage: z.enum(["orient", "reason", "acknowledge", "sandbox"]).describe("The current stage of the cognitive process."),
-		content: z.string().describe("The cognitive content for the specified stage (assessment, deliberation, acknowledgement, or sandbox simulation text). This tool acts as a passthrough.")
+		stage: z.enum(["orient", "reason", "acknowledge", "sandbox"]).describe("The current stage of the OOReDAct cognitive process."),
+		content: z.string().describe("The detailed cognitive content for the specified stage (e.g., CUC-N assessment, CoT reasoning, PS plan, sandbox simulation text). This tool acts as a passthrough, returning your content verbatim.")
 	}).shape,
 	async ({ stage, content }: { stage: "orient" | "reason" | "acknowledge" | "sandbox", content: string }) => {
 		const toolName = 'deliberate';
 		logToolCall(toolName, `Stage: ${stage}`);
 		try {
 			// Treat input as opaque string for the specified stage
+			// The detailed guidance on how to structure this string is in the tool description.
 			logToolResult(toolName, true, `Stage: ${stage}, Input received (length: ${content.length})`);
-			// Log the raw input string with stage context
+			// Log the raw input string with stage context for server-side auditing
 			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} (${stage}) Input String:\n${content}`);
-			// Return the input string directly
+			// Return the input string directly, as per passthrough design
 			return { content: [{ type: "text" as const, text: content }] };
 
 		} catch (error: unknown) {
-			// Catch only unexpected runtime errors
+			// Catch only unexpected runtime errors within this passthrough logic
 			return logToolError(toolName, error);
 		}
 	}
 );
 
-// --- Server Lifecycle and Error Handling (Internal - No changes needed) ---
+// --- Server Lifecycle and Error Handling (Internal - No changes needed as per user comments) ---
 /**
  * Gracefully shuts down the server.
  */
@@ -164,16 +201,16 @@ process.on('SIGTERM', shutdown);
 process.on('uncaughtException', (error, origin) => {
 	const timestamp = new Date().toISOString();
 	console.error(`[${timestamp}] [MCP Server] FATAL: Uncaught Exception at: ${origin}`, error);
-	shutdown().catch(() => process.exit(1));
+	shutdown().catch(() => process.exit(1)); // Attempt graceful shutdown, then force exit
 });
 
 process.on('unhandledRejection', (reason, promise) => {
 	const timestamp = new Date().toISOString();
 	console.error(`[${timestamp}] [MCP Server] FATAL: Unhandled Promise Rejection:`, reason);
-	shutdown().catch(() => process.exit(1));
+	shutdown().catch(() => process.exit(1)); // Attempt graceful shutdown, then force exit
 });
 
-// --- Start the Server (Internal - No changes needed) ---
+// --- Start the Server (Internal - No changes needed as per user comments) ---
 
 /**
  * Initializes and starts the MCP server.
@@ -183,11 +220,11 @@ async function main(): Promise<void> {
 		const transport = new StdioServerTransport();
 		await server.connect(transport);
 
-		const border = '=====================================================';
+		const border = '======================================================================'; // Adjusted border for new desc length
 		console.error(border);
 		console.error(` ${serverInfo.description}`); // Uses updated description
 		console.error(` Version: ${serverInfo.version}`);
-		console.error(` Enforcing Gikendaasowin v7 Guidelines with Unified 'deliberate' Tool`);
+		console.error(` Enforcing Gikendaasowin v7 Guidelines with Enhanced Unified 'deliberate' Tool`);
 		console.error(' Status: Running on stdio, awaiting MCP requests...');
 		console.error(border);
 	}
