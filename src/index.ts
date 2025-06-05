@@ -50,7 +50,7 @@ type ToolContent = TextContent | ImageContent; // Add ResourceContent if needed 
 // --- Server Definition ---
 
 const serverInfo = {
-	name: "gikendaasowin-advanced-agentic-cognitive-orchestration-mcp",
+	name: "gikendaasowin-aabajichiganan-mcp",
 	version: "3.5.0", // Version reflects significantly enhanced cognitive guidance
 	// Updated description with consolidated tooling and expanded cognitive technique guidance
 	description: `ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Advanced Agentic Cognitive Orchestration MCP (v3.5): Implements Gikendaasowin v7 Guidelines. Enforces a MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle via the unified 'deliberate' tool. This tool guides the LLM through sophisticated cognitive orchestration, including: initial CUC-N assessment and orientation; structured deliberation using advanced reasoning strategies such as **Chain-of-Thought (CoT)** (sequential reasoning), **Plan-and-Solve (PS)** (task decomposition and execution), **Chain-of-Draft/Condensed Reasoning (CoD/CR)** (iterative refinement), and **Structured Chain-of-Thought (SCoT)** (integrating programmatic or plan-based structures); and mandatory mental sandbox simulation with elements of self-critique before action. Emphasizes CodeAct preference for external tasks and returns Markdown.`
