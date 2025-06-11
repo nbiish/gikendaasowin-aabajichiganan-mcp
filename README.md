@@ -53,7 +53,7 @@ This project is licensed under the [COMPREHENSIVE RESTRICTED USE LICENSE FOR IND
 ◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
 </div>
 
-ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Agentic Cognitive Tools (v2.0.17): Implements Gikendaasowin v7 Guidelines. Enforces MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle: Starts with 'assess_and_orient', continues with 'think' deliberation before actions. Guides adaptive reasoning (**Chain-of-Thought (CoT)**, **Chain-of-Draft/Condensed Reasoning (CoD/CR)**, **Structured Chain-of-Thought (SCoT)**) & CodeAct preference. Returns Markdown. *(Note: The integration prompt and operational guidelines detailed in [`latest.md`](latest.md) are also covered by the [project LICENSE](LICENSE).)*
+ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Agentic Cognitive Tools (v2.0.25): Implements Gikendaasowin v7 Guidelines. Enforces MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle via the unified 'deliberate' tool. This tool guides the LLM through sophisticated cognitive orchestration, including: initial CUC-N assessment and orientation; structured deliberation using advanced reasoning strategies such as **Chain-of-Thought (CoT)** (sequential reasoning), **Plan-and-Solve (PS)** (task decomposition and execution), **Chain-of-Draft/Condensed Reasoning (CoD/CR)** (iterative refinement), and **Structured Chain-of-Thought (SCoT)** (integrating programmatic or plan-based structures); and mandatory mental sandbox simulation with elements of self-critique before action. Emphasizes CodeAct preference for external tasks and returns Markdown. *(Note: The integration prompt and operational guidelines detailed in [`latest.md`](latest.md) are also covered by the [project LICENSE](LICENSE).)*
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
@@ -62,6 +62,7 @@ Known as:
 Both packages are maintained in parallel and receive the same updates. You can use either package name in your projects - they provide identical functionality.
 
 **◇ Recent Updates ◇**
+- **◇ v2.0.25 ◇** Fixed MCP server tool registration format - corrected from incorrect `server.tool(name, description, schema.shape, handler)` to proper `server.tool(name, schema, handler)` format. Updated comprehensive tool documentation and version synchronization. Successfully published both packages.
 - **◇ v2.0.17 ◇** Applied Anishinaabe-Cyberpunk styling and updated pre-publish workflow.
 - **◇ v2.0.16 ◇** Minor fixes and build process updates.
 - **◇ v2.0.15 ◇** Updated Zod schema usage in `server.tool` to fix type error and rebuilt.

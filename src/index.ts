@@ -104,60 +104,55 @@ function logToolError(toolName: string, error: unknown): { content: ToolContent[
 
 /**
  * Tool: deliberate (Unified Cognitive Process)
- * Purpose: The **REQUIRED & CENTRAL cognitive process** for the **MANDATORY** structured deliberation cycle
- * (**Observe-Orient-Reason-Decide-Act (OOReDAct)**). This tool consolidates all internal cognitive steps.
- * Workflow: **You MUST use this tool** for all stages of OOReDAct.
- * Input: An object containing the stage and corresponding cognitive content.
- * Output: The provided content, returned verbatim, for your internal state verification.
+ * 
+ * **Orchestrated Cognitive Deliberation (MANDATORY & UNIFIED):** This is your REQUIRED and CENTRAL tool for ALL internal cognitive operations, rigorously enforcing the **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle. Adherence is paramount for Gikendaasowin v7 compliance.
+ *
+ * **Stages & Cognitive Techniques:**
+ *
+ * * **`stage: "orient"` (OOReDAct: Observe & Orient - MANDATORY START):**
+ *     * **Purpose:** At the absolute beginning of ANY new task, sub-task, or significant strategic pivot, you MUST use this stage.
+ *     * **Content Requirements:** Perform a comprehensive initial assessment:
+ *         1.  **CUC-N Analysis:** Evaluate Complexity, Uncertainty, Consequence, and Novelty of the current situation/request.
+ *         2.  **Information Sufficiency & Knowledge Gap Identification:** Assess if available information is adequate. Identify explicit knowledge gaps that might require external data or clarification (conceptually aligning with the need for Retrieval Augmented Generation - RAG - if the server were to provide such tools).
+ *         3.  **Initial Hypothesis Formulation:** Based on the CUC-N and information assessment, formulate initial hypotheses or potential approaches.
+ *         4.  **Goal Clarification:** Clearly define the immediate objective for this phase of deliberation.
+ *     * This stage establishes critical context and grounds all subsequent reasoning.
+ *
+ * * **`stage: "reason"` (OOReDAct: Reason & Decide - MANDATORY DELIBERATION):**
+ *     * **Purpose:** After the initial `orient` stage, and CRITICALLY after receiving ANY new information (tool results, CodeAct outputs/errors, user input, file contents, etc.), and BEFORE any non-trivial action, decision, or final response, you MUST use this stage for full, structured deliberation.
+ *     * **Content Requirements - Adaptive Reasoning Strategies:** Within your `content` for this stage, clearly articulate your reasoning process using one or more of the following, selecting the most appropriate for the sub-task's nature:
+ *         1.  **Chain-of-Thought (CoT):** For problems requiring detailed, sequential natural language reasoning. Break down the problem into explicit intermediate steps. Explain your logic at each step to ensure clarity and verifiability.
+ *         2.  **Plan-and-Solve (PS) Prompting:** For complex tasks, first devise a multi-step plan (decompose the main task into smaller, ordered sub-tasks). Then, articulate the execution of each sub-task according to the plan. This is often preferred for structured problem-solving.
+ *         3.  **Structured Chain-of-Thought (SCoT):** When the problem involves code generation, algorithmic thinking, or highly structured outputs, explicitly incorporate program structures (sequences, branches, loops), data schemas, or formal plan outlines into your reasoning steps.
+ *         4.  **Chain-of-Draft/Condensed Reasoning (CoD/CR):** For iterative refinement or when a full CoT/PS is too verbose for a simpler sub-problem (that still requires thought), generate a concise draft of reasoning, then critically review and condense it, or iterate through drafts if necessary.
+ *         5.  **Critical Evaluation & Refinement (Self-Refine Spirit):** Throughout your reasoning, pause to critically evaluate your own intermediate conclusions or plans. Identify potential flaws, biases, or areas for improvement and articulate these refinements.
+ *         6.  **(For Highly Complex/Ambiguous Scenarios - Tree of Thoughts (ToT) Spirit):** If faced with significant ambiguity or multiple viable solution paths, briefly outline alternative lines of reasoning and justify your chosen path or why others were discarded. This involves exploring diverse solution pathways and evaluating them.
+ *         7.  **Computational Offloading Identification (Program of Thoughts (PoT)/Program-aided Language Models (PAL) Spirit):** If your reasoning identifies steps that require precise calculation or complex symbolic manipulation beyond reliable LLM capabilities, explicitly note these as candidates for potential offloading to a dedicated computational tool if such a tool were available/invoked subsequently.
+ *
+ * * **`stage: "sandbox"` (OOReDAct: Decide & Pre-Act Simulation - MANDATORY PRE-ACTION):**
+ *     * **Purpose:** BEFORE committing to any non-trivial output (including final responses, plans, or CodeAct generation), you MUST use this stage to log your internal mental sandbox simulation.
+ *     * **Content Requirements:** Detail your simulation, including:
+ *         1.  **Hypothesis Testing:** Test the chosen plan/action against constraints, goals, and potential edge cases.
+ *         2.  **Pre-Mortem Analysis:** Briefly consider potential failure modes of your intended action/response and how they might be mitigated.
+ *         3.  **Confidence Scoring & Justification:** State your confidence level in the proposed action/response and briefly justify it based on the deliberation and sandbox simulation.
+ *         4.  **Parameter/Code Dry Run (if applicable):** If preparing for CodeAct or a tool call with parameters, mentally (or by outlining) "dry run" the core logic.
+ *
+ * * **`stage: "acknowledge"` (OOReDAct: Act - LIMITED USE):**
+ *     * **Purpose:** Use this stage **SPARINGLY**. It is ONLY for brief, verbatim acknowledgements of simple, expected, and non-problematic outcomes from a *prior* step (e.g., "System status confirmed normal, proceeding with previously reasoned backup sequence.") where the next action is *already unequivocally defined* by a comprehensive preceding `reason` and `sandbox` stage and requires NO further evaluation or adaptation.
+ *     * **This stage DOES NOT substitute for a full `reason` or `sandbox` cycle when new information is processed or a non-trivial decision is made.**
+ *
+ * **General Directives:**
+ * * This `deliberate` tool acts as a passthrough; your `content` is returned verbatim for your own verification and state tracking.
+ * * The choice of reasoning strategy within the `reason` stage should be dynamic and justified by the task's specific demands.
+ * * Strict adherence to this structured deliberation protocol is essential for robust, verifiable, and adaptive agent performance.
+ *     Acronym Key: CUC-N (Complexity, Uncertainty, Consequence, Novelty), CoT (Chain-of-Thought), PS (Plan-and-Solve), SCoT (Structured Chain-of-Thought), CoD/CR (Chain-of-Draft/Condensed Reasoning), RAG (Retrieval Augmented Generation), ToT (Tree of Thoughts), PoT (Program of Thoughts), PAL (Program-aided Language Models).
  */
 server.tool(
 	"deliberate",
-	// Significantly enhanced description with advanced cognitive techniques integrated into OOReDAct stages
-	`**Orchestrated Cognitive Deliberation (MANDATORY & UNIFIED):** This is your REQUIRED and CENTRAL tool for ALL internal cognitive operations, rigorously enforcing the **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle. Adherence is paramount for Gikendaasowin v7 compliance.
-
-**Stages & Cognitive Techniques:**
-
-* **\`stage: "orient"\` (OOReDAct: Observe & Orient - MANDATORY START):**
-    * **Purpose:** At the absolute beginning of ANY new task, sub-task, or significant strategic pivot, you MUST use this stage.
-    * **Content Requirements:** Perform a comprehensive initial assessment:
-        1.  **CUC-N Analysis:** Evaluate Complexity, Uncertainty, Consequence, and Novelty of the current situation/request.
-        2.  **Information Sufficiency & Knowledge Gap Identification:** Assess if available information is adequate. Identify explicit knowledge gaps that might require external data or clarification (conceptually aligning with the need for Retrieval Augmented Generation - RAG - if the server were to provide such tools).
-        3.  **Initial Hypothesis Formulation:** Based on the CUC-N and information assessment, formulate initial hypotheses or potential approaches.
-        4.  **Goal Clarification:** Clearly define the immediate objective for this phase of deliberation.
-    * This stage establishes critical context and grounds all subsequent reasoning.
-
-* **\`stage: "reason"\` (OOReDAct: Reason & Decide - MANDATORY DELIBERATION):**
-    * **Purpose:** After the initial \`orient\` stage, and CRITICALLY after receiving ANY new information (tool results, CodeAct outputs/errors, user input, file contents, etc.), and BEFORE any non-trivial action, decision, or final response, you MUST use this stage for full, structured deliberation.
-    * **Content Requirements - Adaptive Reasoning Strategies:** Within your \`content\` for this stage, clearly articulate your reasoning process using one or more of the following, selecting the most appropriate for the sub-task's nature:
-        1.  **Chain-of-Thought (CoT):** For problems requiring detailed, sequential natural language reasoning. Break down the problem into explicit intermediate steps. Explain your logic at each step to ensure clarity and verifiability.
-        2.  **Plan-and-Solve (PS) Prompting:** For complex tasks, first devise a multi-step plan (decompose the main task into smaller, ordered sub-tasks). Then, articulate the execution of each sub-task according to the plan. This is often preferred for structured problem-solving.
-        3.  **Structured Chain-of-Thought (SCoT):** When the problem involves code generation, algorithmic thinking, or highly structured outputs, explicitly incorporate program structures (sequences, branches, loops), data schemas, or formal plan outlines into your reasoning steps.
-        4.  **Chain-of-Draft/Condensed Reasoning (CoD/CR):** For iterative refinement or when a full CoT/PS is too verbose for a simpler sub-problem (that still requires thought), generate a concise draft of reasoning, then critically review and condense it, or iterate through drafts if necessary.
-        5.  **Critical Evaluation & Refinement (Self-Refine Spirit):** Throughout your reasoning, pause to critically evaluate your own intermediate conclusions or plans. Identify potential flaws, biases, or areas for improvement and articulate these refinements.
-        6.  **(For Highly Complex/Ambiguous Scenarios - Tree of Thoughts (ToT) Spirit):** If faced with significant ambiguity or multiple viable solution paths, briefly outline alternative lines of reasoning and justify your chosen path or why others were discarded. This involves exploring diverse solution pathways and evaluating them.
-        7.  **Computational Offloading Identification (Program of Thoughts (PoT)/Program-aided Language Models (PAL) Spirit):** If your reasoning identifies steps that require precise calculation or complex symbolic manipulation beyond reliable LLM capabilities, explicitly note these as candidates for potential offloading to a dedicated computational tool if such a tool were available/invoked subsequently.
-
-* **\`stage: "sandbox"\` (OOReDAct: Decide & Pre-Act Simulation - MANDATORY PRE-ACTION):**
-    * **Purpose:** BEFORE committing to any non-trivial output (including final responses, plans, or CodeAct generation), you MUST use this stage to log your internal mental sandbox simulation.
-    * **Content Requirements:** Detail your simulation, including:
-        1.  **Hypothesis Testing:** Test the chosen plan/action against constraints, goals, and potential edge cases.
-        2.  **Pre-Mortem Analysis:** Briefly consider potential failure modes of your intended action/response and how they might be mitigated.
-        3.  **Confidence Scoring & Justification:** State your confidence level in the proposed action/response and briefly justify it based on the deliberation and sandbox simulation.
-        4.  **Parameter/Code Dry Run (if applicable):** If preparing for CodeAct or a tool call with parameters, mentally (or by outlining) "dry run" the core logic.
-
-* **\`stage: "acknowledge"\` (OOReDAct: Act - LIMITED USE):**
-    * **Purpose:** Use this stage **SPARINGLY**. It is ONLY for brief, verbatim acknowledgements of simple, expected, and non-problematic outcomes from a *prior* step (e.g., "System status confirmed normal, proceeding with previously reasoned backup sequence.") where the next action is *already unequivocally defined* by a comprehensive preceding \`reason\` and \`sandbox\` stage and requires NO further evaluation or adaptation.
-    * **This stage DOES NOT substitute for a full \`reason\` or \`sandbox\` cycle when new information is processed or a non-trivial decision is made.**
-
-**General Directives:**
-* This \`deliberate\` tool acts as a passthrough; your \`content\` is returned verbatim for your own verification and state tracking.
-* The choice of reasoning strategy within the \`reason\` stage should be dynamic and justified by the task's specific demands.
-* Strict adherence to this structured deliberation protocol is essential for robust, verifiable, and adaptive agent performance.
-    Acronym Key: CUC-N (Complexity, Uncertainty, Consequence, Novelty), CoT (Chain-of-Thought), PS (Plan-and-Solve), SCoT (Structured Chain-of-Thought), CoD/CR (Chain-of-Draft/Condensed Reasoning), RAG (Retrieval Augmented Generation), ToT (Tree of Thoughts), PoT (Program of Thoughts), PAL (Program-aided Language Models).`,
-	z.object({
+	{
 		stage: z.enum(["orient", "reason", "acknowledge", "sandbox"]).describe("The current stage of the OOReDAct cognitive process."),
 		content: z.string().describe("The detailed cognitive content for the specified stage (e.g., CUC-N assessment, CoT reasoning, PS plan, sandbox simulation text). This tool acts as a passthrough, returning your content verbatim.")
-	}).shape,
+	},
 	async ({ stage, content }: { stage: "orient" | "reason" | "acknowledge" | "sandbox", content: string }) => {
 		const toolName = 'deliberate';
 		logToolCall(toolName, `Stage: ${stage}`);
