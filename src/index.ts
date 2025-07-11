@@ -29,20 +29,7 @@
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { z } from "zod";
-
-// --- Local Type Definitions (Workaround) ---
-interface TextContent {
-	type: "text";
-	text: string;
-	[key: string]: unknown; // Add index signature
-}
-
-interface ImageContent {
-	type: "image";
-	data: string; // Base64 encoded
-	mimeType: string;
-	[key: string]: unknown[] | string | undefined; // Add index signature
-}
+import { TextContent, ImageContent } from "@modelcontextprotocol/sdk/types.js";
 
 // Define a simplified ToolContent union based on observed usage
 type ToolContent = TextContent | ImageContent; // Add ResourceContent if needed later
