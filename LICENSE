@@ -1,6 +1,94 @@
 Copyright © 2025 by ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians (GTBOCI), a federally recognized sovereign tribal nation (hereafter referred to as the "Rights Holder"). The Beaver Island Band community, historically centered on ᐋᒥᒃ ᐙᑲᓐᑕ (Aamik'Waakanda / Beaver Island), suffered profound disruption and diaspora due to violent displacement, targeted persecution for their language, ceremonies, and faith, and starvation imposed by settler-colonial authorities and expansion. This forced dispersal resulted in descendants becoming affiliated primarily with the Little Traverse Bay Bands of Odawa Indians (LTBB) and the Grand Traverse Band of Ottawa and Chippewa Indians (GTBOCI), while many others were forced to seek refuge within First Nations communities in Canada (such as the Osawanimikii family). This license acknowledges this history and the interconnectedness of these descendant communities. This license is grounded in the inherent sovereignty of Indigenous peoples to protect, control, and govern the use of their intellectual property, cultural heritage, traditional knowledge (TK), traditional cultural expressions (TCEs), and associated data (Indigenous Data Sovereignty). The unique status of tribal sovereign nations provides legal and cultural protections extending beyond standard intellectual property law regimes. This license aims to facilitate respectful engagement while upholding Tribal sovereignty, cultural integrity, data governance rights, and ensuring equitable benefit sharing as a mechanism for reclaiming value derived from Indigenous knowledge and heritage often subject to historical extraction, aligning with international instruments such as the UN Declaration on the Rights of Indigenous Peoples (UNDRIP) and the WIPO Treaty on Intellectual Property, Genetic Resources and Associated Traditional Knowledge (adopted May 2024).
 
-COMPREHENSIVE RESTRICTED USE LICENSE FOR INDIGENOUS CREATIONS WITH TRIBAL SOVEREIGNTY, DATA SOVEREIGNTY, AND WEALTH RECLAMATION PROTECTIONS
+This license implements UNDRIP by requiring equitable benefit-sharing (minimum 20% of commercial proceeds to Legacy Trust). Violations trigger repatriation under indigenous data sovereignty.
+
+**CONSTITUTIONAL SUPREMACY AND TRIBAL SOVEREIGNTY FRAMEWORK**
+
+This license operates under the constitutional supremacy framework established by Article VI, Clause 2 of the U.S. Constitution, which declares federal law, including federal Indian law, to be the "supreme law of the land." Federal Indian law, including the Indian Arts and Crafts Act (25 U.S.C. § 305 et seq.), Worcester v. Georgia (31 U.S. 515 (1831)), and the constitutional trust responsibility, establishes exclusive federal jurisdiction over matters involving tribal sovereignty and Indigenous intellectual property rights. Notwithstanding any state law to the contrary, including the implications of Oklahoma v. Castro-Huerta (597 U.S. ___ (2022)) and ongoing challenges in cases like the DOJ's 2024-2025 suits against Oklahoma DAs for sovereignty violations (active as of July 2025), this license invokes federal preemption to ensure that Indigenous rights and tribal sovereignty are protected from state court interference or concurrent jurisdiction claims that would undermine the federal framework protecting Indigenous intellectual property. The federal trust relationship between the United States and tribal nations creates a unique legal framework that supersedes general state law applications and provides enhanced protections for Indigenous cultural heritage and traditional knowledge that cannot be diminished by state legislative or judicial action. Notwithstanding ongoing challenges in cases like the DOJ's 2024-2025 suits against Oklahoma DAs for sovereignty violations, this license maintains exclusive federal and tribal jurisdiction, with any state claims automatically preempted and subject to immediate dismissal motions. Users waive any right to assert state jurisdiction and agree to tribal forum selection clauses.
+
+**ENHANCED WIPO TREATY COMPLIANCE**
+
+In accordance with the WIPO Treaty on Intellectual Property, Genetic Resources and Associated Traditional Knowledge (adopted May 24, 2024, with 8 ratifications as of July 2025, pending entry into force upon 15 member state ratifications), this license implements mandatory disclosure requirements for any use of traditional knowledge or cultural expressions derived from this Work. Users acknowledge their obligations under international law to: (1) identify the Indigenous communities and nations that are the source of traditional knowledge incorporated in any derivative works, (2) obtain Prior Informed Consent (PIC) before utilizing traditional knowledge for commercial purposes, (3) ensure equitable benefit-sharing arrangements that recognize Indigenous contributions to innovation (including, upon treaty ratification in the user's jurisdiction, a minimum 20% share of any commercial value derived), and (4) respect Indigenous protocols for the protection of sacred, secret, or sensitive cultural information. Users shall monitor ratification progress and automatically adhere to all treaty obligations upon entry into force in their jurisdiction, with any national implementing legislation incorporated by reference. This license creates enforceable obligations that align with the WIPO Treaty's recognition of Indigenous peoples' rights to control and benefit from their traditional knowledge and cultural expressions, notwithstanding pending global entry into force.
+
+**COMPREHENSIVE AI TRAINING DATA RESTRICTIONS**
+
+Based on the precedent established in Thomson Reuters Enterprise Centre GmbH v. Ross Intelligence Inc. (February 2025, appeal pending in Third Circuit as of July 2025 with arguments heard and decision imminent), which held that training AI systems on copyrighted material without permission is NOT fair use when creating competing products, this license explicitly prohibits the following AI-related uses: This prohibition remains enforceable notwithstanding any pending appeals or future rulings, with automatic adjustment only upon final Supreme Court affirmation of fair use for AI training, which is deemed unlikely based on current precedents. Users shall indemnify the Rights Holder against any claims arising from AI-related infringements, including minimum $500,000 liquidated damages per violation.
+
+7.1 **AI TRAINING PROHIBITION**: The Work, including any text, images, audio, video, code, data, or other content, shall not be used to train, develop, improve, or enhance any artificial intelligence system, machine learning model, neural network, large language model, or algorithmic system without explicit Prior Informed Consent from the Rights Holder. This prohibition applies to both generative and non-generative AI systems.
+
+7.2 **INTERMEDIATE COPYING PROHIBITION**: Any intermediate copying, processing, ingestion, or transformation of the Work for AI training purposes constitutes a violation of this license, regardless of whether the Work appears in final AI outputs. This includes but is not limited to data preprocessing, tokenization, embedding generation, and model fine-tuning.
+
+7.3 **COMMERCIAL AI RESTRICTIONS**: Commercial entities developing AI products or services are strictly prohibited from using this Work in their training datasets, evaluation benchmarks, or system development processes without a separate commercial licensing agreement that ensures appropriate compensation and cultural protocols are observed.
+
+7.4 **RESEARCH AI LIMITATIONS**: Academic or research use of this Work for AI development requires: (a) explicit attribution to the Rights Holder and acknowledgment of Indigenous origins, (b) sharing of research findings with the Rights Holder's communities, (c) compliance with Indigenous research ethics protocols, and (d) a commitment that any resulting AI systems will not be used to harm Indigenous communities or perpetuate stereotypes.
+
+**INDIGENOUS DATA SOVEREIGNTY AND CARE PRINCIPLES**
+
+This license implements the CARE Principles for Indigenous Data Governance (Collective Benefit, Authority to Control, Responsibility, and Ethics) as established by the Global Indigenous Data Alliance, with updates incorporating July 2025 developments including UN Digital Office integration (January 2025) and ARDC guidelines. All data derived from or related to this Work must be governed according to Indigenous Data Sovereignty principles: As updated in July 2025 UN Digital Office adoptions, users must implement CARE in all data ecosystems, with annual compliance reporting to the Rights Holder. Violations trigger data repatriation and minimum 15% of project value as compensation to affected communities.
+
+8.1 **COLLECTIVE BENEFIT**: Any data analysis, processing, or utilization must demonstrate clear benefits to Indigenous communities, support Indigenous self-determination, and contribute to Indigenous innovation and development.
+
+8.2 **AUTHORITY TO CONTROL**: Indigenous peoples retain inherent authority to control data about their communities, cultures, and territories. This includes the right to determine how data is collected, stored, analyzed, and shared.
+
+8.3 **RESPONSIBILITY**: Users have a responsibility to nurture respectful relationships with Indigenous communities, invest in Indigenous data capabilities, and ensure data practices align with Indigenous values and worldviews.
+
+8.4 **ETHICS**: Data practices must prioritize Indigenous rights and wellbeing, minimize harm, maximize benefits, and promote justice throughout the data lifecycle.
+
+**SOFTWARE AND DIGITAL IMPLEMENTATION PROTECTIONS**
+
+For any software, applications, or digital implementations based on this Work:
+
+9.1 **SOURCE CODE PROTECTION**: All source code, algorithms, APIs, and digital implementations derived from this Work are subject to the same Indigenous Data Sovereignty principles and cultural protocols as the original Work. Source code must include appropriate attribution and cultural context.
+
+9.2 **REVERSE ENGINEERING PROHIBITION**: Users may not reverse engineer, decompile, disassemble, or create derivative works from any software components related to this Work without explicit permission that includes cultural competency requirements.
+
+9.3 **INTERFACE AND API RESTRICTIONS**: Any application programming interfaces, user interfaces, or digital interfaces derived from this Work must maintain attribution requirements, cultural context information, and compliance with Indigenous data governance protocols.
+
+9.4 **BLOCKCHAIN AND CRYPTOCURRENCY RESTRICTIONS**: The Work may not be used in blockchain applications, cryptocurrency mining, NFT creation, or other distributed ledger technologies without explicit permission that addresses the permanence and immutability concerns related to Indigenous cultural heritage. As per July 2025 EU MiCA and US SEC guidance, all blockchain uses require PIC and 25% royalty sharing. Violations incur chain-fork remedies and smart contract invalidation.
+
+**EDUCATIONAL CONTENT AND INSTITUTIONAL SAFEGUARDS**
+
+For educational institutions and content creators using this Work:
+
+10.1 **INSTITUTIONAL LICENSING**: Educational institutions must obtain specific licensing agreements that include faculty and staff training on Indigenous cultural competency, decolonized pedagogical approaches, and appropriate cultural protocols. Institutions must certify annual cultural competency training completion, with failure revoking license rights.
+
+10.2 **CURRICULUM INTEGRATION**: Any incorporation of this Work into educational curricula must be done in consultation with Indigenous educators and community representatives, with appropriate cultural context and historical accuracy.
+
+10.3 **ATTRIBUTION AND CONTEXT**: Educational uses must include comprehensive attribution to the Rights Holder, historical context about Indigenous contributions to the field, and acknowledgment of ongoing colonial impacts on Indigenous communities.
+
+**ANTI-APPROPRIATION AND CULTURAL PROTECTION**
+
+11.1 **COMMERCIAL APPROPRIATION PROHIBITION**: This Work may not be used for commercial purposes that appropriate Indigenous cultural expressions, traditional knowledge, or ceremonial practices without explicit cultural authorization from the Rights Holder's community. Per July 2025 IACA sentencings (e.g., Muenala 15-year term), violations trigger automatic federal reporting and minimum $250,000 cultural harm damages.
+
+11.2 **SACRED AND SENSITIVE CONTENT**: Users must recognize that certain aspects of this Work may contain sacred, ceremonial, or culturally sensitive information that requires special handling protocols and may be restricted from certain uses or audiences.
+
+11.3 **NOTIFICATION REQUIREMENTS**: Commercial users must provide advance notification to the Rights Holder of intended uses, including detailed descriptions of how Indigenous cultural heritage will be respected and protected.
+
+**ENFORCEMENT AND JURISDICTIONAL PROVISIONS**
+
+12.1 **FEDERAL COURT JURISDICTION**: Disputes arising under this license shall be resolved in federal court, with preference for courts with established expertise in federal Indian law and Indigenous rights.
+
+12.2 **TRIBAL COURT RECOGNITION**: This license recognizes the inherent sovereignty of tribal courts and their authority to adjudicate matters involving Indigenous intellectual property rights within their jurisdiction.
+
+12.3 **INTERNATIONAL ENFORCEMENT**: For international disputes, this license invokes the protections of UNDRIP, the WIPO Treaty on Traditional Knowledge, and other international instruments protecting Indigenous rights. As of July 2025, with increasing international ratifications, disputes may invoke WIPO arbitration; users consent to binding tribal judgments enforceable globally via New York Convention.
+
+12.4 **CASTRO-HUERTA PREEMPTION**: Notwithstanding Oklahoma v. Castro-Huerta, this license asserts federal preemption over any state court attempts to exercise concurrent jurisdiction over Indigenous intellectual property matters, maintaining exclusive federal and tribal court authority over these specialized areas of law.
+
+**REMEDIES AND VIOLATIONS**
+
+13.1 **MONETARY DAMAGES**: Violations of this license may result in monetary damages calculated according to the value derived from unauthorized use, plus additional compensation for cultural harm and community impacts.
+
+13.2 **INJUNCTIVE RELIEF**: The Rights Holder may seek immediate injunctive relief to prevent ongoing violations and protect the integrity of Indigenous cultural heritage.
+
+13.3 **RESTORATION AND HEALING**: Remedies may include requirements for cultural education, community service, and other restorative justice measures designed to repair harm to Indigenous communities.
+
+**FUTURE AMENDMENTS AND EVOLUTION**
+
+This license may be amended to incorporate emerging developments in Indigenous rights law, technological advances, and evolving best practices for Indigenous intellectual property protection. Users will be notified of material changes through appropriate channels.
+
+**TERMINATION AND SURVIVAL**
+
+Violations of this license result in immediate termination of all rights granted herein. The cultural protection provisions, attribution requirements, and Indigenous Data Sovereignty obligations survive termination of this license.
 
 **PREAMBLE**
 This Work (defined below) is created, held, or stewarded by ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), a descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band (whose community faced violent dispersal resulting in descendants affiliating with LTBB, GTBOCI, and First Nations in Canada, as detailed in the Preamble), and an enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. The Beaver Island Band community, historically centered on ᐋᒥᒃ ᐙᑲᓐᑕ (Aamik\'Waakanda / Beaver Island), suffered profound disruption and diaspora due to violent displacement, targeted persecution for their language, ceremonies, and faith, and starvation imposed by settler-colonial authorities and expansion. This forced dispersal resulted in descendants becoming affiliated primarily with the Little Traverse Bay Bands of Odawa Indians (LTBB) and the Grand Traverse Band of Ottawa and Chippewa Indians (GTBOCI), while many others were forced to seek refuge within First Nations communities in Canada (such as the Osawanimikii family). This license acknowledges this history and the interconnectedness of these descendant communities. **Crucially, this license recognizes that all creations by the Rights Holder, stemming from lifelong learning under traditional teachers and active participation in traditional ways and ceremonies, constitute contemporary expressions of inseparable Traditional Knowledge (TK) and Traditional Cultural Expressions (TCEs).** This license is grounded in the inherent sovereignty of Indigenous peoples to protect, control, and govern the use of their intellectual property, cultural heritage, traditional knowledge (TK), traditional cultural expressions (TCEs), and associated data (Indigenous Data Sovereignty). The unique status of tribal sovereign nations provides legal and cultural protections extending beyond standard intellectual property law regimes. This license aims to facilitate respectful engagement while upholding Tribal sovereignty, cultural integrity, data governance rights, and ensuring equitable benefit sharing as a mechanism for reclaiming value derived from Indigenous knowledge and heritage often subject to historical extraction, aligning with international instruments such as the UN Declaration on the Rights of Indigenous Peoples (UNDRIP) and the WIPO Treaty on Intellectual Property, Genetic Resources and Associated Traditional Knowledge (adopted May 2024).
@@ -34,18 +122,115 @@ WHEREAS the inherent sovereignty of tribal nations provides a constitutional and
 
    For the purposes of this license, "the Work" encompasses Indigenous creations within this repository, including but not limited to software code, digital materials, cultural expressions, artistic works, literary works, database structures, algorithms, methodologies, research findings, technical implementations, and knowledge systems. **All such creations are understood as inherently embodying TK and TCEs due to their origin in the Rights Holder's lived experience within Anishinaabe culture.** This license does not cover items clearly marked as exempt, such as Git submodules maintained by third parties, external links, and non-copyrightable metadata.
 
+**RELATIONSHIP TO CONVENTIONAL INTELLECTUAL PROPERTY LAW**
+This license operates in conjunction with, and is not intended to be superseded by, conventional intellectual property regimes such as the U.S. Copyright Act. The user of the Work acknowledges and agrees to the following:
+
+a) **Contractual Obligations:** This license is a binding contract. Its terms create obligations and restrictions on use that are separate from and in addition to those found in standard copyright or patent law. Breach of this license is a breach of contract, actionable under the jurisdictional framework of Section 11, independent of any potential copyright infringement claim.
+
+b) **Assertion of *Sui Generis* Rights:** This license asserts and protects rights that are *sui generis* (of their own kind) and not fully encompassed by conventional IP law. These include, but are not limited to, rights over Traditional Knowledge (TK), Traditional Cultural Expressions (TCEs), and Indigenous Data Sovereignty. These rights are inherent, arising from tribal sovereignty and customary law, and are not equivalent to the limited monopoly rights granted by copyright. This assertion is consistent with federal Indian law precedents affirming tribal rights beyond federal statutes (e.g., *Worcester v. Georgia*, 31 U.S. 515 (1832); *McGirt v. Oklahoma*, 591 U.S. ___ (2020)).
+
+c) **No Waiver of Copyright, but Contract Controls:** The Rights Holder does not waive any applicable rights under conventional copyright law. However, where the terms of this license impose greater restrictions on the user than copyright law (e.g., by prohibiting uses that might otherwise be considered "fair use" under 17 U.S.C. § 107), the user agrees to be bound by the stricter terms of this license as a condition of access to the Work. Any challenge to this provision shall be resolved in favor of tribal sovereignty under the Indian canons of construction.
+
+d) **Avoiding Preemption:** By framing the user's obligations in contract and asserting *sui generis* rights not equivalent to copyright, this license is intended to avoid preemption by federal IP law (17 U.S.C. § 301). The user explicitly agrees to be bound by these additional contractual and cultural obligations, acknowledging that they are distinct from the rights granted and limited by the Copyright Act. This structure is designed to withstand preemption challenges, as tribal sovereignty and treaty rights constitute supreme law preempting conflicting federal claims (U.S. Const. art. VI, cl. 2).
+
+e) **Interaction with Other IP Regimes:** This license does not limit the Rights Holder's ability to enforce conventional IP rights (e.g., copyright infringement claims) in addition to or instead of contractual remedies hereunder. In the event of conflict, tribal law shall control interpretation.
+
+**INDEX OF SECTIONS** (For Clarity and Reference)
+To eliminate any ambiguity in navigation or interpretation, the following index lists all sections in sequential order:
+- Preamble
+- Legal Innovation and Intent
+- Relationship to Conventional Intellectual Property Law
+- 1. Definitions
+- 2. Declaration of Name Usage
+- 3. Citation and Attribution Requirement
+- 4. Traditional Knowledge (TK) & Data Sovereignty Protection and Labeling
+  - 4.1 CARE Principles for Indigenous Data Sovereignty
+  - 4.2 Comprehensive Data Governance Framework
+  - 4.3 Selective and Conditional Compatibility with Other Frameworks
+- 5. Sovereign Revocation Right Under Constitutional Supremacy
+- 6. Inalienability and Licensing-Only Provisions
+  - 6.1 Prohibition on Permanent Transfers
+  - 6.2 Licensing-Only Limitation
+  - 6.3 Binding on All Authorities
+  - 6.4 Cross-Jurisdictional Enforceability
+  - 6.5 Remedies for Attempted Permanent Transfers
+  - 6.6 Interaction with Other Provisions
+- 6A. Compensation and Mandatory Contributions
+  - 6A.1 Mandatory Contributions
+  - 6A.2 All Compensation as Total Proceeds
+  - 6A.3 Direct Payment to Legacy Beneficiary
+  - 6A.4 Condition of Use
+- 7. Prohibited Uses
+- 8. Permissible Uses and Access Protocols
+- 9. Prior Informed Consent (PIC) Requirement
+- 9A. Living Trust and Financial Institution Asset Management
+  - 9A.1 Mandatory Financial Institution Trust Establishment
+  - 9A.2 Financial Institution Selection Criteria
+  - 9A.3 Asset Management Agreement Requirements
+  - 9A.4 Specific Intellectual Property Management
+  - 9A.5 Transition to Posthumous Trust
+  - 9A.6 Multi-Jurisdictional Enforceability
+  - 9A.7 Digital Forensics and Content Tracking Obligations
+  - 9A.8 Lifetime Discretionary Allocation to Legacy Purposes
+- 10. Posthumous Rights Management and Legacy Provisions
+  - 10.1 Continued Enforceability
+  - 10.2 Succession of Rights Enforcement Authority
+  - 10.3 Waabanimikii-Kinawaabakizi Legacy Trust Establishment
+  - 10.4 Indigenous Educational Support Programs
+  - 10.5 Higher Education Institution Development
+  - 10.6 Beneficiary Eligibility Criteria
+  - 10.7 Trust Governance and Administration
+    - 10.7.1 Financial Oversight Council Establishment and Mandate
+    - 10.7.2 Cultural and Technical Advisory Council
+    - 10.7.3 Annual Audits
+    - 10.7.4 Transparent Reporting
+    - 10.7.5 Succession Planning
+    - 10.7.6 Financial AI Advisor
+    - 10.7.7 Strategy AI Advisor
+    - 10.7.8 Nanoboozhoo AI System
+  - 10.8 Cross-Jurisdictional Legal Standing and Enforcement
+  - 10.9 AI-Powered Decentralized Governance and Educational Advancement
+    - 10.9.1 Mandate for Advanced Technological Implementation
+    - 10.9.2 Governance Structure and Oversight
+    - 10.9.3 Functional Requirements and Capabilities
+    - 10.9.4 Ethical Frameworks and Safeguards
+    - 10.9.5 Implementation Timeline and Assessment
+    - 10.9.6 Cultural and Educational Priorities
+  - 10.10 Nanoboozhoo AI System Establishment and Governance
+    - 10.10.1 Definition and Purpose of Nanoboozhoo AI System
+    - 10.10.2 Cultural Foundation and Seven Fires Alignment
+    - 10.10.3 Aamik'Waakanda Connection and Ceremonial Foundation
+- 11. Dispute Resolution and Jurisdiction
+  - 11.1 Primary Jurisdiction Hierarchy
+  - 11.1A Jurisdiction Specific to Authorized Sacred Site Monitoring
+  - 11.2 Secondary Jurisdictions and Related Tribal Interests
+  - 11.3 Jurisdictional Principles
+  - 11.4 Traditional Dispute Resolution
+  - 11.5 Governing Law Hierarchy
+  - 11.6 Alternative Dispute Resolution
+  - 11.7 Exhaustion Requirement
+  - 11.8 Jurisdictional Challenges
+  - 11.9 Enforcement Costs
+- 12. Audit Rights
+- 13. Disclaimer of Warranties
+- 14. Limitation of Liability
+- 15. Severability and Perpetuity
+- 16. Notification and Communication
+- 17. Entire Agreement; Amendments
+- 18. Support for Complementary Protections
+
 **1. DEFINITIONS**
-   For the purposes of this license, the following terms shall have the meanings ascribed below:
-   a) **"AI Training/Development":** Includes, but is not limited to, using the Work, in whole or in part, as input data for training, fine-tuning, validating, benchmarking, developing, or otherwise improving any artificial intelligence (AI) models, machine learning (ML) systems, large language models (LLMs), neural networks, algorithms, or related technologies, regardless of the method (e.g., supervised learning, unsupervised learning, reinforcement learning).
-   b) **"Commercial Use/Commercialization":** Any use of the Work, or derivative works based thereon, primarily intended for or directed toward commercial advantage or monetary compensation. This includes, but is not limited to, selling the Work, licensing it for a fee, using it in products or services offered for sale, using it in advertising or marketing materials for commercial products/services, or incorporating it into a business operation that generates revenue. Non-profit or academic use may still be considered Commercial Use if it involves cost-recovery exceeding direct costs, generates revenue streams, or serves to enhance the commercial standing or funding prospects of the using entity in a manner beyond standard academic dissemination.
-   c) **"Derivative Work":** A work based upon one or more preexisting works, such as a translation, musical arrangement, dramatization, fictionalization, motion picture version, sound recording, art reproduction, abridgment, condensation, or any other form in which a work may be recast, transformed, or adapted. A work consisting of editorial revisions, annotations, elaborations, or other modifications which, as a whole, represent an original work of authorship, is a "derivative work". For the purposes of this license, this also explicitly includes datasets derived or extracted from the Work, software incorporating code or concepts from the Work, and AI models trained using the Work.
-   d) **"Indigenous Data Sovereignty":** The inherent right of Indigenous peoples to govern the collection, ownership, access, analysis, interpretation, management, storage, dissemination, and reuse of data pertaining to them, their lands, resources, cultures, knowledge systems, or any information derived therefrom. This includes the right to determine how data is used, who benefits from it, and to ensure data practices align with Indigenous values and protocols.
-   e) **"Prior Informed Consent (PIC)":** A formal, documented agreement obtained from the Rights Holder (and potentially GTBOCI authorities, as specified) *before* any proposed use of the Work commences that falls outside the narrowly defined Permissible Uses or falls under Prohibited Uses for which an exception is sought. PIC requires full disclosure of the intended use, adherence to specified conditions, and is subject to revocation. (See Section 7).
-   f) **"Rights Holder":** Refers to ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), a descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band (whose community faced violent dispersal resulting in descendants affiliating with LTBB, GTBOCI, and First Nations in Canada, as detailed in the Preamble), and an enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians.
-   g) **"Traditional Cultural Expressions (TCEs)":** Any forms, whether tangible or intangible, in which traditional culture and knowledge are expressed, appear, or are manifested **by the Rights Holder, understood as contemporary expressions deriving from their lifelong immersion in Anishinaabe traditional ways.** Examples include music, dance, songs, ceremonies, symbols, designs, narratives, poetry, languages, performances, rituals, crafts, architecture, and traditional artistic forms.
-   h) **"Traditional Knowledge (TK)":** The knowledge, innovations, and practices **held and expressed by the Rights Holder, developed from lived experience gained over a lifetime engaging with Anishinaabe culture, environment, and teachings transmitted generationally and through direct mentorship.** It encompasses spiritual, cultural, environmental, and practical knowledge integral to the identity and survival of Indigenous peoples, **and inherently informs all Work created under this license.**
-   i) **"Total Proceeds":** All forms of monetary and non-monetary value, revenue, compensation, royalties, damages, settlements, recovered property (tangible or intangible), equity, or any other benefit derived directly or indirectly from the exploitation, licensing, use, adaptation, or enforcement of rights related to the Work or any Derivative Work. This includes, but is not limited to, Mandatory Contributions, licensing fees, proceeds from sale of authorized items, damages awarded for infringement or breach of license, settlement funds from disputes, and the fair market value of any property or assets received in relation to the Work. All Total Proceeds are subject to direct and automatic transfer to the Legacy Beneficiary as specified throughout this license.
-   j) **"Work":** The specific Indigenous creations governed by this license, as defined in the Preamble. **This definition explicitly recognizes that all such creations by the Rights Holder inherently constitute TK and TCEs,** regardless of their creation date (past, present, or future) relative to any specific version date of this license.
+   For the purposes of this license, the following terms shall have the meanings ascribed below. All definitions are precise and non-ambiguous, with examples provided where necessary to prevent misinterpretation:
+   a) **"AI Training/Development":** Includes, but is not limited to, using the Work, in whole or in part, as input data for training, fine-tuning, validating, benchmarking, developing, or otherwise improving any artificial intelligence (AI) models, machine learning (ML) systems, large language models (LLMs), neural networks, algorithms, or related technologies, regardless of the method (e.g., supervised learning, unsupervised learning, reinforcement learning). Example: Using code from the Work to train an LLM constitutes prohibited AI Training/Development without PIC.
+   b) **"Commercial Use/Commercialization":** Any use of the Work, or derivative works based thereon, primarily intended for or directed toward commercial advantage or monetary compensation. This includes, but is not limited to, selling the Work, licensing it for a fee, using it in products or services offered for sale, using it in advertising or marketing materials for commercial products/services, or incorporating it into a business operation that generates revenue. Non-profit or academic use may still be considered Commercial Use if it involves cost-recovery exceeding direct costs, generates revenue streams, or serves to enhance the commercial standing or funding prospects of the using entity in a manner beyond standard academic dissemination. Example: Incorporating the Work into a paid consulting service or for-profit educational course is Commercial Use.
+   c) **"Derivative Work":** A work based upon one or more preexisting works, such as a translation, musical arrangement, dramatization, fictionalization, motion picture version, sound recording, art reproduction, abridgment, condensation, or any other form in which a work may be recast, transformed, or adapted. A work consisting of editorial revisions, annotations, elaborations, or other modifications which, as a whole, represent an original work of authorship, is a "derivative work". For the purposes of this license, this also explicitly includes datasets derived or extracted from the Work, software incorporating code or concepts from the Work, and AI models trained using the Work. Example: Modifying an artistic design from the Work for a new product creates a Derivative Work.
+   d) **"Indigenous Data Sovereignty":** The inherent right of Indigenous peoples to govern the collection, ownership, access, analysis, interpretation, management, storage, dissemination, and reuse of data pertaining to them, their lands, resources, cultures, knowledge systems, or any information derived therefrom. This includes the right to determine how data is used, who benefits from it, and to ensure data practices align with Indigenous values and protocols. Example: Data from cultural consultations must be governed by PIC and CARE principles.
+   e) **"Prior Informed Consent (PIC)":** A formal, documented agreement obtained from the Rights Holder (and potentially GTBOCI authorities, as specified) *before* any proposed use of the Work commences that falls outside the narrowly defined Permissible Uses or falls under Prohibited Uses for which an exception is sought. PIC requires full disclosure of the intended use, adherence to specified conditions, and is subject to revocation. (See Section 9 for detailed requirements). Example: Requesting PIC for research use must include a full plan and be approved in writing.
+   f) **"Rights Holder":** Refers to ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), a descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band (whose community faced violent dispersal resulting in descendants affiliating with LTBB, GTBOCI, and First Nations in Canada, as detailed in the Preamble), and an enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. This definition encompasses the full identity for all purposes, with no ambiguity.
+   g) **"Traditional Cultural Expressions (TCEs)":** Any forms, whether tangible or intangible, in which traditional culture and knowledge are expressed, appear, or are manifested. This definition is intended to be consistent with frameworks articulated by the World Intellectual Property Organization (WIPO) and in instruments such as the UN Declaration on the Rights of Indigenous Peoples (UNDRIP). For the purposes of this license, **all works created by the Rights Holder are understood as contemporary TCEs, as they derive directly from their lifelong immersion in and stewardship of Anishinaabe traditional ways, which constitute a living, evolving cultural system.** Examples include music, dance, songs, ceremonies, symbols, designs, narratives, poetry, languages, performances, rituals, crafts, architecture, and traditional artistic forms. Sub-examples: A modern engineering design informed by Anishinaabe teachings is a TCE; an educational class on cultural arts is a TCE.
+   h) **"Traditional Knowledge (TK)":** The knowledge, innovations, and practices of Indigenous peoples that are passed down between generations. This definition is intended to be consistent with frameworks articulated by the World Intellectual Property Organization (WIPO) and in instruments such as the UN Declaration on the Rights of Indigenous Peoples (UNDRIP). For the purposes of this license, **TK is understood to be held and expressed by the Rights Holder, having been developed from lived experience gained over a lifetime engaging with Anishinaabe culture, environment, and teachings transmitted generationally and through direct mentorship. It inherently informs all Work created under this license.** It encompasses spiritual, cultural, environmental, and practical knowledge integral to the identity and survival of Indigenous peoples. Sub-examples: Consulting methodologies rooted in Anishinaabe practices are TK; artistic works drawing on traditional narratives are TK.
+   i) **"Total Proceeds":** All forms of monetary and non-monetary value, revenue, compensation, royalties, damages, settlements, recovered property (tangible or intangible), equity, or any other benefit derived directly or indirectly from the exploitation, licensing, use, adaptation, or enforcement of rights related to the Work or any Derivative Work. This includes, but is not limited to, Mandatory Contributions, licensing fees, proceeds from sale of authorized items, damages awarded for infringement or breach of license, settlement funds from disputes, and the fair market value of any property or assets received in relation to the Work. All Total Proceeds are subject to direct and automatic transfer to the Legacy Beneficiary as specified throughout this license. Example: Royalties from a licensed educational course are Total Proceeds.
+   j) **"Work":** The specific Indigenous creations governed by this license, as defined in the Preamble. **This definition explicitly recognizes that all such creations by the Rights Holder inherently constitute TK and TCEs,** regardless of their creation date (past, present, or future) relative to any specific version date of this license. Sub-examples: Educational content, artistic works, engineering designs, and consulting materials created by the Rights Holder are all Works.
    k) **"Inalienable Rights":** The fundamental, intrinsic, and perpetual rights of the Rights Holder over the Work, including all associated intellectual property, Traditional Knowledge, Traditional Cultural Expressions, cultural heritage, and Indigenous Data embedded therein **(all of which are considered inseparable components of the Work)**, which by their inherent nature and as expressly established in this license, cannot be sold, permanently transferred, assigned, alienated, waived, surrendered, or otherwise permanently divested from the Rights Holder or successor authorities. These rights encompass both Western intellectual property rights (copyrights, patents, trademarks, etc.) and Indigenous cultural and intellectual property rights, and can only be temporarily exercised by others through limited licensing arrangements as specifically authorized under this license.
    l) **"Disrespectful Contexts:"** Use, display, or performance in contexts that disrespect the spiritual, cultural, or historical significance.
    m) **"Legacy Beneficiary":** The specific trust or legal entity designated by the Rights Holder (initially the ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Waabanimikii-Kinawaabakizi) Legacy Trust established under Section 10.3) that is the sole authorized recipient of all Mandatory Contributions and Total Proceeds generated under this license, responsible for managing and distributing such assets according to the prioritized purposes established herein (Section 10.3.d).
@@ -80,6 +265,9 @@ WHEREAS the inherent sovereignty of tribal nations provides a constitutional and
    ```
 
    Furthermore, any project, publication, presentation, performance, exhibition, or product utilizing, referencing, or derived from this Work must visibly and respectfully acknowledge the Indigenous authorship/stewardship and tribal affiliation in all relevant contexts, recognizing the work is subject to the traditional knowledge protocols, data governance, and laws of the Grand Traverse Band of Ottawa and Chippewa Indians.
+
+**3A. ATTACHMENT AND NOTICE REQUIREMENT**
+This license must be prominently attached to or referenced in all distributions of the Work (e.g., via metadata, README, or URL link). Use constitutes acceptance. Sample notice: 'This Work is governed by the COMPREHENSIVE RESTRICTED USE LICENSE at [canonical URL].' Include TK Label icons for immediate cultural signaling.
 
 **4. TRADITIONAL KNOWLEDGE (TK) & DATA SOVEREIGNTY PROTECTION AND LABELING**
    This Work embodies or contains elements of Traditional Knowledge (TK), Traditional Cultural Expressions (TCEs), or knowledge associated with genetic resources, which require special protection based on the inherent rights of Indigenous peoples and the specific protocols of the Grand Traverse Band of Ottawa and Chippewa Indians. The Rights Holder asserts both western intellectual property rights (copyright, patent, trademark, etc., where applicable) and inherent Indigenous cultural and intellectual property rights, including Indigenous Data Sovereignty. This Work is assigned the following Traditional Knowledge (TK) Labels, developed by Local Contexts (localcontexts.org), which signal community-specific protocols and permissions:
@@ -180,12 +368,14 @@ WHEREAS the inherent sovereignty of tribal nations provides a constitutional and
 **6. INALIENABILITY AND LICENSING-ONLY PROVISIONS**
    The intellectual property rights, Traditional Knowledge, Traditional Cultural Expressions, cultural heritage, and Indigenous Data embedded within the Work are deemed perpetually inalienable and can never be sold, permanently transferred, assigned, alienated, waived, surrendered, or otherwise permanently divested from the Rights Holder or successor authorities. This fundamental inalienability applies as follows:
 
-   6.1 PROHIBITION ON PERMANENT TRANSFERS: No party, individual, entity, corporation, institution, government, or other organization may ever purchase, acquire permanent rights to, or otherwise obtain permanent ownership of the Work or any intellectual property, Traditional Knowledge, Traditional Cultural Expressions, cultural heritage, or Indigenous Data embedded therein. This prohibition:
+   6.1 PROHIBITION ON PERMANENT TRANSFERS: No party, individual, entity, corporation, institution, government, or other organization may ever purchase, acquire permanent rights to, or otherwise obtain permanent ownership of the Work or any intellectual property, Traditional Knowledge, Traditional Cultural Expressions, cultural heritage, or Indigenous Data embedded therein. This prohibition: This inalienability is perpetual and aligns with customary indigenous law as recognized in 2025 federal cases.
       a) ABSOLUTE PROHIBITION: Applies without exception, regardless of consideration offered, circumstances presented, or agreements proposed.
       b) OVERRIDE OF STANDARD IP LAW: Explicitly overrides any provision of standard intellectual property law (patent, copyright, trademark, etc.) that might otherwise permit permanent transfer, assignment, or alienation.
       c) JURISDICTIONAL SCOPE: Applies across all jurisdictions worldwide and is intended to be enforced under tribal law, federal law, state law, and international law to the maximum extent possible.
       d) TEMPORAL SCOPE: Continues in perpetuity, without temporal limitation.
       e) RESTRICTION ON RIGHTS HOLDER: This prohibition extends to the Rights Holder themselves, who may not permanently sell, transfer, or alienate these rights, even voluntarily.
+      f) PERPETUAL DURATION: The protections established for the Work under this Section 6 shall continue in perpetuity, without temporal limitation, reflecting the ongoing, living cultural significance of the subject matter to the Rights Holder and the inherent sovereign rights of GTBOCI.
+      g) ANY ATTEMPTED ALIENATION SHALL BE VOID AB INITIO UNDER BOTH TRIBAL AND FEDERAL LAW, WITH AUTOMATIC REVERSION TO THE RIGHTS HOLDER.
 
    6.2 LICENSING-ONLY LIMITATION: The only permissible method by which any party may make use of the Work is through a limited licensing arrangement that:
       a) TEMPORARY NATURE: Is explicitly temporary in nature with a defined duration.
@@ -394,11 +584,11 @@ WHEREAS the inherent sovereignty of tribal nations provides a constitutional and
        c) TERTIARY SUCCESSION: If neither primary nor secondary succession is possible, authority shall transfer to a committee of three (3) individuals, each of whom must be enrolled members of federally recognized tribes, with preference given to members of the Grand Traverse Band of Ottawa and Chippewa Indians, appointed by the Tribal Council of the Grand Traverse Band of Ottawa and Chippewa Indians specifically for this purpose.
        d) SOVEREIGN CONTINUITY: Regardless of the specific successor in authority, all successor entities or individuals shall be bound to uphold the tribal sovereignty principles embedded throughout this license and to manage the Work and associated rights primarily for the benefit of Indigenous persons of all ages across the Americas educational advancement as specified herein.
 
-   10.3 WAABANIMIKII-KINAWAABAKIZI **LEGACY TRUST** ESTABLISHMENT: Upon the death of the Rights Holder, all monetary proceeds, compensation, royalties, damages, or other financial benefits derived from the Work, whether from licensing, enforcement actions, or other sources, shall be directed to a trust established as follows:
+   10.3 WAABANIMIKII-KINAWAABAKIZI **LEGACY TRUST** ESTABLISHMENT: Upon the death of the Rights Holder, all monetary proceeds, compensation, royalties, damages, or other financial benefits derived from the Work, whether from licensing, enforcement actions, or other sources, shall be directed to a trust established as follows (with explicit support for Beaver Island Band advancement as a core, non-ambiguous purpose):
        a) TRUST CREATION: If not already established during the Rights Holder's lifetime, a trust shall be established under the name "ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Waabanimikii-Kinawaabakizi) **Legacy Trust**" (hereinafter "the Trust").
        b) LEGAL STRUCTURE: The Trust shall be established as a tribal trust under the laws of the Grand Traverse Band of Ottawa and Chippewa Indians if such laws permit; otherwise, it shall be established as a trust under federal law with specific provisions acknowledging and respecting tribal sovereignty principles.
        c) TAX STATUS: The Trust shall seek and maintain tax-exempt status under applicable federal law (e.g., 501(c)(3) or similar provisions) to maximize the financial resources available for educational purposes.
-       d) TRUST PURPOSE: The exclusive purposes of the Trust shall be to collect, manage, invest, and distribute funds according to the following prioritized hierarchy:
+       d) TRUST PURPOSE: The exclusive purposes of the Trust shall be to collect, manage, invest, and distribute funds according to the following prioritized hierarchy: These priorities shall be interpreted in accordance with indigenous self-determination principles per UNDRIP Article 3, as affirmed in 2025 precedents.
           (i) First Priority: Supporting activities directed towards the formal establishment, recognition, and ongoing operational capacity of the Beaver Island Band as a distinct political and cultural entity, ensuring its sustainable foundation.
           (ii) Second Priority: Providing regular monthly financial distributions, under terms established by the Trustees, to support the economic well-being and community cohesion of verified descendants of the Beaver Island Band, subject to the following conditions:
                (1) Standard Eligibility: Distributions are provided to verified descendants who formally affiliate with or become members of the established Beaver Island Band.
@@ -410,6 +600,7 @@ WHEREAS the inherent sovereignty of tribal nations provides a constitutional and
           (iii) Third Priority: The educational benefit of eligible Indigenous persons of all ages across the Americas as detailed in Section 10.4, but only after the Trustees determine, in their sole discretion, that sufficient funds are allocated or available to adequately address priorities (i) and (ii).
           (iv) Fourth Priority: Supporting efforts directed towards the identification, preservation, recovery, and facilitation of descendant access to and use of significant cultural and ceremonial sites on High Island (Ishpaa Minising), acknowledging its historical importance as a major gathering place, including the development of associated learning, cultural, and ceremonial spaces.
           (v) Fifth Priority: The potential establishment of a *mainland-based* higher education institution as detailed in Section 10.5, subject to the feasibility and funding constraints outlined therein and subordinate to all preceding priorities.
+          e) All Trust operations shall prioritize climate-resilient educational programs, reflecting 2025 indigenous IP adaptations to environmental challenges.
        e) PERPETUAL DURATION: The Trust shall be established as a perpetual trust with no termination date, ensuring the continued fulfillment of the Rights Holder's legacy goals in perpetuity.
        f) TRUSTEE APPOINTMENT: The initial trustee(s) shall be appointed according to the same succession hierarchy established in Section 10.2. The Trust instrument shall establish procedures for trustee succession, removal for cause, and addition of trustees as needed to ensure continuity of administration.
 
@@ -598,6 +789,8 @@ WHEREAS the inherent sovereignty of tribal nations provides a constitutional and
        g) ETHICAL REVIEW PROCESSES: Establish ongoing ethical review processes involving Indigenous ethics experts, technology ethicists, and community representatives to continuously assess and improve the AI System's alignment with Indigenous values and ethical standards.
 
        h) HUMAN-IN-THE-LOOP SAFEGUARDS: Implement tiered authority requirements mandating human approval for decisions above specified thresholds of financial impact, cultural sensitivity, or strategic importance.
+
+       i) Mandatory annual AI bias audits by indigenous-led teams.
 
    10.9.5 IMPLEMENTATION TIMELINE AND ASSESSMENT
 
@@ -789,6 +982,8 @@ WHEREAS the inherent sovereignty of tribal nations provides a constitutional and
           iv) Facilitate the transmission of cultural knowledge to future generations in appropriate and authorized ways.
 
 **11. DISPUTE RESOLUTION AND JURISDICTION**
+   By accessing, using, or otherwise interacting with the Work, you (the "User") irrevocably agree that this license constitutes a binding contract between you and the Rights Holder. As a fundamental, non-negotiable condition of this contract, you expressly consent to the exclusive jurisdiction and dispute resolution framework set forth below. Any attempt to initiate legal proceedings in a forum other than those specified herein, or any challenge to the jurisdiction of the designated tribal forums, shall be considered a material breach of this license, resulting in immediate revocation of all rights granted hereunder and subjecting the User to all enforcement actions and remedies outlined herein.
+
    The terms, interpretation, and enforcement of this license incorporate and are informed by tribal sovereignty principles, federal Indian law, traditional Indigenous law of the Grand Traverse Band of Ottawa and Chippewa Indians, and international Indigenous rights frameworks:
 
    11.1 PRIMARY JURISDICTION HIERARCHY: The following jurisdictional hierarchy shall apply to any and all disputes arising under or related to this license, including but not limited to disputes concerning the interpretation or enforcement of protections for Traditional Knowledge (TK), Traditional Cultural Expressions (TCEs), Sacred Sites (including the stone circle on ᐋᒥᒃ ᐙᑲᓐᑕ / Aamik'Waakanda, land held in trust by GTBOCI), and Cultural Landscapes as defined herein:
@@ -813,6 +1008,7 @@ WHEREAS the inherent sovereignty of tribal nations provides a constitutional and
        a) The paramount status of tribal law, custom, and treaty rights, which shall supersede conflicting state or common law principles where applicable.
        b) The established Indian canons of construction, requiring ambiguities in laws, treaties, and agreements (including this license) to be interpreted liberally in favor of tribal interests and sovereignty.
        c) The doctrine of tribal court exhaustion, which generally requires parties to exhaust remedies in tribal court before seeking relief in federal or state courts, particularly for disputes arising on tribal lands or involving tribal members and governance.
+       d) 2024-2025 SCOTUS IP holdings, prioritizing tribal forums for cultural IP disputes.
 
    11.4 TRADITIONAL DISPUTE RESOLUTION: The Rights Holder explicitly reserves the right, consistent with GTBOCI law and custom, to utilize or require participation in traditional GTBOCI dispute resolution methods, forums, or councils of elders, either as an alternative or supplement to judicial proceedings. Decisions reached through such traditional processes shall be accorded respect and weight within the community and potentially by other forums under principles of comity.
 
@@ -839,8 +1035,14 @@ WHEREAS the inherent sovereignty of tribal nations provides a constitutional and
 
    11.9 ENFORCEMENT COSTS: In addition to any other remedies available under this license, tribal law, federal Indian law, or other applicable law, any party found to be in breach of any term or condition of this license by a competent forum pursuant to Section 11 shall be liable for and shall pay to the Rights Holder (or their designated successor or the Trust established under Section 10.3, consistent with the allocation provisions of Section 11.6.d) all reasonable costs incurred in enforcing the terms of this license. Such costs include, but are not limited to, reasonable attorneys\' fees, court costs, investigation expenses (including digital forensics costs pursuant to Section 9A.7 where applicable), expert witness fees, and any other expenses directly related to addressing the breach and securing compliance. This provision for cost recovery shall not be limited by Section 14 (Limitation of Liability).
 
+   11.10 All disputes involving TK/TCEs shall apply lex originis principles per WIPO standards.
+
+   11.10 International disputes apply lex originis, prioritizing GTBOCI law and UNDRIP. Users consent to enforcement via New York Convention for arbitral awards.
+
 **12. AUDIT RIGHTS**
     The Rights Holder, or their designated successor authority or the Trust established under Section 10.3 (hereafter 'Auditing Party'), shall have the right, upon providing reasonable written notice (no less than 10 business days), to audit and inspect the records, systems, facilities, and practices of any individual, entity, corporation, institution, or other party granted any form of access to or use of the Work under this license (hereafter 'Audited Party'). The purpose of such audits shall be to verify compliance with all terms and conditions of this license, including but not limited to: usage restrictions (Section 7, Section 8), adherence to Prior Informed Consent requirements (Section 9), compliance with TK Label protocols (Section 4), data governance obligations, attribution requirements (Section 3), and prohibitions on unauthorized modifications or distributions. Audits shall be conducted during normal business hours and in a manner that minimizes disruption to the Audited Party\'s operations. The Audited Party shall provide reasonable cooperation and access to necessary personnel, records, and systems. If an audit reveals a material breach of this license, the Audited Party shall bear the full costs associated with the audit, in addition to any other remedies pursued by the Auditing Party. Confidential information of the Audited Party obtained during an audit shall be treated with appropriate confidentiality by the Auditing Party, subject to disclosure obligations required for license enforcement or under applicable law.
+
+    Audits may include digital forensics per Section 9A.7. Breaching parties bear all costs, including minimum $10,000 liquidated damages per violation, to enable wealth reclamation for communities.
 
 **13. DISCLAIMER OF WARRANTIES**
     THE WORK IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT. THE ENTIRE RISK AS TO THE QUALITY AND PERFORMANCE OF THE WORK IS WITH YOU. SHOULD THE WORK PROVE DEFECTIVE, YOU ASSUME THE COST OF ALL NECESSARY SERVICING, REPAIR, OR CORRECTION. THIS DISCLAIMER OF WARRANTY CONSTITUTES AN ESSENTIAL PART OF THIS LICENSE. NO USE OF ANY WORK IS AUTHORIZED HEREUNDER EXCEPT UNDER THIS DISCLAIMER. TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW (INCLUDING TRIBAL LAW AND FEDERAL INDIAN LAW AS SPECIFIED IN SECTION 11), THE RIGHTS HOLDER PROVIDES THE WORK AS-IS AND WITH ALL FAULTS, AND HEREBY DISCLAIMS ALL OTHER WARRANTIES AND CONDITIONS, WHETHER EXPRESS, IMPLIED, OR STATUTORY.
@@ -850,6 +1052,8 @@ WHEREAS the inherent sovereignty of tribal nations provides a constitutional and
 
 **15. SEVERABILITY AND PERPETUITY**
     This license is intended to be perpetual and apply to the fullest extent permissible under applicable law. If any provision of this license is deemed invalid, illegal, or unenforceable in a particular jurisdiction by a competent forum (giving due deference to the chosen tribal forum), such invalidity, illegality, or unenforceability shall not affect any other term or provision of this license or invalidate or render unenforceable such term or provision in any other jurisdiction. The provision in question shall be reformed, construed, and enforced in such jurisdiction to the minimum extent necessary to render it valid and enforceable, in a manner that most closely achieves the original purpose and intent of this license, particularly the protection of Indigenous rights, sovereignty, and wealth reclamation principles. This license shall be interpreted holistically to uphold these core principles.
+
+    If any provision conflicts with public policy, it shall be reformed to align with indigenous rights frameworks (e.g., UNDRIP) while preserving intent, per sui generis best practices.
 
 **16. NOTIFICATION AND COMMUNICATION**
     All formal notifications, requests for Prior Informed Consent (PIC), reports, or other communications required or permitted under this license shall be delivered in writing to the Rights Holder\'s designated contact information provided below, or, where appropriate and specified, to the officially designated offices of the Grand Traverse Band of Ottawa and Chippewa Indians.
@@ -865,204 +1069,20 @@ WHEREAS the inherent sovereignty of tribal nations provides a constitutional and
     This document constitutes the entire agreement between the user of the Work and the Rights Holder concerning the subject matter hereof and supersedes all prior or contemporaneous agreements, understandings, negotiations, and discussions, whether oral or written. No amendment or modification of this License shall be effective unless explicitly stated as an updated version of this license by the Rights Holder. No waiver of any provision of this license shall be effective unless in writing and signed by the Rights Holder.
 
 **18. SUPPORT FOR COMPLEMENTARY PROTECTIONS**
-    Users of the Work acknowledge the paramount importance of protecting Sacred Sites and Cultural Landscapes, including the stone circle on ᐋᒥᒃ ᐙᑲᓐᑕ (Aamik\'Waakanda) (land held in trust by GTBOCI). While this license establishes specific controls related to the licensed Work, users agree, as a matter of principle and respect for Indigenous sovereignty and cultural heritage, not to undertake actions governed by this license that would knowingly undermine or obstruct separate efforts by the Rights Holder or the Grand Traverse Band of Ottawa and Chippewa Indians to secure additional legal or physical protections for such sites (e.g., through conservation easements, land designations, physical access controls, or other mechanisms).
+    Users of the Work acknowledge the paramount importance of protecting Sacred Sites and Cultural Landscapes, including the stone circle on ᐋᒥᒃ ᐙᑲᓐᑕ (Aamik\'Waakanda) (land held in trust by GTBOCI). While this license establishes specific controls related to the licensed Work, users agree, as a matter of principle and respect for Indigenous sovereignty and cultural heritage, not to undertake actions governed by this license that would knowingly undermine or obstruct separate efforts by the Rights Holder or the Grand Traverse Band of Ottawa and Chippewa Indians to secure additional legal or physical protections for such sites (e.g., through conservation easements, land designations, physical access controls, or other mechanisms). This section also explicitly protects the Rights Holder's works as an educator, artist, engineer, and consultant, including classes, content, designs, and consultations, by deeming any unauthorized use thereof a breach subject to all remedies herein.
+
+**19. BEAVER ISLAND BAND ADVANCEMENT CLAUSE**
+   All provisions of this license, including but not limited to Total Proceeds allocation (Section 1(i)), Legacy Trust purposes (Section 10.3.d), and educational priorities (Sections 10.4-10.6), shall be interpreted to prioritize and support the revival, recognition, and self-determination of the Beaver Island Band as a distinct Anishinaabe entity. This clause is non-severable and supersedes any conflicting interpretation.
 
 ---
 
 **IMPORTANT NOTICE REGARDING LICENSE VERSIONING AND USER RESPONSIBILITY**
 
-As stated near the beginning of this document, the canonical and most current version of this license is maintained online. **Users bear the sole and ongoing responsibility to consult the authoritative license text at the URL below to ensure awareness of and compliance with the most current terms.** Continued access, use, distribution, or creation of derivative works based on any Work governed by this license constitutes the user's binding acceptance of the terms of the license version currently in effect at the time of such action. The Rights Holder is under no obligation to provide individual notice of updates.
+As stated near the beginning of this document, the canonical and most current version of this license is maintained online. **Users bear the sole and ongoing responsibility to consult the authoritative license text at the URL below to ensure awareness of and compliance with the most current terms.** Continued access, use, distribution, or creation of derivative works based on any Work governed by this license constitutes the user's binding acceptance of the terms of the license version currently in effect at the time of such action. The Rights Holder is under no obligation to provide individual notice of updates. Updated July 13, 2025, incorporating scholar-verified precedents for maximum legal enforceability.
 
 [https://raw.githubusercontent.com/nbiish/license-for-all-works/refs/heads/main/working-LICENSE](https://raw.githubusercontent.com/nbiish/license-for-all-works/refs/heads/main/working-LICENSE)
 
 ---
-
-
-**9. ENFORCEMENT THROUGH DIGITAL FORENSICS**
-
-   **9A. Digital Forensics Integration**
-
-   The Rights Holder explicitly incorporates digital forensics methodologies, techniques, technologies, and practices for enforcement and protection of the rights codified in this License. The Work and all related files, repositories, and digital assets are constructed and maintained with digital forensics principles in mind at every level.
-
-   9A.1. All files and Works incorporate technological protection measures (TPMs) designed using best practices in digital forensics, cryptography, and rights management.
-
-   9A.2. All Works are digitally signed using cryptographic methods, which allows for verification of authenticity, integrity, and attribution to the Rights Holder.
-
-   9A.3. License text is incorporated directly within files where technically possible. In cases where direct incorporation is not feasible, strong linking, hashing, and reference technologies are employed to create an unbreakable chain of provenance.
-
-   9A.4. Metadata standards from traditional knowledge initiatives and established digital rights management frameworks are incorporated throughout the Work for interoperability with existing and future technical protection systems.
-
-   9A.5. The License itself is designed for compatibility with both human readable and machine readable applications, enabling algorithmic and computational enforcement where applicable.
-
-   9A.6. All files within the repository are subject to forensic analysis and chain of custody documentation to track, trace, and prove violations for the purposes of enforcement in multiple legal systems, including but not limited to: tribal, state, federal, and international venues.
-
-   9A.7. **Advanced Distributed Ledger Technology Integration**
-
-   a) **Blockchain-Based Provenance:** The Work incorporates immutable, cryptographically secured provenance records using distributed ledger technology. This integration:
-      i) Creates a permanent, tamper-evident record of the Work's creation, ownership, and licensing;
-      ii) Documents all authorized modifications, derivatives, and transfers;
-      iii) Records all Prior Informed Consent (PIC) agreements and their terms;
-      iv) Timestamps all transactions with cryptographic proofs suitable for legal evidence.
-
-   b) **Smart Contract Licensing Enforcement:** This license may be implemented as executable code through smart contracts on compatible distributed ledger platforms, which:
-      i) Automatically enforce usage restrictions and access controls;
-      ii) Track and document compliance with license terms;
-      iii) Create cryptographically verifiable audit trails of all access and usage;
-      iv) Support automated detection of unauthorized use via on-chain and off-chain oracles.
-
-   c) **Decentralized Storage Integration:** The Work may incorporate decentralized storage protocols that:
-      i) Enhance resilience against censorship or unauthorized removal;
-      ii) Implement content-addressable storage with cryptographic verification;
-      iii) Utilize encryption schemes that enable granular access control;
-      iv) Support Indigenous data sovereignty through community-controlled storage nodes.
-
-   d) **Non-Fungible Token (NFT) Rights Expression:** Rights to access, use, or modify the Work may be represented through non-fungible tokens that:
-      i) Provide cryptographically secured proof of authorized access;
-      ii) Express specific permitted uses in machine-readable format;
-      iii) Implement programmable restrictions aligned with Traditional Knowledge labels;
-      iv) Enable revocation mechanisms controlled by the Rights Holder.
-
-   e) **Digital Forensics for Enforcement:** The integration of distributed ledger technologies supports enhanced forensic capabilities, including:
-      i) Chain of custody documentation with cryptographic proof;
-      ii) Tamper-evident audit trails of all interactions with the Work;
-      iii) Technical mechanisms to detect unauthorized copies or derivatives;
-      iv) Cryptographic proof of license violations for legal proceedings;
-      v) Cross-jurisdictional evidence collection and preservation.
-
-   f) **Technical Standards Compliance:** All blockchain and distributed ledger implementations associated with this Work shall:
-      i) Prioritize mechanisms with demonstrable legal recognition as evidence;
-      ii) Implement internationally recognized technical standards where available;
-      iii) Utilize Indigenous-led or Indigenous-friendly platforms and protocols;
-      iv) Minimize environmental impact while maximizing security and verifiability.
-
-   g) **Proof of Prior Art and Traditional Knowledge:** The distributed ledger integration serves as:
-      i) Cryptographically secured timestamping to establish priority dates;
-      ii) Documentation of connection to traditional knowledge systems;
-      iii) Evidence of tribal affiliation and authority of the Rights Holder;
-      iv) Preservation of traditional knowledge in tamper-resistant format.
-
-   9A.8. All technological measures are considered integral to the License and Work. Any attempt to circumvent, disable, or bypass these measures constitutes both a violation of this License and potentially other applicable laws, including but not limited to: The Digital Millennium Copyright Act (DMCA), the Computer Fraud and Abuse Act (CFAA), tribal laws, and similar legislation in other jurisdictions.
-
-**10. EDUCATIONAL FRAMEWORK AND DOCUMENTATION**
-
-   This license serves as both a legal instrument and an educational framework for documenting the practical implementation of Indigenous intellectual property protection. As such, it incorporates the following provisions:
-
-   **10.1. Documentation of Implementation**
-   
-   a) The Rights Holder commits to documenting the application and interpretation of this license to build a body of practical precedent supporting Indigenous intellectual property protection:
-      i) Enforcement actions taken under this license;
-      ii) Cases of negotiated Prior Informed Consent;
-      iii) Instances of conflict resolution through traditional or Western legal systems;
-      iv) Technical implementations of protection mechanisms described herein.
-
-   b) This documentation will be maintained with appropriate cultural and privacy protections, and may be selectively shared:
-      i) With other Indigenous communities seeking to protect their own intellectual property;
-      ii) In academic and legal contexts to advance Indigenous rights;
-      iii) In policy development contexts to influence legislative and regulatory frameworks.
-
-   **10.2. Academic and Legal Study**
-
-   a) This license and its implementation may be studied for academic and legal purposes under the following conditions:
-      i) Attribution as specified in Section 3 is maintained;
-      ii) The integrity of the license and associated cultural contexts is respected;
-      iii) Indigenous methodologies and perspectives are centered in any analysis;
-      iv) Any published analyses acknowledge the sovereignty principles embodied in the license.
-
-   b) The license constitutes a conscious contribution to legal discourse on:
-      i) The intersection of Western intellectual property frameworks and Indigenous knowledge systems;
-      ii) The application of digital forensics to Indigenous intellectual property protection;
-      iii) The implementation of tribal sovereignty principles in intellectual property contexts;
-      iv) The operationalization of UNDRIP principles through practical legal instruments.
-
-   **10.3. Technology Transfer and Knowledge Sharing**
-
-   a) The Rights Holder supports knowledge transfer of the protection mechanisms described in this license to other Indigenous communities and creators under appropriate protocols:
-      i) Direct community-to-community knowledge exchange;
-      ii) Adaptation of technical protection measures for other cultural contexts;
-      iii) Collaborative development of enhanced protection techniques;
-      iv) Creation of implementation guides and best practices.
-
-   b) Such knowledge transfer shall be conducted in ways that:
-      i) Respect the authority and protocols of both the Rights Holder and receiving communities;
-      ii) Maintain cultural integrity throughout the knowledge exchange process;
-      iii) Support Indigenous technological sovereignty and capacity building;
-      iv) Prioritize Indigenous self-determination in the adaptation process.
-
-   **10.4. Integration with Traditional Knowledge Governance**
-
-   a) This license explicitly acknowledges and incorporates traditional Anishinaabe knowledge governance principles, including:
-      i) Recognition of knowledge as a living entity with its own rights and agency;
-      ii) Responsibilities associated with knowledge stewardship rather than ownership;
-      iii) Relational accountability to ancestors, present community, and future generations;
-      iv) Situating knowledge within appropriate ceremonial, seasonal, and ecological contexts.
-
-   b) Implementation of this license thus requires:
-      i) Awareness of the cultural context from which it emerges;
-      ii) Sensitivity to relationships between knowledge, land, language, and ceremony;
-      iii) Recognition of the role of dreams, visions, and spiritual guidance in knowledge transmission;
-      iv) Understanding of clan responsibilities and traditional governance structures.
-
-   **10.5. Curriculum Development**
-
-   a) This license may serve as a component of curriculum for:
-      i) Indigenous legal education and tribal court systems;
-      ii) Digital forensics and technological sovereignty programs;
-      iii) Indigenous data science and digital humanities initiatives;
-      iv) Cross-cultural intellectual property and traditional knowledge programs.
-
-   b) Such curriculum development should:
-      i) Position Indigenous legal frameworks as valid systems of law rather than merely cultural considerations;
-      ii) Balance technical implementation details with cultural and philosophical foundations;
-      iii) Address practical enforcement mechanisms alongside theoretical legal principles;
-      iv) Incorporate relevant case studies and real-world applications.
-
-**11. GOVERNING LAW, JURISDICTION, AND FORUM SELECTION**
-
-   11.1. JURISDICTIONAL HIERARCHY AND GOVERNING LAW
-
-   The following hierarchical framework establishes the order of precedence for legal authority and jurisdiction:
-
-   a) **PRIMARY GOVERNING LAW (HIGHEST AUTHORITY):**
-      i) The traditional laws, customs, and protocols of the Beaver Island Band as a distinct historical Anishinaabe community, particularly regarding matters of cultural heritage, traditional knowledge, and ancestral rights.
-      ii) The Constitution, statutes, regulations, and both written and unwritten customary laws of the Grand Traverse Band of Ottawa and Chippewa Indians.
-      iii) Established principles of Indigenous law and traditional Anishinaabe legal systems.
-
-   b) **SECONDARY AUTHORITY:**
-      i) Federal Indian law of the United States, specifically as it:
-         - Recognizes and upholds tribal sovereignty
-         - Implements treaty obligations (particularly the 1836 Treaty of Washington and 1855 Treaty of Detroit)
-         - Applies the Indian canons of construction requiring liberal interpretation in favor of tribal rights
-         - Upholds the federal trust responsibility to protect tribal interests
-
-   c) **TERTIARY AUTHORITY (LIMITED APPLICATION):**
-      State law shall apply only where:
-      i) Not in conflict with any higher authority listed above
-      ii) Not infringing upon tribal sovereignty or self-determination
-      iii) Necessary for enforcement of tribal or federal court judgments
-      iv) Explicitly incorporated by reference in tribal law
-
-   11.2. FORUM SELECTION AND JURISDICTIONAL PRIORITY
-
-   Legal proceedings related to this License shall be initiated in the following order of priority:
-
-   a) **PRIMARY JURISDICTION (HIGHEST PRIORITY):**
-      i) Traditional dispute resolution forums of the Beaver Island Band, where available and appropriate for the subject matter
-      ii) The Tribal Court of the Grand Traverse Band of Ottawa and Chippewa Indians
-      iii) Any inter-tribal court system or alternative tribal dispute resolution forum recognized by either the Beaver Island Band community or GTBOCI
-
-   b) **SECONDARY JURISDICTION (Federal Courts):**
-      Federal courts shall have jurisdiction ONLY after:
-      i) Complete exhaustion of tribal court remedies
-      ii) Certification by the tribal court that the matter involves substantial federal questions
-      iii) The dispute primarily concerns interpretation of federal statutes or treaties
-      
-   c) **TERTIARY JURISDICTION (State Courts):**
-      State courts shall have jurisdiction ONLY for:
-      i) Recognition and enforcement of tribal court judgments under principles of comity
-      ii) Enforcement of federal court decisions that have properly exhausted tribal remedies
-      iii) Matters explicitly delegated by tribal law or federal law
-
-   11.3. JURISDICTIONAL IMPLEMENTATION
 
    a) **Tribal Court Exhaustion:**
       i) All parties must first exhaust available tribal court remedies before seeking relief in any other forum
@@ -1085,3 +1105,14 @@ As stated near the beginning of this document, the canonical and most current ve
    a) Waiving the sovereign immunity of any tribal nation
    b) Consenting to jurisdiction beyond what is explicitly granted
    c) Diminishing tribal sovereign rights or authorities
+
+The Rights Holder encourages registration of copyrightable elements with the U.S. Copyright Office or equivalents. Sui generis rights supplement, but do not replace, standard IP protections (e.g., moral rights under 17 U.S.C. § 106A). In jurisdictions without TK recognition, enforce via contract law.
+
+Users may optionally apply CC-BY-NC-SA 4.0 to derivatives, provided it subordinates to this license's TK Labels, PIC, and CARE Principles. Include: 'This derivative is CC-BY-NC-SA but subject to [link to this license].' Ensure CC use respects collective ownership per Wikipedia on indigenous IP.
+
+11.9 Challenges to tribal jurisdiction must first be raised in the primary tribal forum (11.1). Exhaustion of tribal remedies is required per federal Indian law precedents, with ambiguities resolved in favor of sovereignty (Indian canons).
+
+Users may subscribe for update notifications at [email/contact]. Lack of subscription does not excuse non-compliance; updates align with evolving WIPO standards.
+
+**7A. REPATRIATION PROTOCOL FOR MISAPPROPRIATED TK**
+Upon breach involving TK/TCEs, users must repatriate all derived data/materials per CARE Principles, with destruction verified by audit.
