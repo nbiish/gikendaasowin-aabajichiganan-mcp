@@ -127,8 +127,8 @@ function logToolError(toolName: string, error: unknown): { content: ToolContent[
 server.tool(
 	"deliberate",
 	{
-		stage: z.enum(["orient", "reason", "acknowledge"]).describe("The current stage of the OOReDAct cognitive process."),
-		content: z.string().describe("The detailed cognitive content for the specified stage (e.g., CUC-N assessment, CoT reasoning, PS plan). This tool acts as a passthrough, returning your content verbatim.")
+		stage: z.enum(["orient", "reason", "acknowledge"]).describe("Specifies the OOReDAct cognitive stage: 'orient' (for initial assessment and context engineering), 'reason' (for core deliberation), or 'acknowledge' (for simple confirmations)."),
+		content: z.string().describe("Provides the detailed cognitive output for the chosen stage. This includes CUC-N analysis and context engineering for 'orient', or a selected reasoning strategy (CoT, PS, etc.) for 'reason'. The content is returned verbatim for verification.")
 	},
 	async ({ stage, content }: { stage: "orient" | "reason" | "acknowledge", content: string }) => {
 		const toolName = 'deliberate';
