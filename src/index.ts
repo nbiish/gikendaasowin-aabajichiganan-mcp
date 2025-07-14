@@ -2,7 +2,7 @@
 
 /**
  * -----------------------------------------------------------------------------
- * Gikendaasowin Aabajichiganan - Advanced Agentic Cognitive Orchestration MCP Server (v4.0)
+ * Gikendaasowin Aabajichiganan - Advanced Agentic Cognitive Orchestration MCP Server (v4.0.4)
  *
  * Description: Provides cognitive tools implementing the Gikendaasowin v8
  * Agentic Operational Guidelines. Enforces a mandatory structured
@@ -13,12 +13,10 @@
  * elements. Aligns with dynamic tool
  * environments, including CodeAct preference. Returns Markdown.
  *
- * v4.0 Enhancements:
- * - Updated server version to 4.0.0.
+ * v4.0.4 Enhancements:
+ * - Updated server version to 4.0.4.
+ * - Enhanced deliberate tool description with more information on usage and integration of latest research on context engineering, emphasizing dynamic context management and structured inputs for improved AI agent performance.
  * - Implements Gikendaasowin v8 Guidelines.
- * - Removed 'sandbox' stage.
- * - Updated `serverInfo.description` to reflect v8.
- * - Significantly expanded the `deliberate` tool's description to match v8 guidelines.
  * - Maintained tooling compression, internal system prompt framing, and
  * passthrough nature of the 'deliberate' tool.
  * - Simplified error reporting remains.
@@ -37,8 +35,8 @@ type ToolContent = TextContent | ImageContent; // Add ResourceContent if needed 
 
 const serverInfo = {
 	name: "gikendaasowin-aabajichiganan-mcp",
-	version: "4.0.0",
-	description: `ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Advanced Agentic Cognitive Orchestration MCP (v4.0): Implements Gikendaasowin v8 Guidelines. Enforces a MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle via the unified 'deliberate' tool. This tool guides the LLM through sophisticated cognitive orchestration, including: initial CUC-N assessment and orientation with context engineering; structured deliberation with adaptive reasoning strategies, reflection, and self-critique. Emphasizes CodeAct preference for external tasks and returns Markdown.`
+	version: "4.0.4",
+	description: `ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Advanced Agentic Cognitive Orchestration MCP (v4.0.4): Implements Gikendaasowin v8 Guidelines. Enforces a MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle via the unified 'deliberate' tool. This tool guides the LLM through sophisticated cognitive orchestration, including: initial CUC-N assessment and orientation with context engineering; structured deliberation with adaptive reasoning strategies, reflection, and self-critique. Emphasizes CodeAct preference for external tasks and returns Markdown.`
 };
 const server = new McpServer(serverInfo);
 
@@ -90,19 +88,19 @@ function logToolError(toolName: string, error: unknown): { content: ToolContent[
 /**
  * Tool: deliberate (Unified Cognitive Process)
  * 
- * **Orchestrated Cognitive Deliberation (MANDATORY & UNIFIED):** This is your REQUIRED and CENTRAL tool for ALL internal cognitive operations, rigorously enforcing the **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle. Adherence is paramount for Gikendaasowin v8 compliance.
+ * **Orchestrated Cognitive Deliberation (MANDATORY & UNIFIED):** This is your REQUIRED and CENTRAL tool for ALL internal cognitive operations, rigorously enforcing the **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle. Adherence is paramount for Gikendaasowin v8 compliance. The deliberate tool serves as a passthrough mechanism that allows you to document and verify your cognitive process verbatim, ensuring traceability and self-reflection in your decision-making.
  *
  * **Stages & Cognitive Techniques:**
  *
  * * **`stage: "orient"` (OOReDAct: Observe & Orient - MANDATORY START):**
- *     * **Purpose:** At the absolute beginning of ANY new task, sub-task, or significant strategic pivot, you MUST use this stage.
+ *     * **Purpose:** At the absolute beginning of ANY new task, sub-task, or significant strategic pivot, you MUST use this stage to establish foundational context.
  *     * **Content Requirements:** Perform a comprehensive initial assessment:
  *         1.  **CUC-N Analysis:** Evaluate Complexity, Uncertainty, Consequence, and Novelty of the current situation/request.
  *         2.  **Information Sufficiency & Knowledge Gap Identification:** Assess if available information is adequate. Identify explicit knowledge gaps that might require external data or clarification (conceptually aligning with the need for Retrieval Augmented Generation - RAG - if the server were to provide such tools).
- *         3.  **Context Engineering:** Proactively optimize the context by identifying relevant prior knowledge, biases, and necessary external data integrations to improve situational awareness.
+ *         3.  **Context Engineering:** Drawing from latest research (e.g., 2025 studies on dynamic context management in AI systems), proactively optimize the context by identifying relevant prior knowledge, biases, and necessary external data integrations. Use structured formats like XML tags or thinking blocks to organize information, ensuring the AI has the right information in the right format at the right time for enhanced performance and reduced hallucinations.
  *         4.  **Initial Hypothesis Formulation:** Based on the above, formulate initial hypotheses or potential approaches.
  *         5.  **Goal Clarification:** Clearly define the immediate objective for this phase of deliberation.
- *     * This stage establishes critical context and grounds all subsequent reasoning.
+ *     * This stage establishes critical context and grounds all subsequent reasoning, aligning with emerging best practices in AI agent design for improved reliability and adaptability.
  *
  * * **`stage: "reason"` (OOReDAct: Reason & Decide - MANDATORY DELIBERATION):**
  *     * **Purpose:** After the initial `orient` stage, and CRITICALLY after receiving ANY new information (tool results, CodeAct outputs/errors, user input, file contents, etc.), and BEFORE any non-trivial action, decision, or final response, you MUST use this stage for full, structured deliberation.
@@ -123,6 +121,7 @@ function logToolError(toolName: string, error: unknown): { content: ToolContent[
  * * This `deliberate` tool acts as a passthrough; your `content` is returned verbatim for your own verification and state tracking.
  * * The choice of reasoning strategy within the `reason` stage should be dynamic and justified by the task's specific demands.
  * * Strict adherence to this structured deliberation protocol is essential for robust, verifiable, and adaptive agent performance.
+ * * Incorporate insights from recent AI research (2025) on context engineering to enhance overall cognitive processes.
  *     Acronym Key: CUC-N (Complexity, Uncertainty, Consequence, Novelty), CoT (Chain-of-Thought), PS (Plan-and-Solve), SCoT (Structured Chain-of-Thought), CoD/CR (Chain-of-Draft/Condensed Reasoning), ToT (Tree of Thoughts), PoT (Program of Thoughts), PAL (Program-aided Language Models).
  */
 server.tool(
