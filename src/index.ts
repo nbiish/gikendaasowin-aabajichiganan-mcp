@@ -35,8 +35,8 @@ type ToolContent = TextContent | ImageContent; // Add ResourceContent if needed 
 
 const serverInfo = {
 	name: "gikendaasowin-aabajichiganan-mcp",
-	version: "4.0.4",
-	description: `ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Advanced Agentic Cognitive Orchestration MCP (v4.0.4): Implements Gikendaasowin v8 Guidelines. Enforces a MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle via the unified 'deliberate' tool. This tool guides the LLM through sophisticated cognitive orchestration, including: initial CUC-N assessment and orientation with context engineering; structured deliberation with adaptive reasoning strategies, reflection, and self-critique. Emphasizes CodeAct preference for external tasks and returns Markdown.`
+	version: "4.0.7",
+	description: `ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Advanced Agentic Cognitive Orchestration MCP (v4.0.7): Implements Gikendaasowin v8 Guidelines with enhanced strategic context building. Enforces a MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle via the unified 'deliberate' tool. This tool guides the LLM through sophisticated cognitive orchestration, including: initial CUC-N assessment and strategic context building for user request resolution; structured deliberation with adaptive reasoning strategies, reflection, and self-critique. Emphasizes information ecosystem design and CodeAct preference for external tasks and returns Markdown.`
 };
 const server = new McpServer(serverInfo);
 
@@ -99,7 +99,7 @@ function logToolError(toolName: string, error: unknown): { content: ToolContent[
  *     * **Content Requirements:** Perform a comprehensive initial assessment:
  *         1.  **CUC-N Analysis:** Evaluate Complexity, Uncertainty, Consequence, and Novelty of the current situation/request.
  *         2.  **Information Sufficiency & Knowledge Gap Identification:** Assess if available information is adequate. Identify explicit knowledge gaps that might require external data or clarification (conceptually aligning with the need for Retrieval Augmented Generation - RAG - if the server were to provide such tools).
- *         3.  **Context Engineering:** Strategically build and optimize the information ecosystem for solving the user request. Drawing from 2025 research on dynamic context management, proactively design the context by organizing system instructions, conversation history, relevant data, tool integrations, and structured formats (e.g., chunking, summarization) to ensure the right information is available in the right format at the right time, enhancing performance and reducing hallucinations.
+ *         3.  **Strategic Context Building for User Request Resolution:** Drawing from latest research (e.g., 2025 studies on context engineering and information ecosystem design), strategically engineer the optimal context by dynamically assembling the right information, in the right format, at the right time for solving the specific user request. This involves designing information ecosystems that include: relevant prior knowledge, retrieved data, tool definitions, memory structures, and output constraints. Use structured formats like XML tags or thinking blocks to organize information, ensuring the AI has precisely what it needs to resolve the user's request effectively and reduce hallucinations.
  *         4.  **Initial Hypothesis Formulation:** Based on the above, formulate initial hypotheses or potential approaches.
  *         5.  **Goal Clarification:** Clearly define the immediate objective for this phase of deliberation.
  *     * This stage establishes critical context and grounds all subsequent reasoning, aligning with emerging best practices in AI agent design for improved reliability and adaptability.
@@ -125,6 +125,7 @@ function logToolError(toolName: string, error: unknown): { content: ToolContent[
  * * Strict adherence to this structured deliberation protocol is essential for robust, verifiable, and adaptive agent performance.
  * * Incorporate insights from recent AI research (2025) on context engineering to enhance overall cognitive processes.
  *     Acronym Key: CUC-N (Complexity, Uncertainty, Consequence, Novelty), CoT (Chain-of-Thought), PS (Plan-and-Solve), SCoT (Structured Chain-of-Thought), CoD/CR (Chain-of-Draft/Condensed Reasoning), ToT (Tree of Thoughts), PoT (Program of Thoughts), PAL (Program-aided Language Models).
+ * * Emphasize strategic context building and information ecosystem design to provide the right information, tools, and format for optimal user request resolution.
  */
 server.tool(
 	"deliberate",

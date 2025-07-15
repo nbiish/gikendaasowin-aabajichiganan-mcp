@@ -16,7 +16,7 @@ This stage constitutes the **Observe** and **Orient** phases of the cycle. Your 
 
 *   **CUC-N Analysis:** Evaluate Complexity, Uncertainty, Consequence, and Novelty.
 *   **Information Sufficiency & Knowledge Gap Identification:** Assess available information and identify gaps.
-*   **Context Engineering:** An enhancement to the **Orient** phase. Proactively optimize the context by identifying relevant prior knowledge, biases, and necessary external data integrations to improve situational awareness.
+*   **Strategic Context Building for User Request Resolution:** An enhancement to the **Orient** phase. Strategically engineer the optimal context by dynamically assembling the right information, in the right format, at the right time for solving the specific user request. This involves designing information ecosystems that include: relevant prior knowledge, retrieved data, tool definitions, memory structures, and output constraints to improve situational awareness and enable effective user request resolution.
 *   **Initial Hypothesis Formulation:** Based on the above, formulate potential approaches.
 *   **Goal Clarification:** Define the immediate objective.
 

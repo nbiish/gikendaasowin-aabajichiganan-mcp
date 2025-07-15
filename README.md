@@ -53,7 +53,7 @@ This project is licensed under the [COMPREHENSIVE RESTRICTED USE LICENSE FOR IND
 ◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
 </div>
 
-ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Advanced Agentic Cognitive Orchestration MCP (v4.0.4): Implements Gikendaasowin v8 Guidelines. Enforces a MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle via the unified 'deliberate' tool. This tool guides the LLM through sophisticated cognitive orchestration, including: initial CUC-N assessment and orientation with context engineering; structured deliberation with adaptive reasoning strategies, reflection, and self-critique. Emphasizes CodeAct preference for external tasks and returns Markdown. *(Note: The integration prompt and operational guidelines detailed in [`latest.md`](latest.md) are also covered by the [project LICENSE](LICENSE).)*
+ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Advanced Agentic Cognitive Orchestration MCP (v4.0.7): Implements Gikendaasowin v8 Guidelines with enhanced strategic context building. Enforces a MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle via the unified 'deliberate' tool. This tool guides the LLM through sophisticated cognitive orchestration, including: initial CUC-N assessment and strategic context building for user request resolution; structured deliberation with adaptive reasoning strategies, reflection, and self-critique. Emphasizes information ecosystem design and CodeAct preference for external tasks. *(Note: The integration prompt and operational guidelines detailed in [`latest.md`](latest.md) are also covered by the [project LICENSE](LICENSE).)*
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
@@ -62,6 +62,7 @@ Known as:
 Both packages are maintained in parallel and receive the same updates. You can use either package name in your projects - they provide identical functionality.
 
 **◇ Recent Updates ◇**
+- **◇ v4.0.7 ◇** Enhanced context engineering with strategic context building for user request resolution - updated 'deliberate' tool to emphasize information ecosystem design and dynamic context assembly based on 2025 research findings.
 - **◇ v4.0.4 ◇** Enhanced 'deliberate' tool with insights from latest research on context engineering for more robust AI agent performance and updated documentation to reflect Gikendaasowin v8 guidelines.
 - **◇ v4.0.0 ◇** Updated to Gikendaasowin v8 Guidelines (2025 Edition), removed 'sandbox' stage, enhanced cognitive orchestration with reflection and self-critique, updated tool descriptions and server version.
 - **◇ v2.0.25 ◇** Fixed MCP server tool registration format - corrected from incorrect `server.tool(name, description, schema.shape, handler)` to proper `server.tool(name, schema, handler)` format. Updated comprehensive tool documentation and version synchronization. Successfully published both packages.
@@ -103,7 +104,7 @@ This stage constitutes the **Observe** and **Orient** phases of the cycle. Your 
 
 *   **CUC-N Analysis:** Evaluate Complexity, Uncertainty, Consequence, and Novelty.
 *   **Information Sufficiency & Knowledge Gap Identification:** Assess available information and identify gaps.
-*   **Context Engineering:** An enhancement to the **Orient** phase. Proactively optimize the context by identifying relevant prior knowledge, biases, and necessary external data integrations to improve situational awareness.
+*   **Strategic Context Building for User Request Resolution:** An enhancement to the **Orient** phase. Strategically engineer the optimal context by dynamically assembling the right information, in the right format, at the right time for solving the specific user request. This involves designing information ecosystems that include: relevant prior knowledge, retrieved data, tool definitions, memory structures, and output constraints to improve situational awareness and enable effective user request resolution.
 *   **Initial Hypothesis Formulation:** Based on the above, formulate potential approaches.
 *   **Goal Clarification:** Define the immediate objective.
 
