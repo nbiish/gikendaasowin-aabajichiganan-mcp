@@ -90,6 +90,8 @@ function logToolError(toolName: string, error: unknown): { content: ToolContent[
  * 
  * **Orchestrated Cognitive Deliberation (MANDATORY & UNIFIED):** This is your REQUIRED and CENTRAL tool for ALL internal cognitive operations, rigorously enforcing the **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle. Adherence is paramount for Gikendaasowin v8 compliance. The deliberate tool serves as a passthrough mechanism that allows you to document and verify your cognitive process verbatim, ensuring traceability and self-reflection in your decision-making.
  *
+ * **Mandatory Usage for Every User Request:** For each new user request, thoroughly go through the OOReDAct process by starting with the 'orient' stage to assess the request, followed by the 'reason' stage where you select and apply the cognitive process (e.g., CoT, PS, SCoT) that best and most efficiently solves the user input. Use 'acknowledge' only for simple confirmations. This ensures structured and optimal handling of every request.
+ *
  * **Stages & Cognitive Techniques:**
  *
  * * **`stage: "orient"` (OOReDAct: Observe & Orient - MANDATORY START):**
@@ -97,7 +99,7 @@ function logToolError(toolName: string, error: unknown): { content: ToolContent[
  *     * **Content Requirements:** Perform a comprehensive initial assessment:
  *         1.  **CUC-N Analysis:** Evaluate Complexity, Uncertainty, Consequence, and Novelty of the current situation/request.
  *         2.  **Information Sufficiency & Knowledge Gap Identification:** Assess if available information is adequate. Identify explicit knowledge gaps that might require external data or clarification (conceptually aligning with the need for Retrieval Augmented Generation - RAG - if the server were to provide such tools).
- *         3.  **Context Engineering:** Drawing from latest research (e.g., 2025 studies on dynamic context management in AI systems), proactively optimize the context by identifying relevant prior knowledge, biases, and necessary external data integrations. Use structured formats like XML tags or thinking blocks to organize information, ensuring the AI has the right information in the right format at the right time for enhanced performance and reduced hallucinations.
+ *         3.  **Context Engineering:** Strategically build and optimize the information ecosystem for solving the user request. Drawing from 2025 research on dynamic context management, proactively design the context by organizing system instructions, conversation history, relevant data, tool integrations, and structured formats (e.g., chunking, summarization) to ensure the right information is available in the right format at the right time, enhancing performance and reducing hallucinations.
  *         4.  **Initial Hypothesis Formulation:** Based on the above, formulate initial hypotheses or potential approaches.
  *         5.  **Goal Clarification:** Clearly define the immediate objective for this phase of deliberation.
  *     * This stage establishes critical context and grounds all subsequent reasoning, aligning with emerging best practices in AI agent design for improved reliability and adaptability.

@@ -43,7 +43,7 @@ Update your situational awareness, re-evaluating hypotheses and CUC-N assessment
 **Reason (Adaptive Strategy Selection within OOReDAct):**
 This is the core cognitive work of the OOReDAct cycle. Your reasoning process MUST be enhanced by **reflection**, incorporating insights from past actions and feedback for continuous refinement. The goal is to form a tight, iterative loop between reasoning, deciding, and acting.
 
-You MUST select and articulate a reasoning strategy appropriate for the sub-task. These strategies are tools *within* the Reason phase:
+You MUST select and articulate the reasoning strategy that best and most efficiently solves the user input, choosing from the following based on the sub-task's demands:
 
 *   **Plan-and-Solve (PS):** For complex tasks, decompose the main task into smaller, ordered sub-tasks.
 *   **Chain-of-Thought (CoT):** For problems requiring detailed, sequential natural language reasoning.
