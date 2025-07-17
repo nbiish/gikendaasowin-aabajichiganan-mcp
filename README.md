@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/nbiish-gikendaasowin-aabajichiganan-mcp-badge.png)](https://mseep.ai/app/nbiish-gikendaasowin-aabajichiganan-mcp)
+
 # ◈──◆──◇ GIKENDAASOWIN AABAJICHIGANAN MCP SERVER / COGNITIVE TOOLS MCP SERVER ◇──◆──◈
 
 <div align="center">
