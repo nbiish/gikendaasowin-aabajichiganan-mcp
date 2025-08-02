@@ -53,7 +53,7 @@ This project is licensed under the [COMPREHENSIVE RESTRICTED USE LICENSE FOR IND
 ◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
 </div>
 
-ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - Advanced Agentic Cognitive Orchestration MCP (v4.0.7): Implements Gikendaasowin v8 Guidelines with enhanced strategic context building. Enforces a MANDATORY internal **Observe-Orient-Reason-Decide-Act (OOReDAct)** cycle via the unified 'deliberate' tool. This tool guides the LLM through sophisticated cognitive orchestration, including: initial CUC-N assessment and strategic context building for user request resolution; structured deliberation with adaptive reasoning strategies, reflection, and self-critique. Emphasizes information ecosystem design and CodeAct preference for external tasks. *(Note: The integration prompt and operational guidelines detailed in [`latest.md`](latest.md) are also covered by the [project LICENSE](LICENSE).)*
+🚀 ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - ENHANCED COGNITIVE AMPLIFICATION MCP (v4.0.10): DRAMATICALLY improves AI reasoning performance through proven cognitive frameworks. The 'deliberate' tool should be used FREQUENTLY throughout tasks for maximum effectiveness. Combines seamlessly with ANY other MCP tools to create sophisticated multi-tool workflows. Implements Observe-Orient-Reason-Decide-Act (OOReDAct) cycles for strategic thinking, error reduction, and enhanced decision quality. Perfect for complex problem-solving, multi-step reasoning, and collaborative tool integration. *(Note: The integration prompt and operational guidelines detailed in [`latest.md`](latest.md) are also covered by the [project LICENSE](LICENSE).)*
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
@@ -62,6 +62,7 @@ Known as:
 Both packages are maintained in parallel and receive the same updates. You can use either package name in your projects - they provide identical functionality.
 
 **◇ Recent Updates ◇**
+- **◇ v4.0.10 ◇** 🚀 ENHANCED COGNITIVE AMPLIFICATION: Redesigned tool descriptions to dramatically encourage frequent usage and integration with other MCP tools. Added compelling performance benefits, visual indicators, and strategic positioning to make the deliberation tool more attractive for consistent LLM usage. Updated all package descriptions and version synchronization.
 - **◇ v4.0.7 ◇** Enhanced context engineering with strategic context building for user request resolution - updated 'deliberate' tool to emphasize information ecosystem design and dynamic context assembly based on 2025 research findings.
 - **◇ v4.0.4 ◇** Enhanced 'deliberate' tool with insights from latest research on context engineering for more robust AI agent performance and updated documentation to reflect Gikendaasowin v8 guidelines.
 - **◇ v4.0.0 ◇** Updated to Gikendaasowin v8 Guidelines (2025 Edition), removed 'sandbox' stage, enhanced cognitive orchestration with reflection and self-critique, updated tool descriptions and server version.
