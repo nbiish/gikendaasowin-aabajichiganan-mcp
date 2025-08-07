@@ -103,3 +103,5 @@ testing/
 .copilotignore
 .rooignore
 .github/copilot-instructions.md
+
+fix-progress.md

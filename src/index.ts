@@ -2,7 +2,7 @@
 
 /**
  * -----------------------------------------------------------------------------
- * Gikendaasowin Aabajichiganan - Advanced Agentic Cognitive Orchestration MCP Server (v4.0.4)
+ * Gikendaasowin Aabajichiganan - Advanced Agentic Cognitive Orchestration MCP Server (v4.0.12)
  *
  * Description: Provides cognitive tools implementing the Gikendaasowin v8
  * Agentic Operational Guidelines. Enforces a mandatory structured
@@ -35,7 +35,7 @@ type ToolContent = TextContent | ImageContent; // Add ResourceContent if needed 
 
 const serverInfo = {
 	name: "gikendaasowin-aabajichiganan-mcp",
-	version: "4.0.10",
+	version: "4.0.12",
 	description: `🚀 ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - ENHANCED COGNITIVE AMPLIFICATION MCP (v4.0.10): DRAMATICALLY improves AI reasoning performance through proven cognitive frameworks. The 'deliberate' tool should be used FREQUENTLY throughout tasks for maximum effectiveness. Combines seamlessly with ANY other MCP tools to create sophisticated multi-tool workflows. Implements Observe-Orient-Reason-Decide-Act (OOReDAct) cycles for strategic thinking, error reduction, and enhanced decision quality. Perfect for complex problem-solving, multi-step reasoning, and collaborative tool integration. USE OFTEN for best results! 🎯`
 };
 const server = new McpServer(serverInfo);
