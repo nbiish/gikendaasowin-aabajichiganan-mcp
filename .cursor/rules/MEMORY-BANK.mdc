@@ -1,9 +1,10 @@
 ---
 description: 
-globs: 
+globs: MEMORY-BANK/
 alwaysApply: false
 ---
-# Chain-of-Draft Agile Memory Prompt for AI Pair Programming
+(COMPILE EVERYTHING INTO -> MEMORY-BANK/)
+# Chain-of-Draft CoD Agile Memory Prompt for AI Pair Programming
 
 ## 1. Core Principles
 
