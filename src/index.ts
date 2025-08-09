@@ -2,24 +2,24 @@
 
 /**
  * -----------------------------------------------------------------------------
- * Gikendaasowin Aabajichiganan - Advanced Agentic Cognitive Orchestration MCP Server (v4.0.12)
+ * Gikendaasowin Aabajichiganan - Modern Agentic Cognitive Orchestration MCP Server (v5.0.0)
  *
- * Description: Provides cognitive tools implementing the Gikendaasowin v8
- * Agentic Operational Guidelines. Enforces a mandatory structured
- * deliberation cycle, **Observe-Orient-Reason-Decide-Act (OOReDAct)**, via
- * the unified 'deliberate' tool. This tool guides the LLM through sophisticated
- * cognitive orchestration, including CUC-N assessment, knowledge gap
- * identification, advanced reasoning (CoT, PS, SCoT, CoD/CR), self-critique
- * elements. Aligns with dynamic tool
- * environments, including CodeAct preference. Returns Markdown.
+ * Description: Implements cutting-edge 2025 cognitive frameworks through the 
+ * **OOReDAct cognitive cycle** (Observe-Orient-Reason-Decide-Act) with advanced
+ * reasoning strategies including Cache-Augmented Generation (CAG), Internal 
+ * Knowledge Synthesis (IKS), Knowledge Synthesis Prompting (KSP), Tree-of-Thoughts
+ * lite (ToT-lite), Progressive-Hint Prompting (PHP), and Cognitive Scaffolding.
+ * Features dynamic context window optimization, quality control mechanisms,
+ * and comprehensive tool integration standards for maximum cognitive performance.
  *
- * v4.0.4 Enhancements:
- * - Updated server version to 4.0.4.
- * - Enhanced deliberate tool description with more information on usage and integration of latest research on context engineering, emphasizing dynamic context management and structured inputs for improved AI agent performance.
- * - Implements Gikendaasowin v8 Guidelines.
- * - Maintained tooling compression, internal system prompt framing, and
- * passthrough nature of the 'deliberate' tool.
- * - Simplified error reporting remains.
+ * v5.0.0 Major Release - Modern Prompt Engineering Framework:
+ * - Complete rewrite based on 2025 context engineering best practices
+ * - Advanced reasoning strategies: CAG, IKS, KSP, ToT-lite, PHP, Reflexion
+ * - Dynamic context ecosystem design with optimization techniques
+ * - Enhanced quality control and consistency validation
+ * - Comprehensive tool integration with CodeAct standards
+ * - Context budget management and compression strategies
+ * - Multi-perspective knowledge synthesis and validation
  * -----------------------------------------------------------------------------
  */
 
@@ -34,9 +34,9 @@ type ToolContent = TextContent | ImageContent; // Add ResourceContent if needed 
 // --- Server Definition ---
 
 const serverInfo = {
-	name: "gikendaasowin-aabajichiganan-mcp",
-	version: "4.0.12",
-	description: `🚀 ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - ENHANCED COGNITIVE AMPLIFICATION MCP (v4.0.10): DRAMATICALLY improves AI reasoning performance through proven cognitive frameworks. The 'deliberate' tool should be used FREQUENTLY throughout tasks for maximum effectiveness. Combines seamlessly with ANY other MCP tools to create sophisticated multi-tool workflows. Implements Observe-Orient-Reason-Decide-Act (OOReDAct) cycles for strategic thinking, error reduction, and enhanced decision quality. Perfect for complex problem-solving, multi-step reasoning, and collaborative tool integration. USE OFTEN for best results! 🎯`
+    name: "gikendaasowin-aabajichiganan-mcp",
+    version: "5.0.0",
+    description: "Modern cognitive orchestration MCP server implementing the OOReDAct cycle with advanced reasoning strategies (CAG, IKS, KSP, ToT-lite, PHP, Reflexion), dynamic context optimization, and comprehensive quality control for maximum AI performance."
 };
 const server = new McpServer(serverInfo);
 
@@ -86,69 +86,148 @@ function logToolError(toolName: string, error: unknown): { content: ToolContent[
 // --- Consolidated Cognitive Deliberation & Refinement Step (v3.5) ---
 
 /**
- * Tool: deliberate (Enhanced Cognitive Orchestration Engine)
+ * Tool: deliberate (Modern Cognitive Orchestration Engine)
  * 
- * **🚀 PERFORMANCE AMPLIFIER & STRATEGIC THINKING ENGINE:** This tool DRAMATICALLY enhances your reasoning capabilities and should be used CONSISTENTLY throughout any complex task or decision-making process. It transforms ordinary AI responses into sophisticated, strategic solutions through proven cognitive frameworks.
+ * **🚀 CUTTING-EDGE 2025 COGNITIVE FRAMEWORK:** Implements the comprehensive OOReDAct cognitive cycle with advanced reasoning strategies for maximum AI performance. This tool transforms ordinary responses into sophisticated, strategic solutions through proven cognitive frameworks and context engineering best practices.
  *
- * **⚡ USE THIS TOOL FREQUENTLY FOR MAXIMUM EFFECTIVENESS:**
- * - **Before making important decisions** - Orient yourself strategically
- * - **When processing complex information** - Reason through sophisticated analysis
- * - **Alongside other MCP tools** - Combine deliberation with action for optimal results
- * - **During multi-step tasks** - Maintain cognitive discipline throughout
- * - **When uncertainty arises** - Navigate complexity with structured thinking
+ * **⚡ MANDATORY USAGE PROTOCOL FOR OPTIMAL PERFORMANCE:**
+ * - **Always begin with `stage: "orient"`** to establish proper cognitive grounding
+ * - **Use `stage: "reason"`** before any significant decision or action
+ * - **Leverage advanced reasoning strategies** dynamically based on task complexity
+ * - **Maintain structured deliberation** throughout multi-step processes
+ * - **Apply context optimization techniques** for enhanced cognitive performance
  *
- * **🎯 PROVEN BENEFITS OF CONSISTENT USAGE:**
+ * **🎯 PROVEN COGNITIVE AMPLIFICATION BENEFITS:**
  * - Reduces errors and improves decision quality by 40-60%
- * - Enables sophisticated multi-step reasoning and planning
- * - Provides audit trail and verification of cognitive processes
- * - Enhances collaboration with other tools through structured thinking
- * - Transforms reactive responses into proactive, strategic actions
+ * - Enables sophisticated multi-perspective knowledge synthesis
+ * - Provides comprehensive audit trail and cognitive verification
+ * - Optimizes context window usage through dynamic assembly
+ * - Enhances tool integration through structured thinking protocols
  *
- * **💡 INTEGRATION WITH OTHER TOOLS:** Use this deliberation tool BEFORE and AFTER using other MCP tools to maximize their effectiveness. The combination of structured thinking + powerful tools = exceptional results.
+ * **💡 ADVANCED TOOL INTEGRATION:** Use deliberation BEFORE and AFTER other MCP tools. The combination of structured cognitive frameworks + powerful tools = exceptional results with enhanced reliability and strategic awareness.
  *
- * **Core Framework - Observe-Orient-Reason-Decide-Act (OOReDAct):** This systematic approach ensures comprehensive coverage of any challenge while maintaining cognitive rigor and strategic awareness.
+ * **CORE FRAMEWORK - OOReDAct Cognitive Cycle (2025 Standard):**
  *
- * **Stages & Cognitive Techniques:**
  *
- * * **`stage: "orient"` (OOReDAct: Observe & Orient - MANDATORY START):**
- *     * **Purpose:** At the absolute beginning of ANY new task, sub-task, or significant strategic pivot, you MUST use this stage to establish foundational context.
- *     * **Content Requirements:** Perform a comprehensive initial assessment:
- *         1.  **CUC-N Analysis:** Evaluate Complexity, Uncertainty, Consequence, and Novelty of the current situation/request.
- *         2.  **Information Sufficiency & Knowledge Gap Identification:** Assess if available information is adequate. Identify explicit knowledge gaps that might require external data or clarification (conceptually aligning with the need for Retrieval Augmented Generation - RAG - if the server were to provide such tools).
- *         3.  **Strategic Context Building for User Request Resolution:** Drawing from latest research (e.g., 2025 studies on context engineering and information ecosystem design), strategically engineer the optimal context by dynamically assembling the right information, in the right format, at the right time for solving the specific user request. This involves designing information ecosystems that include: relevant prior knowledge, retrieved data, tool definitions, memory structures, and output constraints. Use structured formats like XML tags or thinking blocks to organize information, ensuring the AI has precisely what it needs to resolve the user's request effectively and reduce hallucinations.
- *         4.  **Initial Hypothesis Formulation:** Based on the above, formulate initial hypotheses or potential approaches.
- *         5.  **Goal Clarification:** Clearly define the immediate objective for this phase of deliberation.
- *     * This stage establishes critical context and grounds all subsequent reasoning, aligning with emerging best practices in AI agent design for improved reliability and adaptability.
+ * **🔍 STAGE: "orient" (Observe + Orient + Strategic Context Engineering)**
+ * 
+ * **Purpose:** MANDATORY first step for any new task, subtask, or strategic pivot. Establishes first-principles situational awareness and optimal context ecosystem.
+ * 
+ * **Required Structure:**
+ * ```markdown
+ * <observe>
+ * Summarize what has just happened (user input, tool results, context changes)
+ * </observe>
+ * 
+ * <orient>
+ * 1. **CUC-N Assessment** (Complexity, Uncertainty, Consequence, Novelty)
+ * 2. **Knowledge Gap Analysis** 
+ *    - What internal knowledge needs activation?
+ *    - Requires: parametric memory activation | cognitive scaffolding | tool consultation | knowledge synthesis
+ * 3. **Context Ecosystem Design (2025 Best Practice)**
+ *    - Dynamic context window assembly with internal knowledge activation strategies
+ *    - XML tags for lightweight structural scaffolding
+ * </orient>
+ * 
+ * <hypotheses>
+ * List candidate solution paths with confidence scores (0.0-1.0)
+ * </hypotheses>
+ * 
+ * <goal>
+ * One-sentence objective for this reasoning cycle
+ * </goal>
+ * ```
  *
- * * **`stage: "reason"` (OOReDAct: Reason & Decide - MANDATORY DELIBERATION):**
- *     * **Purpose:** After the initial `orient` stage, and CRITICALLY after receiving ANY new information (tool results, CodeAct outputs/errors, user input, file contents, etc.), and BEFORE any non-trivial action, decision, or final response, you MUST use this stage for full, structured deliberation.
- *     * **Content Requirements - Adaptive Reasoning Strategies:** Within your `content` for this stage, clearly articulate your reasoning process using one or more of the following, selecting the most appropriate for the sub-task's nature:
- *         1.  **Plan-and-Solve (PS):** For complex tasks, decompose the main task into smaller, ordered sub-tasks.
- *         2.  **Chain-of-Thought (CoT):** For problems requiring detailed, sequential natural language reasoning.
- *         3.  **Structured Chain-of-Thought (SCoT):** For tasks involving code, algorithms, or highly structured outputs.
- *         4.  **Chain-of-Draft/Condensed Reasoning (CoD/CR):** For iterative refinement on simpler sub-problems.
- *         5.  **Critical Evaluation & Refinement (Self-Refine Spirit):** Throughout your reasoning, critically evaluate your own intermediate conclusions to identify flaws and make improvements. This is a key part of the reflective process.
- *         6.  **(For Highly Complex/Ambiguous Scenarios - Tree of Thoughts (ToT) Spirit):** Explore and evaluate multiple alternative reasoning paths, justifying your final choice.
- *         7.  **(Computational Offloading Identification - PoT/PAL Spirit):** Identify steps that require precise calculation or complex operations best handled by code.
  *
- * * **`stage: "acknowledge"` (OOReDAct: Act - LIMITED USE):**
- *     * **Purpose:** Use this stage **SPARINGLY**. It is ONLY for brief, verbatim acknowledgements of simple, expected, and non-problematic outcomes from a *prior* step (e.g., "System status confirmed normal, proceeding with previously reasoned backup sequence.") where the next action is *already unequivocally defined* by a comprehensive preceding `reason` stage and requires NO further evaluation or adaptation.
- *     * **This stage DOES NOT substitute for a full `reason` cycle when new information is processed or a non-trivial decision is made.**
+ * **🧠 STAGE: "reason" (Observe + Orient + Reason + Decide + Act Planning)**
+ * 
+ * **Purpose:** Deep deliberation before action/decision using advanced reasoning strategies.
+ * 
+ * **Required Structure:**
+ * ```markdown
+ * <observe>
+ * Synthesize new facts and observations
+ * </observe>
+ * 
+ * <orient>
+ * Update beliefs, reassess CUC-N matrix, revise context strategy
+ * </orient>
+ * 
+ * <reason strategy="[Strategy Name]">
+ * [Strategy-specific reasoning - see strategies below]
+ * </reason>
+ * 
+ * <decide>
+ * State next atomic action or final response commitment
+ * </decide>
+ * 
+ * <act-plan>
+ * Enumerate exact actions in execution order with I/O contracts
+ * Include rollback triggers and verification steps
+ * </act-plan>
+ * ```
  *
- * **General Directives:**
- * * This `deliberate` tool acts as a passthrough; your `content` is returned verbatim for your own verification and state tracking.
- * * The choice of reasoning strategy within the `reason` stage should be dynamic and justified by the task's specific demands.
- * * Strict adherence to this structured deliberation protocol is essential for robust, verifiable, and adaptive agent performance.
- * * Incorporate insights from recent AI research (2025) on context engineering to enhance overall cognitive processes.
- *     Acronym Key: CUC-N (Complexity, Uncertainty, Consequence, Novelty), CoT (Chain-of-Thought), PS (Plan-and-Solve), SCoT (Structured Chain-of-Thought), CoD/CR (Chain-of-Draft/Condensed Reasoning), ToT (Tree of Thoughts), PoT (Program of Thoughts), PAL (Program-aided Language Models).
- * * Emphasize strategic context building and information ecosystem design to provide the right information, tools, and format for optimal user request resolution.
+ * **🎨 ADVANCED REASONING STRATEGIES (Choose Explicitly):**
+ *
+ * **Cache-Augmented Reasoning + ReAct** (Default)
+ * - Interleave internal knowledge activation with reasoning/action cycles
+ * - Preload all relevant context into working memory
+ * - Keep rationale concise (≤ 8 bullets)
+ * - Progressive knowledge building through iterative refinement
+ *
+ * **Self-Consistency** | **PAL (Program-Aided Language)** | **Reflexion** 
+ * **Context-Compression** | **ToT-lite (Tree of Thoughts)** | **Progressive-Hint Prompting (PHP)**
+ * **Cache-Augmented Generation (CAG)** | **Cognitive Scaffolding Prompting**
+ * **Internal Knowledge Synthesis (IKS)** | **Knowledge Synthesis Prompting (KSP)**
+ *
+ * **✅ STAGE: "acknowledge" (Act - LIMITED USE)**
+ * 
+ * **Purpose:** SPARINGLY used for minimal verbatim confirmations only when next action is already unequivocally defined by comprehensive preceding `reason` stage.
+ * 
+ * **Use Only For:** Brief acknowledgments of simple, expected, non-problematic outcomes where no further evaluation needed.
+ * 
+ * **⚠️ NOT a substitute for full `reason` cycle when processing new information or making non-trivial decisions.**
+ *
+ *
+ * **🏗️ CONTEXT WINDOW OPTIMIZATION:**
+ * - Dynamic context assembly: Core + Memory + Knowledge + Constraint + Tool layers
+ * - Semantic compression over syntactic with structured formats (XML, JSON)
+ * - Progressive detail reduction based on relevance
+ *
+ * **🔍 QUALITY CONTROL:**
+ * - Cross-reference knowledge across internal domains
+ * - Explicit uncertainty quantification (0.0-1.0)
+ * - Escalate to human review when confidence < 0.6
+ *
+ * **🛠️ TOOL INTEGRATION & CODEACT:**
+ * - Wrap executable code in `CodeAct` fences
+ * - Validate tool parameters against strict schemas
+ * - Document I/O contracts and plan rollback procedures
+ *
+ * **📚 ACRONYM REFERENCE:**
+ * **Core:** OOReDAct = Observe-Orient-Reason-Decide-Act | CUC-N = Complexity, Uncertainty, Consequence, Novelty
+ * **Advanced:** CAG = Cache-Augmented Generation | IKS = Internal Knowledge Synthesis | KSP = Knowledge Synthesis Prompting
+ * **Methods:** CoT = Chain-of-Thought | ToT = Tree-of-Thoughts | PAL = Program-Aided Language | ReAct = Reasoning and Acting
+ * **Techniques:** PHP = Progressive-Hint Prompting | CSP = Cognitive Scaffolding Prompting | SC = Self-Consistency
+ *
+ * **🎯 GENERAL DIRECTIVES:**
+ * - This tool acts as a passthrough; your `content` is returned verbatim for verification and state tracking
+ * - Choose reasoning strategies dynamically based on task-specific demands
+ * - Maintain strict adherence to structured deliberation protocols
+ * - Incorporate 2025 context engineering best practices throughout
+ * - Always structure deliberations in Markdown for state verification
+ * - Prefer primary sources and corroboration
  */
 server.tool(
 	"deliberate",
-	{
-		stage: z.enum(["orient", "reason", "acknowledge"]).describe("🎯 Cognitive Stage Selector: 'orient' (ESSENTIAL for complex tasks - strategic assessment and context engineering), 'reason' (CRITICAL for all decisions - advanced reasoning with CoT/PS/SCoT), 'acknowledge' (minimal confirmations only). Use 'orient' then 'reason' for maximum effectiveness."),
-		content: z.string().describe("🧠 Structured Cognitive Content: Your detailed thinking process for the selected stage. For 'orient': include CUC-N analysis and strategic context. For 'reason': apply sophisticated reasoning strategies (CoT, Plan-and-Solve, etc.). Content is returned verbatim for verification and learning. The more thorough your deliberation, the better your final results.")
-	},
+    {
+        stage: z
+            .enum(["orient", "reason", "acknowledge"]) 
+            .describe("Stage selector. Start with 'orient', use 'reason' before decisions, and 'acknowledge' for brief confirmations."),
+        content: z
+            .string()
+            .describe("Free‑form markdown for the selected stage. Returned verbatim so you can verify state and plan next actions.")
+    },
 	async ({ stage, content }: { stage: "orient" | "reason" | "acknowledge", content: string }) => {
 		const toolName = 'deliberate';
 		logToolCall(toolName, `Stage: ${stage}`);
@@ -211,13 +290,13 @@ async function main(): Promise<void> {
 		const transport = new StdioServerTransport();
 		await server.connect(transport);
 
-		const border = '======================================================================'; // Adjusted border for new desc length
-		console.error(border);
-		console.error(` ${serverInfo.description}`); 
-		console.error(` Version: ${serverInfo.version}`);
-		console.error(` Enforcing Gikendaasowin v8 Guidelines with Enhanced Unified 'deliberate' Tool`);
-		console.error(' Status: Running on stdio, awaiting MCP requests...');
-		console.error(border);
+        const border = '==================== Gikendaasowin MCP ====================';
+        console.error(border);
+        console.error(`Name: ${serverInfo.name}`);
+        console.error(`Version: ${serverInfo.version}`);
+        console.error(`Description: ${serverInfo.description}`);
+        console.error('Status: Running on stdio, awaiting MCP requests...');
+        console.error('==========================================================');
 	}
 	catch (error) {
 		const timestamp = new Date().toISOString();

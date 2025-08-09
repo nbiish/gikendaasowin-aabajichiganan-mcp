@@ -53,7 +53,7 @@ This project is licensed under the [COMPREHENSIVE RESTRICTED USE LICENSE FOR IND
 ◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
 </div>
 
-🚀 ᑭᑫᓐᑖᓱᐎᓐ ᐋᐸᒋᒋᑲᓇᓐ - ENHANCED COGNITIVE AMPLIFICATION MCP (v4.0.12): DRAMATICALLY improves AI reasoning performance through proven cognitive frameworks. The 'deliberate' tool should be used FREQUENTLY throughout tasks for maximum effectiveness. Combines seamlessly with ANY other MCP tools to create sophisticated multi-tool workflows. Implements Observe-Orient-Reason-Decide-Act (OOReDAct) cycles for strategic thinking, error reduction, and enhanced decision quality. Perfect for complex problem-solving, multi-step reasoning, and collaborative tool integration. *(Note: The integration prompt and operational guidelines detailed in [`latest.md`](latest.md) are also covered by the [project LICENSE](LICENSE).)*
+MCP server exposing a single tool `deliberate` with stages `orient`, `reason`, and `acknowledge`. The server returns your markdown verbatim to help you structure thinking and keep an audit trail. *(Operational guidelines in [`latest.md`](latest.md) are covered by the [project LICENSE](LICENSE).)*
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)

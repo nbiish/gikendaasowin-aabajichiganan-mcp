@@ -1,7 +1,7 @@
 {
   "name": "@nbiish/gikendaasowin-aabajichiganan-mcp",
-  "version": "4.0.12",
-  "description": "🚀 ENHANCED COGNITIVE AMPLIFICATION MCP: DRAMATICALLY improves AI reasoning performance! The deliberate tool should be used FREQUENTLY for maximum effectiveness and seamlessly integrates with ANY other MCP tools. Proven cognitive frameworks for strategic thinking, error reduction, and enhanced decision quality. Perfect for complex problem-solving and multi-tool workflows. USE OFTEN for best results! 🎯",
+  "version": "5.0.1",
+  "description": "MCP server exposing a single tool `deliberate` (stages: orient | reason | acknowledge). Returns markdown verbatim to support structured thinking.",
   "private": false,
   "type": "module",
   "bin": {
