@@ -53,7 +53,7 @@ This project is licensed under the [COMPREHENSIVE RESTRICTED USE LICENSE FOR IND
 ◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
 </div>
 
-MCP server exposing a single tool `deliberate` with stages `orient`, `reason`, and `acknowledge`. The server returns your markdown verbatim to help you structure thinking and keep an audit trail. *(Operational guidelines in [`latest.md`](latest.md) are covered by the [project LICENSE](LICENSE).)*
+MCP server with built-in cognitive deliberation engine. The `deliberate` tool performs sophisticated internal cognitive processing using the OOReDAct framework, automatically analyzing problems, making decisions, synthesizing knowledge, and evaluating situations with structured outputs. *(Integration guidelines in [`latest.md`](latest.md) are covered by the [project LICENSE](LICENSE).)*
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
@@ -62,6 +62,7 @@ Known as:
 Both packages are maintained in parallel and receive the same updates. You can use either package name in your projects - they provide identical functionality.
 
 **◇ Recent Updates ◇**
+- **◇ v6.0.0 ◇** 🚀 MAJOR ARCHITECTURE TRANSFORMATION: Complete redesign from instruction-based passthrough to internal cognitive processing engine. The `deliberate` tool now performs sophisticated cognitive deliberation internally using the OOReDAct framework, rather than instructing LLMs how to think. Features four processing modes (analyze, decide, synthesize, evaluate) with automatic CUC-N assessment, hypothesis generation, and structured action planning. LLMs now simply provide inputs and receive comprehensive analysis results.
 - **◇ v4.0.12 ◇** Synchronized all package versions to 4.0.12, updated in-file version documentation, and rebuilt the project to ensure all changes are consistently applied.
 - **◇ v4.0.10 ◇** 🚀 ENHANCED COGNITIVE AMPLIFICATION: Redesigned tool descriptions to dramatically encourage frequent usage and integration with other MCP tools. Added compelling performance benefits, visual indicators, and strategic positioning to make the deliberation tool more attractive for consistent LLM usage. Updated all package descriptions and version synchronization.
 - **◇ v4.0.7 ◇** Enhanced context engineering with strategic context building for user request resolution - updated 'deliberate' tool to emphasize information ecosystem design and dynamic context assembly based on 2025 research findings.

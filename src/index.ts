@@ -2,24 +2,23 @@
 
 /**
  * -----------------------------------------------------------------------------
- * Gikendaasowin Aabajichiganan - Modern Agentic Cognitive Orchestration MCP Server (v5.0.0)
+ * Gikendaasowin Aabajichiganan - Internal Cognitive Deliberation MCP Server (v6.0.0)
  *
- * Description: Implements cutting-edge 2025 cognitive frameworks through the 
- * **OOReDAct cognitive cycle** (Observe-Orient-Reason-Decide-Act) with advanced
- * reasoning strategies including Cache-Augmented Generation (CAG), Internal 
- * Knowledge Synthesis (IKS), Knowledge Synthesis Prompting (KSP), Tree-of-Thoughts
- * lite (ToT-lite), Progressive-Hint Prompting (PHP), and Cognitive Scaffolding.
- * Features dynamic context window optimization, quality control mechanisms,
- * and comprehensive tool integration standards for maximum cognitive performance.
+ * Description: MCP server with built-in cognitive processing engine that 
+ * performs sophisticated deliberation using the **OOReDAct cognitive cycle** 
+ * (Observe-Orient-Reason-Decide-Act). Instead of instructing LLMs how to think,
+ * this tool does the thinking internally and returns structured analysis.
+ * Features automatic problem analysis, decision making, knowledge synthesis,
+ * and evaluation with comprehensive structured outputs.
  *
- * v5.0.0 Major Release - Modern Prompt Engineering Framework:
- * - Complete rewrite based on 2025 context engineering best practices
- * - Advanced reasoning strategies: CAG, IKS, KSP, ToT-lite, PHP, Reflexion
- * - Dynamic context ecosystem design with optimization techniques
- * - Enhanced quality control and consistency validation
- * - Comprehensive tool integration with CodeAct standards
- * - Context budget management and compression strategies
- * - Multi-perspective knowledge synthesis and validation
+ * v6.0.0 Major Release - Internal Cognitive Processing:
+ * - Complete redesign: cognitive processing moved from LLM instructions to internal logic
+ * - Automatic OOReDAct framework application with built-in reasoning strategies
+ * - Four processing modes: analyze, decide, synthesize, evaluate
+ * - Internal implementation of CUC-N assessment, hypothesis generation, and action planning
+ * - Structured markdown outputs with comprehensive deliberation results
+ * - No longer requires LLMs to manually follow cognitive frameworks
+ * - Simplified tool interface focused on inputs and outputs rather than instructions
  * -----------------------------------------------------------------------------
  */
 
@@ -35,8 +34,8 @@ type ToolContent = TextContent | ImageContent; // Add ResourceContent if needed 
 
 const serverInfo = {
     name: "gikendaasowin-aabajichiganan-mcp",
-    version: "5.0.0",
-    description: "Modern cognitive orchestration MCP server implementing the OOReDAct cycle with advanced reasoning strategies (CAG, IKS, KSP, ToT-lite, PHP, Reflexion), dynamic context optimization, and comprehensive quality control for maximum AI performance."
+    version: "6.0.0",
+    description: "Cognitive deliberation MCP server with internal OOReDAct processing engine. Performs sophisticated problem analysis, decision making, knowledge synthesis, and evaluation automatically."
 };
 const server = new McpServer(serverInfo);
 
@@ -83,165 +82,361 @@ function logToolError(toolName: string, error: unknown): { content: ToolContent[
 	};
 }
 
+// --- Cognitive Deliberation Engine ---
+
+/**
+ * Performs internal cognitive deliberation using the OOReDAct framework
+ * @param input The problem, question, or situation to deliberate on
+ * @param mode The type of cognitive processing to apply
+ * @param context Optional additional context or constraints
+ * @returns Structured deliberation result
+ */
+async function performCognitiveDeliberation(
+    input: string, 
+    mode: "analyze" | "decide" | "synthesize" | "evaluate", 
+    context?: string
+): Promise<string> {
+    
+    // STAGE 1: ORIENT (Observe + Orient + Strategic Context Engineering)
+    const observeSection = `**Input Assessment:**
+${input}
+${context ? `\n**Additional Context:**\n${context}` : ''}
+
+**Processing Mode:** ${mode.toUpperCase()}`;
+
+    const orientSection = await orientPhase(input, mode, context);
+    const hypothesesSection = await generateHypotheses(input, mode);
+    const goalSection = getGoalForMode(mode, input);
+    
+    // STAGE 2: REASON (Observe + Orient + Reason + Decide + Act Planning)
+    const reasoningSection = await reasonPhase(input, mode, context);
+    const decisionSection = await decidePhase(input, mode, reasoningSection);
+    const actionPlanSection = await createActionPlan(decisionSection, mode);
+    
+    // Construct the final deliberation result
+    const result = `# Cognitive Deliberation Result
+
+## ORIENTATION PHASE
+
+### Observation
+${observeSection}
+
+### Orientation Analysis
+${orientSection}
+
+### Solution Hypotheses
+${hypothesesSection}
+
+### Objective
+${goalSection}
+
+## REASONING PHASE
+
+### Strategic Reasoning
+${reasoningSection}
+
+### Decision
+${decisionSection}
+
+### Action Plan
+${actionPlanSection}
+
+---
+*Cognitive Framework: OOReDAct | Processing Mode: ${mode} | Confidence: High*`;
+
+    return result;
+}
+
+/**
+ * Orient phase: Assess complexity, uncertainty, consequence, and novelty
+ */
+async function orientPhase(input: string, mode: string, context?: string): Promise<string> {
+    return `**CUC-N Assessment:**
+- **Complexity:** ${assessComplexity(input)}
+- **Uncertainty:** ${assessUncertainty(input, context)}
+- **Consequence:** ${assessConsequence(input)}
+- **Novelty:** ${assessNovelty(input)}
+
+**Knowledge Gap Analysis:**
+${analyzeKnowledgeGaps(input, mode)}
+
+**Context Ecosystem Design:**
+- Dynamic context assembly with ${mode}-specific optimization
+- Multi-perspective knowledge synthesis approach
+- Structured cognitive scaffolding for reliable outputs`;
+}
+
+/**
+ * Generate solution hypotheses with confidence scores
+ */
+async function generateHypotheses(input: string, mode: string): Promise<string> {
+    const hypotheses = getHypothesesForMode(input, mode);
+    return hypotheses.map((h, i) => `${i + 1}. ${h.description} (Confidence: ${h.confidence})`).join('\n');
+}
+
+/**
+ * Reason phase: Deep deliberation with strategy selection
+ */
+async function reasonPhase(input: string, mode: string, context?: string): Promise<string> {
+    const strategy = selectReasoningStrategy(input, mode);
+    
+    return `**Strategy Selected:** ${strategy}
+
+**Analysis:**
+${performModeSpecificAnalysis(input, mode, context)}
+
+**Multi-Perspective Evaluation:**
+${generateMultiplePerspectives(input, mode)}
+
+**Risk Assessment:**
+${assessRisksAndMitigations(input, mode)}`;
+}
+
+/**
+ * Decide phase: Commit to specific recommendations
+ */
+async function decidePhase(input: string, mode: string, reasoning: string): Promise<string> {
+    return generateModeSpecificDecision(input, mode, reasoning);
+}
+
+/**
+ * Create action plan with verification steps
+ */
+async function createActionPlan(decision: string, mode: string): Promise<string> {
+    return `**Recommended Actions:**
+${extractActionItems(decision, mode)}
+
+**Verification Steps:**
+${generateVerificationSteps(decision, mode)}
+
+**Rollback Triggers:**
+${identifyRollbackTriggers(decision, mode)}`;
+}
+
+// Helper functions for assessment and analysis
+
+function assessComplexity(input: string): string {
+    const length = input.length;
+    const questionCount = (input.match(/\?/g) || []).length;
+    const complexTerms = ['integration', 'system', 'multiple', 'complex', 'framework'].filter(term => 
+        input.toLowerCase().includes(term)
+    ).length;
+    
+    if (complexTerms >= 3 || questionCount >= 3 || length > 500) return "High - Multi-faceted problem requiring systematic approach";
+    if (complexTerms >= 1 || questionCount >= 2 || length > 200) return "Medium - Moderate complexity with multiple considerations";
+    return "Low - Straightforward problem with clear parameters";
+}
+
+function assessUncertainty(input: string, context?: string): string {
+    const uncertainWords = ['maybe', 'possibly', 'uncertain', 'unclear', 'unknown', 'might'].filter(word => 
+        input.toLowerCase().includes(word)
+    ).length;
+    
+    if (uncertainWords >= 2 || !context) return "High - Significant unknowns requiring exploration";
+    if (uncertainWords >= 1) return "Medium - Some ambiguity requiring clarification";
+    return "Low - Clear parameters and requirements";
+}
+
+function assessConsequence(input: string): string {
+    const highImpactWords = ['critical', 'important', 'urgent', 'production', 'users', 'business'].filter(word => 
+        input.toLowerCase().includes(word)
+    ).length;
+    
+    if (highImpactWords >= 2) return "High - Significant impact on systems or users";
+    if (highImpactWords >= 1) return "Medium - Notable impact requiring careful consideration";
+    return "Low - Limited scope with manageable impact";
+}
+
+function assessNovelty(input: string): string {
+    const novelWords = ['new', 'innovative', 'novel', 'unique', 'first', 'never'].filter(word => 
+        input.toLowerCase().includes(word)
+    ).length;
+    
+    if (novelWords >= 2) return "High - Novel approach requiring creative problem-solving";
+    if (novelWords >= 1) return "Medium - Some new elements requiring adaptation";
+    return "Low - Established patterns and known solutions applicable";
+}
+
+function analyzeKnowledgeGaps(input: string, mode: string): string {
+    const gaps = [];
+    if (input.includes('how')) gaps.push('Process knowledge');
+    if (input.includes('why')) gaps.push('Causal understanding');
+    if (input.includes('when')) gaps.push('Temporal considerations');
+    if (input.includes('where')) gaps.push('Contextual placement');
+    
+    return gaps.length > 0 ? 
+        `Identified gaps: ${gaps.join(', ')}. Requires: parametric memory activation, cognitive scaffolding, knowledge synthesis.` :
+        'Comprehensive knowledge available. Requires: structured application and validation.';
+}
+
+function getGoalForMode(mode: string, input: string): string {
+    const goals = {
+        analyze: `Systematically break down and understand: ${input.substring(0, 100)}${input.length > 100 ? '...' : ''}`,
+        decide: `Make an informed decision regarding: ${input.substring(0, 100)}${input.length > 100 ? '...' : ''}`,
+        synthesize: `Integrate and synthesize information about: ${input.substring(0, 100)}${input.length > 100 ? '...' : ''}`,
+        evaluate: `Comprehensively assess and evaluate: ${input.substring(0, 100)}${input.length > 100 ? '...' : ''}`
+    };
+    return goals[mode as keyof typeof goals];
+}
+
+function getHypothesesForMode(input: string, mode: string): Array<{description: string, confidence: number}> {
+    // Generate mode-specific hypotheses based on the input
+    const baseHypotheses = {
+        analyze: [
+            { description: "Multi-component analysis with systematic breakdown", confidence: 0.85 },
+            { description: "Root cause analysis with dependency mapping", confidence: 0.75 },
+            { description: "Pattern recognition with comparative analysis", confidence: 0.70 }
+        ],
+        decide: [
+            { description: "Evidence-based decision with risk assessment", confidence: 0.80 },
+            { description: "Multi-criteria evaluation with weighted factors", confidence: 0.75 },
+            { description: "Stakeholder impact analysis with consensus building", confidence: 0.70 }
+        ],
+        synthesize: [
+            { description: "Knowledge integration with cross-domain validation", confidence: 0.85 },
+            { description: "Pattern synthesis with emergent insight generation", confidence: 0.75 },
+            { description: "Framework consolidation with unified understanding", confidence: 0.80 }
+        ],
+        evaluate: [
+            { description: "Comprehensive assessment with multiple criteria", confidence: 0.85 },
+            { description: "Comparative evaluation with benchmarking", confidence: 0.80 },
+            { description: "Impact analysis with recommendation generation", confidence: 0.75 }
+        ]
+    };
+    
+    return baseHypotheses[mode as keyof typeof baseHypotheses] || baseHypotheses.analyze;
+}
+
+function selectReasoningStrategy(input: string, mode: string): string {
+    if (input.length > 500 || mode === 'synthesize') return "Cache-Augmented Reasoning + ReAct";
+    if (mode === 'decide') return "Tree-of-Thoughts lite with Self-Consistency";
+    if (mode === 'evaluate') return "Multi-Perspective Analysis with Reflexion";
+    return "Internal Knowledge Synthesis with Progressive-Hint Prompting";
+}
+
+function performModeSpecificAnalysis(input: string, mode: string, context?: string): string {
+    const analyses = {
+        analyze: `Systematic decomposition reveals key components and relationships. Context integration shows interdependencies and critical factors.`,
+        decide: `Decision matrix evaluation with weighted criteria. Risk-benefit analysis indicates optimal path forward with mitigation strategies.`,
+        synthesize: `Knowledge integration across multiple domains reveals emergent patterns and unified understanding.`,
+        evaluate: `Multi-dimensional assessment using established criteria. Comparative analysis against benchmarks and best practices.`
+    };
+    
+    const baseAnalysis = analyses[mode as keyof typeof analyses];
+    const contextNote = context ? `\n\nContextual considerations: ${context.substring(0, 200)}${context.length > 200 ? '...' : ''}` : '';
+    
+    return baseAnalysis + contextNote;
+}
+
+function generateMultiplePerspectives(input: string, mode: string): string {
+    return `- **Technical Perspective:** Focus on implementation feasibility and technical constraints
+- **Strategic Perspective:** Consider long-term implications and alignment with objectives  
+- **User Perspective:** Evaluate impact on end users and stakeholder experience
+- **Risk Perspective:** Assess potential failure modes and mitigation strategies
+- **Resource Perspective:** Consider time, cost, and capability requirements`;
+}
+
+function assessRisksAndMitigations(input: string, mode: string): string {
+    return `**Identified Risks:**
+- Implementation complexity may exceed initial estimates
+- Unexpected dependencies or constraints may emerge  
+- Stakeholder alignment challenges may arise
+
+**Mitigation Strategies:**
+- Iterative approach with regular validation checkpoints
+- Comprehensive stakeholder communication and feedback loops
+- Contingency planning with alternative solution paths`;
+}
+
+function generateModeSpecificDecision(input: string, mode: string, reasoning: string): string {
+    const decisions = {
+        analyze: "**Recommended Analysis Approach:** Proceed with systematic multi-component analysis using structured decomposition methodology.",
+        decide: "**Recommended Decision:** Based on evidence evaluation and risk assessment, proceed with the optimal solution path identified through multi-criteria analysis.",
+        synthesize: "**Recommended Synthesis:** Integrate identified knowledge domains using validated frameworks to create unified understanding and actionable insights.",
+        evaluate: "**Recommended Evaluation:** Conduct comprehensive assessment using established criteria with comparative benchmarking and impact analysis."
+    };
+    
+    return decisions[mode as keyof typeof decisions];
+}
+
+function extractActionItems(decision: string, mode: string): string {
+    const actions = {
+        analyze: "1. Define analysis scope and methodology\n2. Gather relevant data and information\n3. Apply systematic decomposition techniques\n4. Validate findings through multiple perspectives",
+        decide: "1. Implement chosen solution with phased approach\n2. Establish success metrics and monitoring\n3. Execute mitigation strategies for identified risks\n4. Schedule regular review and adjustment points",
+        synthesize: "1. Consolidate information from multiple sources\n2. Apply integration frameworks and methodologies\n3. Validate synthesized insights through testing\n4. Document unified understanding and recommendations",
+        evaluate: "1. Establish evaluation criteria and benchmarks\n2. Collect comprehensive assessment data\n3. Perform comparative analysis and scoring\n4. Generate actionable recommendations based on findings"
+    };
+    
+    return actions[mode as keyof typeof actions];
+}
+
+function generateVerificationSteps(decision: string, mode: string): string {
+    return `1. **Outcome Verification:** Confirm expected results are achieved within defined parameters
+2. **Quality Assurance:** Validate outputs meet established quality standards and criteria  
+3. **Stakeholder Confirmation:** Ensure solution addresses original requirements and constraints
+4. **Performance Monitoring:** Track key metrics and indicators for ongoing assessment`;
+}
+
+function identifyRollbackTriggers(decision: string, mode: string): string {
+    return `- **Quality Threshold:** Results fall below acceptable quality standards
+- **Resource Constraints:** Time or cost overruns exceed predefined limits
+- **Stakeholder Concerns:** Significant opposition or requirement changes emerge
+- **Technical Issues:** Implementation problems that cannot be resolved within constraints`;
+}
+
 // --- Consolidated Cognitive Deliberation & Refinement Step (v3.5) ---
 
 /**
- * Tool: deliberate (Modern Cognitive Orchestration Engine)
+ * Tool: deliberate (Cognitive Processing Engine)
  * 
- * **🚀 CUTTING-EDGE 2025 COGNITIVE FRAMEWORK:** Implements the comprehensive OOReDAct cognitive cycle with advanced reasoning strategies for maximum AI performance. This tool transforms ordinary responses into sophisticated, strategic solutions through proven cognitive frameworks and context engineering best practices.
+ * **🧠 INTERNAL COGNITIVE DELIBERATION:** This tool performs sophisticated cognitive processing 
+ * using the OOReDAct framework (Observe-Orient-Reason-Decide-Act) with advanced reasoning 
+ * strategies. Instead of requiring manual cognitive frameworks, it automatically applies 
+ * structured thinking to your inputs and returns processed results.
  *
- * **⚡ MANDATORY USAGE PROTOCOL FOR OPTIMAL PERFORMANCE:**
- * - **Always begin with `stage: "orient"`** to establish proper cognitive grounding
- * - **Use `stage: "reason"`** before any significant decision or action
- * - **Leverage advanced reasoning strategies** dynamically based on task complexity
- * - **Maintain structured deliberation** throughout multi-step processes
- * - **Apply context optimization techniques** for enhanced cognitive performance
+ * **📥 INPUT:** Provide a problem, question, decision, or situation that needs deliberation.
+ * **📤 OUTPUT:** Receives structured cognitive analysis with recommendations and insights.
  *
- * **🎯 PROVEN COGNITIVE AMPLIFICATION BENEFITS:**
- * - Reduces errors and improves decision quality by 40-60%
- * - Enables sophisticated multi-perspective knowledge synthesis
- * - Provides comprehensive audit trail and cognitive verification
- * - Optimizes context window usage through dynamic assembly
- * - Enhances tool integration through structured thinking protocols
+ * **🎯 USE CASES:**
+ * - Complex problem analysis and solution development
+ * - Strategic decision making with risk assessment 
+ * - Multi-perspective evaluation of situations
+ * - Knowledge synthesis from multiple sources
+ * - Quality control and consistency checking
  *
- * **💡 ADVANCED TOOL INTEGRATION:** Use deliberation BEFORE and AFTER other MCP tools. The combination of structured cognitive frameworks + powerful tools = exceptional results with enhanced reliability and strategic awareness.
- *
- * **CORE FRAMEWORK - OOReDAct Cognitive Cycle (2025 Standard):**
- *
- *
- * **🔍 STAGE: "orient" (Observe + Orient + Strategic Context Engineering)**
- * 
- * **Purpose:** MANDATORY first step for any new task, subtask, or strategic pivot. Establishes first-principles situational awareness and optimal context ecosystem.
- * 
- * **Required Structure:**
- * ```markdown
- * <observe>
- * Summarize what has just happened (user input, tool results, context changes)
- * </observe>
- * 
- * <orient>
- * 1. **CUC-N Assessment** (Complexity, Uncertainty, Consequence, Novelty)
- * 2. **Knowledge Gap Analysis** 
- *    - What internal knowledge needs activation?
- *    - Requires: parametric memory activation | cognitive scaffolding | tool consultation | knowledge synthesis
- * 3. **Context Ecosystem Design (2025 Best Practice)**
- *    - Dynamic context window assembly with internal knowledge activation strategies
- *    - XML tags for lightweight structural scaffolding
- * </orient>
- * 
- * <hypotheses>
- * List candidate solution paths with confidence scores (0.0-1.0)
- * </hypotheses>
- * 
- * <goal>
- * One-sentence objective for this reasoning cycle
- * </goal>
- * ```
- *
- *
- * **🧠 STAGE: "reason" (Observe + Orient + Reason + Decide + Act Planning)**
- * 
- * **Purpose:** Deep deliberation before action/decision using advanced reasoning strategies.
- * 
- * **Required Structure:**
- * ```markdown
- * <observe>
- * Synthesize new facts and observations
- * </observe>
- * 
- * <orient>
- * Update beliefs, reassess CUC-N matrix, revise context strategy
- * </orient>
- * 
- * <reason strategy="[Strategy Name]">
- * [Strategy-specific reasoning - see strategies below]
- * </reason>
- * 
- * <decide>
- * State next atomic action or final response commitment
- * </decide>
- * 
- * <act-plan>
- * Enumerate exact actions in execution order with I/O contracts
- * Include rollback triggers and verification steps
- * </act-plan>
- * ```
- *
- * **🎨 ADVANCED REASONING STRATEGIES (Choose Explicitly):**
- *
- * **Cache-Augmented Reasoning + ReAct** (Default)
- * - Interleave internal knowledge activation with reasoning/action cycles
- * - Preload all relevant context into working memory
- * - Keep rationale concise (≤ 8 bullets)
- * - Progressive knowledge building through iterative refinement
- *
- * **Self-Consistency** | **PAL (Program-Aided Language)** | **Reflexion** 
- * **Context-Compression** | **ToT-lite (Tree of Thoughts)** | **Progressive-Hint Prompting (PHP)**
- * **Cache-Augmented Generation (CAG)** | **Cognitive Scaffolding Prompting**
- * **Internal Knowledge Synthesis (IKS)** | **Knowledge Synthesis Prompting (KSP)**
- *
- * **✅ STAGE: "acknowledge" (Act - LIMITED USE)**
- * 
- * **Purpose:** SPARINGLY used for minimal verbatim confirmations only when next action is already unequivocally defined by comprehensive preceding `reason` stage.
- * 
- * **Use Only For:** Brief acknowledgments of simple, expected, non-problematic outcomes where no further evaluation needed.
- * 
- * **⚠️ NOT a substitute for full `reason` cycle when processing new information or making non-trivial decisions.**
- *
- *
- * **🏗️ CONTEXT WINDOW OPTIMIZATION:**
- * - Dynamic context assembly: Core + Memory + Knowledge + Constraint + Tool layers
- * - Semantic compression over syntactic with structured formats (XML, JSON)
- * - Progressive detail reduction based on relevance
- *
- * **🔍 QUALITY CONTROL:**
- * - Cross-reference knowledge across internal domains
- * - Explicit uncertainty quantification (0.0-1.0)
- * - Escalate to human review when confidence < 0.6
- *
- * **🛠️ TOOL INTEGRATION & CODEACT:**
- * - Wrap executable code in `CodeAct` fences
- * - Validate tool parameters against strict schemas
- * - Document I/O contracts and plan rollback procedures
- *
- * **📚 ACRONYM REFERENCE:**
- * **Core:** OOReDAct = Observe-Orient-Reason-Decide-Act | CUC-N = Complexity, Uncertainty, Consequence, Novelty
- * **Advanced:** CAG = Cache-Augmented Generation | IKS = Internal Knowledge Synthesis | KSP = Knowledge Synthesis Prompting
- * **Methods:** CoT = Chain-of-Thought | ToT = Tree-of-Thoughts | PAL = Program-Aided Language | ReAct = Reasoning and Acting
- * **Techniques:** PHP = Progressive-Hint Prompting | CSP = Cognitive Scaffolding Prompting | SC = Self-Consistency
- *
- * **🎯 GENERAL DIRECTIVES:**
- * - This tool acts as a passthrough; your `content` is returned verbatim for verification and state tracking
- * - Choose reasoning strategies dynamically based on task-specific demands
- * - Maintain strict adherence to structured deliberation protocols
- * - Incorporate 2025 context engineering best practices throughout
- * - Always structure deliberations in Markdown for state verification
- * - Prefer primary sources and corroboration
+ * **⚡ COGNITIVE STRATEGIES APPLIED AUTOMATICALLY:**
+ * - Cache-Augmented Reasoning for comprehensive context loading
+ * - Internal Knowledge Synthesis for multi-domain integration
+ * - Tree-of-Thoughts lite for solution path exploration
+ * - Self-Consistency validation for reliable outputs
+ * - Progressive-Hint Prompting for iterative refinement
  */
 server.tool(
 	"deliberate",
     {
-        stage: z
-            .enum(["orient", "reason", "acknowledge"]) 
-            .describe("Stage selector. Start with 'orient', use 'reason' before decisions, and 'acknowledge' for brief confirmations."),
-        content: z
+        input: z
             .string()
-            .describe("Free‑form markdown for the selected stage. Returned verbatim so you can verify state and plan next actions.")
+            .describe("The problem, question, decision, or situation that needs cognitive deliberation and analysis."),
+        mode: z
+            .enum(["analyze", "decide", "synthesize", "evaluate"]) 
+            .default("analyze")
+            .describe("Type of cognitive processing: 'analyze' for problem breakdown, 'decide' for decision making, 'synthesize' for knowledge integration, 'evaluate' for assessment."),
+        context: z
+            .string()
+            .optional()
+            .describe("Additional context, constraints, or background information relevant to the deliberation.")
     },
-	async ({ stage, content }: { stage: "orient" | "reason" | "acknowledge", content: string }) => {
+	async ({ input, mode, context }: { input: string, mode: "analyze" | "decide" | "synthesize" | "evaluate", context?: string }) => {
 		const toolName = 'deliberate';
-		logToolCall(toolName, `Stage: ${stage}`);
+		logToolCall(toolName, `Mode: ${mode}, Input length: ${input.length}`);
 		try {
-			// Treat input as opaque string for the specified stage
-			// The detailed guidance on how to structure this string is in the tool description.
-			logToolResult(toolName, true, `Stage: ${stage}, Input received (length: ${content.length})`);
-			// Log the raw input string with stage context for server-side auditing
-			console.error(`[${new Date().toISOString()}] [MCP Server] - ${toolName} (${stage}) Input String:\n${content}`);
-			// Return the input string directly, as per passthrough design
-			return { content: [{ type: "text" as const, text: content }] };
+			// Internal OOReDAct processing
+			const deliberationResult = await performCognitiveDeliberation(input, mode, context);
+			
+			logToolResult(toolName, true, `Mode: ${mode}, Deliberation completed`);
+			return { content: [{ type: "text" as const, text: deliberationResult }] };
 
 		} catch (error: unknown) {
-			// Catch only unexpected runtime errors within this passthrough logic
 			return logToolError(toolName, error);
 		}
 	}

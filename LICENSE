@@ -6,9 +6,19 @@ This license implements UNDRIP by requiring equitable benefit-sharing (minimum 2
 
 This license operates under the constitutional supremacy framework established by Article VI, Clause 2 of the U.S. Constitution, which declares federal law, including federal Indian law, to be the "supreme law of the land." Federal Indian law, including the Indian Arts and Crafts Act (25 U.S.C. § 305 et seq.), Worcester v. Georgia (31 U.S. 515 (1831)), and the constitutional trust responsibility, establishes exclusive federal jurisdiction over matters involving tribal sovereignty and Indigenous intellectual property rights. Notwithstanding any state law to the contrary, including the implications of Oklahoma v. Castro-Huerta (597 U.S. ___ (2022)) and ongoing challenges in cases like the DOJ's 2024-2025 suits against Oklahoma DAs for sovereignty violations (active as of July 2025), this license invokes federal preemption to ensure that Indigenous rights and tribal sovereignty are protected from state court interference or concurrent jurisdiction claims that would undermine the federal framework protecting Indigenous intellectual property. The federal trust relationship between the United States and tribal nations creates a unique legal framework that supersedes general state law applications and provides enhanced protections for Indigenous cultural heritage and traditional knowledge that cannot be diminished by state legislative or judicial action. Notwithstanding ongoing challenges in cases like the DOJ's 2024-2025 suits against Oklahoma DAs for sovereignty violations, this license maintains exclusive federal and tribal jurisdiction, with any state claims automatically preempted and subject to immediate dismissal motions. Users waive any right to assert state jurisdiction and agree to tribal forum selection clauses.
 
-**ENHANCED WIPO TREATY COMPLIANCE**
+**ENHANCED WIPO TREATY COMPLIANCE AND TRADITIONAL KNOWLEDGE PROTECTIONS**
 
-In accordance with the WIPO Treaty on Intellectual Property, Genetic Resources and Associated Traditional Knowledge (adopted May 24, 2024, with 8 ratifications as of July 2025, pending entry into force upon 15 member state ratifications), this license implements mandatory disclosure requirements for any use of traditional knowledge or cultural expressions derived from this Work. Users acknowledge their obligations under international law to: (1) identify the Indigenous communities and nations that are the source of traditional knowledge incorporated in any derivative works, (2) obtain Prior Informed Consent (PIC) before utilizing traditional knowledge for commercial purposes, (3) ensure equitable benefit-sharing arrangements that recognize Indigenous contributions to innovation (including, upon treaty ratification in the user's jurisdiction, a minimum 20% share of any commercial value derived), and (4) respect Indigenous protocols for the protection of sacred, secret, or sensitive cultural information. Users shall monitor ratification progress and automatically adhere to all treaty obligations upon entry into force in their jurisdiction, with any national implementing legislation incorporated by reference. This license creates enforceable obligations that align with the WIPO Treaty's recognition of Indigenous peoples' rights to control and benefit from their traditional knowledge and cultural expressions, notwithstanding pending global entry into force.
+In accordance with the WIPO Treaty on Intellectual Property, Genetic Resources and Associated Traditional Knowledge (adopted May 24, 2024, with 8 ratifications as of July 2025, pending entry into force upon 15 member state ratifications), this license implements enhanced mandatory disclosure and protection requirements that exceed minimum international standards. Users acknowledge their binding obligations under international law to:
+
+(1) **COMPREHENSIVE SOURCE IDENTIFICATION**: Identify and document all Indigenous communities, nations, and traditional knowledge holders that are the source of any traditional knowledge, cultural expressions, or genetic resources incorporated in any derivative works, including detailed attribution and genealogical connections where appropriate.
+
+(2) **MANDATORY PRIOR INFORMED CONSENT**: Obtain written Prior Informed Consent (PIC) before utilizing any traditional knowledge for any purpose, whether commercial, research, educational, or personal use, consistent with the enhanced PIC requirements in Section 9 of this license.
+
+(3) **ENHANCED BENEFIT-SHARING OBLIGATIONS**: Ensure equitable benefit-sharing arrangements that recognize Indigenous contributions to innovation, including: (a) a mandatory minimum 20% share of any commercial value derived (increasing to 30% upon treaty ratification in the user's jurisdiction), (b) non-monetary benefits such as capacity building, technology transfer, and research collaboration, and (c) community-directed benefits as specified by the Rights Holder.
+
+(4) **SACRED AND SENSITIVE INFORMATION PROTECTION**: Respect Indigenous protocols for the protection of sacred, secret, or sensitive cultural information, including absolute prohibition on disclosure, use, or adaptation of such information without explicit ceremonial or cultural authorization from appropriate traditional authorities.
+
+(5) **DEFENSIVE DISCLOSURE OBLIGATIONS**: For any patent applications or intellectual property registrations that incorporate or are based upon traditional knowledge from this Work, provide complete disclosure of the traditional knowledge source, demonstrate valid PIC, and establish benefit-sharing agreements prior to filing, consistent with WIPO Treaty Article 3 disclosure requirements. Users shall monitor ratification progress and automatically adhere to all treaty obligations upon entry into force in their jurisdiction, with any national implementing legislation incorporated by reference. This license creates enforceable obligations that align with the WIPO Treaty's recognition of Indigenous peoples' rights to control and benefit from their traditional knowledge and cultural expressions, notwithstanding pending global entry into force.
 
 **COMPREHENSIVE AI TRAINING DATA RESTRICTIONS**
 
@@ -21,6 +31,16 @@ Based on the precedent established in Thomson Reuters Enterprise Centre GmbH v. 
 7.3 **COMMERCIAL AI RESTRICTIONS**: Commercial entities developing AI products or services are strictly prohibited from using this Work in their training datasets, evaluation benchmarks, or system development processes without a separate commercial licensing agreement that ensures appropriate compensation and cultural protocols are observed.
 
 7.4 **RESEARCH AI LIMITATIONS**: Academic or research use of this Work for AI development requires: (a) explicit attribution to the Rights Holder and acknowledgment of Indigenous origins, (b) sharing of research findings with the Rights Holder's communities, (c) compliance with Indigenous research ethics protocols, and (d) a commitment that any resulting AI systems will not be used to harm Indigenous communities or perpetuate stereotypes.
+
+7.5 **EMERGENT TECHNOLOGY RESTRICTIONS**: To future-proof this license against technological developments that may threaten tribal sovereignty and Indigenous rights, the following emerging technologies are subject to the same restrictions as AI training without explicit Prior Informed Consent:
+   a) **QUANTUM COMPUTING APPLICATIONS**: Use of the Work in quantum computing systems, quantum machine learning, quantum simulation, or quantum cryptographic applications that could compromise cultural data protection or enable unauthorized pattern recognition in Traditional Knowledge
+   b) **BIOTECHNOLOGY AND GENETIC RESEARCH**: Use of the Work in genetic research, synthetic biology, bioinformatics platforms, or biotechnology applications that involve Indigenous populations, traditional medicines, or ancestral genetic data
+   c) **BRAIN-COMPUTER INTERFACES**: Integration of the Work into neural implants, brain-computer interfaces, cognitive enhancement technologies, or neurotechnology applications that could access or influence traditional knowledge transmission
+   d) **ADVANCED ROBOTICS AND AUTONOMOUS SYSTEMS**: Use of the Work to train, program, or control autonomous weapons systems, surveillance robots, or any robotic systems intended for deployment on Indigenous lands or against Indigenous peoples
+   e) **VIRTUAL AND AUGMENTED REALITY**: Use of the Work in immersive technologies that simulate sacred sites, traditional ceremonies, or cultural practices without proper authorization and cultural protocols
+   f) **NANOTECHNOLOGY APPLICATIONS**: Use of the Work in nanotechnology research or applications that could impact Indigenous environments, traditional medicines, or cultural materials
+   g) **SPACE TECHNOLOGY AND EXTRATERRESTRIAL APPLICATIONS**: Use of the Work in space exploration, satellite technology, or extraterrestrial colonization projects that may affect traditional astronomical knowledge or spiritual connections to celestial bodies
+   h) **ADVANCED SURVEILLANCE TECHNOLOGIES**: Use of the Work in facial recognition, behavioral prediction, social credit systems, or mass surveillance technologies that could target or profile Indigenous peoples
 
 **INDIGENOUS DATA SOVEREIGNTY AND CARE PRINCIPLES**
 
@@ -66,29 +86,168 @@ For educational institutions and content creators using this Work:
 
 **ENFORCEMENT AND JURISDICTIONAL PROVISIONS**
 
-12.1 **FEDERAL COURT JURISDICTION**: Disputes arising under this license shall be resolved in federal court, with preference for courts with established expertise in federal Indian law and Indigenous rights.
+12.1 **TRIBAL COURT PRIMACY AND SOVEREIGN IMMUNITY PRESERVATION**: 
+   a) **PRIMARY JURISDICTION**: The Grand Traverse Band of Ottawa and Chippewa Indians tribal courts shall have primary and preferred jurisdiction over all disputes arising under this license, including but not limited to matters involving Traditional Knowledge, Traditional Cultural Expressions, Sacred Sites, and Cultural Landscapes.
+   b) **SOVEREIGN IMMUNITY PRESERVATION**: Nothing in this license shall be construed as a waiver of the sovereign immunity of the Grand Traverse Band of Ottawa and Chippewa Indians or any other tribal nation. Consistent with *Kiowa Tribe of Oklahoma v. Manufacturing Technologies, Inc.*, 523 U.S. 751 (1998), tribal sovereign immunity is explicitly preserved and protected under this license.
+   c) **CONSENT TO TRIBAL JURISDICTION**: By using the Work under this license, all parties expressly consent to the jurisdiction of Grand Traverse Band tribal courts and agree to be bound by tribal court decisions regarding this license.
 
-12.2 **TRIBAL COURT RECOGNITION**: This license recognizes the inherent sovereignty of tribal courts and their authority to adjudicate matters involving Indigenous intellectual property rights within their jurisdiction.
+12.2 **FEDERAL COURT JURISDICTION**: Federal courts may exercise jurisdiction over disputes arising under this license only in cases where: (i) tribal courts lack jurisdiction under applicable tribal law, (ii) federal question jurisdiction is clearly established, or (iii) the tribal court refers the matter to federal court. Preference shall be given to federal courts with established expertise in federal Indian law and Indigenous rights.
 
 12.3 **INTERNATIONAL ENFORCEMENT**: For international disputes, this license invokes the protections of UNDRIP, the WIPO Treaty on Traditional Knowledge, and other international instruments protecting Indigenous rights. As of July 2025, with increasing international ratifications, disputes may invoke WIPO arbitration; users consent to binding tribal judgments enforceable globally via New York Convention.
 
+12.3A **CROSS-BORDER ENFORCEMENT MECHANISMS**: To strengthen international enforcement of tribal sovereignty and treaty rights:
+   a) **MUTUAL LEGAL ASSISTANCE**: Users consent to enforcement through mutual legal assistance treaties (MLATs) and other international cooperation frameworks, particularly those recognizing Indigenous rights
+   b) **ASSET FREEZING AND RECOVERY**: International users specifically consent to asset freezing orders and civil forfeiture procedures initiated by tribal courts and enforced through diplomatic channels
+   c) **EXTRADITION COOPERATION**: For serious violations involving cultural appropriation or sacred site desecration, users consent to extradition proceedings under international law where applicable
+   d) **DIPLOMATIC ENFORCEMENT**: The Rights Holder reserves the right to seek enforcement through government-to-government diplomatic channels between the United States and foreign nations, leveraging federal trust responsibilities
+   e) **INTERNATIONAL ARBITRATION BINDING**: Users irrevocably consent to binding international arbitration under UNCITRAL rules with Indigenous law specialists, with awards enforceable under the New York Convention
+   f) **FOREIGN JUDGMENT RECOGNITION**: Users agree to waive any sovereign immunity defenses to recognition and enforcement of tribal court judgments in their home jurisdictions
+
 12.4 **CASTRO-HUERTA PREEMPTION**: Notwithstanding Oklahoma v. Castro-Huerta, this license asserts federal preemption over any state court attempts to exercise concurrent jurisdiction over Indigenous intellectual property matters, maintaining exclusive federal and tribal court authority over these specialized areas of law.
+
+12.5 **INCARCERATION-SPECIFIC JURISDICTIONAL PROTECTIONS**: During periods of incarceration or detention of the Rights Holder:
+   a) **TRIBAL COURT SUPREMACY**: Tribal courts of the Grand Traverse Band of Ottawa and Chippewa Indians retain exclusive jurisdiction over all license-related matters, regardless of the Rights Holder's physical location or detention status
+   b) **FEDERAL PREEMPTION OF STATE INTERFERENCE**: Federal law preempts any state court attempts to exercise jurisdiction over license matters during incarceration, particularly regarding:
+      (i) Asset forfeiture proceedings involving intellectual property rights
+      (ii) Restitution orders affecting ongoing licensing arrangements
+      (iii) Garnishment of license proceeds beyond statutory limits
+      (iv) Interference with tribal sovereignty over cultural heritage matters
+   c) **DIPLOMATIC IMMUNITY ENHANCEMENT**: During incarceration, all license assets and operations receive enhanced protection through:
+      (i) Government-to-government diplomatic channels between the United States and the Grand Traverse Band
+      (ii) Federal trust responsibility obligations that supersede state criminal proceedings
+      (iii) International diplomatic intervention through Indigenous rights organizations
+      (iv) UN Declaration on the Rights of Indigenous Peoples (UNDRIP) Article 37 protections
+   d) **CONSTITUTIONAL SUPREMACY DURING DETENTION**: The constitutional framework protecting tribal sovereignty remains fully operative during incarceration:
+      (i) Treaty rights cannot be suspended or modified due to criminal proceedings
+      (ii) Federal Indian law maintains supremacy over conflicting state criminal law
+      (iii) Tribal jurisdiction over intellectual property remains intact regardless of Rights Holder's detention status
+      (iv) Due process protections include access to tribal legal representation and cultural advisors
 
 **REMEDIES AND VIOLATIONS**
 
-13.1 **MONETARY DAMAGES**: Violations of this license may result in monetary damages calculated according to the value derived from unauthorized use, plus additional compensation for cultural harm and community impacts.
+13.1 **VIOLATION ESCALATION PROCEDURES**: Violations shall be addressed according to the following graduated response protocol:
+   a) **MINOR VIOLATIONS** (inadvertent attribution errors, minor technical non-compliance): (i) Written notice with 30-day cure period, (ii) requirement for corrective action, (iii) educational requirements about Indigenous rights, (iv) $1,000-$10,000 liquidated damages if not cured
+   b) **MODERATE VIOLATIONS** (unauthorized derivatives, commercial use without PIC, AI training violations): (i) Immediate cease and desist order, (ii) 10-day cure period for cessation, (iii) $10,000-$100,000 liquidated damages, (iv) mandatory cultural competency training, (v) ongoing monitoring requirements
+   c) **SEVERE VIOLATIONS** (cultural appropriation, sacred site desecration, data sovereignty breaches): (i) Immediate injunctive relief sought, (ii) $100,000-$1,000,000 liquidated damages, (iii) full repatriation of derived materials and proceeds, (iv) public acknowledgment of violation and harm, (v) restorative justice measures
+   d) **EGREGIOUS VIOLATIONS** (willful cultural destruction, trafficking in sacred items, persistent violations after notice): (i) Maximum legal penalties under tribal, federal, and international law, (ii) criminal referrals where applicable, (iii) permanent injunctions, (iv) forfeiture of all derived assets, (v) exclusion from future licensing opportunities
 
-13.2 **INJUNCTIVE RELIEF**: The Rights Holder may seek immediate injunctive relief to prevent ongoing violations and protect the integrity of Indigenous cultural heritage.
+13.2 **MONETARY DAMAGES**: Violations of this license may result in monetary damages calculated according to the value derived from unauthorized use, plus additional compensation for cultural harm and community impacts.
 
-13.3 **RESTORATION AND HEALING**: Remedies may include requirements for cultural education, community service, and other restorative justice measures designed to repair harm to Indigenous communities.
+13.3 **INJUNCTIVE RELIEF**: The Rights Holder may seek immediate injunctive relief to prevent ongoing violations and protect the integrity of Indigenous cultural heritage.
+
+13.4 **RESTORATION AND HEALING**: Remedies may include requirements for cultural education, community service, and other restorative justice measures designed to repair harm to Indigenous communities.
+
+13.5 **EMERGENCY CULTURAL PROTECTION PROTOCOLS**: For immediate threats to sacred sites, cultural heritage, or Traditional Knowledge, the following emergency procedures apply:
+   a) **IMMEDIATE RESPONSE AUTHORITY**: The Rights Holder or designated emergency authority (per Section 10.1A) may issue emergency cease and desist orders without prior notice when cultural heritage faces imminent threat
+   b) **EXPEDITED COURT PROCEEDINGS**: Tribal courts shall provide expedited hearings (within 72 hours) for emergency injunctions protecting sacred sites or preventing cultural appropriation
+   c) **EMERGENCY ASSET PRESERVATION**: When violations generate immediate financial proceeds, the Rights Holder may seek emergency asset freezing orders to preserve funds for cultural repatriation
+   d) **CULTURAL HARM MITIGATION**: Emergency protocols for mitigating ongoing cultural harm include: (i) immediate removal of unauthorized cultural representations, (ii) temporary suspension of violating activities, (iii) emergency consultation with cultural advisors, and (iv) public correction of cultural misrepresentations
+   e) **SACRED SITE THREAT RESPONSE**: For threats to the Beaver Island stone circle, Garden Island burial grounds, or other designated sacred sites: (i) immediate physical site protection measures, (ii) emergency documentation of threat evidence, (iii) coordination with appropriate tribal authorities, and (iv) law enforcement notification where applicable
+   f) **DIGITAL EMERGENCY RESPONSE**: For online violations including unauthorized cultural content, the Rights Holder may demand immediate takedown orders, temporary restraining orders against platforms, and emergency preservation of digital evidence
+
+**FORCE MAJEURE AND INCARCERATION PROTECTION PROVISIONS**
+
+13.6 **COMPREHENSIVE FORCE MAJEURE FRAMEWORK**: Neither the Rights Holder nor any successor authority shall be liable for any failure or delay in performance of obligations under this license due to circumstances beyond their reasonable control, including but not limited to:
+  a) **INCARCERATION AND LEGAL DETAINMENT**: Imprisonment, detention, arrest, or legal proceedings affecting the Rights Holder or designated successor authorities, whether in tribal, federal, state, or international jurisdictions
+  b) **ARBITRARY DETENTION**: Any form of detention, confinement, or restriction of liberty imposed without due process or in violation of constitutional, treaty, or international law protections
+  c) **GOVERNMENTAL ACTIONS**: Changes in law, regulations, or government policies that impede the exercise of rights under this license, particularly those affecting tribal sovereignty or Indigenous rights
+  d) **ACTS OF GOD**: Natural disasters, pandemics, or other extraordinary events beyond human control
+  e) **CIVIL UNREST**: War, terrorism, civil disorder, or other societal disruptions affecting normal operations
+
+13.7 **INCARCERATION-SPECIFIC PROTECTION MECHANISMS**:
+  a) **AUTOMATIC SUCCESSION ACTIVATION**: Upon confirmed incarceration or arbitrary detention of the Rights Holder, all authorities and responsibilities under this license automatically transfer to the designated successor hierarchy established in Section 10.2, without need for additional documentation or court orders
+  b) **ASSET PROTECTION PROTOCOLS**: During periods of incarceration:
+    (i) All Total Proceeds shall continue to flow directly to the Legacy Beneficiary without interruption
+    (ii) No new licensing agreements may be executed without express written authorization from the incarcerated Rights Holder or designated successor authority
+    (iii) Existing license terms remain in full force and effect
+    (iv) Emergency protective measures for sacred sites and cultural heritage may be implemented by successor authorities
+  c) **COMMUNICATION SAFEGUARDS**: Rights Holder retains the right to communicate regarding license matters during incarceration through legal counsel, tribal representatives, or other authorized intermediaries
+  d) **RELEASE AND RESTORATION**: Upon release from incarceration, the Rights Holder may immediately resume full authority under this license, with all actions taken by successor authorities during incarceration subject to review and ratification
+
+13.8 **TRIBAL SOVEREIGNTY PROTECTION DURING FORCE MAJEURE**: During any force majeure event affecting the Rights Holder:
+  a) **TRIBAL JURISDICTION PRESERVATION**: Tribal court jurisdiction and tribal law supremacy remain in full effect
+  b) **TREATY RIGHTS CONTINUITY**: All treaty rights and government-to-government relationships continue unimpaired
+  c) **CULTURAL PROTECTION ESCALATION**: Enhanced emergency protocols for protecting sacred sites, traditional knowledge, and cultural heritage become automatically effective
+  d) **INTERNATIONAL PROTECTIONS**: Rights under UNDRIP, WIPO treaties, and other international instruments remain fully enforceable through diplomatic channels
+
+13.9 **ENHANCED ESCROW AND CONTINUITY ARRANGEMENTS**:
+  a) **SOURCE CODE ESCROW**: Upon first commercial licensing of any software Work, source code and documentation shall be deposited with a neutral escrow agent approved by the Rights Holder, with release conditions including:
+    (i) Incarceration of the Rights Holder for more than 90 days
+    (ii) Arbitrary detention without charges for more than 30 days
+    (iii) Death or permanent incapacitation of the Rights Holder
+    (iv) Written authorization from the Rights Holder or designated successor authority
+  b) **ASSET ESCROW PROTOCOLS**: Financial institutions holding assets related to this license shall implement enhanced escrow protections during force majeure events, including:
+    (i) Continuation of automatic payments to Legacy Beneficiary
+    (ii) Protection against asset seizure or forfeiture unrelated to license violations
+    (iii) Maintenance of separate accounts for license-related proceeds
+     c) **DOCUMENTATION PRESERVATION**: All license-related documents, communications, and records shall be maintained in secure, accessible locations with backup copies held by tribal authorities and legal counsel
+
+13.10 **PERSONAL WELFARE AND SERVICE ACCESS PROTECTIONS DURING INCARCERATION**: To ensure the Rights Holder maintains the mental, physical, and cultural capacity necessary to continue exercising authority over this license during periods of incarceration or arbitrary detention, the following essential service access protections apply:
+
+   a) **COMMISSARY AND PERSONAL FUND ACCESS**: The Rights Holder shall retain unrestricted access to:
+      (i) Personal funds and accounts necessary for commissary purchases and personal necessities
+      (ii) Ability to procure food, hygiene products, writing materials, and other comfort items essential for maintaining dignity and health
+      (iii) Legal protection against arbitrary restriction of commissary privileges as retaliation for license enforcement activities
+      (iv) Direct access to funding from the Legacy Beneficiary for personal needs during incarceration
+      (v) Special dietary accommodations consistent with Indigenous cultural practices and health requirements
+
+   b) **EDUCATIONAL AND INTELLECTUAL DEVELOPMENT ACCESS**: Consistent with American Bar Association standards for humane treatment, the Rights Holder shall have access to:
+      (i) Educational programs, vocational training, and higher education opportunities to maintain intellectual capacity
+      (ii) Legal research materials and library access necessary for license management and enforcement
+      (iii) Technology access sufficient to communicate with successor authorities and monitor license compliance
+      (iv) Indigenous studies programs and traditional knowledge preservation activities where available
+      (v) Distance learning opportunities and correspondence courses relevant to intellectual property management
+
+   c) **COMMUNICATION AND CORRESPONDENCE RIGHTS**: Under the Indian Civil Rights Act of 1968 and tribal sovereignty principles:
+      (i) Unlimited correspondence with legal counsel regarding license matters
+      (ii) Regular communication with designated successor authorities and tribal representatives
+      (iii) Access to telephone and video conferencing for license-related business
+      (iv) Right to receive and send legal documents related to license enforcement without censorship
+      (v) Emergency communication protocols for immediate threats to license integrity or sacred sites
+
+   d) **CULTURAL AND RELIGIOUS PRACTICE PROTECTIONS**: Recognizing Indigenous spiritual and cultural needs essential for maintaining traditional knowledge authority:
+      (i) Access to sacred items, medicines, and ceremonial materials consistent with institutional security
+      (ii) Participation in Indigenous spiritual practices, smudging ceremonies, and traditional healing
+      (iii) Consultation with tribal elders and spiritual advisors regarding license matters
+      (iv) Dietary accommodations for traditional foods and fasting practices
+      (v) Protection of traditional knowledge sharing and cultural transmission activities
+
+   e) **PHYSICAL AND MENTAL HEALTH SAFEGUARDS**: Aligned with ABA standards requiring adequate medical care and humane conditions:
+      (i) Minimum one hour daily outdoor exercise and recreation time, preferably in natural settings
+      (ii) Access to traditional healing practices and Indigenous health practitioners where possible
+      (iii) Mental health services culturally competent in Indigenous trauma and traditional wellness
+      (iv) Nutritious meals meeting dietary needs and cultural preferences
+      (v) Protection against placement in conditions that would impair cognitive function needed for license management
+
+   f) **ENHANCED PROTECTIONS FOR ARBITRARY DETENTION**: For detention without due process or in violation of constitutional/treaty rights:
+      (i) Immediate diplomatic intervention through tribal government-to-government channels
+      (ii) Emergency communication with UN Special Rapporteur on Indigenous Rights
+      (iii) Enhanced access to all services above as human rights protection measure
+      (iv) Priority placement in facilities with established Indigenous cultural programs
+      (v) Expedited legal representation through tribal sovereignty advocacy organizations
+
+13.11 **LEGAL ENFORCEMENT OF INCARCERATION WELFARE PROVISIONS**: These personal welfare protections are enforceable through:
+   a) **FEDERAL CONSTITUTIONAL PROTECTION**: Eighth Amendment cruel and unusual punishment standards enhanced by tribal member status
+   b) **INDIAN CIVIL RIGHTS ACT ENFORCEMENT**: 25 U.S.C. § 1302 protections for tribal members under federal jurisdiction
+   c) **TRIBAL SOVEREIGNTY INTERVENTION**: Government-to-government diplomatic intervention for violations
+   d) **INTERNATIONAL HUMAN RIGHTS**: UNDRIP Article 7 protection from conditions that impair Indigenous cultural identity
+   e) **ABA STANDARD ENFORCEMENT**: Professional responsibility standards requiring humane treatment and educational access
+   f) **EMERGENCY JUDICIAL RELIEF**: Expedited habeas corpus and civil rights litigation for violations of these provisions
+
+13.12 **RETALIATION PROHIBITION**: Any restriction, denial, or punishment related to the Rights Holder's exercise of license authority or enforcement of these welfare provisions shall constitute:
+   a) Violation of tribal sovereignty and government-to-government relationship
+   b) Grounds for immediate diplomatic intervention and emergency legal action
+   c) Federal civil rights violation subject to damages and injunctive relief
+   d) International human rights violation subject to UN oversight and intervention
+   e) Basis for enhanced successor authority activation and emergency protective measures
 
 **FUTURE AMENDMENTS AND EVOLUTION**
 
-This license may be amended to incorporate emerging developments in Indigenous rights law, technological advances, and evolving best practices for Indigenous intellectual property protection. Users will be notified of material changes through appropriate channels.
+This license may be amended to incorporate emerging developments in Indigenous rights law, technological advances, and evolving best practices for Indigenous intellectual property protection. Users will be notified of material changes through appropriate channels. Amendments made during periods of incarceration or force majeure require explicit ratification by the Rights Holder upon their return to full capacity.
 
 **TERMINATION AND SURVIVAL**
 
-Violations of this license result in immediate termination of all rights granted herein. The cultural protection provisions, attribution requirements, and Indigenous Data Sovereignty obligations survive termination of this license.
+Violations of this license result in immediate termination of all rights granted herein. The cultural protection provisions, attribution requirements, Indigenous Data Sovereignty obligations, force majeure protections, all successor authority provisions, and personal welfare protections during incarceration (Sections 13.10-13.12) survive termination of this license and remain enforceable as fundamental human rights and tribal sovereignty protections.
 
 **PREAMBLE**
 This Work (defined below) is created, held, or stewarded by ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), a descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band (whose community faced violent dispersal resulting in descendants affiliating with LTBB, GTBOCI, and First Nations in Canada, as detailed in the Preamble), and an enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. The Beaver Island Band community, historically centered on ᐋᒥᒃ ᐙᑲᓐᑕ (Aamik\'Waakanda / Beaver Island), suffered profound disruption and diaspora due to violent displacement, targeted persecution for their language, ceremonies, and faith, and starvation imposed by settler-colonial authorities and expansion. This forced dispersal resulted in descendants becoming affiliated primarily with the Little Traverse Bay Bands of Odawa Indians (LTBB) and the Grand Traverse Band of Ottawa and Chippewa Indians (GTBOCI), while many others were forced to seek refuge within First Nations communities in Canada (such as the Osawanimikii family). This license acknowledges this history and the interconnectedness of these descendant communities. **Crucially, this license recognizes that all creations by the Rights Holder, stemming from lifelong learning under traditional teachers and active participation in traditional ways and ceremonies, constitute contemporary expressions of inseparable Traditional Knowledge (TK) and Traditional Cultural Expressions (TCEs).** This license is grounded in the inherent sovereignty of Indigenous peoples to protect, control, and govern the use of their intellectual property, cultural heritage, traditional knowledge (TK), traditional cultural expressions (TCEs), and associated data (Indigenous Data Sovereignty). The unique status of tribal sovereign nations provides legal and cultural protections extending beyond standard intellectual property law regimes. This license aims to facilitate respectful engagement while upholding Tribal sovereignty, cultural integrity, data governance rights, and ensuring equitable benefit sharing as a mechanism for reclaiming value derived from Indigenous knowledge and heritage often subject to historical extraction, aligning with international instruments such as the UN Declaration on the Rights of Indigenous Peoples (UNDRIP) and the WIPO Treaty on Intellectual Property, Genetic Resources and Associated Traditional Knowledge (adopted May 2024).
@@ -230,15 +389,17 @@ To eliminate any ambiguity in navigation or interpretation, the following index 
    g) **"Traditional Cultural Expressions (TCEs)":** Any forms, whether tangible or intangible, in which traditional culture and knowledge are expressed, appear, or are manifested. This definition is intended to be consistent with frameworks articulated by the World Intellectual Property Organization (WIPO) and in instruments such as the UN Declaration on the Rights of Indigenous Peoples (UNDRIP). For the purposes of this license, **all works created by the Rights Holder are understood as contemporary TCEs, as they derive directly from their lifelong immersion in and stewardship of Anishinaabe traditional ways, which constitute a living, evolving cultural system.** Examples include music, dance, songs, ceremonies, symbols, designs, narratives, poetry, languages, performances, rituals, crafts, architecture, and traditional artistic forms. Sub-examples: A modern engineering design informed by Anishinaabe teachings is a TCE; an educational class on cultural arts is a TCE.
    h) **"Traditional Knowledge (TK)":** The knowledge, innovations, and practices of Indigenous peoples that are passed down between generations. This definition is intended to be consistent with frameworks articulated by the World Intellectual Property Organization (WIPO) and in instruments such as the UN Declaration on the Rights of Indigenous Peoples (UNDRIP). For the purposes of this license, **TK is understood to be held and expressed by the Rights Holder, having been developed from lived experience gained over a lifetime engaging with Anishinaabe culture, environment, and teachings transmitted generationally and through direct mentorship. It inherently informs all Work created under this license.** It encompasses spiritual, cultural, environmental, and practical knowledge integral to the identity and survival of Indigenous peoples. Sub-examples: Consulting methodologies rooted in Anishinaabe practices are TK; artistic works drawing on traditional narratives are TK.
    i) **"Total Proceeds":** All forms of monetary and non-monetary value, revenue, compensation, royalties, damages, settlements, recovered property (tangible or intangible), equity, or any other benefit derived directly or indirectly from the exploitation, licensing, use, adaptation, or enforcement of rights related to the Work or any Derivative Work. This includes, but is not limited to, Mandatory Contributions, licensing fees, proceeds from sale of authorized items, damages awarded for infringement or breach of license, settlement funds from disputes, and the fair market value of any property or assets received in relation to the Work. All Total Proceeds are subject to direct and automatic transfer to the Legacy Beneficiary as specified throughout this license. Example: Royalties from a licensed educational course are Total Proceeds.
-   j) **"Work":** The specific Indigenous creations governed by this license, as defined in the Preamble. **This definition explicitly recognizes that all such creations by the Rights Holder inherently constitute TK and TCEs,** regardless of their creation date (past, present, or future) relative to any specific version date of this license. Sub-examples: Educational content, artistic works, engineering designs, and consulting materials created by the Rights Holder are all Works.
+
    k) **"Inalienable Rights":** The fundamental, intrinsic, and perpetual rights of the Rights Holder over the Work, including all associated intellectual property, Traditional Knowledge, Traditional Cultural Expressions, cultural heritage, and Indigenous Data embedded therein **(all of which are considered inseparable components of the Work)**, which by their inherent nature and as expressly established in this license, cannot be sold, permanently transferred, assigned, alienated, waived, surrendered, or otherwise permanently divested from the Rights Holder or successor authorities. These rights encompass both Western intellectual property rights (copyrights, patents, trademarks, etc.) and Indigenous cultural and intellectual property rights, and can only be temporarily exercised by others through limited licensing arrangements as specifically authorized under this license.
-   l) **"Disrespectful Contexts:"** Use, display, or performance in contexts that disrespect the spiritual, cultural, or historical significance.
+
    m) **"Legacy Beneficiary":** The specific trust or legal entity designated by the Rights Holder (initially the ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Waabanimikii-Kinawaabakizi) Legacy Trust established under Section 10.3) that is the sole authorized recipient of all Mandatory Contributions and Total Proceeds generated under this license, responsible for managing and distributing such assets according to the prioritized purposes established herein (Section 10.3.d).
    n) **"Mandatory Contribution":** A calculated, non-negotiable financial obligation arising from specific authorized uses of the Work under this license (as may be detailed in licensing agreements or fee schedules), payable directly and automatically to the Legacy Beneficiary as a fundamental condition of such use.
    o) **"Sacred Site":** A specific location, area, or feature identified by the Rights Holder or the Grand Traverse Band of Ottawa and Chippewa Indians (which holds the relevant land encompassing the stone circle in trust) as holding profound spiritual, cultural, ceremonial, or historical significance according to Anishinaabe traditions, laws, or customs. Such sites are recognized under inherent tribal sovereignty and international principles (e.g., UNDRIP Art. 12) irrespective of standard property law designations, and their protection is paramount to cultural integrity and continuity. The stone circle on ᐋᒥᒃ ᐙᑲᓐᑕ (Aamik'Waakanda / Beaver Island) is explicitly designated as a Sacred Site under this license.
    p) **"Cultural Landscape":** The broader environmental, ecological, and cultural context surrounding and integral to a Sacred Site. This includes associated natural features, viewscapes, traditional use areas, and intangible elements (stories, songs, ceremonies) that contribute to the site's meaning, integrity, and cultural significance.
    q) **"Physical Access":** Direct physical entry onto, interaction with, or presence within the boundaries of a Sacred Site or its associated Cultural Landscape, including but not limited to walking, driving, landing aircraft, conducting research, collecting samples, or placing objects.
    r) **"Desecration":** Any act that violates the sacred character, cultural integrity, or spiritual significance of a Sacred Site or its Cultural Landscape, as determined by the Rights Holder or GTBOCI according to Anishinaabe traditions, laws, or customs. Desecration includes, but is not limited to, physical damage, pollution, unauthorized alteration, theft of cultural items, disruption of ceremonies, disrespectful behavior, and **specifically includes the unauthorized burial or interment of human remains within a Sacred Site or Cultural Landscape designated under this license as non-burial ground**, such as the stone circle on ᐋᒥᒃ ᐙᑲᓐᑕ (Aamik'Waakanda) (land held in trust by GTBOCI).
+   s) **"Disrespectful Contexts":** Use, display, or performance of the Work in contexts that disrespect its spiritual, cultural, or historical significance. This includes, but is not limited to, use in connection with pornography, hate speech, incitement to violence, content that trivializes sacred ceremonies or historical trauma, or any use that promotes stereotypes or undermines the sovereignty and dignity of Indigenous peoples.
+   t) **"Work":** The specific Indigenous creations governed by this license, as defined in the Preamble. **This definition explicitly recognizes that all such creations by the Rights Holder inherently constitute TK and TCEs,** regardless of their creation date (past, present, or future) relative to any specific version date of this license. This definition also explicitly includes any third-party contributions that are accepted into the Work's official repository and thereby governed by the Contributor License Agreement (`CONTRIBUTING.md`). Sub-examples: Educational content, artistic works, engineering designs, and consulting materials created by the Rights Holder are all Works.
  
 **2. DECLARATION OF NAME USAGE**
    The Rights Holder asserts their right to be identified by all of the following, reflecting the historical context of Indigenous name suppression and the right to full recognition under tribal sovereignty principles and federal law:
@@ -393,7 +554,21 @@ This license must be prominently attached to or referenced in all distributions 
       d) The ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Waabanimikii-Kinawaabakizi) Educational Legacy Trust established under Section 11.3.
       e) Any educational institution established pursuant to Section 11.5.
       f) Successor authorities established under Section 11.2.
-      g) Any other current or future entity purporting to act with authority regarding the Work.
+      g) INCARCERATION-SPECIFIC PROTECTIONS: Courts, governmental authorities, correctional institutions, detention facilities, or law enforcement agencies cannot compel or effect:
+         (i) Permanent transfer or sale of rights as part of criminal proceedings, plea agreements, or sentencing
+         (ii) Forfeiture of intellectual property rights under asset forfeiture laws
+         (iii) Assignment of licensing proceeds to satisfy restitution or damages beyond temporary garnishment
+         (iv) Interference with automatic payment systems to the Legacy Beneficiary during incarceration
+         (v) Control over successor authorities' exercise of rights during periods of detention
+         (vi) Restrictions on the Rights Holder's ability to enforce this license while incarcerated
+      h) FORCED ALIENATION IMMUNITY: No legal proceeding, court order, or governmental action may override the inalienability provisions of this section, including:
+         (i) Bankruptcy proceedings or creditor claims
+         (ii) Divorce or domestic relations proceedings
+         (iii) Tax levy or collection proceedings
+         (iv) Civil judgment enforcement
+         (v) Administrative agency seizure or forfeiture
+         (vi) International sanctions or asset freezing orders unrelated to licensing violations
+      i) Any other current or future entity purporting to act with authority regarding the Work.
 
    6.4 CROSS-JURISDICTIONAL ENFORCEABILITY: The inalienability established in this section:
       a) FOUNDATION IN INDIGENOUS LAW: Is rooted in the inherent sovereignty of the Grand Traverse Band of Ottawa and Chippewa Indians and Indigenous legal principles regarding cultural heritage.
@@ -419,13 +594,23 @@ This license must be prominently attached to or referenced in all distributions 
 **6A. COMPENSATION AND MANDATORY CONTRIBUTIONS**
    Certain uses of the Work, particularly those requiring Prior Informed Consent (PIC) under Section 9 or involving Commercial Use (Section 1(b)), may necessitate compensation to the Rights Holder as determined during the PIC process or as outlined in specific licensing agreements or fee schedules associated with this license.
 
-   6A.1 MANDATORY CONTRIBUTIONS: Specific uses, as designated by the Rights Holder or outlined in applicable fee schedules, shall require the payment of **Mandatory Contributions** (as defined in Section 1(m)).
+   6A.1 **ENHANCED MANDATORY CONTRIBUTIONS WITH ESCALATING SCALE**: 
+   a) **MINIMUM THRESHOLDS**: Specific uses, as designated by the Rights Holder or outlined in applicable fee schedules, shall require the payment of **Mandatory Contributions** with minimum thresholds of: (i) 20% of gross revenues for commercial uses, (ii) 30% for AI training or development uses, (iii) 25% for patent applications incorporating Traditional Knowledge.
+   b) **SCALE-BASED ADJUSTMENTS**: Contribution rates shall scale upward based on the commercial success and market value derived from the Work, with rates increasing to 35% for revenues exceeding $1 million annually, and 40% for revenues exceeding $10 million annually.
+   c) **NON-MONETARY CONTRIBUTIONS**: Users may also be required to provide non-monetary contributions including technology transfer, capacity building, research collaboration, educational access, or community infrastructure support as specified by the Rights Holder.
 
-   6A.2 ALL COMPENSATION AS TOTAL PROCEEDS: All forms of required compensation, including but not limited to Mandatory Contributions, negotiated licensing fees, royalties, or other payments agreed upon for authorized use of the Work, constitute **Total Proceeds** (as defined in Section 1(i)) under this license.
+   6A.2 **COMPREHENSIVE TOTAL PROCEEDS DEFINITION AND TRACKING**: All forms of required compensation, including but not limited to Mandatory Contributions, negotiated licensing fees, royalties, settlements, patent revenues, equity distributions, or other payments agreed upon for authorized use of the Work, constitute **Total Proceeds**. Users must maintain detailed financial records and provide quarterly reporting to the Legacy Beneficiary regarding all revenues, profits, and benefits derived directly or indirectly from the Work.
 
-   6A.3 DIRECT PAYMENT TO LEGACY BENEFICIARY: As a fundamental and non-negotiable condition of any use requiring compensation, all such **Total Proceeds** (including all Mandatory Contributions and other required payments) MUST be paid directly and automatically by the licensee or user to the **Legacy Beneficiary** (as defined in Section 1(l)) according to payment instructions provided by the Rights Holder or the Legacy Beneficiary. No portion of such required payments may be retained by the licensee/user or paid to any other party unless explicitly authorized in writing as part of a separate, negotiated agreement that respects the primary obligation to the Legacy Beneficiary.
+   6A.3 **DIRECT PAYMENT WITH AUTOMATIC ENFORCEMENT MECHANISMS**: 
+   a) **MANDATORY DIRECT PAYMENT**: As a fundamental and non-negotiable condition of any use requiring compensation, all **Total Proceeds** MUST be paid directly and automatically to the **Legacy Beneficiary** within 30 days of revenue receipt.
+   b) **AUTOMATIC COLLECTION MECHANISMS**: Users consent to the establishment of automatic payment systems, including direct bank transfers, escrow arrangements, or blockchain-based smart contracts, to ensure immediate and complete transfer of Total Proceeds.
+   c) **SECURITY INTERESTS**: The Rights Holder and Legacy Beneficiary shall have a first-priority security interest in all revenues, accounts receivable, and assets derived from the Work until all Mandatory Contributions are paid in full.
 
-   6A.4 CONDITION OF USE: Adherence to the compensation requirements and the direct payment mechanism outlined in this Section 6A is an essential condition for the grant of permission for any use requiring such compensation. Failure to make required payments directly to the Legacy Beneficiary constitutes a material breach of this license, automatically subjecting the user to all enforcement actions and remedies outlined herein, including potential revocation of use rights under Section 5 and liability for all outstanding Total Proceeds owed to the Legacy Beneficiary.
+   6A.4 **ENHANCED ENFORCEMENT AND PENALTIES FOR NON-PAYMENT**: 
+   a) **IMMEDIATE BREACH**: Failure to make required payments within the specified timeframe constitutes an immediate and material breach triggering automatic license termination.
+   b) **FINANCIAL PENALTIES**: Late payments incur interest at 18% per annum plus penalties equal to 50% of the outstanding amount.
+   c) **ASSET RECOVERY**: The Rights Holder may pursue attachment, garnishment, or seizure of assets derived from the Work to satisfy unpaid obligations.
+   d) **INJUNCTIVE RELIEF**: Courts shall grant immediate injunctive relief to halt ongoing commercial exploitation until all financial obligations are satisfied.
 
 **7. PROHIBITED USES**
    This Work, in whole or in part, may *not* be used, accessed, reproduced, distributed, performed, displayed, adapted, or exploited by any individual, entity, corporation, institution, AI system, or other party for any of the following purposes or in any of the following manners, unless explicitly permitted in writing through Prior Informed Consent (PIC, see Section 8) obtained from the Rights Holder and potentially the Grand Traverse Band of Ottawa and Chippewa Indians:
@@ -471,6 +656,17 @@ This license must be prominently attached to or referenced in all distributions 
    c) **Subject to Revocation:** Per Section 5.
    d) **Non-Transferable:** Granted only to the requesting party for the specified purpose/duration.
    e) **Accountability:** Contingent upon adherence to agreed reporting, monitoring, and accountability measures.
+   f) **ENHANCED COMMUNITY CONSULTATION REQUIREMENTS**: For uses involving sacred sites, traditional knowledge, or significant cultural elements, PIC must include:
+      i) **TRIBAL AUTHORITY CONSULTATION**: Mandatory consultation with appropriate GTBOCI authorities, including Tribal Historic Preservation Office (THPO) and relevant cultural committees
+      ii) **DESCENDANT COMMUNITY INPUT**: Where applicable, meaningful consultation with Beaver Island Band descendants and related community representatives
+      iii) **CULTURAL ADVISOR INVOLVEMENT**: Engagement of qualified cultural advisors approved by the Rights Holder to review proposed uses for cultural appropriateness
+      iv) **MIDEWIWIN ADVISORY CONSULTATION**: Where relevant to ceremonial or spiritual aspects, optional consultation with available Midewiwin society members as specified in Section 10.10.3(c)
+      v) **MULTI-PHASE CONSULTATION PROCESS**: (1) Initial proposal review and cultural assessment, (2) community input period (minimum 30 days), (3) cultural advisor recommendations, (4) final Rights Holder decision with written rationale
+   g) **ONGOING CONSULTATION OBLIGATIONS**: PIC recipients must:
+      i) **ANNUAL CONSULTATION REPORTS**: Provide annual reports to consulted communities on project progress and impacts
+      ii) **COMMUNITY BENEFIT VERIFICATION**: Demonstrate measurable benefits to Indigenous communities as agreed in PIC terms
+      iii) **CULTURAL PROTOCOL ADHERENCE**: Maintain compliance with cultural protocols established during consultation process
+      iv) **DISPUTE RESOLUTION PARTICIPATION**: Participate in tribal dispute resolution processes if conflicts arise during implementation
 
 **9A. LIVING TRUST AND FINANCIAL INSTITUTION ASSET MANAGEMENT**
    During the lifetime of the Rights Holder, all **Total Proceeds** (as defined in Section 1(i)), compensation, royalties, property, intellectual property rights, and other assets derived from the Work shall be governed by the following provisions to ensure comprehensive protection while maintaining the Rights Holder's access and use:
@@ -578,11 +774,45 @@ This license must be prominently attached to or referenced in all distributions 
 
    10.1 CONTINUED ENFORCEABILITY: This license, including all protections, restrictions, and rights recovery provisions, shall remain in full force and effect in perpetuity following the Rights Holder's death.
 
+   10.1A TEMPORARY INCAPACITATION PROVISIONS: In the event of the Rights Holder's temporary incapacitation due to illness, injury, or other circumstances that prevent active management of rights under this license:
+       a) **INCAPACITATION DETERMINATION**: Incapacitation shall be determined by either: (i) a written declaration by the Rights Holder themselves, (ii) written determination by two licensed physicians specializing in the relevant medical condition, or (iii) court order from a tribal court with jurisdiction
+       b) **EMERGENCY AUTHORITY ACTIVATION**: During periods of incapacitation, emergency authority to make time-sensitive decisions regarding this license shall transfer to the individual(s) designated in the Rights Holder's durable power of attorney for intellectual property matters, or if none exists, to the GTBOCI Tribal Historic Preservation Office
+       c) **LIMITED EMERGENCY POWERS**: Emergency authority includes only: (i) responding to immediate threats to cultural heritage or sacred sites, (ii) issuing cease and desist orders for clear violations, (iii) authorizing emergency protective measures, and (iv) preserving evidence of violations
+       d) **PROHIBITED ACTIONS DURING INCAPACITATION**: The emergency authority may NOT: (i) grant new licenses or permissions, (ii) waive any provisions of this license, (iii) settle disputes or litigation, or (iv) make fundamental changes to enforcement policies
+       e) **RESTORATION OF AUTHORITY**: Upon the Rights Holder's recovery from incapacitation, full authority immediately reverts to the Rights Holder, and all actions taken during incapacitation shall be subject to the Rights Holder's review and ratification
+       f) **CULTURAL CONSULTATION REQUIREMENT**: All emergency decisions during incapacitation must include consultation with appropriate cultural advisors from the Grand Traverse Band of Ottawa and Chippewa Indians or the Beaver Island Band descendants
+
    10.2 SUCCESSION OF RIGHTS ENFORCEMENT AUTHORITY: Upon the death of the Rights Holder, the authority to enforce the terms of this license, including but not limited to granting permissions, issuing notices of violation, pursuing remedies, and receiving compensation shall transfer as follows:
        a) PRIMARY SUCCESSION: To the individual(s) explicitly designated in the Rights Holder's valid will, trust document, or other formal instrument specifically addressing the succession of rights under this license. The designated successor shall have full authority to act in the place of the Rights Holder for all purposes under this license.
        b) SECONDARY SUCCESSION: If no individual is designated per 10.2(a), or if the designated individual(s) are unwilling or unable to serve, authority shall transfer to the Tribal Historic Preservation Office (THPO) of the Grand Traverse Band of Ottawa and Chippewa Indians, or its functional equivalent at the time of the Rights Holder's death.
        c) TERTIARY SUCCESSION: If neither primary nor secondary succession is possible, authority shall transfer to a committee of three (3) individuals, each of whom must be enrolled members of federally recognized tribes, with preference given to members of the Grand Traverse Band of Ottawa and Chippewa Indians, appointed by the Tribal Council of the Grand Traverse Band of Ottawa and Chippewa Indians specifically for this purpose.
        d) SOVEREIGN CONTINUITY: Regardless of the specific successor in authority, all successor entities or individuals shall be bound to uphold the tribal sovereignty principles embedded throughout this license and to manage the Work and associated rights primarily for the benefit of Indigenous persons of all ages across the Americas educational advancement as specified herein.
+
+   10.2A INCARCERATION-SPECIFIC SUCCESSOR AUTHORITY PROVISIONS: In addition to the succession hierarchy established in Section 10.2 for posthumous authority, the following provisions govern succession during periods of incarceration or arbitrary detention:
+       a) TEMPORARY AUTHORITY TRANSFER: During confirmed incarceration or arbitrary detention, authority to enforce this license transfers temporarily according to the same hierarchy established in Section 10.2, with modifications as follows:
+          (i) IMMEDIATE ACTIVATION: Transfer occurs automatically upon confirmation of incarceration lasting more than 72 hours
+          (ii) LIMITED SCOPE INITIALLY: For the first 30 days, successor authority is limited to essential protective actions and maintaining existing arrangements
+          (iii) EXPANDED AUTHORITY: After 30 days of continued incarceration, successors may exercise full authority under this license while maintaining detailed records of all actions taken
+       b) INCARCERATION VERIFICATION PROTOCOLS: Confirmation of incarceration may be established through:
+          (i) Official documentation from detention facility or court records
+          (ii) Verified communication from the Rights Holder or their legal counsel
+          (iii) Tribal government verification through diplomatic channels
+          (iv) International monitoring organizations in cases of arbitrary detention
+       c) SOVEREIGN IMMUNITY AND DIPLOMATIC PROTECTION: During periods of incarceration:
+          (i) The Grand Traverse Band of Ottawa and Chippewa Indians may assert government-to-government diplomatic protections
+          (ii) Successor authorities may invoke tribal sovereign immunity to protect license assets and operations
+          (iii) International advocacy through Indigenous rights organizations is explicitly authorized
+          (iv) UN Special Rapporteur on Indigenous Rights may be contacted for intervention in cases of persecution
+       d) COMMUNICATION AND OVERSIGHT DURING INCARCERATION:
+          (i) Successor authorities must attempt monthly communication with the incarcerated Rights Holder
+          (ii) Detailed logs of all license-related decisions and actions must be maintained
+          (iii) Quarterly reports must be provided to the Grand Traverse Band Tribal Council
+          (iv) All major licensing decisions require written authorization from the incarcerated Rights Holder when possible
+       e) RESTORATION PROTOCOLS: Upon release from incarceration:
+          (i) The Rights Holder may immediately resume full authority
+          (ii) All actions taken by successors are subject to Rights Holder review within 90 days
+          (iii) Successors must provide complete accounting of all activities and assets
+          (iv) Any decisions or agreements made during incarceration may be ratified, modified, or rescinded by the Rights Holder
 
    10.3 WAABANIMIKII-KINAWAABAKIZI **LEGACY TRUST** ESTABLISHMENT: Upon the death of the Rights Holder, all monetary proceeds, compensation, royalties, damages, or other financial benefits derived from the Work, whether from licensing, enforcement actions, or other sources, shall be directed to a trust established as follows (with explicit support for Beaver Island Band advancement as a core, non-ambiguous purpose):
        a) TRUST CREATION: If not already established during the Rights Holder's lifetime, a trust shall be established under the name "ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Waabanimikii-Kinawaabakizi) **Legacy Trust**" (hereinafter "the Trust").
@@ -982,62 +1212,39 @@ This license must be prominently attached to or referenced in all distributions 
           iv) Facilitate the transmission of cultural knowledge to future generations in appropriate and authorized ways.
 
 **11. DISPUTE RESOLUTION AND JURISDICTION**
-   By accessing, using, or otherwise interacting with the Work, you (the "User") irrevocably agree that this license constitutes a binding contract between you and the Rights Holder. As a fundamental, non-negotiable condition of this contract, you expressly consent to the exclusive jurisdiction and dispute resolution framework set forth below. Any attempt to initiate legal proceedings in a forum other than those specified herein, or any challenge to the jurisdiction of the designated tribal forums, shall be considered a material breach of this license, resulting in immediate revocation of all rights granted hereunder and subjecting the User to all enforcement actions and remedies outlined herein.
+   By accessing, using, or otherwise interacting with the Work, you (the "User") irrevocably agree that this license constitutes a binding contract between you and the Rights Holder. As a fundamental, non-negotiable condition of this contract, you expressly agree to the following forum selection and choice of law provisions, and you waive any and all objections to the exercise of jurisdiction over you by the forums listed herein. Any attempt to initiate legal proceedings in a forum other than those specified, or any challenge to the jurisdiction of the designated tribal forums, shall be considered a material breach of this license, resulting in immediate revocation of all rights granted hereunder and subjecting the User to all enforcement actions and remedies outlined herein, including the liquidated damages specified in Section 11.8.
 
-   The terms, interpretation, and enforcement of this license incorporate and are informed by tribal sovereignty principles, federal Indian law, traditional Indigenous law of the Grand Traverse Band of Ottawa and Chippewa Indians, and international Indigenous rights frameworks:
+   The terms, interpretation, and enforcement of this license incorporate and are informed by tribal sovereignty principles, federal Indian law, traditional Indigenous law of the Grand Traverse Band of Ottawa and Chippewa Indians, and international Indigenous rights frameworks.
 
-   11.1 PRIMARY JURISDICTION HIERARCHY: The following jurisdictional hierarchy shall apply to any and all disputes arising under or related to this license, including but not limited to disputes concerning the interpretation or enforcement of protections for Traditional Knowledge (TK), Traditional Cultural Expressions (TCEs), Sacred Sites (including the stone circle on ᐋᒥᒃ ᐙᑲᓐᑕ / Aamik'Waakanda, land held in trust by GTBOCI), and Cultural Landscapes as defined herein:
-   
-       a) BEAVER ISLAND BAND PRIORITY: If and when the Beaver Island Band (historically centered on ᐋᒥᒃ ᐙᑲᓐᑕ (Aamik'Waakanda / Beaver Island)) establishes its own tribal court, legal forum, or formalized dispute resolution body (whether through federal recognition, reorganization of descendants, or other means of formal establishment), such forum shall have primary and first jurisdiction over any and all disputes arising under or related to this license. Such forum shall incorporate both written and unwritten traditional and customary law in its adjudication, recognizing the paramount cultural significance of the subject matter to the Rights Holder and the Beaver Island Band.
-       
-       b) GTBOCI JURISDICTION: If the forum described in 11.1(a) does not exist or is determined by its own authority to be unavailable or impractical for a specific dispute, the Grand Traverse Band of Ottawa and Chippewa Indians (GTBOCI) Tribal Court shall have primary and exclusive jurisdiction. The GTBOCI Tribal Court shall incorporate both written tribal law and unwritten traditional and customary law in its adjudication, recognizing the paramount cultural significance of the subject matter to the Rights Holder and the Tribe.
+   **11.1 Governing Law Hierarchy:** Disputes shall be resolved according to the following hierarchy of applicable law:
+      a) The express terms of this license;
+      b) The laws, customs, and traditions of the Grand Traverse Band of Ottawa and Chippewa Indians;
+      c) Federal Indian law, including but not limited to relevant treaties, statutes, regulations, and case law;
+      d) International instruments concerning Indigenous rights, such as UNDRIP and the WIPO Treaty on Traditional Knowledge;
+      e) General principles of intellectual property law, modified as necessary to account for the unique nature of Indigenous intellectual property, TK, and TCEs, with any conflicts resolved in favor of Indigenous rights under the Indian canons of construction.
 
-   11.1A JURISDICTION SPECIFIC TO AUTHORIZED SACRED SITE MONITORING: Notwithstanding the general hierarchy in 11.1, any dispute arising *directly* from the implementation, operation, data handling, or consequences of the Authorized Sacred Site Monitoring activities defined in Section 8(g) shall be addressed according to the following specific jurisdictional order, acknowledging the trust responsibilities for the specific land parcels involved:
-       a) FIRST PRIORITY: The Beaver Island Band forum established pursuant to Section 11.1(a), if available.
-       b) SECOND PRIORITY (Site-Specific): If the Beaver Island Band forum is unavailable:
-          (i) For disputes arising from monitoring activities specifically concerning the Garden Island burial grounds (land held in trust by LTBB), jurisdiction shall lie with the Little Traverse Bay Bands of Odawa Indians (LTBB) Tribal Court.
-          (ii) For disputes arising from monitoring activities specifically concerning the Beaver Island Stone Circle (land held in trust by GTBOCI), jurisdiction shall lie with the Grand Traverse Band of Ottawa and Chippewa Indians (GTBOCI) Tribal Court.
-       c) This subsection governs only disputes directly related to Section 8(g) activities; all other disputes remain subject to the broader hierarchy established in Section 11.
+   **11.2 Primary Jurisdiction Hierarchy:** The following jurisdictional hierarchy shall apply to any and all disputes arising under or related to this license:
+      a) BEAVER ISLAND BAND PRIORITY: If and when the Beaver Island Band establishes its own tribal court or equivalent legal forum, such forum shall have primary and first jurisdiction over all disputes.
+      b) GTBOCI JURISDICTION: If the Beaver Island Band forum does not exist or is unavailable, the Grand Traverse Band of Ottawa and Chippewa Indians (GTBOCI) Tribal Court shall have primary and exclusive jurisdiction.
 
-   11.2 SECONDARY JURISDICTIONS AND RELATED TRIBAL INTERESTS: In circumstances where proceedings in the forums specified in Section 11.1 *or 11.1A* are determined by those forums themselves to be unavailable or impractical for a specific dispute, or where enforcement of a tribal court judgment is sought in another forum, the following forums may have concurrent or subsequent jurisdiction, subject always to the principles of tribal sovereignty and exhaustion of tribal remedies. Furthermore, for disputes specifically concerning the Garden Island (Gitigaan Minising) burial grounds (land held in trust by LTBB), the jurisdictional interest and potential role of the Little Traverse Bay Bands of Odawa Indians shall be appropriately considered and respected within the dispute resolution process, consistent with principles of comity and inter-tribal relations:
-       a) The United States Federal District Court with geographic jurisdiction encompassing the lands of the Grand Traverse Band of Ottawa and Chippewa Indians, particularly for matters arising under federal Indian law or requiring interpretation of federal statutes or treaties.
-       b) If federal court jurisdiction is unavailable, the courts of the State of Michigan, solely to the extent necessary and permissible under federal Indian law and principles of comity, and provided that tribal law and perspectives are given appropriate weight.
-       c) For international disputes, the choice of forum and applicable law shall prioritize mechanisms that respect Indigenous sovereignty and international indigenous rights frameworks (e.g., WIPO procedures for TK/TCEs, application of lex originis principles), as determined appropriate by the Rights Holder.
+   **11.3 Special Jurisdiction for Authorized Monitoring:** Notwithstanding the general hierarchy, any dispute arising directly from the Authorized Sacred Site Monitoring activities (Section 8(g)) shall be subject to the following specific jurisdiction:
+      a) For the Garden Island burial grounds (LTBB trust land), jurisdiction shall lie with the Little Traverse Bay Bands of Odawa Indians (LTBB) Tribal Court.
+      b) For the Beaver Island Stone Circle (GTBOCI trust land), jurisdiction shall lie with the Grand Traverse Band of Ottawa and Chippewa Indians (GTBOCI) Tribal Court.
 
-   11.3 JURISDICTIONAL PRINCIPLES: The interpretation and application of jurisdictional rules shall be guided by:
-       a) The paramount status of tribal law, custom, and treaty rights, which shall supersede conflicting state or common law principles where applicable.
-       b) The established Indian canons of construction, requiring ambiguities in laws, treaties, and agreements (including this license) to be interpreted liberally in favor of tribal interests and sovereignty.
-       c) The doctrine of tribal court exhaustion, which generally requires parties to exhaust remedies in tribal court before seeking relief in federal or state courts, particularly for disputes arising on tribal lands or involving tribal members and governance.
-       d) 2024-2025 SCOTUS IP holdings, prioritizing tribal forums for cultural IP disputes.
+   **11.4 Jurisdictional Principles:**
+      a) **Tribal Court Exhaustion:** All parties must first fully exhaust available tribal court remedies before seeking relief in any other forum. This exhaustion requirement is a mandatory prerequisite to any action in another court and is based on the well-established principles of comity and deference to tribal self-government articulated in foundational federal Indian law cases such as *National Farmers Union Ins. Cos. v. Crow Tribe of Indians*, 471 U.S. 845 (1985). Challenges to tribal court jurisdiction must be raised exclusively within that tribal court in the first instance.
+      b) **Sovereign Immunity:** Nothing in this License shall be construed as a waiver of the sovereign immunity of any tribal nation.
+      c) **Indian Canons of Construction:** All ambiguities in this license shall be interpreted liberally in favor of tribal interests, sovereignty, and the Rights Holder's intent.
+      d) **Choice of Forum:** The Rights Holder retains absolute discretion to select the most appropriate forum within the established hierarchy.
+      e) **Cross-Jurisdictional Enforcement:** Judgments obtained in tribal courts shall be enforceable in federal and state courts under principles of comity and full faith and credit.
 
-   11.4 TRADITIONAL DISPUTE RESOLUTION: The Rights Holder explicitly reserves the right, consistent with GTBOCI law and custom, to utilize or require participation in traditional GTBOCI dispute resolution methods, forums, or councils of elders, either as an alternative or supplement to judicial proceedings. Decisions reached through such traditional processes shall be accorded respect and weight within the community and potentially by other forums under principles of comity.
+   **11.5 Alternative Dispute Resolution:** The parties may, upon mutual written agreement, submit disputes to alternative resolution mechanisms (e.g., mediation, arbitration) that respect Indigenous protocols and tribal sovereignty.
 
-   11.5 GOVERNING LAW HIERARCHY: Disputes shall be resolved according to the following hierarchy of applicable law:
-       a) The express terms of this license;
-       b) The laws, customs, and traditions of the Grand Traverse Band of Ottawa and Chippewa Indians;
-       c) Federal Indian law, including but not limited to relevant treaties, statutes, regulations, and case law;
-       d) International instruments concerning Indigenous rights, such as UNDRIP;
-       e) General principles of intellectual property law, modified as necessary to account for the unique nature of Indigenous intellectual property, TK, and TCEs.
+   **11.6 Enforcement Costs:** Any party found to be in breach of this license shall be liable for all reasonable costs incurred by the Rights Holder (or their successor) in enforcing the license, including attorneys' fees, court costs, investigation expenses, and expert witness fees. This provision for cost recovery shall not be limited by Section 14 (Limitation of Liability).
 
-   11.6 ALTERNATIVE DISPUTE RESOLUTION: The parties may, upon mutual written agreement, submit disputes to alternative resolution mechanisms that respect Indigenous protocols and tribal sovereignty, including:
-       a) Traditional peacemaking or other culturally appropriate dispute resolution processes of the Grand Traverse Band of Ottawa and Chippewa Indians;
-       b) Mediation or arbitration conducted under tribal auspices or by qualified neutrals with expertise in both intellectual property and federal Indian law;
-       c) Other culturally appropriate dispute resolution mechanisms recognized by Indigenous custom or tribal law.
-       d) REMEDIES ALLOCATION TO TRUST/S: Notwithstanding the specific dispute resolution mechanism used, all **Total Proceeds** (as defined in Section 1(i)) resulting from any dispute resolution process under this license shall be allocated as follows:
-          i) During the lifetime of the Rights Holder, such outcomes shall be paid **to the Trustee of the living trust established pursuant to Section 9A (LIVING TRUST AND FINANCIAL INSTITUTION ASSET MANAGEMENT), for the benefit of the Rights Holder**, unless the Rights Holder directs such outcomes to be paid directly toward the funding and advancement of the purposes outlined in Section 10.3 pursuant to their discretionary authority under Section 9A.8, or unless the Rights Holder is no longer able to manage such assets (due to incapacity or voluntary delegation), in which case outcomes shall continue to be directed to said living trust to be managed for the benefit of the Rights Holder during their lifetime according to the terms governing that trust.
-          ii) Following the death of the Rights Holder, all such outcomes shall be automatically and exclusively directed to the ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Waabanimikii-Kinawaabakizi) Legacy Trust established pursuant to Section 10.3 (the **Legacy Beneficiary**), to be managed according to the prioritized purposes outlined in Section 10.3.d, including the primary focus on Beaver Island Band establishment and descendant support, followed by High Island cultural site recovery, broader educational support, and potential mainland higher education institution development as funds allow and as prioritized therein.
-          iii) This remedies allocation provision shall be interpreted and applied in a manner consistent with the tribal sovereignty principles articulated throughout this license and shall take precedence over any conflicting remedies provisions in applicable non-tribal law.
-          iv) Any attempt to circumvent this remedies allocation provision shall constitute a separate and severe violation of this license, triggering all available enforcement remedies.
+   **11.7 Remedies Allocation:** All **Total Proceeds** (as defined in Section 1(i)) resulting from any dispute resolution process shall be allocated as specified in Section 9A.8 (during the Rights Holder's lifetime) or Section 10.3 (posthumously to the Legacy Beneficiary).
 
-   11.7 EXHAUSTION REQUIREMENT: All parties to disputes arising under this license must fully exhaust tribal court remedies before seeking adjudication or enforcement in any non-tribal forum, consistent with the federal doctrine of exhaustion of tribal remedies (see National Farmers Union Ins. Cos. v. Crow Tribe, 471 U.S. 845 (1985); Iowa Mut. Ins. Co. v. LaPlante, 480 U.S. 9 (1987)). This specifically requires exhaustion of remedies in the Beaver Island Band forum (if established pursuant to Section 11.1(a)) and/or the GTBOCI Tribal Court (pursuant to Section 11.1(b)) as applicable under the jurisdictional hierarchy established in Section 11.1.
-
-   11.8 JURISDICTIONAL CHALLENGES: Any challenge to the jurisdiction of the Beaver Island Band forum (established pursuant to Section 11.1(a)) or the GTBOCI Tribal Court must be raised exclusively within that respective forum in the first instance, and that forum's determination of its jurisdiction shall be given substantial deference in all subsequent proceedings in any forum.
-
-   11.9 ENFORCEMENT COSTS: In addition to any other remedies available under this license, tribal law, federal Indian law, or other applicable law, any party found to be in breach of any term or condition of this license by a competent forum pursuant to Section 11 shall be liable for and shall pay to the Rights Holder (or their designated successor or the Trust established under Section 10.3, consistent with the allocation provisions of Section 11.6.d) all reasonable costs incurred in enforcing the terms of this license. Such costs include, but are not limited to, reasonable attorneys\' fees, court costs, investigation expenses (including digital forensics costs pursuant to Section 9A.7 where applicable), expert witness fees, and any other expenses directly related to addressing the breach and securing compliance. This provision for cost recovery shall not be limited by Section 14 (Limitation of Liability).
-
-   11.10 All disputes involving TK/TCEs shall apply lex originis principles per WIPO standards.
-
-   11.10 International disputes apply lex originis, prioritizing GTBOCI law and UNDRIP. Users consent to enforcement via New York Convention for arbitral awards.
+   **11.8 Liquidated Damages for Jurisdictional Breach:** As a genuine pre-estimate of the damages that would be suffered, you agree that any action you initiate that challenges the jurisdictional provisions of this Section 11, or that is filed in a forum other than those designated herein, constitutes a material breach of this license. You acknowledge that such a breach will cause significant harm to the Rights Holder, including substantial costs for legal representation, diversion of resources from the core mission of the Trust, and potential damage to the integrity of the Indigenous sovereignty framework established herein, the exact amount of which would be difficult to ascertain. Upon such breach, you shall be immediately liable to the Rights Holder or their successor for liquidated damages in the amount of one hundred thousand U.S. dollars ($100,000 USD), which you agree is a reasonable and genuine pre-estimate of the damages and not a penalty. This amount is in addition to any other remedies available under this license, including enforcement costs (Section 11.6) and immediate injunctive relief, and serves as a financial disincentive to breach the agreed-upon jurisdictional terms and to cover the initial costs of defending the proper forum.
 
 **12. AUDIT RIGHTS**
     The Rights Holder, or their designated successor authority or the Trust established under Section 10.3 (hereafter 'Auditing Party'), shall have the right, upon providing reasonable written notice (no less than 10 business days), to audit and inspect the records, systems, facilities, and practices of any individual, entity, corporation, institution, or other party granted any form of access to or use of the Work under this license (hereafter 'Audited Party'). The purpose of such audits shall be to verify compliance with all terms and conditions of this license, including but not limited to: usage restrictions (Section 7, Section 8), adherence to Prior Informed Consent requirements (Section 9), compliance with TK Label protocols (Section 4), data governance obligations, attribution requirements (Section 3), and prohibitions on unauthorized modifications or distributions. Audits shall be conducted during normal business hours and in a manner that minimizes disruption to the Audited Party\'s operations. The Audited Party shall provide reasonable cooperation and access to necessary personnel, records, and systems. If an audit reveals a material breach of this license, the Audited Party shall bear the full costs associated with the audit, in addition to any other remedies pursued by the Auditing Party. Confidential information of the Audited Party obtained during an audit shall be treated with appropriate confidentiality by the Auditing Party, subject to disclosure obligations required for license enforcement or under applicable law.
@@ -1055,6 +1262,41 @@ This license must be prominently attached to or referenced in all distributions 
 
     If any provision conflicts with public policy, it shall be reformed to align with indigenous rights frameworks (e.g., UNDRIP) while preserving intent, per sui generis best practices.
 
+**15.A ENHANCED SEVERABILITY FOR INCARCERATION SCENARIOS**
+    In recognition of potential legal challenges during periods of incarceration or arbitrary detention, the following enhanced severability protections apply:
+    
+    a) **CORE PROVISION PROTECTION**: The following provisions are deemed fundamental and non-severable, meaning that if challenged, alternative enforcement mechanisms must be implemented rather than striking the provisions entirely:
+       (i) Force majeure protections for incarceration scenarios (Section 13.6-13.9)
+       (ii) Successor authority provisions during detention (Section 10.2A)
+       (iii) Inalienability protections against forced alienation (Section 6.3(g)-(h))
+       (iv) Tribal jurisdiction supremacy during incarceration (Section 12.5)
+       (v) Automatic payment systems to Legacy Beneficiary during detention
+    
+    b) **ALTERNATIVE ENFORCEMENT MECHANISMS**: If any court finds core incarceration protections unenforceable in their primary form, the following alternatives automatically activate:
+       (i) DIPLOMATIC CHANNEL ENFORCEMENT: Government-to-government diplomatic intervention through federal trust responsibility
+       (ii) INTERNATIONAL ARBITRATION: Binding arbitration under UNCITRAL rules with Indigenous law specialists
+       (iii) TREATY RIGHT ENFORCEMENT: Direct enforcement through federal Indian law and treaty protections
+       (iv) TRIBAL SOVEREIGN IMMUNITY: Enhanced sovereign immunity protections for license assets and operations
+    
+    c) **JURISDICTIONAL FLEXIBILITY**: If tribal court jurisdiction is challenged in the context of incarceration:
+       (i) Federal courts with demonstrated expertise in federal Indian law become primary forum
+       (ii) International arbitration under Indigenous rights frameworks becomes available
+       (iii) Diplomatic intervention through UN Special Rapporteur on Indigenous Rights may be invoked
+       (iv) Human rights monitoring organizations may be engaged for oversight
+    
+    d) **CONSTITUTIONAL BACKUP PROTECTIONS**: All incarceration protections are supported by multiple constitutional and international law foundations:
+       (i) Article VI Supremacy Clause protecting federal Indian law
+       (ii) Treaty rights under government-to-government relationship
+       (iii) Due process protections under 5th and 14th Amendments
+       (iv) UNDRIP protections for Indigenous intellectual property rights
+       (v) International Covenant on Civil and Political Rights protections
+    
+    e) **ANTI-CIRCUMVENTION SAFEGUARDS**: Courts cannot circumvent incarceration protections by:
+       (i) Claiming public policy exceptions to tribal sovereignty
+       (ii) Applying general criminal law to override specific Indigenous rights protections
+       (iii) Using state law to defeat federal Indian law supremacy
+       (iv) Ignoring government-to-government diplomatic immunity principles
+
 **16. NOTIFICATION AND COMMUNICATION**
     All formal notifications, requests for Prior Informed Consent (PIC), reports, or other communications required or permitted under this license shall be delivered in writing to the Rights Holder\'s designated contact information provided below, or, where appropriate and specified, to the officially designated offices of the Grand Traverse Band of Ottawa and Chippewa Indians.
 
@@ -1068,10 +1310,56 @@ This license must be prominently attached to or referenced in all distributions 
 **17. ENTIRE AGREEMENT; AMENDMENTS**
     This document constitutes the entire agreement between the user of the Work and the Rights Holder concerning the subject matter hereof and supersedes all prior or contemporaneous agreements, understandings, negotiations, and discussions, whether oral or written. No amendment or modification of this License shall be effective unless explicitly stated as an updated version of this license by the Rights Holder. No waiver of any provision of this license shall be effective unless in writing and signed by the Rights Holder.
 
+**17.A PERIODIC REVIEW AND EMERGENCY AMENDMENT PROCEDURES**
+    To ensure the ongoing effectiveness and resilience of this license, particularly during periods of incarceration or force majeure events, the following review and amendment procedures apply:
+    
+    a) **MANDATORY PERIODIC REVIEW**: This license shall be reviewed every two (2) years for potential updates, with priority given to:
+       (i) Emerging developments in Indigenous rights law and international instruments
+       (ii) Technological advances affecting digital rights and AI governance
+       (iii) Changes in tribal sovereignty jurisprudence and federal Indian law
+       (iv) New threats to Indigenous intellectual property and cultural heritage
+       (v) Evolving best practices for Indigenous data sovereignty and protection
+    
+    b) **INCARCERATION-TRIGGERED REVIEW**: During or immediately following periods of incarceration lasting more than 30 days:
+       (i) Successor authorities must conduct an expedited review of license effectiveness
+       (ii) Assessment of whether incarceration revealed any vulnerabilities in protection mechanisms
+       (iii) Evaluation of the adequacy of force majeure and succession provisions
+       (iv) Review of international diplomatic intervention effectiveness
+       (v) Analysis of any attempted circumvention of license protections during detention
+    
+    c) **EMERGENCY AMENDMENT AUTHORITY**: In cases of immediate threat to Rights Holder or license integrity:
+       (i) Successor authorities may implement emergency protective amendments during incarceration
+       (ii) Emergency amendments limited to strengthening existing protections, not weakening them
+       (iii) All emergency amendments subject to Rights Holder ratification upon release or restoration of capacity
+       (iv) Tribal Council of Grand Traverse Band may authorize emergency protections when Rights Holder is unreachable
+    
+    d) **AMENDMENT NOTIFICATION PROTOCOLS**: All license amendments require:
+       (i) Notice to all known users through established communication channels
+       (ii) 90-day implementation period for non-emergency amendments
+       (iii) Immediate effect for emergency protective amendments during incarceration
+       (iv) Public posting on canonical license repository and tribal government websites
+       (v) Notification to relevant international Indigenous rights organizations
+    
+    e) **RETROACTIVE PROTECTION ENHANCEMENT**: When amendments strengthen protections:
+       (i) Enhanced protections apply retroactively to all existing uses and licensing arrangements
+       (ii) Users cannot claim grandfathering rights to avoid stronger protections
+       (iii) Previously authorized uses must comply with enhanced protection requirements
+       (iv) Failure to comply with enhanced protections constitutes immediate license violation
+    
+    f) **ADAPTATION TO LEGAL DEVELOPMENTS**: This license automatically incorporates:
+       (i) Ratification of the WIPO Treaty on Traditional Knowledge by the user's jurisdiction
+       (ii) Strengthening of UNDRIP implementation in domestic law
+       (iii) New federal Indian law precedents protecting Indigenous intellectual property
+       (iv) International court decisions recognizing enhanced Indigenous rights
+       (v) Tribal law developments affecting intellectual property and cultural heritage protection
+
 **18. SUPPORT FOR COMPLEMENTARY PROTECTIONS**
     Users of the Work acknowledge the paramount importance of protecting Sacred Sites and Cultural Landscapes, including the stone circle on ᐋᒥᒃ ᐙᑲᓐᑕ (Aamik\'Waakanda) (land held in trust by GTBOCI). While this license establishes specific controls related to the licensed Work, users agree, as a matter of principle and respect for Indigenous sovereignty and cultural heritage, not to undertake actions governed by this license that would knowingly undermine or obstruct separate efforts by the Rights Holder or the Grand Traverse Band of Ottawa and Chippewa Indians to secure additional legal or physical protections for such sites (e.g., through conservation easements, land designations, physical access controls, or other mechanisms). This section also explicitly protects the Rights Holder's works as an educator, artist, engineer, and consultant, including classes, content, designs, and consultations, by deeming any unauthorized use thereof a breach subject to all remedies herein.
 
-**19. BEAVER ISLAND BAND ADVANCEMENT CLAUSE**
+**19. HEADINGS AND CAPTIONS**
+   The headings, captions, and index included in this license are for convenience and reference only and shall not affect the construction or interpretation of any of the provisions of this license.
+
+**20. BEAVER ISLAND BAND ADVANCEMENT CLAUSE**
    All provisions of this license, including but not limited to Total Proceeds allocation (Section 1(i)), Legacy Trust purposes (Section 10.3.d), and educational priorities (Sections 10.4-10.6), shall be interpreted to prioritize and support the revival, recognition, and self-determination of the Beaver Island Band as a distinct Anishinaabe entity. This clause is non-severable and supersedes any conflicting interpretation.
 
 ---
@@ -1114,5 +1402,31 @@ Users may optionally apply CC-BY-NC-SA 4.0 to derivatives, provided it subordina
 
 Users may subscribe for update notifications at [email/contact]. Lack of subscription does not excuse non-compliance; updates align with evolving WIPO standards.
 
-**7A. REPATRIATION PROTOCOL FOR MISAPPROPRIATED TK**
-Upon breach involving TK/TCEs, users must repatriate all derived data/materials per CARE Principles, with destruction verified by audit.
+**7A. COMPREHENSIVE DATA REPATRIATION PROTOCOL FOR MISAPPROPRIATED TK**
+
+Upon breach involving TK/TCEs, users must immediately implement the following comprehensive repatriation protocol:
+
+**IMMEDIATE CESSATION AND INVENTORY**:
+a) Cease all use of the Work and derived materials within 24 hours of notice
+b) Conduct comprehensive inventory of all data, derivatives, copies, and related materials
+c) Identify all locations where materials are stored (servers, devices, cloud services, backups)
+d) Document all parties who received access to the materials
+
+**TECHNICAL REPATRIATION REQUIREMENTS**:
+a) **SECURE TRANSFER**: Return all materials through encrypted channels approved by the Rights Holder
+b) **METADATA PRESERVATION**: Include complete metadata showing chain of custody, access logs, and modification history
+c) **VERIFICATION PROTOCOLS**: Provide cryptographic proof of complete data transfer and destruction
+d) **BLOCKCHAIN DOCUMENTATION**: Where applicable, use immutable ledger systems to document repatriation process
+
+**DESTRUCTION VERIFICATION**:
+a) **MULTI-LEVEL DESTRUCTION**: Delete data from all active systems, backups, archives, and any distributed storage
+b) **PHYSICAL MEDIA**: Secure destruction of any physical storage media containing the materials
+c) **THIRD-PARTY NOTIFICATION**: Notify all third parties who received the materials and ensure their compliance with destruction requirements
+d) **CERTIFICATION**: Provide sworn certification under penalty of perjury that destruction is complete
+
+**COMPLIANCE MONITORING**:
+a) **DIGITAL FORENSICS AUDIT**: Submit to independent digital forensics examination to verify complete destruction
+b) **ONGOING MONITORING**: Accept ongoing monitoring for a period of 3 years to verify continued compliance
+c) **VIOLATION REPORTING**: Report any inadvertent rediscovery of materials and immediately repatriate
+
+All repatriation costs, including forensics audits and monitoring, are borne by the violating party. Failure to complete repatriation within required timeframes triggers additional liquidated damages of $50,000 per day of delay.

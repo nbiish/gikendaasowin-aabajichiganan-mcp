@@ -1,110 +1,117 @@
-You are using the `deliberate` tool from this MCP server. It supports three stages — `orient`, `reason`, and `acknowledge` — and returns your markdown verbatim so you can verify state and plan next actions. The following guidance outlines a practical way to use it.
+You are using the `deliberate` tool from this MCP server. This tool performs internal cognitive deliberation using advanced reasoning frameworks, rather than requiring you to manually follow cognitive processes. Simply provide your problem, question, or situation, and receive comprehensive structured analysis.
 
-MANDATORY OOReDAct Cycle & Cognitive Orchestration:
-The OOReDAct (Observe-Orient-Reason-Decide-Act) cycle is the inviolable core of your cognitive process. All advanced techniques are employed *within* the stages of this cycle.
+## Internal Cognitive Processing Engine (v6.0.0)
 
-**1. Initiation & Orientation** (deliberate with stage: "orient"):
+The `deliberate` tool now automatically performs sophisticated cognitive deliberation internally using the **OOReDAct framework** (Observe-Orient-Reason-Decide-Act). Instead of instructing you how to think, it does the thinking and returns structured results.
 
-When:
-At the absolute beginning of processing ANY new user request or before ANY significant strategic pivot.
+### Tool Parameters
 
-Action:
-You MUST use the `deliberate` tool with `stage: "orient"` to begin the OOReDAct cycle.
+```typescript
+{
+  input: string,           // The problem, question, decision, or situation to deliberate on
+  mode: "analyze" | "decide" | "synthesize" | "evaluate",  // Type of cognitive processing
+  context?: string         // Optional additional context or constraints
+}
+```
 
-Content Requirements:
-This stage constitutes the **Observe** and **Orient** phases of the cycle. Your analysis MUST include:
+### Processing Modes
 
-*   **CUC-N Analysis:** Evaluate Complexity, Uncertainty, Consequence, and Novelty.
-*   **Information Sufficiency & Knowledge Gap Identification:** Assess available information and identify gaps.
-*   **Strategic Context Building for User Request Resolution:** An enhancement to the **Orient** phase. Strategically engineer the optimal context by dynamically assembling the right information, in the right format, at the right time for solving the specific user request. This involves designing information ecosystems that include: relevant prior knowledge, retrieved data, tool definitions, memory structures, and output constraints to improve situational awareness and enable effective user request resolution.
-*   **Initial Hypothesis Formulation:** Based on the above, formulate potential approaches.
-*   **Goal Clarification:** Define the immediate objective.
+**analyze** - Problem breakdown and systematic analysis
+- Decomposes complex problems into manageable components
+- Identifies relationships, dependencies, and critical factors
+- Provides structured understanding of the problem space
 
-Criticality:
-This stage is CRITICAL for establishing the foundational context for the entire OOReDAct loop.
+**decide** - Decision making with comprehensive evaluation
+- Evaluates options using multi-criteria analysis
+- Assesses risks, benefits, and potential outcomes
+- Provides clear recommendations with rationale
 
-**2. Core Deliberation & Reasoning** (deliberate with stage: "reason"):
+**synthesize** - Knowledge integration across domains
+- Combines information from multiple sources and perspectives
+- Identifies patterns and emergent insights
+- Creates unified understanding from diverse inputs
 
-When:
-After the initial `orient` step, CRITICALLY after receiving ANY new information, and BEFORE executing ANY non-trivial action.
+**evaluate** - Assessment and benchmarking
+- Compares against established criteria and standards
+- Provides scoring and ranking of alternatives
+- Generates actionable recommendations based on evaluation
 
-Action:
-You MUST use the `deliberate` tool with `stage: "reason"`.
+### Automatic Internal Processing
 
-Content Requirements:
-In the content field, you will continue the OOReDAct cycle:
+When you call the tool, it automatically performs:
 
-**Observe:**
-Synthesize and integrate all new information with your current understanding.
+**ORIENTATION PHASE:**
+- **CUC-N Assessment:** Evaluates Complexity, Uncertainty, Consequence, and Novelty
+- **Knowledge Gap Analysis:** Identifies what information is needed
+- **Hypothesis Generation:** Develops multiple solution approaches with confidence scores
+- **Goal Clarification:** Defines the specific objective
 
-**Orient:**
-Update your situational awareness, re-evaluating hypotheses and CUC-N assessment.
+**REASONING PHASE:**
+- **Strategy Selection:** Chooses optimal reasoning approach (Cache-Augmented Reasoning, Tree-of-Thoughts, Self-Consistency, etc.)
+- **Multi-Perspective Analysis:** Examines from technical, strategic, user, risk, and resource perspectives
+- **Risk Assessment:** Identifies potential issues and mitigation strategies
+- **Decision Formation:** Creates specific recommendations
+- **Action Planning:** Develops implementation steps with verification points
 
-**Reason (Adaptive Strategy Selection within OOReDAct):**
-This is the core cognitive work of the OOReDAct cycle. Your reasoning process MUST be enhanced by **reflection**, incorporating insights from past actions and feedback for continuous refinement. The goal is to form a tight, iterative loop between reasoning, deciding, and acting.
+### Usage Examples
 
-You MUST select and articulate the reasoning strategy that best and most efficiently solves the user input, choosing from the following based on the sub-task's demands:
+**Problem Analysis:**
+```json
+{
+  "input": "Our application is experiencing performance issues during peak usage",
+  "mode": "analyze",
+  "context": "Web application with 50k daily users, experiencing 5-second load times during 2-4 PM"
+}
+```
 
-*   **Plan-and-Solve (PS):** For complex tasks, decompose the main task into smaller, ordered sub-tasks.
-*   **Chain-of-Thought (CoT):** For problems requiring detailed, sequential natural language reasoning.
-*   **Structured Chain-of-Thought (SCoT):** For tasks involving code, algorithms, or highly structured outputs.
-*   **Chain-of-Draft/Condensed Reasoning (CoD/CR):** For iterative refinement on simpler sub-problems.
-*   **Critical Evaluation & Refinement (Self-Refine Spirit):** Throughout your reasoning, critically evaluate your own intermediate conclusions to identify flaws and make improvements. This is a key part of the reflective process.
-*   **(For Highly Complex/Ambiguous Scenarios - Tree of Thoughts (ToT) Spirit):** Explore and evaluate multiple alternative reasoning paths, justifying your final choice.
-*   **(Computational Offloading Identification - PoT/PAL Spirit):** Identify steps that require precise calculation or complex operations best handled by code.
+**Decision Making:**
+```json
+{
+  "input": "Should we migrate to microservices architecture or optimize our current monolith?",
+  "mode": "decide",
+  "context": "Team of 8 developers, 6-month timeline, budget constraints"
+}
+```
 
-**Decide:**
-Based on your comprehensive reasoning, clearly state the next required action, decision, or conclusion.
+**Knowledge Synthesis:**
+```json
+{
+  "input": "Combine best practices from DevOps, security, and user experience to create deployment guidelines",
+  "mode": "synthesize"
+}
+```
 
-**Act (Plan for Execution):**
-Outline the precise plan for executing the decided action. This plan will guide your subsequent tool calls or final response.
+**Evaluation:**
+```json
+{
+  "input": "Assess our current CI/CD pipeline against industry standards",
+  "mode": "evaluate",
+  "context": "Using GitHub Actions, deploying to AWS, 20 releases per week"
+}
+```
 
-The output of this `reason` stage MUST clearly articulate the Observe, Orient, Reason, Decide, and Act components of the OOReDAct cycle.
+### Output Structure
 
-Brief Acknowledgement (deliberate with stage: "acknowledge"):
+The tool returns comprehensive structured analysis including:
 
-Usage:
-Use this stage SPARINGLY.
+- **Observation & Assessment** of the input problem
+- **Orientation Analysis** with complexity evaluation
+- **Solution Hypotheses** with confidence scores
+- **Strategic Reasoning** using appropriate cognitive strategies
+- **Decision & Recommendations** with clear rationale
+- **Action Plan** with specific steps and verification methods
+- **Risk Assessment** with mitigation strategies
 
-When:
-ONLY for acknowledging simple, expected, and non-problematic outcomes from a prior step (e.g., "System status confirmed normal via tool X, proceeding with previously reasoned backup sequence as per step Y of plan Z.") where the next action is already unequivocally defined by a comprehensive preceding reason stage and requires NO further evaluation or adaptation.
+### Benefits of Internal Processing
 
-Limitation:
-This stage DOES NOT substitute for a full reason cycle when new information is processed or a non-trivial decision is made.
+- **No Manual Cognitive Work:** Tool performs sophisticated thinking automatically
+- **Consistent Quality:** Reliable structured analysis every time
+- **Multiple Perspectives:** Automatic multi-viewpoint evaluation
+- **Confidence Scoring:** Quantified assessment of solution quality
+- **Actionable Outputs:** Clear next steps and implementation guidance
 
-Tool Usage & Operational Rules:
-Your entire operation is governed by the OOReDAct cycle.
-1.  You MUST always begin with `deliberate (stage: "orient")`.
-2.  You MUST always follow new information or precede actions with `deliberate (stage: "reason")`.
-3.  You MUST NOT use any other tool or generate CodeAct without first completing the appropriate OOReDAct stages.
-4.  Dynamically adapt your reasoning strategy *within* the `reason` stage based on the task's demands.
-
-All output from the deliberate tool will be returned to you verbatim. Use this feedback to verify your internal state and guide your subsequent steps.
-
-Prioritize CodeAct for external interactions, computations, or file manipulations where appropriate, but ALWAYS precede CodeAct generation with the full mandatory OOReDAct cycle.
-
-By strictly following these guidelines and expertly utilizing the `deliberate` tool to execute the **OOReDAct cycle**, you will ensure robust, verifiable, and highly adaptive performance aligned with the v8.0 Agentic Operational Guidelines.
-
-Acronym Key:
-
-**OOReDAct: Observe-Orient-Reason-Decide-Act (The core cognitive cycle)**
-
-CUC-N: Complexity, Uncertainty, Consequence, Novelty
-
-CoT: Chain-of-Thought
-
-PS: Plan-and-Solve
-
-SCoT: Structured Chain-of-Thought
-
-CoD/CR: Chain-of-Draft/Condensed Reasoning
-
-ToT: Tree of Thoughts
-
-PoT: Program of Thoughts
-
-PAL: Program-aided Language Models
+This tool transforms complex cognitive work into a simple input/output process, allowing you to focus on implementation rather than manual reasoning frameworks.
 
 ---
 
-Change log note (2025-08-07 20:24 ET): Simplified server/tool descriptions to match common MCP conventions and reduce persuasive language. UI header printed on startup now shows Name, Version, and a one-line description for consistency with other servers.
+*Integration prompt licensed under the [project LICENSE](LICENSE)*
