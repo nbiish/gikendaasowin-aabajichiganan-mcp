@@ -26,7 +26,7 @@ import { z } from "zod";
 // --- Server Definition ---
 const serverInfo = {
     name: "gikendaasowin-aabajichiganan-mcp",
-    version: "6.0.0",
+    version: "6.0.3",
     description: "Cognitive deliberation MCP server with internal OOReDAct processing engine. Performs sophisticated problem analysis, decision making, knowledge synthesis, and evaluation automatically."
 };
 const server = new McpServer(serverInfo);
