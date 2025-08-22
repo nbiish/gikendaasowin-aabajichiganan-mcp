@@ -1,11 +1,9 @@
 ---
-description: 
-globs: *.json,*.py,*.js,*.ts,*.rs,*.sh,*.md
+description: Follow this method when an error occurs.
 alwaysApply: false
 ---
-UPON ERRORS/ISSUES:
-- use mcp_All_docs_and_libraries (context7 mcp tool) to learn/confirm knowledge about frameworks, libraries, etc..
-    - fallback to internal search
-    - fallback to other search tools (brave, etc)
-        - VERIFY and use CURRENT TIME using mcp_time_*
-    - all other available websearch & tools for information/docs gathering
+- VERIFY and the CURRENT time and date from the mcp_time_* tool 
+- use mcp_context7 to gather knowledge about frameworks, libraries, etc..
+- internal websearch
+- mcp websearch tools (brave, etc)
+- all other available tools for information/docs gathering (fetch, etc)

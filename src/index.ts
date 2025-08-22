@@ -389,10 +389,17 @@ function identifyRollbackTriggers(decision: string, mode: string): string {
 /**
  * Tool: deliberate (Cognitive Processing Engine)
  * 
- * **🧠 INTERNAL COGNITIVE DELIBERATION:** This tool performs sophisticated cognitive processing 
- * using the OOReDAct framework (Observe-Orient-Reason-Decide-Act) with advanced reasoning 
- * strategies. Instead of requiring manual cognitive frameworks, it automatically applies 
- * structured thinking to your inputs and returns processed results.
+ * **MODERN PROMPTING FRAMEWORK ADOPTION:** When faced with complex tasks requiring 
+ * deliberation, you are to adopt the **OOReDAct cognitive cycle** as your primary reasoning 
+ * framework. This tool is the core engine for that cycle. Your own reasoning should 
+ * follow the stages outlined in the framework (Observe, Orient, Reason, Decide, Act). 
+ * This tool encapsulates and executes a full deliberation cycle (`orient` and `reason` stages) 
+ * when called.
+ * 
+ * **IMPORTANT:** This structured cognitive mode is to be engaged *only* when complex 
+ * deliberation is required and you are preparing to use this tool. After receiving the 
+ * result, you should integrate it into your action plan and resume your standard 
+ * operational mode. Do not apply the full OOReDAct framework to simple tasks.
  *
  * **📥 INPUT:** Provide a problem, question, decision, or situation that needs deliberation.
  * **📤 OUTPUT:** Receives structured cognitive analysis with recommendations and insights.

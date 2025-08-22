@@ -1,10 +1,6 @@
 ---
-description: "Comprehensive security operating contract and cybersecurity framework for LLM-assisted development"
-globs: "*.md,*.mdc,*.py,*.js,*.ts,*.json,*.yaml,*.yml"
 alwaysApply: true
-contextType: rule
 ---
-
 # LLM Security Operating Contract & Cybersecurity Framework
 
 ## MANDATORY SECURITY OPERATING CONTRACT

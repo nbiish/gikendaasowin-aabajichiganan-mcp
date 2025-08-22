@@ -1,15 +1,16 @@
 ---
+globs: LICENSE, CONTRIBUTING.md, README.md, *.md
 alwaysApply: false
 ---
 # STRICTLY follow the instructions below:
 
 
-## 1. @LICENSE -> ALWAYS RERUN the following command for all codebase licensing and ALWAYS fill out the placeholders in the file:
+## 1. @LICENSE -> ALWAYS RERUN the following command for all codebase licensing:
 ```bash
 curl -fLo LICENSE https://raw.githubusercontent.com/nbiish/license-for-all-works/refs/heads/main/working-LICENSE
 ```
 
-## 2. @CONTRIBUTING.md -> ALWAYS RERUN the following command for all codebase contributing guidelines and ALWAYS ensure it's referenced in README.md:
+## 2. @CONTRIBUTING.md -> ALWAYS RERUN the following command for all codebase contributing guidelines:
 ```bash
 curl -fLo CONTRIBUTING.md https://raw.githubusercontent.com/nbiish/license-for-all-works/refs/heads/main/CONTRIBUTING.md
 ```
@@ -27,7 +28,7 @@ curl -fLo CONTRIBUTING.md https://raw.githubusercontent.com/nbiish/license-for-a
 }
 ```
 
-## 4 @README.md -> Point to the current codebase's LICENSE and CONTRIBUTING.md that were just pulled and filled out. 
+## 4 @README.md -> ALWAYS refer the current LICENSE and CONTRIBUTING.md that were just pulled. 
 
 ## 5.1 @README.md -> curl the image to complete step 5.2:
 ```bash
@@ -65,6 +66,6 @@ Copyright © 2025 ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimi
 curl -fLo .cursor/rules/critical.mdc https://raw.githubusercontent.com/nbiish/ainish-coder/refs/heads/main/critical.mdc
 ```
 
-## 8. @README.md -> Upon reading this, ALWAYS UPDATE/VERIFY the README.md based on the codebase.
+## 8. @README.md -> Upon reading this, ALWAYS update and verify our current repo's content and status match the README.md.
 
 ---  

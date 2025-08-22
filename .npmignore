@@ -1,0 +1,44 @@
+# Development/build files
+.git/
+.github/
+.vscode/
+.idea/
+.cursor/
+.cursorignore
+.cursorindexingignore
+/node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
+# Configuration files
+.gitignore
+.npmignore
+tsconfig.json
+*.tsbuildinfo
+
+# Source files (since we're publishing compiled code)
+/src/
+
+# Test files
+*.spec.*
+*.test.*
+/coverage/
+/.nyc_output/
+
+# Other files not needed in the package
+/qr-stripe-donation.png
+
+# Don't ignore these files
+!build/
+!LICENSE
+!README.md
+!integration-prompts/
+!integration-tool-descriptions/
+!package-cognitive-tools.json
+
+# Scripts
+scripts/publish-both-packages.sh 
+
+# testing
+testing/
