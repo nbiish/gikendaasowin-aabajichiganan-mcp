@@ -15,7 +15,7 @@ curl -fLo LICENSE https://raw.githubusercontent.com/nbiish/license-for-all-works
 curl -fLo CONTRIBUTING.md https://raw.githubusercontent.com/nbiish/license-for-all-works/refs/heads/main/CONTRIBUTING.md
 ```
 
-## 3. @README.md -> ALWAYS UPDATE to a scholarly citation with the following content and ALWAYS fill out the placeholders: 
+## 3. @README.md -> ALWAYS UPDATE to a scholarly citation with the following content and ALWAYS fill out the placeholders for the repo_title: 
 ```bibtex
 @misc{<|repo_title|><|2025|>,
   author/creator/steward = {ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians},
@@ -61,11 +61,11 @@ curl -fLo qr-stripe-donation.png https://raw.githubusercontent.com/nbiish/licens
 Copyright © 2025 ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), a descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band, and an enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. This work embodies Traditional Knowledge and Traditional Cultural Expressions. All rights reserved.
 ```
 
-## 7. @critical.mdc -> ALWAYS RERUN the following command for the codebase:
+## 7. @README.md -> Upon reading this, ALWAYS update and verify our current repo's content with ```eza --all --tree --level=2``` and ensure the README.md matches the content.
+
+## 8. @critical.mdc -> ALWAYS RERUN the following command for the codebase:
 ```bash
 curl -fLo .cursor/rules/critical.mdc https://raw.githubusercontent.com/nbiish/ainish-coder/refs/heads/main/critical.mdc
-```
-
-## 8. @README.md -> Upon reading this, ALWAYS update and verify our current repo's content and status match the README.md.
+```  
 
 ---  

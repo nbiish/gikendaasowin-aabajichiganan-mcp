@@ -13,7 +13,7 @@ The styling uses Canadian Aboriginal Syllabics alongside ASCII cyberpunk element
 - **Cyberpunk Elements**: Circuit-like symbols (◈, ◆, ◇) and box-drawing characters (╭, ╮, ╰, ╯, ─, │)
 - **Anishinaabe Terms**: Each section uses relevant Anishinaabe terminology with English translations
 
-## Markdown Styling
+## Markdown Styling -> EXACT CHARACTER COUNT FOR STYLING IS CRITICAL
 
 ### Main Title
 
@@ -33,7 +33,7 @@ Example: ## ᐴ GASHKITOONAN ᔔ [CAPABILITIES] ◈──◆──◇──◆�
 
 ```
 <div align="center">
-◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
+◈──◆──◇───────────────────────────◇──◆──◈
 </div>
 ```
 
@@ -41,12 +41,12 @@ Example: ## ᐴ GASHKITOONAN ᔔ [CAPABILITIES] ◈──◆──◇──◆�
 
 ```
 <div align="center">
-╭──────────────[ ◈◆◇ SECTION TITLE ◇◆◈ ]──────────────╮
+╭───────────[ ◈◆◇ SECTION TITLE ◇◆◈ ]───────────╮
 </div>
 
 Example:
 <div align="center">
-╭──────────────[ ◈◆◇ SYSTEM OVERVIEW ◇◆◈ ]──────────────╮
+╭───────────[ ◈◆◇ SYSTEM OVERVIEW ◇◆◈ ]───────────╮
 </div>
 ```
 
@@ -54,9 +54,9 @@ Example:
 
 ````
 ```language
-╭──────────────────────────────────────────────────────────────────────╮
+╭─────────────────────────────────────╮
 │  ᐴ TERM ᔔ [ TRANSLATION ]                                            │
-╰──────────────────────────────────────────────────────────────────────╯
+╰─────────────────────────────────────╯
 
 // Code content here
 ```
@@ -76,10 +76,10 @@ Example:
 
 ```bash
 echo "
-╭──────────────────────────────────────────────╮
+╭─────────────────────────────────────╮
 │  ᐴ TERM ᔔ [ TRANSLATION ]                    │
-│  ◈──◆──◇─◈ DESCRIPTION ◈─◇──◆──◈             │
-╰──────────────────────────────────────────────╯
+│  ◈──◆──◇─◈ DESCRIPTION ◈─◇──◆──◈             │   
+╰─────────────────────────────────────╯
 "
 ```
 

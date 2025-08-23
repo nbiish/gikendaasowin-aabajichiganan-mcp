@@ -1,9 +1,9 @@
 ---
-description: Follow this method when an error occurs.
-alwaysApply: false
+alwaysApply: true
 ---
-- VERIFY and the CURRENT time and date from the mcp_time_* tool 
-- use mcp_context7 to gather knowledge about frameworks, libraries, etc..
+When encountering an error or lack of context:
+- VERIFY the CURRENT time and date from the time mcp tool
+- use the context7 mcp tool to gather knowledge about frameworks, libraries, etc..
 - internal websearch
 - mcp websearch tools (brave, etc)
-- all other available tools for information/docs gathering (fetch, etc)
+- all other available tools for information/docs gathering (fetch, crawl4ai, etc)
