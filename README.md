@@ -1,5 +1,11 @@
 # ◈──◆──◇ GIKENDAASOWIN AABAJICHIGANAN MCP SERVER / COGNITIVE TOOLS MCP SERVER ◇──◆──◈
 
+A dynamic MCP server management service that creates, runs, and manages Model Context Protocol (MCP) servers dynamically. This service itself functions as an MCP server and launches/manages other MCP servers as child processes, enabling a flexible MCP ecosystem.
+
+<a href="https://glama.ai/mcp/servers/@nbiish/gikendaasowin-aabajichiganan-mcp">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/@nbiish/gikendaasowin-aabajichiganan-mcp/badge" alt="cognitive-tools-mcp / gikendaasowin-aabajichiganan MCP server" />
+</a>
+
 <div align="center">
   <hr width="50%">
   
