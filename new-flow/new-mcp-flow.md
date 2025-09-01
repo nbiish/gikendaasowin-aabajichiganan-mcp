@@ -1,17 +1,21 @@
-This image is our total flow -> ![Overall Deliberation Flow](/new-flow/new-flow-images/overall-flow.png)
+# This image is our total flow -> ![Overall Deliberation Flow](/new-flow/new-flow-images/overall-flow.png)
 
-START:
 ___
 
-![MCP Input](/new-flow/new-flow-images/stage-1-mcp-input.png):
+## STAGE 1:
+![MCP Input](/new-flow/new-flow-images/stage-1-mcp-input.png)
+
 - Scientific Investigation follows a series of logic and orderly steps to formulate hypotheses.
     - 1. Identify question
     - 2. Form hypothesis
     - 3. Conduct experiment
     - 4. Analyze data
     - 5. Draw conclusions
-|
-|-> ![OOReD](/new-flow/new-flow-images/stage-2-OOReD-flow.png):
+
+___
+## STAGE 2:
+![OOReD](/new-flow/new-flow-images/stage-2-OOReD-flow.png)
+
 - O.O.Re.D.
     - Observe
         - Observe the input, needs, and situation.
@@ -21,8 +25,11 @@ ___
         - Why is the proposed solution the correct answer? What are the facts?
     - Decide
         - Decide which tools and actions are needed to implement the solution.
-|
-|-> ![First round of deliberation](/new-flow/new-flow-images/stage-3-first-round-of-deliberation.png):
+
+___
+## STAGE 3:
+![First round of deliberation](/new-flow/new-flow-images/stage-3-first-round-of-deliberation.png)
+
 - Steps in Critical Thinking:
     - 1. What is the purpose of my thinking?
     - 2. What precise question am I trying to answer?
@@ -35,22 +42,29 @@ ___
     - 9. If I accept conclusions, what are the implications?
     - 10. What would be the consequences if I put this solution into action?
 - pre-Act action
-    - tool calls:
+    - prompting strategies
+    - list tools we need upon 'Act' stage.
         - websearch
         - mcp servers
-        - local files
+        - file and code tools
     - user feedback
     - knowledge base
-|
-|->![MCP Input - Review](/new-flow/new-flow-images/stage-1-mcp-input.png):
+
+___
+## STAGE 4:
+![MCP Input - Review](/new-flow/new-flow-images/stage-1-mcp-input.png)
+
 - Scientific Investigation follows a series of logic and orderly steps to formulate hypotheses.
     - 1. Identify question
     - 2. Form hypothesis
     - 3. Conduct experiment
     - 4. Analyze data
     - 5. Draw conclusions
-|
-|-> ![OOReD](/new-flow/new-flow-images/stage-2-OOReD-flow.png):
+
+___
+## STAGE 5:
+![OOReD](/new-flow/new-flow-images/stage-2-OOReD-flow.png)
+
 - O.O.Re.D.
     - Observe
         - Observe the input, needs, and situation.
@@ -60,9 +74,11 @@ ___
         - Why is the proposed solution the correct answer? What are the facts?
     - Decide
         - Decide which tools and actions are needed to implement the solution.
-|
-|> ![Final Stage - Act](/new-flow/new-flow-images/final-stage-Act-upon-deliberation.png):
+
+___
+## STAGE 6:
+![Final Stage - Act](/new-flow/new-flow-images/final-stage-Act-upon-deliberation.png)
 - Fact based Action
 
 ___
-FINAL OUTPUT OF DELIBERATION MCP
+## FINAL OUTPUT OF DELIBERATION MCP
