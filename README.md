@@ -22,7 +22,7 @@
 ◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
 </div>
 
-Revolutionary MCP server with Enhanced 6-Stage Cognitive Deliberation Framework. The `deliberate` tool combines Scientific Investigation, OOReD analysis, and Critical Thinking methodologies with expertly distributed prompting strategies (Chain-of-Thought, Tree-of-Thoughts, Self-Consistency, Meta-Prompting, Role-Based). *(Integration guidelines in [`latest.md`](latest.md) are licensed under [LICENSE](LICENSE).)*
+Revolutionary MCP server with Enhanced 6-Stage Cognitive Deliberation Framework. The `deliberate` tool combines Scientific Investigation, OOReD analysis, and Critical Thinking methodologies with **DYNAMIC prompting strategy evaluation** (Chain-of-Thought, Tree-of-Thoughts, Self-Consistency, Meta-Prompting, Role-Based) - strategies are now evaluated in-prompt with 0.00-1.00 scoring based on actual task context. *(Integration guidelines in [`latest.md`](latest.md) are licensed under [LICENSE](LICENSE).)*
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
@@ -80,6 +80,29 @@ Both packages are maintained in parallel and receive the same updates. You can u
 - **Improved Depth:** 95% comprehensive coverage with scientific rigor  
 - **Better Actionability:** 88% actionable recommendations with implementation roadmaps
 - **Quality Assurance:** 94% validation success rate with cross-stage consistency
+
+<div align="center">
+◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
+</div>
+
+## 🚀 NEW: Dynamic Prompting Strategy Evaluation (v8.0.1)
+
+**Revolutionary Update:** The system now evaluates prompting strategies **in-prompt** based on actual task context rather than using hardcoded scores.
+
+### Key Improvements:
+
+- **Context-Aware Selection:** Strategies are scored 0.00-1.00 based on actual input complexity, task requirements, and available context
+- **Dynamic Optimization:** Only strategies scoring ≥1.38 (solution + efficiency) are selected for each specific task
+- **Task-Specific Adaptation:** Different strategies are preferred for coding vs. analysis vs. creative vs. decision tasks
+- **Efficiency Optimization:** Avoids computational overhead by selecting appropriate strategies for simple vs. complex tasks
+
+### Example Dynamic Evaluation:
+- Simple coding tasks → PAL (Program-Aided Language) gets higher efficiency scores
+- Complex analysis tasks → Tree-of-Thoughts gets higher solution scores  
+- Decision-making tasks → Self-Consistency gets prioritized for validation
+- Large context tasks → Context-Compression becomes highly efficient
+
+This makes the deliberation tool truly adaptive and intelligent for each specific use case!
 
 <div align="center">
 ◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
@@ -148,7 +171,7 @@ Please cite this project using the following BibTeX entry:
 ```bibtex
 @misc{gikendaasowin-aabajichiganan-mcp2025,
   author/creator/steward = {ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians},
-  title/description = {GIKENDAASOWIN AABAJICHIGANAN MCP SERVER / ENHANCED 6-STAGE COGNITIVE TOOLS MCP SERVER},
+  title/description = {Gikendaasowin Aabajichiganan MCP Server - Revolutionary 2-Round Cognitive Deliberation with Dynamic Prompting Strategy Evaluation},
   type_of_work = {Indigenous digital creation/software incorporating traditional knowledge and cultural expressions},
   year = {2025},
   publisher/source/event = {GitHub repository under tribal sovereignty protections},

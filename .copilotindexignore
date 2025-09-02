@@ -1,0 +1,29 @@
+# GitHub Copilot Index Ignore File
+# Files and directories to exclude from Copilot indexing
+
+# Cursor-specific files
+.cursor*
+
+# Source .mdc files (these are converted to instructions)
+*.mdc
+
+# Configuration files that shouldn't be indexed
+.env
+.env.*
+*.config.js
+*.config.ts
+config.json
+
+# Build artifacts
+dist/
+build/
+node_modules/
+*.min.js
+*.min.css
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
