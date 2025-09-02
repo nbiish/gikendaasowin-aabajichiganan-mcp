@@ -36,6 +36,43 @@ Both packages are maintained in parallel and receive the same updates. You can u
 ◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
 </div>
 
+## ᐴ REPOSITORY STRUCTURE ᔔ [MAZINAAZIWIN] ◈──◆──◇──◆──◈
+
+Current repository structure (v8.8.2):
+
+```text
+.
+├── .cursor/                    # Development rules and style guides
+│   ├── anishinaabe-cyberpunk-style.mdc
+│   └── rules/
+├── .github/                    # GitHub configuration
+│   ├── copilot-instructions.md
+│   └── FUNDING.yml
+├── build/                      # Compiled JavaScript output
+│   └── index.js
+├── new-flow/                   # Flow documentation and images
+│   ├── new-flow-images/
+│   └── new-mcp-flow.md
+├── src/                        # TypeScript source code
+│   └── index.ts
+├── buymeacoffee-button.svg     # Support button
+├── CONTRIBUTING.md             # Contribution guidelines
+├── latest.md                   # Integration prompt (licensed)
+├── LICENSE                     # Comprehensive restricted use license
+├── modern-prompting.mdc        # Prompting strategy definitions
+├── package-cognitive-tools.json # English package configuration
+├── package-gikendaasowin.json  # Anishinaabemowin package configuration
+├── package.json               # Main package configuration
+├── publish-both-packages.sh   # Dual publishing script
+├── qr-stripe-donation.png     # Donation QR code
+├── README.md                  # This file
+└── tsconfig.json              # TypeScript configuration
+```
+
+<div align="center">
+◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
+</div>
+
 ## ᐴ GASHKITOONAN ᔔ [ENHANCED CAPABILITIES] ◈──◆──◇──◆──◈
 
 ### 🚀 Revolutionary 6-Stage Cognitive Framework

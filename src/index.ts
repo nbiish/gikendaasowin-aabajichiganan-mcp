@@ -2,22 +2,23 @@
 
 /**
  * -----------------------------------------------------------------------------
- * Gikendaasowin Aabajichiganan - Revolutionary 2-Round Cognitive Deliberation MCP Server (v8.7.0)
+ * Gikendaasowin Aabajichiganan - Revolutionary 2-Round Cognitive Deliberation MCP Server (v8.8.0)
  *
  * Description: Revolutionary MCP server implementing the most advanced 2-round cognitive 
  * processing engine available. Features a comprehensive 6-stage framework combining 
  * Scientific Investigation, OOReD analysis, and Critical Thinking methodologies 
  * with expertly evaluated prompting strategies from modern-prompting.mdc.
  *
- * v8.7.0 REVOLUTIONARY RELEASE - 2-Round Deliberation Framework:
- * - Complete refactor implementing 2-round deliberation process
+ * v8.8.1 REVOLUTIONARY RELEASE - 2-Round Deliberation Framework:
+ * - Complete refactor implementing 2-round deliberation process as SINGLE tool call
  * - DYNAMIC prompting strategy evaluation with in-prompt 0.00-1.00 scoring system
- * - Session-based multi-phase deliberation with state management
+ * - Removed session management - all 6 stages happen in one tool invocation  
  * - Tool usage recommendations focusing on pair programming scenarios
  * - Enhanced reliability with cross-round validation and consistency checking
  * - Comprehensive markdown output with tool count recommendations
  * - Revolutionary 2-round cognitive processing following tested specifications
  * - CRITICAL: All strategy ratings calculated dynamically based on actual task context
+ * - SINGLE TOOL CALL: Both rounds processed internally without user session management
  * -----------------------------------------------------------------------------
  */
 
@@ -29,25 +30,12 @@ import { TextContent, ImageContent } from "@modelcontextprotocol/sdk/types.js";
 // Define a simplified ToolContent union based on observed usage
 type ToolContent = TextContent | ImageContent; // Add ResourceContent if needed later
 
-// Session management for multi-phase deliberation
-interface DeliberationSession {
-    id: string;
-    input: string;
-    mode: string;
-    context?: string;
-    phase: 'first-round' | 'second-round';
-    firstRoundResults?: string;
-    createdAt: Date;
-}
-
-const sessions = new Map<string, DeliberationSession>();
-
 // --- Server Definition ---
 
 const serverInfo = {
     name: "gikendaasowin-aabajichiganan-mcp",
-    version: "8.7.0",
-    description: "Revolutionary 2-Round Cognitive Deliberation MCP server implementing the new 6-stage framework with prompting strategy evaluation and tool recommendations."
+    version: "8.8.1",
+    description: "Revolutionary Single-Tool-Call 2-Round Cognitive Deliberation MCP server implementing the complete 6-stage framework with dynamic prompting strategy evaluation and tool recommendations."
 };
 const server = new McpServer(serverInfo);
 
@@ -384,13 +372,6 @@ function generateToolRecommendations(input: string, mode: string, deliberationRe
 }
 
 /**
- * Generates a unique session ID for multi-phase deliberation
- */
-function generateSessionId(): string {
-    return `del_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
-}
-
-/**
  * Formats prompting strategy evaluation results for output
  * Shows dynamically evaluated strategies with real-time scoring
  */
@@ -455,33 +436,27 @@ function validateScientificConsistency(questionIdentification: string, hypothesi
 // --- Cognitive Deliberation Engine ---
 
 /**
- * Performs two-round cognitive deliberation using the new 6-Stage Framework
+ * Performs complete two-round cognitive deliberation in a single tool call
  * Round 1: Stages 1-2 (Scientific Investigation + Initial OOReD)
  * Round 2: Stages 3-6 (Critical Thinking + Reviews + Final Action)
+ * All happens internally without requiring multiple tool calls or session management
  */
 async function performCognitiveDeliberation(
     input: string, 
     mode: "analyze" | "decide" | "synthesize" | "evaluate", 
-    context?: string,
-    sessionId?: string
+    context?: string
 ): Promise<string> {
     
-    // Check if this is a continuing session
-    let session = sessionId ? sessions.get(sessionId) : null;
+    // ROUND 1: Stages 1-2 (Internal processing)
     
-    if (!session) {
-        // First round: Stages 1-2
-        const firstRoundId = generateSessionId();
-        
-        // STAGE 1: SCIENTIFIC INVESTIGATION with prompting strategy evaluation
-        const selectedStrategies = evaluatePromptingStrategies(input, mode, context);
-        const stage1 = await performScientificInvestigation(input, mode, context, selectedStrategies);
-        
-        // STAGE 2: INITIAL OOReD
-        const stage2 = await performInitialOOReD(input, mode, context, stage1, selectedStrategies);
-        
-        // Store first round results
-        const firstRoundResults = `# 1ST ROUND OF DELIBERATION
+    // STAGE 1: SCIENTIFIC INVESTIGATION with prompting strategy evaluation
+    const selectedStrategies = evaluatePromptingStrategies(input, mode, context);
+    const stage1 = await performScientificInvestigation(input, mode, context, selectedStrategies);
+    
+    // STAGE 2: INITIAL OOReD
+    const stage2 = await performInitialOOReD(input, mode, context, stage1, selectedStrategies);
+    
+    const firstRoundResults = `# 1ST ROUND OF DELIBERATION
 
 ## PROMPTING STRATEGY EVALUATION
 ${formatPromptingStrategyResults(selectedStrategies)}
@@ -495,56 +470,27 @@ ${stage2}
 ---
 *First Round Complete: Scientific Investigation + Initial OOReD*`;
 
-        // Create session for second round
-        session = {
-            id: firstRoundId,
-            input,
-            mode,
-            context,
-            phase: 'first-round',
-            firstRoundResults,
-            createdAt: new Date()
-        };
-        sessions.set(firstRoundId, session);
-        
-        // Generate tool recommendations
-        const toolRecs = generateToolRecommendations(input, mode, firstRoundResults);
-        
-        return `${firstRoundResults}
-
-## NEXT STEPS
-To continue with the second round of deliberation (Stages 3-6), call the deliberate tool again with:
-- session_id: "${firstRoundId}"
-- Same input and parameters
-
-**tool use before re-deliberation: ${toolRecs.toolCount}**
-
-### RECOMMENDED TOOLS BEFORE SECOND ROUND:
-${toolRecs.recommendations.join('\n')}`;
-        
-    } else {
-        // Second round: Stages 3-6
-        const selectedStrategies = evaluatePromptingStrategies(input, mode, context);
-        
-        // STAGE 3: CRITICAL THINKING + PRE-ACT
-        const stage3 = await performCriticalThinkingPreAct(input, mode, context, session.firstRoundResults!, selectedStrategies);
-        
-        // STAGE 4: SCIENTIFIC REVIEW
-        const stage4 = await performScientificReview(input, mode, context, session.firstRoundResults!, stage3, selectedStrategies);
-        
-        // STAGE 5: OOReD REVIEW  
-        const stage5 = await performOOReViewReview(input, mode, context, session.firstRoundResults!, stage4, selectedStrategies);
-        
-        // STAGE 6: FINAL ACT
-        const stage6 = await performFinalAct(input, mode, context, stage3, stage5, selectedStrategies);
-        
-        // Clean up session
-        sessions.delete(sessionId!);
-        
-        // Generate final tool recommendations
-        const finalToolRecs = generateToolRecommendations(input, mode, `${stage3}\n${stage5}\n${stage6}`);
-        
-        const secondRoundResults = `# 2ND ROUND OF DELIBERATION
+    // ROUND 2: Stages 3-6 (Internal processing continues)
+    
+    // Re-evaluate strategies for second round
+    const secondRoundStrategies = evaluatePromptingStrategies(input, mode, context);
+    
+    // STAGE 3: CRITICAL THINKING + PRE-ACT
+    const stage3 = await performCriticalThinkingPreAct(input, mode, context, firstRoundResults, secondRoundStrategies);
+    
+    // STAGE 4: SCIENTIFIC REVIEW
+    const stage4 = await performScientificReview(input, mode, context, firstRoundResults, stage3, secondRoundStrategies);
+    
+    // STAGE 5: OOReD REVIEW  
+    const stage5 = await performOOReViewReview(input, mode, context, firstRoundResults, stage4, secondRoundStrategies);
+    
+    // STAGE 6: FINAL ACT
+    const stage6 = await performFinalAct(input, mode, context, stage3, stage5, secondRoundStrategies);
+    
+    // Generate final tool recommendations
+    const finalToolRecs = generateToolRecommendations(input, mode, `${stage3}\n${stage5}\n${stage6}`);
+    
+    const secondRoundResults = `# 2ND ROUND OF DELIBERATION
 
 ## STAGE 3: CRITICAL THINKING & PRE-ACTION PLANNING
 ${stage3}
@@ -561,7 +507,8 @@ ${stage6}
 ---
 *Second Round Complete: Critical Thinking + Reviews + Final Action*`;
 
-        return `${session.firstRoundResults}
+    // Return complete single-tool-call result
+    return `${firstRoundResults}
 
 ${secondRoundResults}
 
@@ -578,8 +525,7 @@ ${finalToolRecs.recommendations.join('\n')}
 ---
 *Enhanced 2-Round Cognitive Framework: Scientific Investigation + OOReD + Critical Thinking*
 *Processing Mode: ${mode} | Total Strategies Applied: ${selectedStrategies.length}*
-*Session: ${sessionId} | Framework Version: 8.0.0*`;
-    }
+*Framework Version: 8.8.0 | Complete Single-Tool-Call Processing*`;
 }
 
 // --- 6-Stage Cognitive Processing Functions with Integrated Prompting Strategies ---
@@ -1456,25 +1402,26 @@ function assessMethodologicalRigor(stage1Result: string): string {
  */
 
 /**
- * Tool: deliberate (Revolutionary 2-Round Cognitive Processing Engine)
+ * Tool: deliberate (Revolutionary Single-Tool-Call 2-Round Cognitive Processing Engine)
  * 
- * **REVOLUTIONARY 2-ROUND FRAMEWORK:** This tool implements the most advanced 2-round
- * cognitive deliberation system available, combining Scientific Investigation, OOReD 
- * analysis, and Critical Thinking frameworks with automatic prompting strategy evaluation.
+ * **REVOLUTIONARY SINGLE-CALL FRAMEWORK:** This tool implements the most advanced 2-round
+ * cognitive deliberation system available in ONE tool call, combining Scientific Investigation, 
+ * OOReD analysis, and Critical Thinking frameworks with automatic prompting strategy evaluation.
  * 
- * **2-ROUND PROCESSING PIPELINE:**
+ * **2-ROUND PROCESSING PIPELINE (SINGLE CALL):**
  * **Round 1 (Foundation):** Stages 1-2 - Scientific Investigation + Initial OOReD
  * **Round 2 (Advanced):** Stages 3-6 - Critical Thinking + Reviews + Final Action
  * 
  * **KEY FEATURES:**
+ * - **SINGLE TOOL CALL:** Complete 6-stage deliberation without session management
  * - **Automatic Strategy Evaluation:** Analyzes all modern-prompting.mdc strategies
  * - **0.00-1.00 Scoring System:** Solution + Efficiency levels with ≥1.38 threshold
- * - **Session Management:** Continue complex deliberations across multiple calls
+ * - **Internal 2-Round Processing:** All deliberation happens within one tool invocation
  * - **Tool Recommendations:** Intelligent suggestions for pair programming workflows
- * - **Markdown Output:** Structured results with tool usage guidance
+ * - **Markdown Output:** Structured results with "tool use before re-deliberation" count
  * 
  * **📥 INPUT:** Complex problems requiring systematic 2-round cognitive analysis
- * **📤 OUTPUT:** Structured analysis with tool recommendations and session continuity
+ * **📤 OUTPUT:** Complete structured analysis with tool recommendations in single response
  *
  * **🎯 OPTIMAL USE CASES:**
  * - Complex development tasks requiring systematic analysis
@@ -1484,8 +1431,8 @@ function assessMethodologicalRigor(stage1Result: string): string {
  * - Research and development requiring systematic investigation
  *
  * **⚡ REVOLUTIONARY CAPABILITIES:**
- * - 2-round deliberation with automatic strategy selection
- * - Session-based state management for complex workflows
+ * - Single-call 2-round deliberation with automatic strategy selection
+ * - Complete 6-stage processing without external session management
  * - Tool usage recommendations with specific count guidance
  * - Cross-round validation with consistency checking
  * - Comprehensive action planning with implementation roadmaps
@@ -1503,20 +1450,16 @@ server.tool(
         context: z
             .string()
             .optional()
-            .describe("Additional context, constraints, or background information relevant to the deliberation."),
-        session_id: z
-            .string()
-            .optional()
-            .describe("Session ID for continuing multi-phase deliberation. Use the ID returned from first round to continue with second round.")
+            .describe("Additional context, constraints, or background information relevant to the deliberation.")
     },
-	async ({ input, mode, context, session_id }: { input: string, mode: "analyze" | "decide" | "synthesize" | "evaluate", context?: string, session_id?: string }) => {
+	async ({ input, mode, context }: { input: string, mode: "analyze" | "decide" | "synthesize" | "evaluate", context?: string }) => {
 		const toolName = 'deliberate';
-		logToolCall(toolName, `Mode: ${mode}, Input length: ${input.length}, Session: ${session_id || 'new'}`);
+		logToolCall(toolName, `Mode: ${mode}, Input length: ${input.length}`);
 		try {
-			// Two-round cognitive deliberation processing
-			const deliberationResult = await performCognitiveDeliberation(input, mode, context, session_id);
+			// Single tool call that performs complete 2-round cognitive deliberation
+			const deliberationResult = await performCognitiveDeliberation(input, mode, context);
 			
-			logToolResult(toolName, true, `Mode: ${mode}, Deliberation completed`);
+			logToolResult(toolName, true, `Mode: ${mode}, Complete 2-round deliberation finished`);
 			return { content: [{ type: "text" as const, text: deliberationResult }] };
 
 		} catch (error: unknown) {

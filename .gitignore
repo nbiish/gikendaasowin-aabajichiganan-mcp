@@ -1,5 +1,11 @@
 # AINISH Coder Tooling Distribution - Git Ignore Patterns
 
+# ai pair programmer files
+.cursor/
+.github/copilot-instructions.md
+.github/instructions/*
+# qwen, gemini, claude, ...
+
 # Environment and configuration files
 .env
 .env.*

@@ -1,7 +1,7 @@
 {
   "name": "@nbiish/cognitive-tools-mcp",
-  "version": "8.7.0",
-  "description": "Revolutionary MCP server with Enhanced 6-Stage Cognitive Deliberation Framework combining Scientific Investigation, OOReD, and Critical Thinking methodologies with DYNAMIC prompting strategy evaluation system (CoT, ToT, Self-Consistency, Meta-Prompting, Role-Based).",
+  "version": "8.8.2",
+  "description": "Revolutionary Single-Tool-Call MCP server with Enhanced 6-Stage Cognitive Deliberation Framework combining Scientific Investigation, OOReD, and Critical Thinking methodologies with DYNAMIC prompting strategy evaluation system (CoT, ToT, Self-Consistency, Meta-Prompting, Role-Based).",
   "private": false,
   "type": "module",
   "bin": {
