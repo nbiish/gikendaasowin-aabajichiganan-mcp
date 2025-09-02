@@ -23,8 +23,8 @@ import { z } from "zod";
 // --- Server Definition ---
 const serverInfo = {
     name: "gikendaasowin-aabajichiganan-mcp",
-    version: "8.8.4",
-    description: "Optimized Single-Tool-Call 2-Round Cognitive Deliberation MCP server with threshold adjustment (≥1.42) and reduced verbosity while maintaining comprehensive 6-stage cognitive framework."
+    version: "8.9.0",
+    description: "Optimized Single-Tool-Call 2-Round Cognitive Deliberation MCP server with minimal filler verbiage, accepting only input & context parameters while maintaining comprehensive 6-stage cognitive framework."
 };
 const server = new McpServer(serverInfo);
 // --- Logging Helpers (Internal - No changes needed as per user comments) ---
@@ -417,79 +417,54 @@ function validateScientificConsistency(questionIdentification, hypothesisFormati
 }
 // --- Cognitive Deliberation Engine ---
 /**
+ * Automatically determines the optimal processing mode based on input analysis
+ */
+function determineOptimalMode(input, context) {
+    const inputLower = input.toLowerCase();
+    // Decision indicators
+    if (/\b(decide|choose|select|determine|should|which|option|alternative)\b/.test(inputLower)) {
+        return "decide";
+    }
+    // Synthesis indicators
+    if (/\b(combine|integrate|synthesize|merge|unify|connect|relate|together)\b/.test(inputLower)) {
+        return "synthesize";
+    }
+    // Evaluation indicators  
+    if (/\b(evaluate|assess|judge|rate|compare|review|quality|effectiveness)\b/.test(inputLower)) {
+        return "evaluate";
+    }
+    // Default to analyze for investigation, problem-solving, understanding
+    return "analyze";
+}
+/**
  * Performs complete two-round cognitive deliberation in a single tool call
  * Round 1: Stages 1-2 (Scientific Investigation + Initial OOReD)
  * Round 2: Stages 3-6 (Critical Thinking + Reviews + Final Action)
  * All happens internally without requiring multiple tool calls or session management
  */
-async function performCognitiveDeliberation(input, mode, context) {
+async function performCognitiveDeliberation(input, context) {
+    // Auto-determine best mode based on input analysis
+    const mode = determineOptimalMode(input, context);
     // ROUND 1: Stages 1-2 (Internal processing)
     // STAGE 1: SCIENTIFIC INVESTIGATION with prompting strategy evaluation
     const selectedStrategies = evaluatePromptingStrategies(input, mode, context);
     const stage1 = await performScientificInvestigation(input, mode, context, selectedStrategies);
     // STAGE 2: INITIAL OOReD
     const stage2 = await performInitialOOReD(input, mode, context, stage1, selectedStrategies);
-    const firstRoundResults = `# 1ST ROUND OF DELIBERATION
-
-## PROMPTING STRATEGY EVALUATION
-${formatPromptingStrategyResults(selectedStrategies)}
-
-## STAGE 1: SCIENTIFIC INVESTIGATION
-${stage1}
-
-## STAGE 2: INITIAL OBSERVE-ORIENT-REASON-DECIDE  
-${stage2}
-
----
-*First Round Complete: Scientific Investigation + Initial OOReD*`;
     // ROUND 2: Stages 3-6 (Internal processing continues)
-    // Use same strategies for consistency (input/mode/context unchanged)
-    const secondRoundStrategies = selectedStrategies;
+    const firstRoundResults = `${stage1}\n${stage2}`;
     // STAGE 3: CRITICAL THINKING + PRE-ACT
-    const stage3 = await performCriticalThinkingPreAct(input, mode, context, firstRoundResults, secondRoundStrategies);
+    const stage3 = await performCriticalThinkingPreAct(input, mode, context, firstRoundResults, selectedStrategies);
     // STAGE 4: SCIENTIFIC REVIEW
-    const stage4 = await performScientificReview(input, mode, context, firstRoundResults, stage3, secondRoundStrategies);
+    const stage4 = await performScientificReview(input, mode, context, firstRoundResults, stage3, selectedStrategies);
     // STAGE 5: OOReD REVIEW  
-    const stage5 = await performOOReViewReview(input, mode, context, firstRoundResults, stage4, secondRoundStrategies);
+    const stage5 = await performOOReViewReview(input, mode, context, firstRoundResults, stage4, selectedStrategies);
     // STAGE 6: FINAL ACT
-    const stage6 = await performFinalAct(input, mode, context, stage3, stage5, secondRoundStrategies);
+    const stage6 = await performFinalAct(input, mode, context, stage3, stage5, selectedStrategies);
     // Generate final tool recommendations
     const finalToolRecs = generateToolRecommendations(input, mode, `${stage3}\n${stage5}\n${stage6}`);
-    const secondRoundResults = `# 2ND ROUND OF DELIBERATION
-
-## STAGE 3: CRITICAL THINKING & PRE-ACTION PLANNING
-${stage3}
-
-## STAGE 4: SCIENTIFIC REVIEW & VALIDATION  
-${stage4}
-
-## STAGE 5: OOReD REVIEW & REFINEMENT
-${stage5}
-
-## STAGE 6: FACT-BASED ACTION & FINAL RECOMMENDATIONS
-${stage6}
-
----
-*Second Round Complete: Critical Thinking + Reviews + Final Action*`;
-    // Return complete single-tool-call result
-    return `${firstRoundResults}
-
-${secondRoundResults}
-
-# FINAL DELIBERATION OUTPUT
-
-## COMPREHENSIVE ANALYSIS COMPLETE
-The two-round deliberation process has successfully analyzed your ${mode} request through all 6 stages of the cognitive framework. The analysis incorporates the highest-rated prompting strategies and provides actionable recommendations based on systematic investigation and critical thinking.
-
-**tool use before re-deliberation: ${finalToolRecs.toolCount}**
-
-### RECOMMENDED TOOLS FOR IMPLEMENTATION:
-${finalToolRecs.recommendations.join('\n')}
-
----
-*Enhanced 2-Round Cognitive Framework: Scientific Investigation + OOReD + Critical Thinking*
-*Processing Mode: ${mode} | Total Strategies Applied: ${selectedStrategies.length}*
-*Framework Version: 8.8.4 | Complete Single-Tool-Call Processing*`;
+    // Return concise result without formatting constraints
+    return `${firstRoundResults}\n${stage3}\n${stage4}\n${stage5}\n${stage6}\n\ntool use before re-deliberation: ${finalToolRecs.toolCount}`;
 }
 // --- 6-Stage Cognitive Processing Functions with Integrated Prompting Strategies ---
 /**
@@ -509,36 +484,8 @@ async function performScientificInvestigation(input, mode, context, strategies) 
     const scaffoldingResults = useScaffolding ? applyScientificScaffolding(input, mode) : "";
     // Apply self-consistency validation if selected
     const consistencyCheck = useSelfConsistency ? validateScientificConsistency(questionIdentification, hypothesisFormation) : "";
-    return `### Scientific Method Application
-
-**Applied Prompting Strategies:** ${strategies?.map(s => s.name).join(', ') || 'Default approach'}
-
-**1. Question Identification ${useCoT ? '(Chain-of-Thought)' : ''}:**
-${questionIdentification}
-
-**2. Hypothesis Formation ${useCoT ? '(Chain-of-Thought)' : ''}:**
-${hypothesisFormation}
-
-**3. Experimental Design ${useScaffolding ? '(Cognitive Scaffolding)' : ''}:**
-${experimentDesign}
-
-**4. Data Analysis Framework:**
-${designDataAnalysisFramework(input, mode)}
-
-**5. Conclusion Structure:**
-${setupConclusionFramework(mode)}
-
-${useScaffolding ? `**Cognitive Scaffolding Enhancement:**
-${scaffoldingResults}` : ''}
-
-${useSelfConsistency ? `**Self-Consistency Validation:**
-${consistencyCheck}` : ''}
-
-**Scientific Investigator Analysis:**
-- Systematic approach to problem decomposition applied
-- Evidence-based reasoning prioritized through ${strategies?.length || 0} selected strategies
-- Hypothesis-driven inquiry methodology established
-- Experimental validation requirements identified with ${useCoT ? 'enhanced reasoning chains' : 'standard validation'}`;
+    // Return concise scientific investigation results 
+    return `${questionIdentification} ${hypothesisFormation} ${experimentDesign} ${designDataAnalysisFramework(input, mode)} ${setupConclusionFramework(mode)}${scaffoldingResults ? ` ${scaffoldingResults}` : ''}${consistencyCheck ? ` ${consistencyCheck}` : ''}`;
 }
 /**
  * STAGE 2: INITIAL OBSERVE-ORIENT-REASON-DECIDE
@@ -551,25 +498,8 @@ async function performInitialOOReD(input, mode, context, stage1Result, strategie
     const reasoningBranches = generateReasoningBranches(input, mode, context);
     // Meta-Prompting: Self-reflection on reasoning quality
     const qualityAssessment = assessReasoningQuality(reasoningBranches);
-    return `### Observe-Orient-Reason-Decide Analysis
-
-**Observe (Multiple Perspectives - ToT):**
-${observationPaths}
-
-**Orient (Alternative Solutions - ToT):**
-${orientationAlternatives}
-
-**Reason (Parallel Reasoning Branches - ToT):**
-${reasoningBranches}
-
-**Decide (Best Path Selection):**
-${selectOptimalReasoningPath(reasoningBranches, qualityAssessment)}
-
-**Meta-Prompting Self-Reflection:**
-- Reasoning quality score: ${qualityAssessment.score}/10
-- Confidence assessment: ${qualityAssessment.confidence}
-- Areas for improvement: ${qualityAssessment.improvements}
-- Alternative approaches considered: ${qualityAssessment.alternatives}`;
+    // Return concise OOReD analysis
+    return `${observationPaths} ${orientationAlternatives} ${reasoningBranches} ${selectOptimalReasoningPath(reasoningBranches, qualityAssessment)}`;
 }
 /**
  * STAGE 3: CRITICAL THINKING + PRE-ACTION PLANNING
@@ -583,25 +513,8 @@ async function performCriticalThinkingPreAct(input, mode, context, firstRoundRes
     const toolPlanning = await planRequiredTools(input, mode, consensusAnalysis);
     // Apply selected prompting strategies
     const strategyResults = strategies ? applySelectedStrategies(strategies, input, mode, "critical-thinking") : "";
-    return `### Critical Thinking Analysis (10-Step Framework)
-
-**Selected Prompting Strategies Applied:**
-${strategies ? formatStrategyApplication(strategies) : "Default critical thinking approach"}
-
-**Critical Thinking Multi-Path Analysis (Self-Consistency):**
-${formatCriticalThinkingPaths(criticalThinkingPaths)}
-
-**Consensus Analysis:**
-${consensusAnalysis}
-
-**Pre-Action Planning:**
-${toolPlanning}
-
-**Meta-Cognitive Assessment:**
-- Thinking process evaluation: ${evaluateThinkingProcess(criticalThinkingPaths)}
-- Assumption validation: ${validateAssumptions(criticalThinkingPaths)}
-- Bias detection: ${detectCognitiveBiases(criticalThinkingPaths)}
-- Completeness check: ${assessCompletenessOfAnalysis(criticalThinkingPaths)}`;
+    // Return concise critical thinking analysis
+    return `${formatCriticalThinkingPaths(criticalThinkingPaths)} ${consensusAnalysis} ${toolPlanning}${strategyResults ? ` ${strategyResults}` : ''}`;
 }
 /**
  * STAGE 4: SCIENTIFIC REVIEW & VALIDATION
@@ -615,25 +528,8 @@ async function performScientificReview(input, mode, context, firstRoundResult, s
     const consistencyCheck = assessCrossStageConsistency(firstRoundResult, stage3Result);
     // Apply selected prompting strategies
     const strategyResults = strategies ? applySelectedStrategies(strategies, input, mode, "scientific-review") : "";
-    return `### Scientific Review & Enhanced Validation
-
-**Selected Prompting Strategies Applied:**
-${strategies ? formatStrategyApplication(strategies) : "Default scientific review approach"}
-
-**Systematic Review (CoT):**
-${reviewSteps}
-
-**Multi-Path Validation (Self-Consistency):**
-${validationPaths}
-
-**Cross-Stage Consistency Analysis:**
-${consistencyCheck}
-
-**Enhanced Validation Results:**
-- Hypothesis strength: ${assessHypothesisStrength(firstRoundResult)}
-- Evidence quality: ${assessEvidenceQuality(firstRoundResult, stage3Result)}
-- Logical coherence: ${assessLogicalCoherence(firstRoundResult, stage3Result)}
-- Methodological rigor: ${assessMethodologicalRigor(firstRoundResult)}`;
+    // Return concise scientific review
+    return `${reviewSteps} ${validationPaths} ${consistencyCheck}${strategyResults ? ` ${strategyResults}` : ''}`;
 }
 /**
  * STAGE 5: OOReD REVIEW & REFINEMENT
@@ -646,22 +542,8 @@ async function performOOReViewReview(input, mode, context, firstRoundResult, sta
     const expertPerspectives = generateExpertPerspectives(input, mode, firstRoundResult, stage4Result);
     // Apply selected prompting strategies
     const strategyResults = strategies ? applySelectedStrategies(strategies, input, mode, "oored-review") : "";
-    return `### OOReD Review & Expert Refinement
-
-**Selected Prompting Strategies Applied:**
-${strategies ? formatStrategyApplication(strategies) : "Default OOReD review approach"}
-
-**Multi-Path Refinement (ToT):**
-${refinementPaths}
-
-**Expert Domain Perspectives (Role-Based):**
-${expertPerspectives}
-
-**Integration Analysis:**
-${integrateStageFindings(firstRoundResult, stage4Result)}
-
-**Refinement Recommendations:**
-${generateRefinementRecommendations(refinementPaths, expertPerspectives)}`;
+    // Return concise OOReD review and refinement
+    return `${refinementPaths} ${expertPerspectives} ${integrateStageFindings(firstRoundResult, stage4Result)} ${generateRefinementRecommendations(refinementPaths, expertPerspectives)}${strategyResults ? ` ${strategyResults}` : ''}`;
 }
 /**
  * STAGE 6: FACT-BASED ACTION & FINAL RECOMMENDATIONS
@@ -675,28 +557,8 @@ async function performFinalAct(input, mode, context, stage3Result, stage5Result,
     const qualityMetrics = calculateQualityMetrics(finalSynthesis);
     // Apply selected prompting strategies
     const strategyResults = strategies ? applySelectedStrategies(strategies, input, mode, "final-action") : "";
-    return `### Fact-Based Action & Final Recommendations
-
-**Selected Prompting Strategies Applied:**
-${strategies ? formatStrategyApplication(strategies) : "Default final action approach"}
-
-**Comprehensive Synthesis:**
-${finalSynthesis}
-
-**Final Action Plan:**
-${actionPlan}
-
-**Quality Assurance Metrics:**
-${qualityMetrics}
-
-**Implementation Roadmap:**
-${generateImplementationRoadmap(actionPlan, mode)}
-
-**Success Criteria & Validation:**
-${defineSuccessCriteria(finalSynthesis, mode)}
-
-**Risk Mitigation & Contingencies:**
-${generateRiskMitigationPlan(finalSynthesis, actionPlan)}`;
+    // Return concise final action and recommendations
+    return `${finalSynthesis} ${actionPlan} ${qualityMetrics} ${generateImplementationRoadmap(actionPlan, mode)} ${defineSuccessCriteria(finalSynthesis, mode)} ${generateRiskMitigationPlan(finalSynthesis, actionPlan)}${strategyResults ? ` ${strategyResults}` : ''}`;
 }
 // --- Enhanced Cognitive Helper Functions with Integrated Prompting Strategies ---
 // STAGE 1 HELPERS: Scientific Investigation Functions
@@ -1209,8 +1071,8 @@ function assessMethodologicalRigor(stage1Result) {
 /**
  * Tool: deliberate (Revolutionary Single-Tool-Call 2-Round Cognitive Processing Engine)
  *
- * **REVOLUTIONARY SINGLE-CALL FRAMEWORK:** This tool implements the most advanced 2-round
- * cognitive deliberation system available in ONE tool call, combining Scientific Investigation,
+ * **REVOLUTIONARY SINGLE-CALL FRAMEWORK:** This tool implements advanced 2-round
+ * cognitive deliberation system in ONE tool call, combining Scientific Investigation,
  * OOReD analysis, and Critical Thinking frameworks with automatic prompting strategy evaluation.
  *
  * **2-ROUND PROCESSING PIPELINE (SINGLE CALL):**
@@ -1223,44 +1085,26 @@ function assessMethodologicalRigor(stage1Result) {
  * - **0.00-1.00 Scoring System:** Solution + Efficiency levels with ≥1.42 threshold
  * - **Internal 2-Round Processing:** All deliberation happens within one tool invocation
  * - **Tool Recommendations:** Intelligent suggestions for pair programming workflows
- * - **Markdown Output:** Structured results with "tool use before re-deliberation" count
+ * - **Concise Output:** Raw cognitive processing results without formatting constraints
  *
  * **📥 INPUT:** Complex problems requiring systematic 2-round cognitive analysis
- * **📤 OUTPUT:** Complete structured analysis with tool recommendations in single response
- *
- * **🎯 OPTIMAL USE CASES:**
- * - Complex development tasks requiring systematic analysis
- * - Strategic decision making with implementation planning
- * - Knowledge synthesis across multiple domains and sources
- * - Quality evaluation requiring comprehensive multi-round assessment
- * - Research and development requiring systematic investigation
- *
- * **⚡ REVOLUTIONARY CAPABILITIES:**
- * - Single-call 2-round deliberation with automatic strategy selection
- * - Complete 6-stage processing without external session management
- * - Tool usage recommendations with specific count guidance
- * - Cross-round validation with consistency checking
- * - Comprehensive action planning with implementation roadmaps
+ * **📤 OUTPUT:** Processed cognitive analysis with tool recommendations in single response
  */
 server.tool("deliberate", {
     input: z
         .string()
-        .describe("REQUIRED: Use deliberation MCP tool for complex reasoning. Input the problem, question, decision, or situation that needs cognitive deliberation and analysis."),
-    mode: z
-        .enum(["analyze", "decide", "synthesize", "evaluate"])
-        .default("analyze")
-        .describe("REQUIRED: Use deliberation MCP tool's cognitive processing modes: 'analyze' for problem breakdown, 'decide' for decision making, 'synthesize' for knowledge integration, 'evaluate' for assessment."),
+        .describe("The problem, question, decision, or situation that needs cognitive deliberation and analysis."),
     context: z
         .string()
         .optional()
         .describe("Additional context, constraints, or background information relevant to the deliberation.")
-}, async ({ input, mode, context }) => {
+}, async ({ input, context }) => {
     const toolName = 'deliberate';
-    logToolCall(toolName, `Mode: ${mode}, Input length: ${input.length}`);
+    logToolCall(toolName, `Input length: ${input.length}`);
     try {
         // Single tool call that performs complete 2-round cognitive deliberation
-        const deliberationResult = await performCognitiveDeliberation(input, mode, context);
-        logToolResult(toolName, true, `Mode: ${mode}, Complete 2-round deliberation finished`);
+        const deliberationResult = await performCognitiveDeliberation(input, context);
+        logToolResult(toolName, true, `Complete 2-round deliberation finished`);
         return { content: [{ type: "text", text: deliberationResult }] };
     }
     catch (error) {
