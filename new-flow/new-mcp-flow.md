@@ -103,7 +103,7 @@ ___
 - the final output should include a ```tool use before re-deliberation: {number of tools used before returning}```
 - During the 'Orient stage, the system should review each of the prompting strategies from [modern-prompting.mdc](modern-prompting.mdc) and based on the mcp input and task at hand -> run parallel determinations of which prompting strategy would provide the best solution the most efficiently by assigning every strategy a ```solution level: {0.00-0.99}``` and ```efficiency level: {0.00-0.99}``` which will be summed together to determine which tool to use based on the summation at the end of the parallel prompting strategy review.
 - Ensure that the parallel decision process for the prompting strategy has the detailed and full versions of the prompting strategies from [modern-prompting.mdc](modern-prompting.mdc)
-        - If more than one tool should come to the summation of ≥1.38 -> use a combination of the ≥1.38 rated prompting strategies.
+        - If more than one tool should come to the summation of ≥1.42 -> use a combination of the ≥1.42 rated prompting strategies.
 
 ### ACCOMPLISHES
 

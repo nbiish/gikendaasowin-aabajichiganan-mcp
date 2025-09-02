@@ -11,7 +11,7 @@
       <p><a href="https://raw.githubusercontent.com/nbiish/license-for-all-works/8e9b73b269add9161dc04bbdd79f818c40fca14e/qr-stripe-donation.png">Donate via Stripe</a></p>
     </div>
     <div style="display: flex; align-items: center;">
-      <a href="https://www.buymeacoffee.com/nbiish"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=nbiish&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" /></a>
+      <a href="https://www.buymeacoffee.com/nbiish"><img src="buymeacoffee-button.svg" alt="Buy me a coffee" /></a>
     </div>
   </div>
   
@@ -38,7 +38,7 @@ Both packages are maintained in parallel and receive the same updates. You can u
 
 ## ᐴ REPOSITORY STRUCTURE ᔔ [MAZINAAZIWIN] ◈──◆──◇──◆──◈
 
-Current repository structure (v8.8.2):
+Current repository structure (v8.8.4):
 
 ```text
 .

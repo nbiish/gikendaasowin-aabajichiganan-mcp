@@ -1,23 +1,20 @@
 #!/usr/bin/env node
 /**
  * -----------------------------------------------------------------------------
- * Gikendaasowin Aabajichiganan - Revolutionary 2-Round Cognitive Deliberation MCP Server (v8.8.0)
+ * Gikendaasowin Aabajichiganan - Revolutionary 2-Round Cognitive Deliberation MCP Server (v8.8.4)
  *
  * Description: Revolutionary MCP server implementing the most advanced 2-round cognitive
  * processing engine available. Features a comprehensive 6-stage framework combining
  * Scientific Investigation, OOReD analysis, and Critical Thinking methodologies
  * with expertly evaluated prompting strategies from modern-prompting.mdc.
  *
- * v8.8.1 REVOLUTIONARY RELEASE - 2-Round Deliberation Framework:
- * - Complete refactor implementing 2-round deliberation process as SINGLE tool call
- * - DYNAMIC prompting strategy evaluation with in-prompt 0.00-1.00 scoring system
- * - Removed session management - all 6 stages happen in one tool invocation
- * - Tool usage recommendations focusing on pair programming scenarios
- * - Enhanced reliability with cross-round validation and consistency checking
- * - Comprehensive markdown output with tool count recommendations
- * - Revolutionary 2-round cognitive processing following tested specifications
- * - CRITICAL: All strategy ratings calculated dynamically based on actual task context
- * - SINGLE TOOL CALL: Both rounds processed internally without user session management
+ * v8.8.2 OPTIMIZATION RELEASE - Threshold Adjustment & Verbosity Reduction:
+ * - Updated threshold from ≥1.38 to ≥1.42 for more selective prompting strategies
+ * - Removed redundant "Strategy-Enhanced Results" sections from all stages
+ * - Optimized critical thinking path generation to eliminate repetitive content
+ * - Simplified strategy application formatting for conciseness
+ * - Eliminated duplicate strategy evaluation between rounds for consistency
+ * - Maintained single tool call architecture with reduced verbosity
  * -----------------------------------------------------------------------------
  */
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
@@ -26,8 +23,8 @@ import { z } from "zod";
 // --- Server Definition ---
 const serverInfo = {
     name: "gikendaasowin-aabajichiganan-mcp",
-    version: "8.8.1",
-    description: "Revolutionary Single-Tool-Call 2-Round Cognitive Deliberation MCP server implementing the complete 6-stage framework with dynamic prompting strategy evaluation and tool recommendations."
+    version: "8.8.4",
+    description: "Optimized Single-Tool-Call 2-Round Cognitive Deliberation MCP server with threshold adjustment (≥1.42) and reduced verbosity while maintaining comprehensive 6-stage cognitive framework."
 };
 const server = new McpServer(serverInfo);
 // --- Logging Helpers (Internal - No changes needed as per user comments) ---
@@ -71,7 +68,7 @@ function logToolError(toolName, error) {
 }
 /**
  * Evaluates all prompting strategies from modern-prompting.mdc based on input and task
- * Returns strategies with scores ≥1.38 for use in deliberation
+ * Returns strategies with scores ≥1.42 for use in deliberation
  * CRITICAL: Strategies are evaluated in-prompt based on actual context, NOT hardcoded
  */
 function evaluatePromptingStrategies(input, mode, context) {
@@ -126,8 +123,8 @@ function evaluatePromptingStrategies(input, mode, context) {
             totalScore: solutionLevel + efficiencyLevel
         };
     });
-    // Return strategies with scores ≥1.38
-    return strategies.filter(s => s.totalScore >= 1.38).sort((a, b) => b.totalScore - a.totalScore);
+    // Return strategies with scores ≥1.42
+    return strategies.filter(s => s.totalScore >= 1.42).sort((a, b) => b.totalScore - a.totalScore);
 }
 /**
  * DYNAMIC IN-PROMPT EVALUATION: Evaluates solution capability based on actual task requirements
@@ -372,9 +369,9 @@ function generateToolRecommendations(input, mode, deliberationResults) {
  */
 function formatPromptingStrategyResults(strategies) {
     if (strategies.length === 0) {
-        return "**No strategies met the threshold of ≥1.38 through dynamic evaluation**";
+        return "**No strategies met the threshold of ≥1.42 through dynamic evaluation**";
     }
-    let result = `**SELECTED PROMPTING STRATEGIES (Score ≥1.38 - Dynamically Evaluated):**\n`;
+    let result = `**SELECTED PROMPTING STRATEGIES (Score ≥1.42 - Dynamically Evaluated):**\n`;
     strategies.forEach((strategy, index) => {
         result += `${index + 1}. **${strategy.name}** (Total: ${strategy.totalScore.toFixed(2)})\n`;
         result += `   - Solution Level: ${strategy.solutionLevel.toFixed(2)} (evaluated in-prompt for task fit)\n`;
@@ -388,11 +385,9 @@ function formatPromptingStrategyResults(strategies) {
  * Applies selected prompting strategies to enhance stage processing
  */
 function applySelectedStrategies(strategies, input, mode, stage) {
-    let results = `**Applied Strategies for ${stage}:**\n`;
-    strategies.forEach(strategy => {
-        results += `- **${strategy.name}** (${strategy.totalScore.toFixed(2)}): Enhanced ${stage} processing\n`;
-    });
-    return results;
+    if (strategies.length === 0)
+        return "";
+    return `**Applied Strategies:** ${strategies.map(s => `${s.name} (${s.totalScore.toFixed(2)})`).join(', ')}\n`;
 }
 /**
  * Formats strategy application for display
@@ -448,8 +443,8 @@ ${stage2}
 ---
 *First Round Complete: Scientific Investigation + Initial OOReD*`;
     // ROUND 2: Stages 3-6 (Internal processing continues)
-    // Re-evaluate strategies for second round
-    const secondRoundStrategies = evaluatePromptingStrategies(input, mode, context);
+    // Use same strategies for consistency (input/mode/context unchanged)
+    const secondRoundStrategies = selectedStrategies;
     // STAGE 3: CRITICAL THINKING + PRE-ACT
     const stage3 = await performCriticalThinkingPreAct(input, mode, context, firstRoundResults, secondRoundStrategies);
     // STAGE 4: SCIENTIFIC REVIEW
@@ -494,7 +489,7 @@ ${finalToolRecs.recommendations.join('\n')}
 ---
 *Enhanced 2-Round Cognitive Framework: Scientific Investigation + OOReD + Critical Thinking*
 *Processing Mode: ${mode} | Total Strategies Applied: ${selectedStrategies.length}*
-*Framework Version: 8.8.0 | Complete Single-Tool-Call Processing*`;
+*Framework Version: 8.8.4 | Complete Single-Tool-Call Processing*`;
 }
 // --- 6-Stage Cognitive Processing Functions with Integrated Prompting Strategies ---
 /**
@@ -602,9 +597,6 @@ ${consensusAnalysis}
 **Pre-Action Planning:**
 ${toolPlanning}
 
-**Strategy-Enhanced Results:**
-${strategyResults}
-
 **Meta-Cognitive Assessment:**
 - Thinking process evaluation: ${evaluateThinkingProcess(criticalThinkingPaths)}
 - Assumption validation: ${validateAssumptions(criticalThinkingPaths)}
@@ -637,9 +629,6 @@ ${validationPaths}
 **Cross-Stage Consistency Analysis:**
 ${consistencyCheck}
 
-**Strategy-Enhanced Results:**
-${strategyResults}
-
 **Enhanced Validation Results:**
 - Hypothesis strength: ${assessHypothesisStrength(firstRoundResult)}
 - Evidence quality: ${assessEvidenceQuality(firstRoundResult, stage3Result)}
@@ -671,9 +660,6 @@ ${expertPerspectives}
 **Integration Analysis:**
 ${integrateStageFindings(firstRoundResult, stage4Result)}
 
-**Strategy-Enhanced Results:**
-${strategyResults}
-
 **Refinement Recommendations:**
 ${generateRefinementRecommendations(refinementPaths, expertPerspectives)}`;
 }
@@ -702,9 +688,6 @@ ${actionPlan}
 
 **Quality Assurance Metrics:**
 ${qualityMetrics}
-
-**Strategy-Enhanced Results:**
-${strategyResults}
 
 **Implementation Roadmap:**
 ${generateImplementationRoadmap(actionPlan, mode)}
@@ -836,7 +819,7 @@ async function planRequiredTools(input, mode, consensus) {
 **Resource Requirements:** Time, expertise, and technological capabilities assessed`;
 }
 function formatCriticalThinkingPaths(paths) {
-    return paths.map((path, i) => `**Step ${i + 1}:** ${path.substring(0, 200)}${path.length > 200 ? '...' : ''}`).join('\n');
+    return paths.map((path, i) => `**Step ${i + 1}:** ${path.split(' - Applied to')[0]} - Completed`).join('\n');
 }
 // Additional helper functions for remaining stages...
 function evaluateThinkingProcess(paths) {
@@ -1044,7 +1027,7 @@ function performContextualReasoning(input, context, mode) {
     return `Context-specific reasoning incorporates environmental factors and constraints`;
 }
 async function applyCriticalQuestion(input, mode, question, firstRoundResult) {
-    return `${question} - Applied to ${mode}: Systematic consideration reveals enhanced understanding based on ${firstRoundResult.substring(0, 100)}...`;
+    return `${question} - Applied to ${mode}: Systematic consideration reveals targeted analysis approach`;
 }
 function checkConsistency(stage1, stage3) {
     return "High consistency - methodological alignment achieved";
@@ -1190,8 +1173,8 @@ function assessMethodologicalRigor(stage1Result) {
  * **PROMPTING STRATEGY EVALUATION:**
  *    - Automatic evaluation of all strategies from modern-prompting.mdc
  *    - Solution Level (0.00-0.99) + Efficiency Level (0.00-0.99) scoring
- *    - Strategies with total score ≥1.38 are automatically selected and applied
- *    - Combined strategy application for scores ≥1.38
+ *    - Strategies with total score ≥1.42 are automatically selected and applied
+ *    - Combined strategy application for scores ≥1.42
  *
  * **TOOL RECOMMENDATION ENGINE:**
  *    - Intelligent analysis of input to recommend relevant pair programming tools
@@ -1237,7 +1220,7 @@ function assessMethodologicalRigor(stage1Result) {
  * **KEY FEATURES:**
  * - **SINGLE TOOL CALL:** Complete 6-stage deliberation without session management
  * - **Automatic Strategy Evaluation:** Analyzes all modern-prompting.mdc strategies
- * - **0.00-1.00 Scoring System:** Solution + Efficiency levels with ≥1.38 threshold
+ * - **0.00-1.00 Scoring System:** Solution + Efficiency levels with ≥1.42 threshold
  * - **Internal 2-Round Processing:** All deliberation happens within one tool invocation
  * - **Tool Recommendations:** Intelligent suggestions for pair programming workflows
  * - **Markdown Output:** Structured results with "tool use before re-deliberation" count
