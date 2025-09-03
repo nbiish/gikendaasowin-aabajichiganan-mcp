@@ -22,31 +22,9 @@
 ◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
 </div>
 
-# ◈──◆──◇ GIKENDAASOWIN AABAJICHIGANAN MCP SERVER / ENHANCED 6-STAGE COGNITIVE TOOLS MCP SERVER ◇──◆──◈
+Revolutionary MCP server with Enhanced 2-Round, 6-Stage Cognitive Deliberation Framework (v8.9.6). The `deliberate` tool implements an **LLM-guided cognitive enhancement framework** that prompts LLMs to evaluate and select from **15 modern cognitive techniques** using a **0.00-0.99 scoring system** with **≥1.53 threshold rule** - accepting only `input` and `context` parameters. *(Integration guidelines in [`latest.md`](latest.md) are licensed under [LICENSE](LICENSE).)*
 
-<div align="center">
-  <hr width="50%">
-  
-  <h3>Support This Project</h3>
-  <div style="display: flex; justify-content: center; gap: 20px; margin: 20px 0;">
-    <div>
-      <h4>Stripe</h4>
-      <img src="qr-stripe-donation.png" alt="Scan to donate" width="180"/>
-      <p><a href="https://raw.githubusercontent.com/nbiish/license-for-all-works/8e9b73b269add9161dc04bbdd79f818c40fca14e/qr-stripe-donation.png">Donate via Stripe</a></p>
-    </div>
-    <div style="display: flex; align-items: center;">
-      <a href="https://www.buymeacoffee.com/nbiish"><img src="buymeacoffee-button.svg" alt="Buy me a coffee" /></a>
-    </div>
-  </div>
-  
-  <hr width="50%">
-</div>
-
-<div align="center">
-◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
-</div>
-
-Revolutionary MCP server with Enhanced 6-Stage Cognitive Deliberation Framework (v8.9.0). The `deliberate` tool combines Scientific Investigation, OOReD analysis, and Critical Thinking methodologies with **DYNAMIC prompting strategy evaluation** - now with **MINIMAL filler verbiage** and **LLM-freedom approach** accepting only `input` and `context` parameters. *(Integration guidelines in [`latest.md`](latest.md) are licensed under [LICENSE](LICENSE).)*
+**🚀 MAJOR BREAKTHROUGH (v8.9.6):** Complete architectural transformation from hardcoded `CognitiveDeliberationEngine` to LLM-guided `DeliberationEngine`. The tool now functions as a **cognitive framework enhancer** that prompts LLMs to evaluate techniques themselves rather than providing pre-calculated scores, enabling true adaptive reasoning.
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
@@ -62,7 +40,7 @@ Both packages are maintained in parallel and receive the same updates. You can u
 
 ## ᐴ REPOSITORY STRUCTURE ᔔ [MAZINAAZIWIN] ◈──◆──◇──◆──◈
 
-Current repository structure (v8.9.0):
+Current repository structure (v8.9.6):
 
 ```text
 .
@@ -100,43 +78,33 @@ Current repository structure (v8.9.0):
 
 ## ᐴ GASHKITOONAN ᔔ [ENHANCED CAPABILITIES] ◈──◆──◇──◆──◈
 
-### 🚀 Revolutionary 6-Stage Cognitive Framework (v8.9.0 OPTIMIZATION)
+### 🚀 Revolutionary LLM-Guided Cognitive Framework (v8.9.6)
 
-**NEW IN v8.9.0: MINIMAL FILLER APPROACH**
-- **LLM Freedom:** Tool now accepts only `input` and `context` - no mode parameter
-- **Zero Filler Verbiage:** No formatting constraints, headers, or verbose output  
-- **Auto-Mode Detection:** Automatically determines optimal processing approach
-- **Pure Cognitive Output:** Raw cognitive processing results for maximum LLM flexibility
+**NEW IN v8.9.6: COMPLETE ARCHITECTURAL TRANSFORMATION**
 
-**Stage 1: Scientific Investigation** (Auto-Applied Chain-of-Thought + Role-Based)
-- Systematic hypothesis formation using scientific method
-- Expert domain perspective integration
-- Step-by-step reasoning for complex problem decomposition
+- **LLM-Guided Evaluation:** Tool prompts LLMs to evaluate cognitive techniques rather than providing hardcoded scores
+- **True Adaptive Reasoning:** No pre-calculated evaluations - LLMs determine optimal strategies dynamically
+- **15 Modern Cognitive Techniques:** Complete prompting strategy arsenal from Cache-Augmented Reasoning to Multimodal Synthesis
+- **0.00-0.99 Scoring Framework:** LLMs evaluate solution level + efficiency level with ≥1.53 threshold rule
+- **Iterative Enhancement:** Built-in guidance to return to deliberate after tool usage for continuous improvement
 
-**Stage 2: Initial OOReD** (Auto-Applied Tree-of-Thoughts + Meta-Prompting)
-- Multiple parallel reasoning paths exploration
-- Self-reflection on reasoning quality and consistency  
-- Alternative solution pathway evaluation
+**Revolutionary LLM-Guidance Architecture:**
 
-**Stage 3: Critical Thinking + Pre-Act** (Auto-Applied Self-Consistency + Meta-Prompting)
-- 10-step critical thinking framework application
-- Multiple validation approaches for reliability
-- Pre-action planning with tool identification
+**Framework Delivery Phase:**
 
-**Stage 4: Scientific Review** (Auto-Applied Chain-of-Thought + Self-Consistency)  
-- Systematic review of initial investigation findings
-- Cross-validation using multiple approaches
-- Enhanced evidence quality assessment
+- **6-Stage Structure Presentation** - Complete deliberation framework with critical thinking questions
+- **Cognitive Technique Catalog** - All 15 modern prompting strategies for LLM evaluation
+- **Scoring Instructions** - Clear 0.00-0.99 evaluation criteria with threshold-based selection rules
 
-**Stage 5: OOReD Review** (Auto-Applied Tree-of-Thoughts + Role-Based)
-- Multi-path refinement of reasoning processes
-- Expert domain perspectives integration
-- Cross-stage consistency optimization
+**LLM Processing Phase:**
 
-**Stage 6: Final Action** (All Strategies Integrated)
-- Comprehensive synthesis of all previous stages
-- Fact-based actionable recommendations
-- Natural "tool use before re-deliberation" count integration
+- **Dynamic Technique Selection** - LLM evaluates and scores techniques based on specific problem context
+- **Strategy Combination** - Multiple techniques used when scoring ≥1.53 for enhanced effectiveness  
+- **Tool Planning Integration** - Recommendations for tool usage count and re-deliberation timing
+- **Adaptive Implementation** - LLM applies selected cognitive approaches to actual problem solving
+
+**Core Innovation:**
+This breakthrough enables LLMs to **meta-cognitively select** their own reasoning approaches rather than following pre-determined paths, resulting in truly adaptive and context-appropriate problem solving.
 
 <div align="center">
 ◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
@@ -144,35 +112,33 @@ Current repository structure (v8.9.0):
 
 ## ᐴ APITENDAAGOZIJIG ᔔ [PERFORMANCE METRICS] ◈──◆──◇──◆──◈
 
-- **Enhanced Reliability:** 45-60% error reduction through 6-stage validation
-- **Improved Depth:** 95% comprehensive coverage with scientific rigor  
-- **Better Actionability:** 88% actionable recommendations with implementation roadmaps
-- **Quality Assurance:** 94% validation success rate with cross-stage consistency
-- **LLM Integration:** 100% formatting freedom for natural AI interaction
+- **LLM-Guided Evaluation:** Prompts LLMs to evaluate and score 15+ cognitive techniques dynamically
+- **True Adaptive Reasoning:** No hardcoded evaluations - strategies selected based on problem context
+- **Meta-Cognitive Enhancement:** LLMs learn to select their own optimal reasoning approaches
+- **Iterative Improvement:** Built-in guidance for tool usage and re-deliberation cycles
+- **Threshold-Based Selection:** ≥1.53 scoring rule ensures quality technique combination
 
 <div align="center">
 ◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
 </div>
 
-## 🚀 NEW: Minimal Filler & LLM Freedom Approach (v8.9.0)
+## 🚀 LLM-Guided Cognitive Enhancement Framework (v8.9.6)
 
-**Revolutionary Update:** The system now provides pure cognitive processing without formatting constraints, allowing LLMs complete freedom in constructing outputs.
+This revolutionary update transforms the deliberation tool from a hardcoded evaluation system into an **LLM-guided cognitive enhancement framework** that enables true adaptive reasoning.
 
-### Key Improvements:
+### Core Innovation
 
-- **Pure Input/Context:** Only accepts `input` and optional `context` parameters - no mode selection needed
-- **Zero Filler Text:** No headers, formatting, or verbose explanations that constrain LLM output
-- **Auto-Mode Detection:** Intelligently determines whether to analyze, decide, synthesize, or evaluate
-- **Natural Integration:** "tool use before re-deliberation" count integrated seamlessly
-- **Maximum Flexibility:** LLMs can construct their own narrative around the cognitive processing
+**Meta-Cognitive Selection:** The tool now prompts LLMs to evaluate and select cognitive techniques themselves using a structured 0.00-0.99 scoring system, enabling context-appropriate strategy selection rather than pre-determined approaches.
 
-### Processing Flow:
-1. **Input Analysis:** Auto-determines optimal cognitive processing approach
-2. **Round 1:** Scientific Investigation + Initial OOReD (internal processing)
-3. **Round 2:** Critical Thinking + Reviews + Final Action (internal processing)  
-4. **Output:** Concise cognitive results without formatting constraints + tool count
+### Processing Architecture
 
-This makes the deliberation tool a true "advanced guided notepad" that provides cognitive enhancement without limiting creative AI expression!
+1. **Framework Presentation:** Delivers complete 6-stage deliberation structure with critical thinking questions
+2. **Technique Catalog:** Presents all 15 modern cognitive techniques for LLM evaluation
+3. **Scoring Framework:** Guides LLM through solution level + efficiency level evaluation (≥1.53 threshold)
+4. **Dynamic Selection:** LLM chooses optimal techniques based on specific problem requirements  
+5. **Implementation Guidance:** Provides tool usage recommendations and re-deliberation encouragement
+
+This breakthrough enables LLMs to **learn and adapt their own reasoning approaches** while leveraging advanced cognitive frameworks for enhanced problem-solving capabilities!
 
 <div align="center">
 ◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
@@ -224,13 +190,14 @@ Add to your `claude_desktop_config.json`:
 
 ### Available Tools
 
-**`deliberate`** - Enhanced 6-Stage Cognitive Processing Engine (v8.9.0)
+**`deliberate`** - Advanced 2-Round, 6-Stage Cognitive Processing Engine (v8.9.2)
 
-- **Input Parameters:** 
+- **Input Parameters:**
   - `input` (required): The problem, question, or situation needing cognitive deliberation
   - `context` (optional): Additional background information or constraints
-- **Auto-Processing:** Automatically determines optimal cognitive approach
-- **Output:** Raw cognitive processing results with natural tool count integration
+- **Auto-Processing:** Automatically determines optimal cognitive approach and selects best prompting strategies
+- **Output:** Pure cognitive processing results with natural tool usage count integration
+- **Features:** Dynamic strategy evaluation, 2-round processing architecture, zero filler verbiage approach
 
 <div align="center">
 ╭────────────[ ◈◆◇ CITATION ◇◆◈ ]─────────────╮
@@ -240,16 +207,6 @@ Add to your `claude_desktop_config.json`:
 
 Please cite this project using the following BibTeX entry:
 
-```bibtex
-@misc{gikendaasowin-aabajichiganan-mcp2025,
-  author/creator/steward = {ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians},
-  title/description = {Gikendaasowin Aabajichiganan MCP Server - Revolutionary 2-Round Cognitive Deliberation with Dynamic Prompting Strategy Evaluation},
-  type_of_work = {Indigenous digital creation/software incorporating traditional knowledge and cultural expressions},
-  year = {2025},
-  publisher/source/event = {GitHub repository under tribal sovereignty protections},
-  howpublished = {\url{https://github.com/nbiish/gikendaasowin-aabajichiganan-mcp}},
-  note = {Authored and stewarded by ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians. This work embodies Indigenous intellectual property, traditional knowledge systems (TK), traditional cultural expressions (TCEs), and associated data protected under tribal law, federal Indian law, treaty rights, Indigenous Data Sovereignty principles, and international indigenous rights frameworks including UNDRIP. All usage, benefit-sharing, and data governance are governed by the COMPREHENSIVE RESTRICTED USE LICENSE FOR INDIGENOUS CREATIONS WITH TRIBAL SOVEREIGNTY, DATA SOVEREIGNTY, AND WEALTH RECLAMATION PROTECTIONS.}
-}
 ```bibtex
 @misc{gikendaasowin-aabajichiganan-mcp2025,
   author/creator/steward = {ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi), also known legally as JUSTIN PAUL KENWABIKISE, professionally documented as Nbiish-Justin Paul Kenwabikise, Anishinaabek Dodem (Anishinaabe Clan): Animikii (Thunder), descendant of Chief ᑭᓇᐙᐸᑭᓯ (Kinwaabakizi) of the Beaver Island Band and enrolled member of the sovereign Grand Traverse Band of Ottawa and Chippewa Indians},

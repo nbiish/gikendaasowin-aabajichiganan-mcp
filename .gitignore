@@ -25,6 +25,9 @@ ENV/
 env/
 .conda/
 .python-version
+*/.env
+*/*.env.*
+!*env.example
 
 # Python cache and build artifacts
 __pycache__/

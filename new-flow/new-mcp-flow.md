@@ -93,22 +93,39 @@ ___
 
 ___
 
-## FINAL OUTPUT OF DELIBERATION MCP
+## TOOLING LOGIC
 
+### INPUT  
+
+- single tool call: `deliberate(input: string, context?: string)`
+
+#### MCP TOOL DOES THE FOLLOWING
+
+- The 'Orient stage': presents LLM calling the mcp tool each of the prompting strategies from [modern-prompting.mdc](modern-prompting.mdc) within and asked to apply these to the 'input' -> LLM determines which prompting strategy would provide the best solution the most efficiently by assigning every strategy a ```solution level: {0.00-0.99}``` and ```efficiency level: {0.00-0.99}``` rating which will be summed together to determine which tool to use based on which tools ≧1.53
+- If more than one tool should come to the summation of ≥1.53 -> use a combination of the strategies
+- LLM is prompted with Stages 1-5
+- Ask the LLM what tools are needed to accomplish the task?
+- Stage 6 is formatted output of mcp tool
 
 ___
 
-## ADDITIONAL TOOLING LOGIC
+### OUTPUT  
 
-- the final output should include a ```tool use before re-deliberation: {number of tools used before returning}```
-- During the 'Orient stage, the system should review each of the prompting strategies from [modern-prompting.mdc](modern-prompting.mdc) and based on the mcp input and task at hand -> run parallel determinations of which prompting strategy would provide the best solution the most efficiently by assigning every strategy a ```solution level: {0.00-0.99}``` and ```efficiency level: {0.00-0.99}``` which will be summed together to determine which tool to use based on the summation at the end of the parallel prompting strategy review.
-- Ensure that the parallel decision process for the prompting strategy has the detailed and full versions of the prompting strategies from [modern-prompting.mdc](modern-prompting.mdc)
-        - If more than one tool should come to the summation of ≥1.42 -> use a combination of the ≥1.53 rated prompting strategies.
+The final output should be formatted markdown that follows this strucure:
+
+___
+```DELIBERATION: {though process through Stages 1-5 + selected cognitive technique/s output}```
+
+```Return to  'deliberate' after using the following tools: {number of tools used before returning}```
+
+```# To accomplish Task:\n{task identified from critical thinking process}```
+___
 
 ### ACCOMPLISHES
 
-- Improved efficiency in selecting the most appropriate prompting strategy.
+- Single-shot prompt of cognitive strategies to 'think' about the most appropriate prompting strategy to accomplish the task at hand.
 - Enhanced ability to adapt to varying input and task requirements.
+- Thorough evaluation of potential solutions and tools to required for the best course of action.
 - Streamlined decision-making process for tool selection.
 - Encourages LLMs to return to the ````deliberate``` mcp tool to re-orient to the best strategy.
 
@@ -116,17 +133,7 @@ ___
 
 ## IMPORTANT TESTING RESULTS AND OBSERVATIONS -> CHANGES NECESSARY
 
- - designing the intake of these cognitive techniques as a SINGLE tool call is CRITICAL to allowing all LLMs to use this properly.
-- CRITICAL -> This tool MUST follow this pseudo code process -> (llm calls deliberate mcp tool) -> ('1st round' of deliberation: takes the llm through stages 1-2) -> ('2nd round' of deliberation: takes the llm through stages 3-6) -> (markdown formatted output of the two previous 'rounds of deliberation' is returned from the deliberate mcp tool + the recommended number of tool usage before returning to deliberate again)
 - recommended end tool use before re-deliberate is CRITICAL
 - (the 0.00 - 1.00+ system is CRITICAL) → (no percentages or ‘metrics’)
-- (going through each phase is CRITICAL)
 - (the suggested tools should exclusively reflect ‘pair programmers’ tools and typical use cases for mcp servers like file manipulation, websearch, and code tools) -> (also recommend the other tools you see beside 'deliberate' as examples)
-- FINAL OUTPUT:
-        - final phase of deliberate markdown formatted text + tool use before re-deliberation: {number of tools used before returning to deliberate again}
-        - (formatted output of multi-stage deliberation proposed solution comprised of the best rated cognitive framework/s and critical thinking strategies) = (final most fact based and well thought out answer for the LLM to intake and proceed with their normal thinking processes)
 
-### FINAL OUTPUT PASS METRIC
-
-- formatted markdown output of the final results
-- must include ```tool use before re-deliberation: {number of tools used before returning to deliberate again}```

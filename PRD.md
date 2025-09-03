@@ -1,174 +1,133 @@
 # PRODUCT REQUIREMENTS DOCUMENT: GIKENDAASOWIN AABAJICHIGANAN MCP SERVER
 
-**Author:** ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi) | **Date:** September 2, 2025 | **Version:** 8.9.0
+**Author:** ᓂᐲᔥ ᐙᐸᓂᒥᑮ-ᑭᓇᐙᐸᑭᓯ (Nbiish Waabanimikii-Kinawaabakizi) | **Date:** September 2, 2025 | **Version:** 8.9.6
 
 ## 1. OBJECTIVE
 
-**Purpose:** Revolutionary MCP server that implements a 2-round, 6-stage cognitive deliberation framework with minimal filler verbiage, maximum LLM freedom, and dynamic prompting strategy evaluation from modern-prompting.mdc. The tool serves as an "advanced guided notepad" providing cognitive enhancement without constraining AI creativity.
+**Purpose:** Enable LLMs to leverage advanced cognitive deliberation frameworks for enhanced problem-solving through a structured 6-stage process that prompts LLMs to evaluate and select optimal cognitive techniques dynamically rather than providing pre-calculated solutions.
 
 ## 2. SCOPE
 
 **In-Scope Features:**
 
-- Single `deliberate` tool accepting only `input` and optional `context` parameters
-- Automatic mode detection (analyze, decide, synthesize, evaluate) based on input analysis
-- 6-stage cognitive processing in 2 internal rounds without verbose formatting
-- Dynamic prompting strategy evaluation with ≥1.42 threshold selection
-- Natural integration of "tool use before re-deliberation" count
-- Zero filler verbiage approach allowing complete LLM output freedom
+- LLM-guided cognitive technique evaluation using 0.00-0.99 scoring system
+- 6-stage deliberation framework (Scientific Investigation → OOReD → Critical Thinking → Reviews → Action)
+- 15 modern prompting strategies for dynamic LLM selection
+- ≥1.53 threshold rule for strategy combination and selection
+- Iterative re-deliberation encouragement with tool usage estimation
 
 **Out-of-Scope:**
 
-- Multiple tool interfaces or complex parameter configurations
-- Verbose formatting, headers, or output constraints
-- Manual mode selection or strategy specification
-- Session management or multi-call deliberation processes
+- Hardcoded cognitive evaluations or pre-calculated strategy selections
+- Complex UI interfaces or visual components
+- Real-time collaborative deliberation features
 
 ## 3. USER EXPERIENCE
 
-**User Flow:** LLM calls deliberate(input, context?) → Receives pure cognitive processing results → Constructs own narrative/format → Uses tool count for re-deliberation planning
+**User Flow:**
 
-## 4. STRUCTURE -> 'camel' workflow -> QAMMML (Quanta Atoms Molecule Matter Matter-Phase Lifeform)
+1. LLM calls `deliberate(input: string, context?: string)`
+2. Tool provides structured 6-stage cognitive framework
+3. LLM evaluates 15 cognitive techniques with solution/efficiency ratings
+4. LLM selects techniques scoring ≥1.53 for implementation
+5. LLM receives guidance to return to deliberate after using recommended tools
 
-**Quanta:** Individual cognitive processing functions (identifyScientificQuestion, formHypothesis, etc.)
+## 4. STRUCTURE → 'camel' workflow → QAMMML (Quanta Atoms Molecule Matter Matter-Phase Lifeform)
 
-**Atoms:** Stage processing functions (performScientificInvestigation, performInitialOOReD, etc.)
+**Quanta:** Individual cognitive technique evaluations (0.00-0.99 scores)
 
-**Molecules:** Round processing (Round 1: Stages 1-2, Round 2: Stages 3-6)
+**Atoms:** Single-stage deliberation components (Scientific Investigation, OOReD, Critical Thinking, etc.)
 
-**Matter:** Complete cognitive deliberation process (performCognitiveDeliberation)
+**Molecules:** 6-stage deliberation cycles combining multiple cognitive processes
 
-**Matter Phases:** Tool interface and MCP server integration
+**Matter:** Complete deliberation framework with technique selection and tool recommendations
 
-**Lifeforms:** Full MCP server ecosystem with dual npm packages
+**Matter Phases:** LLM-guided implementation cycles using selected cognitive techniques
+
+**Lifeforms:** Enhanced AI reasoning capabilities through systematic cognitive deliberation
 
 ## 5. FUNCTIONAL REQUIREMENTS
 
 ### Core Features
 
-- **Single Tool Interface:** `deliberate(input: string, context?: string)`
-- **Automatic Processing:** Scientific Investigation → OOReD → Critical Thinking → Reviews → Final Action
-- **Dynamic Strategy Selection:** Evaluates all strategies from modern-prompting.mdc with real-time scoring
-- **Minimal Output:** Raw cognitive processing without formatting constraints
-- **Tool Count Integration:** Natural "tool use before re-deliberation: X" integration
-
-### Prompting Strategy Integration
-
-**From modern-prompting.mdc:**
-- Cache-Augmented Reasoning + ReAct
-- Self-Consistency (3 parallel drafts)
-- ToT-lite (Tree of Thoughts)
-- Progressive-Hint Prompting (PHP)
-- Cognitive Scaffolding Prompting
-- Knowledge Synthesis Prompting (KSP)
-- Reflexive Analysis
-- PAL (Program-Aided Language)
-- Context-Compression
-
-**Dynamic Evaluation System:**
-- Solution Level: 0.00-0.99 based on task-specific problem-solving capability
-- Efficiency Level: 0.00-0.99 based on computational/cognitive overhead
-- Selection Threshold: ≥1.42 total score for strategy activation
-- Multiple Strategy Combination: ≥1.53 rated strategies used together
+- **LLM-Guided Evaluation:** Tool prompts LLM to evaluate cognitive techniques rather than providing hardcoded scores
+- **Dynamic Strategy Selection:** 15 modern prompting strategies available for LLM assessment
+- **Structured Framework:** 6-stage deliberation process with critical thinking questions
+- **Threshold-Based Selection:** ≥1.53 scoring rule for technique combination
+- **Tool Integration Planning:** Recommendations for tool usage and re-deliberation timing
 
 ## 6. NON-FUNCTIONAL REQUIREMENTS
 
-**Performance:** Single tool call processing, no session dependencies
-**Usability:** Maximum LLM freedom with zero formatting constraints
-**Compatibility:** Standard MCP protocol, npm packages for both Anishinaabemowin and English names
-**Maintainability:** Dual package synchronization with identical functionality
+**Performance:** Fast framework delivery (<2s), scalable to multiple concurrent deliberations
+**Usability:** Single-parameter simplicity (input + optional context), clear structured prompts
+**Security:** No data persistence, stateless operation, input sanitization
+**Compatibility:** MCP protocol compliance, TypeScript/Node.js environment, npm package distribution
 
 ## 7. ASSUMPTIONS & CONSTRAINTS
 
 **Assumptions:**
-- LLMs benefit from cognitive frameworks when given output freedom
-- Tool count integration aids deliberation workflow planning
-- Dynamic strategy evaluation improves over hardcoded approaches
+
+- LLMs can effectively evaluate cognitive techniques using numerical scoring
+- 0.00-0.99 scoring system provides sufficient granularity for technique selection
+- Users prefer LLM-guided evaluation over pre-calculated recommendations
 
 **Constraints:**
-- Technology: TypeScript 5.9+, MCP SDK, Node.js ecosystem
-- MCP Tool Name Limit: 60 characters total (server + tool name)
-- Single-call architecture: All processing must happen in one tool invocation
+
+- Technology: TypeScript, Node.js, MCP protocol specification
+- Architecture: Single-function tool interface with structured prompt output
+- Cognitive Framework: Must adhere to 6-stage deliberation process from new-mcp-flow.md
 
 ## 8. SUCCESS METRICS
 
 **Key Performance Indicators:**
-- LLM Integration Score: >95% natural output construction
-- Strategy Selection Accuracy: >90% optimal strategy identification for task type
-- Output Freedom Index: 0% formatting constraints imposed
-- Processing Efficiency: Single-call completion rate >99%
+
+- Tool adoption rate: Target >80% preference over hardcoded approaches
+- LLM technique selection accuracy: Target >90% appropriate technique selection  
+- Re-deliberation engagement: Target >60% users return to deliberate with tools as recommended
+- Problem-solving improvement: Target >40% better solution quality versus baseline
 
 ## 9. Knowledge Base
 
 **Knowledge Base:**
-- [new-flow/new-mcp-flow.md](new-flow/new-mcp-flow.md): Core architecture and flow requirements
-- [modern-prompting.mdc](modern-prompting.mdc): Complete prompting strategy definitions and evaluation criteria
-- [.cursor/rules/](/.cursor/rules/): Development guidelines and publishing requirements
+
+- [new-mcp-flow.md](new-flow/new-mcp-flow.md): Complete flow specification and images
+- [modern-prompting.mdc](modern-prompting.mdc): 15 cognitive techniques for LLM evaluation
+- [latest.md](latest.md): Integration guidelines and implementation notes
+- [REFACTOR_SUMMARY.md](REFACTOR_SUMMARY.md): Migration from hardcoded to LLM-guided approach
 
 ## 10. ACCEPTANCE CRITERIA
 
 **Core Functionality:**
-- [ ] Single tool `deliberate` accepts only input and context parameters
-- [ ] Automatic mode detection based on input analysis keywords
-- [ ] Complete 6-stage processing in 2 internal rounds
-- [ ] Dynamic prompting strategy evaluation with ≥1.42 threshold
-- [ ] Zero verbose formatting or output constraints
-- [ ] Natural "tool use before re-deliberation: X" integration
+
+- [ ] Tool prompts LLM for technique evaluation instead of providing pre-calculated scores
+- [ ] All 15 cognitive techniques from modern-prompting.mdc are presented for evaluation
+- [ ] 0.00-0.99 scoring system with ≥1.53 threshold rule implemented correctly
+- [ ] 6-stage deliberation framework follows new-mcp-flow.md specification exactly
+- [ ] Tool encourages iterative re-deliberation with estimated tool usage counts
 
 **Quality Standards:**
-- [ ] Version synchronization across all three package.json files
-- [ ] Dual npm package publishing capability
-- [ ] MCP protocol compliance with 60-character limit
-- [ ] TypeScript compilation without errors
-- [ ] Natural LLM interaction without formatting constraints
+
+- [ ] Performance meets sub-2-second response targets
+- [ ] No hardcoded cognitive evaluations remain in codebase
+- [ ] MCP protocol compliance verified through testing
+- [ ] TypeScript compilation successful with no errors
 
 ## 11. OPEN QUESTIONS
 
-- Optimal strategy combination algorithms for multiple ≥1.53 rated strategies
-- Tool recommendation accuracy optimization based on cognitive processing results
-- Integration testing methodologies for LLM freedom validation
+- How to measure long-term cognitive improvement in LLM problem-solving?
+- Should we add analytics to track which cognitive techniques are most frequently selected?
+- What is the optimal tool usage count recommendation for complex problems?
 
 ---
 
 ## PRD BEST PRACTICES CHECKLIST
 
 - [x] Use clear, unambiguous language
-- [x] Include specific, measurable requirements  
+- [x] Include specific, measurable requirements
 - [x] Define success criteria objectively
 - [x] Balance detail with conciseness
 - [x] Treat PRD and Knowledge Base as living documents
 - [x] Reference PRD and Knowledge Base throughout development lifecycle
 
 ---
-
-## TECHNICAL ARCHITECTURE
-
-### 6-Stage Cognitive Framework
-
-**Round 1: Foundation**
-1. **Scientific Investigation:** Hypothesis formation, experimental design, evidence framework
-2. **Initial OOReD:** Observe-Orient-Reason-Decide with multiple pathway exploration
-
-**Round 2: Advanced Processing**  
-3. **Critical Thinking:** 10-step framework with pre-action planning and tool identification
-4. **Scientific Review:** Systematic validation and cross-stage consistency checking
-5. **OOReD Review:** Multi-path refinement with expert perspectives integration
-6. **Final Action:** Comprehensive synthesis with implementation recommendations
-
-### Dynamic Strategy Evaluation
-
-**Real-time Assessment:**
-- Input complexity analysis (length, terminology, domain indicators)
-- Task type detection (coding, analysis, creative, decision-making)
-- Context availability and depth evaluation
-- Computational efficiency requirements
-
-**Strategy Scoring:**
-- Solution capability for specific problem type
-- Processing efficiency for given constraints  
-- Context utilization effectiveness
-- Multi-strategy combination benefits
-
----
-
-*This PRD template reflects the current v8.9.0 implementation with minimal filler approach and maximum LLM freedom while maintaining comprehensive cognitive processing capabilities.*
+*This PRD documents the successful implementation of LLM-guided cognitive deliberation as specified in new-mcp-flow.md. The tool now functions as a cognitive framework enhancer rather than a prescriptive system.*
