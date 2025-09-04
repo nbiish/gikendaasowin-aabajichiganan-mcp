@@ -1,6 +1,6 @@
 {
   "name": "@nbiish/gikendaasowin-aabajichiganan-mcp",
-  "version": "10.0.1",
+  "version": "10.0.3",
   "description": "Revolutionary Single-Tool-Call MCP server with Enhanced 6-Stage Cognitive Deliberation Framework combining Scientific Investigation, OOReD, and Critical Thinking methodologies with DYNAMIC prompting strategy evaluation system (CoT, ToT, Self-Consistency, Meta-Prompting, Role-Based).",
   "private": false,
   "type": "module",

@@ -22,9 +22,9 @@
 ◈──◆──◇─────────────────────────────────────────────────◇──◆──◈
 </div>
 
-Revolutionary MCP server with Enhanced 2-Round, 6-Stage Cognitive Deliberation Framework (v8.9.6). The `deliberate` tool implements an **LLM-guided cognitive enhancement framework** that prompts LLMs to evaluate and select from **15 modern cognitive techniques** using a **0.00-0.99 scoring system** with **≥1.53 threshold rule** - accepting only `input` and `context` parameters. *(Integration guidelines in [`latest.md`](latest.md) are licensed under [LICENSE](LICENSE).)*
+Revolutionary MCP server with Enhanced 2-Round, 6-Stage Cognitive Deliberation Framework (v10.0.2). The `deliberate` tool implements an **LLM-guided cognitive enhancement framework** that prompts LLMs to evaluate and select from **15 modern cognitive techniques** using a **0.00-0.99 scoring system** with **≥1.53 threshold rule** - accepting only `input` and `context` parameters. *(Integration guidelines in [`latest.md`](latest.md) are licensed under [LICENSE](LICENSE).)*
 
-**🚀 MAJOR BREAKTHROUGH (v8.9.6):** Complete architectural transformation from hardcoded `CognitiveDeliberationEngine` to LLM-guided `DeliberationEngine`. The tool now functions as a **cognitive framework enhancer** that prompts LLMs to evaluate techniques themselves rather than providing pre-calculated scores, enabling true adaptive reasoning.
+**🚀 MAJOR UPDATE (v10.0.2):** Fixed critical variable reference bug that was causing "ReferenceError: prompt is not defined" when using the deliberation tool. The tool now properly references the `input` parameter throughout the framework, ensuring reliable operation for all LLM implementations without input restrictions.
 
 Known as:
 - Anishinaabemowin: [`@nbiish/gikendaasowin-aabajichiganan-mcp`](https://www.npmjs.com/package/@nbiish/gikendaasowin-aabajichiganan-mcp)
@@ -40,7 +40,7 @@ Both packages are maintained in parallel and receive the same updates. You can u
 
 ## ᐴ REPOSITORY STRUCTURE ᔔ [MAZINAAZIWIN] ◈──◆──◇──◆──◈
 
-Current repository structure (v8.9.6):
+Current repository structure (v10.0.2):
 
 ```text
 .
@@ -78,9 +78,16 @@ Current repository structure (v8.9.6):
 
 ## ᐴ GASHKITOONAN ᔔ [ENHANCED CAPABILITIES] ◈──◆──◇──◆──◈
 
-### 🚀 Revolutionary LLM-Guided Cognitive Framework (v8.9.6)
+### 🚀 Revolutionary LLM-Guided Cognitive Framework (v10.0.2)
 
-**NEW IN v8.9.6: COMPLETE ARCHITECTURAL TRANSFORMATION**
+**FIXED IN v10.0.2: CRITICAL VARIABLE REFERENCE BUG**
+
+- **Critical Bug Fix:** Resolved "ReferenceError: prompt is not defined" error that prevented LLM usage
+- **Proper Parameter Usage:** Tool now correctly references the `input` parameter throughout the deliberation framework  
+- **Enhanced Reliability:** No more runtime errors when LLMs call the deliberation tool
+- **Unrestricted Usage:** LLMs can now use this MCP tool without any input restrictions or failures
+
+**Core Framework Features (Maintained from v8.9.6):**
 
 - **LLM-Guided Evaluation:** Tool prompts LLMs to evaluate cognitive techniques rather than providing hardcoded scores
 - **True Adaptive Reasoning:** No pre-calculated evaluations - LLMs determine optimal strategies dynamically

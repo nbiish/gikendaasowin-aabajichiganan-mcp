@@ -75,7 +75,7 @@ class DeliberationEngine {
 
 ## Stage 1: Scientific Investigation
 **Your Task:** Analyze the following prompt using scientific methodology:
-- **Prompt:** "${prompt}"
+- **Prompt:** "${input}"
 
 **Please identify:**
 1. Core question/problem
@@ -128,7 +128,7 @@ Apply rapid validation checks:
 
 ---
 
-**Now:** Apply your selected cognitive technique(s) to actually solve the original problem "${prompt}" using your enhanced reasoning framework.`;
+**Now:** Apply your selected cognitive technique(s) to actually solve the original problem "${input}" using your enhanced reasoning framework.`;
   }
 }
 
@@ -136,7 +136,7 @@ Apply rapid validation checks:
 const server = new Server(
   {
     name: "gikendaasowin-aabajichiganan-mcp",
-    version: "10.0.0", // /// [6-stage deliberation with 0.00-0.99 scoring system]
+    version: "10.0.2", // /// [6-stage deliberation with 0.00-0.99 scoring system + prompt variable fix]
   },
   {
     capabilities: {
