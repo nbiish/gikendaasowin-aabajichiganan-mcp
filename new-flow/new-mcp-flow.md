@@ -114,26 +114,19 @@ ___
 The final output should be formatted markdown that follows this strucure:
 
 ___
-```DELIBERATION: {though process through Stages 1-5 + selected cognitive technique/s output}```
+```DELIBERATION: [[though process through stages]] + [[selected cognitive technique/s output]]```
 
-```Return to  'deliberate' after using the following tools: {number of tools used before returning}```
-
-```# To accomplish Task:\n{task identified from critical thinking process}```
+```SELECTED TOOLS: [[list of available tools to accomplish task]]```
 ___
 
 ### ACCOMPLISHES
 
-- Single-shot prompt of cognitive strategies to 'think' about the most appropriate prompting strategy to accomplish the task at hand.
+- Single-shot self-prompt of cognitive strategies to for 'thinking' techniques to accomplish the task at hand.
 - Enhanced ability to adapt to varying input and task requirements.
 - Thorough evaluation of potential solutions and tools to required for the best course of action.
-- Streamlined decision-making process for tool selection.
-- Encourages LLMs to return to the ````deliberate``` mcp tool to re-orient to the best strategy.
+- Additional LLM attention of all tools available for task.
+- Allows LLMs to take more cognitive time to ```deliberate``` the best strategy and tools for any task.
 
 ___
 
-## IMPORTANT TESTING RESULTS AND OBSERVATIONS -> CHANGES NECESSARY
-
-- recommended end tool use before re-deliberate is CRITICAL
 - (the 0.00 - 1.00+ system is CRITICAL) → (no percentages or ‘metrics’)
-- (the suggested tools should exclusively reflect ‘pair programmers’ tools and typical use cases for mcp servers like file manipulation, websearch, and code tools) -> (also recommend the other tools you see beside 'deliberate' as examples)
-

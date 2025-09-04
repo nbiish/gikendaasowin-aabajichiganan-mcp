@@ -2,81 +2,71 @@
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { CallToolRequestSchema, ListToolsRequestSchema, } from "@modelcontextprotocol/sdk/types.js";
-// Modern prompting strategies from modern-prompting.mdc
+// Compressed cognitive strategies from modern-prompting research
 const PROMPTING_STRATEGIES = {
+    "Chain of Draft (CoD)": {
+        description: "Concise reasoning drafts ≤5 words/step. Essential calculations only. Abstract verbose details."
+    },
     "Cache-Augmented Reasoning + ReAct": {
-        description: "Interleave internal knowledge activation with reasoning/action cycles. Preload all relevant context into working memory. Keep rationale concise (≤ 8 bullets). Synthesize knowledge from multiple internal sources. Progressive knowledge building through iterative refinement.",
-        type: "primary"
+        description: "Interleave knowledge activation with reasoning cycles. Keep rationale concise (≤8 bullets). Progressive knowledge building."
     },
     "Self-Consistency": {
-        description: "Generate 3 short reasoning drafts in parallel. Return most consistent answer only. Use for ambiguous or high-stakes decisions.",
-        type: "primary"
+        description: "Generate 3 reasoning drafts in parallel. Return most consistent answer for high-stakes decisions."
     },
     "PAL (Program-Aided Language)": {
-        description: "Generate executable code for computational tasks. Include result + minimal rationale only. Prefix with '# PoT offload' comment.",
-        type: "primary"
+        description: "Generate executable code for computational tasks. Include result + minimal rationale. Prefix '# PoT offload'."
     },
     "Reflexion": {
-        description: "Single critique and revision cycle. Use when confidence < 0.7. Avoid verbose chain-of-thought exposure.",
-        type: "primary"
+        description: "Single critique and revision cycle. Use when confidence < 0.7. Avoid verbose chain-of-thought exposure."
     },
     "Context-Compression": {
-        description: "Apply when context exceeds budget. Use LLMLingua/LongLLMLingua compression. Prefer Minimal-CoT and bounded ToT-lite.",
-        type: "primary"
+        description: "LLMLingua compression when context exceeds budget. Prefer Minimal-CoT and bounded ToT-lite."
     },
     "ToT-lite (Tree of Thoughts)": {
-        description: "Bounded breadth/depth exploration. Use for complex problem decomposition. Limited branching to maintain efficiency.",
-        type: "primary"
+        description: "Bounded breadth/depth exploration. Limited branching for complex problem decomposition efficiency."
+    },
+    "Metacognitive Prompting (MP)": {
+        description: "5-stage introspective reasoning: understand → judge → evaluate → decide → assess confidence. Human-like cognition."
     },
     "Automated Prompt Optimization (APO)": {
-        description: "Autonomously refine and improve prompts based on performance feedback. Use techniques like Expert Prompting or iterative refinement to enhance clarity and effectiveness. Reduces manual prompt engineering effort and improves task outcomes.",
-        type: "advanced"
+        description: "Autonomously refine prompts via performance feedback. Expert prompting + iterative refinement. Reduces manual effort."
     },
     "Reflexive Analysis": {
-        description: "Embed ethical, legal, and cultural considerations directly into the reasoning process. Explicitly evaluate prompts and responses against project-specific guidelines (e.g., Indigenous Data Sovereignty principles). Ensures responsible and contextually-aware AI behavior.",
-        type: "advanced"
+        description: "Embed ethical/legal/cultural considerations. Evaluate against project guidelines. Indigenous Data Sovereignty aware."
     },
     "Progressive-Hint Prompting (PHP)": {
-        description: "Use previously generated outputs as contextual hints. Iterative refinement toward optimal solutions. Multi-turn interaction with cumulative knowledge building. Automatic guidance toward correct reasoning paths.",
-        type: "advanced"
+        description: "Use previous outputs as contextual hints. Multi-turn interaction with cumulative knowledge building."
     },
     "Cache-Augmented Generation (CAG)": {
-        description: "Preload all relevant context into working memory. Eliminate real-time retrieval dependencies. Leverage extended context capabilities of modern LLMs. Reduce latency and minimize retrieval errors.",
-        type: "advanced"
+        description: "Preload relevant context into working memory. Eliminate real-time retrieval dependencies."
     },
     "Cognitive Scaffolding Prompting": {
-        description: "Structure reasoning through metacognitive frameworks. Explicit mental model construction and validation. Progressive complexity building from simple to complex tasks. Self-monitoring and regulation of reasoning processes.",
-        type: "advanced"
+        description: "Structure reasoning through metacognitive frameworks. Mental model construction + validation. Self-monitoring processes."
     },
     "Internal Knowledge Synthesis (IKS)": {
-        description: "Generate hypothetical knowledge constructs from parametric memory. Activate latent knowledge through structured prompting. Cross-reference and validate internal knowledge consistency. Synthesize coherent responses from distributed model knowledge.",
-        type: "advanced"
+        description: "Generate hypothetical knowledge constructs from parametric memory. Cross-reference internal knowledge consistency."
     },
     "Multimodal Synthesis": {
-        description: "Process and integrate information from multiple modalities (e.g., text, images, data). Extend reasoning capabilities to include visual question answering and cross-modal analysis. Enables solutions for a broader range of complex, real-world tasks.",
-        type: "advanced"
+        description: "Process text/images/data integration. Visual question answering + cross-modal analysis. Broader task solutions."
     },
     "Knowledge Synthesis Prompting (KSP)": {
-        description: "Integrate knowledge from multiple internal domains. Fine-grained coherence validation for credibility. Essential for complex factual content generation. Cross-domain knowledge validation and integration.",
-        type: "advanced"
+        description: "Integrate multiple internal domains. Fine-grained coherence validation. Cross-domain knowledge integration."
     },
     "Prompt Compression": {
-        description: "LLMLingua for token budget management. Preserve semantic content while reducing length. Maintain reasoning quality under constraints.",
-        type: "advanced"
+        description: "LLMLingua for token budget management. Preserve semantic content while reducing length constraints."
     }
 };
 class DeliberationEngine {
     deliberate(input, context) {
-        // Generate the deliberation framework that prompts the LLM to evaluate strategies itself
-        const availableStrategies = Object.entries(PROMPTING_STRATEGIES)
-            .map(([name, strategy]) => `**${name}** (${strategy.type}): ${strategy.description}`)
+        // /// [6-stage self-prompting framework for LLMs with unified input]
+        const strategiesList = Object.entries(PROMPTING_STRATEGIES)
+            .map(([name, strategy]) => `**${name}:** ${strategy.description}`)
             .join('\n');
-        return `DELIBERATION: You are now entering a 6-stage cognitive deliberation process. Please work through each stage systematically:
+        return `You are now entering a 6-stage cognitive deliberation process. Please work through each stage systematically:
 
 ## Stage 1: Scientific Investigation
-**Your Task:** Analyze the following input using scientific methodology:
-- **Input:** "${input}"
-${context ? `- **Context:** "${context}"` : ''}
+**Your Task:** Analyze the following prompt using scientific methodology:
+- **Prompt:** "${prompt}"
 
 **Please identify:**
 1. Core question/problem
@@ -87,7 +77,7 @@ ${context ? `- **Context:** "${context}"` : ''}
 ## Stage 2: OOReD Process - Strategy Evaluation
 **Orient Stage:** You have access to these cognitive techniques:
 
-${availableStrategies}
+${strategiesList}
 
 **Your Evaluation Task:** 
 For each technique, consider:
@@ -98,17 +88,14 @@ For each technique, consider:
 **Selection Rule:** Choose techniques with total scores ≥1.53 for combined effectiveness
 
 ## Stage 3: Critical Thinking Framework
-Apply these questions:
-1. What is the purpose of my thinking?
-2. What precise question am I trying to answer?
-3. Within what context am I operating?
-4. What information do I need to gather?
-5. How reliable is this information?
-6. What concepts are relevant to my thinking?
-7. What conclusions can I draw?
-8. What assumptions am I making?
-9. What are the implications?
-10. What are the consequences?
+Apply rapid validation checks:
+1. **Purpose:** What outcome am I optimizing for?
+2. **Question:** What specific problem needs solving?
+3. **Context:** What constraints or requirements apply?
+4. **Evidence:** What facts do I need vs. what do I have?
+5. **Reliability:** How confident am I in my information sources?
+6. **Assumptions:** What am I taking for granted that could be wrong?
+7. **Implications:** What happens if I'm right? What if I'm wrong?
 
 ## Stage 4 & 5: Review Cycles
 - Review your strategy selections against the ≥1.53 threshold
@@ -118,35 +105,27 @@ Apply these questions:
 ## Stage 6: Final Action Synthesis
 **Present your analysis in this format:**
 
-**Selected Cognitive Technique(s):** [List techniques scoring ≥1.53]
+**DELIBERATION:** [Your thought process through stages 1-5]
+
+**SELECTED TOOLS:** [List of tools you estimate are needed to accomplish the task]
 
 **Strategy Evaluation Results (0.00-0.99 scale):**
 [Show your evaluations like:]
 - TechniqueName: solution=X.XX, efficiency=Y.YY, total=Z.ZZ ✓ (if ≥1.53)
 
+**Selected Cognitive Technique(s):** [List techniques scoring ≥1.53]
+
 **Estimated Tools Needed:** [1-8 tools for implementation]
-
-**Recommended Pair Programmer Tools:**
-- websearch (for current information and validation)
-- file manipulation tools (for code and document management)
-- code analysis tools (for computational problem solving)
-- context synthesis tools (for information integration)
-- debugging and testing tools (for solution verification)
-
-Return to 'deliberate' after using the following tools: [Your estimated tool count]
-
-# To accomplish Task:
-[Describe the task using your selected cognitive approach]
 
 ---
 
-**Now:** Apply your selected cognitive technique(s) to actually solve the original problem "${input}" using your enhanced reasoning framework.`;
+**Now:** Apply your selected cognitive technique(s) to actually solve the original problem "${prompt}" using your enhanced reasoning framework.`;
     }
 }
-// MCP Server setup
+// MCP Server setup with 6-stage cognitive deliberation framework
 const server = new Server({
     name: "gikendaasowin-aabajichiganan-mcp",
-    version: "8.9.4",
+    version: "10.0.0", // /// [6-stage deliberation with 0.00-0.99 scoring system]
 }, {
     capabilities: {
         tools: {},
@@ -159,7 +138,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         tools: [
             {
                 name: "deliberate",
-                description: "Advanced cognitive deliberation framework implementing 6-stage processing (Scientific Investigation → OOReD → Critical Thinking → Reviews → Action) with dynamic prompting strategy evaluation. Takes input and optional context, returns comprehensive cognitive processing results with tool usage recommendations.",
+                description: "Advanced cognitive deliberation framework implementing 6-stage processing (Scientific Investigation → OOReD → Critical Thinking → Review → OOReD → Act) with dynamic prompting strategy evaluation. Takes a prompt combining the question/problem and any context, returns comprehensive cognitive processing results with tool usage recommendations.",
                 inputSchema: {
                     type: "object",
                     properties: {
@@ -203,11 +182,11 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
     }
     throw new Error(`Unknown tool: ${name}`);
 });
-// Start the server
+// Start the server with 6-stage cognitive deliberation framework
 async function main() {
     const transport = new StdioServerTransport();
     await server.connect(transport);
-    console.error("Gikendaasowin Aabajichiganan MCP server running on stdio");
+    console.error("Gikendaasowin Aabajichiganan MCP server running with 6-stage cognitive deliberation framework");
 }
 main().catch((error) => {
     console.error("Fatal error in main():", error);
