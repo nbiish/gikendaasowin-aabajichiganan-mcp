@@ -153,39 +153,40 @@ Include rollback triggers and verification steps
 
 ### Progressive-Hint Prompting (PHP)
 
-- Use previously generated outputs as contextual hints
-- Iterative refinement toward optimal solutions
-- Multi-turn interaction with cumulative knowledge building
-- Automatic guidance toward correct reasoning paths
+- Iterative refinement using "Complex CoT" as base
+- Stability-based stopping (consistency across turns)
+- Compressed "delta hints" to minimize context bloat
+- Explicit proximity cues ("The answer is close to...")
 
 ### Cache-Augmented Generation (CAG)
 
-- Preload all relevant context into working memory
-- Eliminate real-time retrieval dependencies
-- Leverage extended context capabilities of modern LLMs
-- Reduce latency and minimize retrieval errors
+- Hierarchical Semantic Caching (Prompt, Logic, Retrieval)
+- Embedding-based keys for reasoning reuse
+- Session vs. Global context separation
+- Symbolic reference pointers to reduce redundancy
 
 ### Cognitive Scaffolding Prompting
 
-- Structure reasoning through metacognitive frameworks
-- Explicit mental model construction and validation
-- Progressive complexity building from simple to complex tasks
-- Self-monitoring and regulation of reasoning processes
+- Task-Method-Knowledge (TMK) symbolic structures
+- Recursive Context Folding for long-horizon tasks
+- Explicit Goal-Subtask-State architecture
+- Meta-prompting for dynamic protocol generation
 
 ### Advanced Techniques
 
 ### Internal Knowledge Synthesis (IKS)
 
-- Generate hypothetical knowledge constructs from parametric memory
-- Activate latent knowledge through structured prompting
-- Cross-reference and validate internal knowledge consistency
-- Synthesize coherent responses from distributed model knowledge
+- Two-Stage "Build-then-Answer" protocol
+- Source-tagged Knowledge Brief construction
+- Strict grounding in synthesized brief
+- Cross-consistency checks to reduce hallucination
 
 ### Multimodal Synthesis
 
-- Process and integrate information from multiple modalities (e.g., text, images, data).
-- Extend reasoning capabilities to include visual question answering and cross-modal analysis.
-- Enables solutions for a broader range of complex, real-world tasks.
+- Visual Chain-of-Thought (V-CoT) with step-by-step traces
+- Intermediate visual artifacts (bounding boxes, scene graphs)
+- Joint-encoder latent space reasoning
+- Symbolic scene representations for high-fidelity analysis
 
 ### Knowledge Synthesis Prompting (KSP)
 
